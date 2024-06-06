@@ -4,6 +4,11 @@ export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
 }
 
+interface Point {
+  x: number;
+  y: number;
+}
+
 // 是否阻止右键菜单
 let blockMenu: boolean = false;
 document.addEventListener("mousedown", (e: MouseEvent) => {
@@ -30,14 +35,14 @@ document.addEventListener("mousedown", (e: MouseEvent) => {
   if (!ctx) return;
   ctx.strokeStyle = "#0072f3";
   ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(e.clientX, e.clientY);
 
-  let lastX = e.clientX;
-  let lastY = e.clientY;
+  let lastX: number = e.clientX;
+  let lastY: number = e.clientY;
+
+  let points: Point[] = [{x: clientX, y: clientY}];
   const handleMouseMove = (moveEvent: MouseEvent) => {
-    const currentX = moveEvent.clientX;
-    const currentY = moveEvent.clientY;
+    const currentX: number = moveEvent.clientX;
+    const currentY: number = moveEvent.clientY;
 
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
@@ -52,6 +57,9 @@ document.addEventListener("mousedown", (e: MouseEvent) => {
 
     lastX = currentX;
     lastY = currentY;
+
+    points.push({x: lastX, y: lastY});
+    console.log(getTrajectory(points))
   };
 
   const handleMouseUp = (e: MouseEvent) => {
@@ -73,3 +81,49 @@ document.addEventListener("contextmenu", (e: MouseEvent) => {
     e.preventDefault();
   }
 });
+
+enum Direction {
+  Up = "Up",
+  Down = "Down",
+  Left = "Left",
+  Right = "Right"
+}
+
+function getDirection(from: Point, to: Point): Direction {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    return dx > 0 ? Direction.Right : Direction.Left;
+  } else {
+    return dy > 0 ? Direction.Down : Direction.Up;
+  }
+}
+
+function getTrajectory(points: Point[], windowSize: number = 5): Direction[] {
+  if (points.length < windowSize) {
+    return [];
+  }
+
+  const trajectory: Direction[] = [];
+  let currentDirection = getDirection(points[0], points[Math.min(windowSize, points.length - 1)]);
+  trajectory.push(currentDirection);
+
+  for (let i = windowSize; i < points.length; i += windowSize) {
+    const newDirection = getDirection(points[i - windowSize], points[Math.min(i, points.length - 1)]);
+    if (newDirection !== currentDirection) {
+      trajectory.push(newDirection);
+      currentDirection = newDirection;
+    }
+  }
+
+  // Check the last segment if it's not exactly divisible by windowSize
+  if (points.length % windowSize !== 0) {
+    const lastDirection = getDirection(points[points.length - points.length % windowSize - 1], points[points.length - 1]);
+    if (lastDirection !== currentDirection) {
+      trajectory.push(lastDirection);
+    }
+  }
+
+  return trajectory;
+}

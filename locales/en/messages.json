@@ -1,0 +1,65 @@
+{
+  "invalidOperation": {
+    "message": "Invalid operation"
+  },
+  "scrollUp": {
+    "message": "Scroll up"
+  },
+  "scrollDown": {
+    "message": "Scroll down"
+  },
+  "scrollLeft": {
+    "message": "Scroll left"
+  },
+  "scrollRight": {
+    "message": "Scroll right"
+  },
+  "scrollToTop": {
+    "message": "Scroll to top"
+  },
+  "scrollToBottom": {
+    "message": "Scroll to bottom"
+  },
+  "backward": {
+    "message": "Backward"
+  },
+  "forward": {
+    "message": "Forward"
+  },
+  "refresh": {
+    "message": "Refresh"
+  },
+  "reloadAllTabs": {
+    "message": "Reload all tabs"
+  },
+  "openNewTab": {
+    "message": "Open new tab"
+  },
+  "closeCurrentTab": {
+    "message": "Close current tab"
+  },
+  "closeOtherTabs": {
+    "message": "Close other tabs"
+  },
+  "closeAllTabs": {
+    "message": "Close all tabs"
+  },
+  "closeWindow": {
+    "message": "Close current window"
+  },
+  "reopenLastClosedTab": {
+    "message": "Reopen last closed tab"
+  },
+  "switchLeftTab": {
+    "message": "Switch to left tab"
+  },
+  "switchRightTab": {
+    "message": "Switch to right tab"
+  },
+  "fullscreen": {
+    "message": "Fullscreen toggle"
+  },
+  "minimizeWindow": {
+    "message": "Minimize"
+  }
+}

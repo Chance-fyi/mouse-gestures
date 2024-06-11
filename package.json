@@ -20,7 +20,10 @@
     "@types/node": "20.11.5",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "prettier": "3.2.4",
+    "tailwindcss": "^3.4.4",
     "typescript": "5.3.3"
   },
   "manifest": {
@@ -28,7 +31,9 @@
       "https://*/*"
     ],
     "permissions": [
-      "tabs"
-    ]
+      "tabs",
+      "sessions"
+    ],
+    "default_locale": "en"
   }
 }

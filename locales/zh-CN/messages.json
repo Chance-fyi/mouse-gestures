@@ -1,0 +1,65 @@
+{
+  "invalidOperation": {
+    "message": "无效操作"
+  },
+  "scrollUp": {
+    "message": "向上滚动"
+  },
+  "scrollDown": {
+    "message": "向下滚动"
+  },
+  "scrollLeft": {
+    "message": "向左滚动"
+  },
+  "scrollRight": {
+    "message": "向右滚动"
+  },
+  "scrollToTop": {
+    "message": "滚动到页面顶部"
+  },
+  "scrollToBottom": {
+    "message": "滚动到页面底部"
+  },
+  "backward": {
+    "message": "后退"
+  },
+  "forward": {
+    "message": "前进"
+  },
+  "refresh": {
+    "message": "刷新"
+  },
+  "reloadAllTabs": {
+    "message": "重新载入所有标签页"
+  },
+  "openNewTab": {
+    "message": "打开新标签页"
+  },
+  "closeCurrentTab": {
+    "message": "关闭当前标签页"
+  },
+  "closeOtherTabs": {
+    "message": "关闭所有其他标签页"
+  },
+  "closeAllTabs": {
+    "message": "关闭所有标签页"
+  },
+  "closeWindow": {
+    "message": "关闭当前窗口"
+  },
+  "reopenLastClosedTab": {
+    "message": "重新打开刚关闭的标签页"
+  },
+  "switchLeftTab": {
+    "message": "切换到左侧标签"
+  },
+  "switchRightTab": {
+    "message": "切换到右侧标签"
+  },
+  "fullscreen": {
+    "message": "全屏切换"
+  },
+  "minimizeWindow": {
+    "message": "最小化"
+  }
+}

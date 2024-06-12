@@ -2,12 +2,12 @@ import {Direction} from "~enum";
 
 export type Point = { x: number, y: number };
 
-// 计算两点间的距离
+// Calculate the distance between two points
 const distance = (p1: Point, p2: Point): number => {
   return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
 }
 
-// 平滑轨迹，减少抖动
+// Smooth trajectory to reduce jitter
 const smoothPath = (points: Point[], threshold: number = 5): Point[] => {
   if (points.length < 2) return points;
 
@@ -24,7 +24,6 @@ const smoothPath = (points: Point[], threshold: number = 5): Point[] => {
   return smoothedPoints;
 }
 
-// 判断方向
 const getDirection = (points: Point[]): string => {
   if (points.length < 2) return "No movement";
 
@@ -38,7 +37,7 @@ const getDirection = (points: Point[]): string => {
   }
 }
 
-// 结合方向和转折点
+// Combining directions and turning points
 export const getPathDirections = (points: Point[]): string[] => {
   const directions: string[] = [];
   const smoothedPoints = smoothPath(points);
@@ -52,4 +51,3 @@ export const getPathDirections = (points: Point[]): string[] => {
 
   return directions;
 }
-

@@ -1,13 +1,13 @@
-// 是否阻止右键菜单
 import {getConfig} from "~config";
 import type {Point} from "~trajectory";
 import {getPathDirections} from "~trajectory";
 import {Operation} from "~operation";
 
+// Block right-click menu
 let blockMenu: boolean = false;
 const _ = require('lodash');
 export const handleMouseDown = async (setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue, e: MouseEvent) => {
-  // 判断是否是右键按下
+  // Determine if it is a right-click press
   if (e.button != 2) {
     return;
   }
@@ -29,7 +29,7 @@ export const handleMouseDown = async (setCanvasVisible, canvasCtx, setTooltipVis
     const currentY: number = e.clientY;
     canvasCtx.beginPath();
     canvasCtx.moveTo(lastX, lastY);
-    // 使用贝塞尔曲线来平滑轨迹
+    // Using Bessel curves to smooth trajectories
     canvasCtx.quadraticCurveTo(
       (lastX + currentX) / 2,
       (lastY + currentY) / 2,
@@ -58,7 +58,7 @@ export const handleMouseDown = async (setCanvasVisible, canvasCtx, setTooltipVis
     setCanvasVisible(false);
     setTooltipVisible(false);
     if (X != e.clientX || Y != e.clientY) {
-      // 鼠标移动阻止右键菜单
+      // Mouseover prevents right-click menu
       blockMenu = true;
     }
     if (_.has(config.gestures, gesture)) {
@@ -73,7 +73,7 @@ export const handleMouseDown = async (setCanvasVisible, canvasCtx, setTooltipVis
 
 document.addEventListener("contextmenu", (e: MouseEvent) => {
   if (blockMenu) {
-    // 阻止右键菜单
+    // Block right-click menu
     e.preventDefault();
   }
 });

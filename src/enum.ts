@@ -4,16 +4,16 @@ export enum Direction {
   Left = "Left",
   Right = "Right",
   UpDown = Up + Down,
+  DownUp = Down + Up,
   UpLeft = Up + Left,
   UpRight = Up + Right,
-  DownUp = Down + Up,
   DownLeft = Down + Left,
   DownRight = Down + Right,
   LeftRight = Left + Right,
-  LeftUp = Left + Up,
-  LeftDown = Left + Down,
   RightLeft = Right + Left,
+  LeftUp = Left + Up,
   RightUp = Right + Up,
+  LeftDown = Left + Down,
   RightDown = Right + Down
 }
 

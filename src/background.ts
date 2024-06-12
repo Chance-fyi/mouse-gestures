@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message) => {
   if (actions[message.action]) {
     actions[message.action]();
   }
@@ -8,7 +8,7 @@ const actions = {
   reloadAllTabs: () => {
     chrome.tabs.query({}, (tabs) => {
       for (let tab of tabs) {
-        chrome.tabs.reload(tab.id);
+        chrome.tabs.reload(tab.id).then();
       }
     });
   },
@@ -40,7 +40,7 @@ const actions = {
     });
   },
   reopenLastClosedTab: () => {
-    chrome.sessions.getRecentlyClosed({ maxResults: 1 }, (sessions) => {
+    chrome.sessions.getRecentlyClosed({maxResults: 1}, (sessions) => {
       if (sessions.length && sessions[0].tab) {
         chrome.sessions.restore(sessions[0].tab.sessionId).then();
       }
@@ -54,14 +54,14 @@ const actions = {
   },
   minimizeWindow: () => {
     chrome.windows.getCurrent((window) => {
-      chrome.windows.update(window.id, { state: 'minimized' }).then();
+      chrome.windows.update(window.id, {state: 'minimized'}).then();
     });
   }
 }
 
 const switchTab = (direction: number) => {
-  chrome.tabs.query({ currentWindow: true }, (tabs) => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (activeTabs) => {
+  chrome.tabs.query({currentWindow: true}, (tabs) => {
+    chrome.tabs.query({active: true, currentWindow: true}, (activeTabs) => {
       if (activeTabs.length === 0) return;
       let activeTab = activeTabs[0];
       let newIndex = (activeTab.index + direction + tabs.length) % tabs.length;

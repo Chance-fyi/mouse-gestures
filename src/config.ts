@@ -1,19 +1,21 @@
 import {Direction, Operations} from "~enum";
+import {Storage} from "@plasmohq/storage"
 
 type DirectionKeys = keyof typeof Direction;
 
-interface Config {
+export interface Config {
   gestures: {
     [key in DirectionKeys]: Operations
   },
   arrows: {
     [key in DirectionKeys]: string
   },
+  enableGestureCue: boolean,
   strokeStyle: string,
   lineWidth: number,
 }
 
-const DefaultConfig: Config = {
+export const DefaultConfig: Config = {
   gestures: {
     Up: Operations.ScrollUp,
     Down: Operations.ScrollDown,
@@ -50,10 +52,22 @@ const DefaultConfig: Config = {
     RightUp: "⮭",
     RightDown: "⮯",
   },
+  enableGestureCue: true,
   strokeStyle: '#0072f3',
   lineWidth: 2
 }
 
-export const getConfig = () => {
+export const getConfig = async () => {
+  const storage = new Storage();
+  let cfg: Config = await storage.get("config");
+  if (cfg) {
+    return cfg;
+  }
+  await storage.set("config", DefaultConfig);
   return DefaultConfig;
+}
+
+export const setConfig = (config: Config) => {
+  const storage = new Storage();
+  storage.set("config", config).then();
 }

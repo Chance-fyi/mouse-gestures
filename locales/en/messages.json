@@ -61,5 +61,29 @@
   },
   "minimizeWindow": {
     "message": "Minimize"
+  },
+  "changesHaveBeenImplemented": {
+    "message": "Changes have been implemented"
+  },
+  "gestures": {
+    "message": "Gestures"
+  },
+  "icons": {
+    "message": "Icons"
+  },
+  "actions": {
+    "message": "Actions"
+  },
+  "enableMouseGestureHints": {
+    "message": "Enable mouse gesture hints"
+  },
+  "trailColor": {
+    "message": "Trail color"
+  },
+  "trailWidth": {
+    "message": "Trail width"
+  },
+  "restoreDefaultSettings": {
+    "message": "Restore default settings"
   }
 }

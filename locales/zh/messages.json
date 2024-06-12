@@ -61,5 +61,29 @@
   },
   "minimizeWindow": {
     "message": "最小化"
+  },
+  "changesHaveBeenImplemented": {
+    "message": "修改已生效"
+  },
+  "gestures": {
+    "message": "手势"
+  },
+  "icons": {
+    "message": "图标"
+  },
+  "actions": {
+    "message": "操作"
+  },
+  "enableMouseGestureHints": {
+    "message": "启用鼠标手势提示"
+  },
+  "trailColor": {
+    "message": "轨迹颜色"
+  },
+  "trailWidth": {
+    "message": "轨迹宽度"
+  },
+  "restoreDefaultSettings": {
+    "message": "恢复默认设置"
   }
 }

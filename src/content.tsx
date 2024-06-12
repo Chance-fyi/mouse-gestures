@@ -4,6 +4,7 @@ import Canvas from "~components/canvas";
 import {useEffect, useRef, useState} from "react";
 import {handleMouseDown} from "~event";
 import Tooltip from "~components/tooltip";
+import {Operations} from "~enum";
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"]
@@ -19,23 +20,26 @@ const PlasmoOverlay = () => {
   const [canvasVisible, setCanvasVisible] = useState(false);
   const canvasRef = useRef(null);
   const [tooltipVisible, setTooltipVisible] = useState(false);
-  const [gesture, setGesture] = useState("");
+  const [tooltipValue, setTooltipValue] = useState({
+    arrow: "",
+    operation: Operations.Invalid,
+  });
 
   useEffect(() => {
     if (canvasRef.current) {
       const canvasCtx = canvasRef.current.getContext();
-      document.addEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible,setGesture));
+      document.addEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue));
       // Clean up the event listeners on component unmount
       return () => {
-        document.removeEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible,setGesture));
+        document.removeEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue));
       };
     }
   }, []);
 
   return (
     <>
-      <div style={{ display: canvasVisible ? 'block' : 'none' }}><Canvas ref={canvasRef} /></div>
-      {tooltipVisible && <Tooltip gesture={gesture}/>}
+      <div style={{display: canvasVisible ? 'block' : 'none'}}><Canvas ref={canvasRef}/></div>
+      {tooltipVisible && <Tooltip tooltipValue={tooltipValue}/>}
     </>
   );
 }

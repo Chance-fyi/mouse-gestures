@@ -6,22 +6,24 @@ import {Operation} from "~operation";
 
 let blockMenu: boolean = false;
 const _ = require('lodash');
-export const handleMouseDown = (setCanvasVisible, canvasCtx, setTooltipVisible, setGesture, e: MouseEvent) => {
+export const handleMouseDown = async (setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue, e: MouseEvent) => {
   // 判断是否是右键按下
   if (e.button != 2) {
     return;
   }
   setCanvasVisible(true);
-  setTooltipVisible(true);
+  const config = await getConfig();
+  if (config.enableGestureCue) {
+    setTooltipVisible(true);
+  }
 
   blockMenu = false;
   let X: number = e.clientX;
   let lastX: number = e.clientX;
   let Y: number = e.clientY;
   let lastY: number = e.clientY;
-  const config = getConfig();
   let points: Point[] = [{x: X, y: Y}];
-  let gesture:string = "";
+  let gesture: string = "";
   const handleMouseMove = (e: MouseEvent) => {
     const currentX: number = e.clientX;
     const currentY: number = e.clientY;
@@ -42,7 +44,12 @@ export const handleMouseDown = (setCanvasVisible, canvasCtx, setTooltipVisible, 
     lastY = currentY;
     points.push({x: currentX, y: currentY});
     gesture = _.join(getPathDirections(points), "");
-    setGesture(gesture);
+    if (_.has(config.gestures, gesture)) {
+      setTooltipValue({
+        arrow: config.arrows[gesture],
+        operation: config.gestures[gesture],
+      });
+    }
   };
   const handleMouseUp = (e: MouseEvent) => {
     canvasCtx.clearRect(0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);

@@ -1,6 +1,6 @@
 import React, {useRef, useImperativeHandle, forwardRef} from 'react';
 
-const Canvas = forwardRef(({ ...rest }, ref) => {
+const Canvas = forwardRef(({...rest}, ref) => {
   const canvasRef = useRef(null);
 
   useImperativeHandle(ref, () => ({

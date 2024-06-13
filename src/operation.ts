@@ -1,4 +1,7 @@
 export class Operation {
+  invalidOperation() {
+  }
+
   scrollUp() {
     window.scrollBy(0, -window.innerHeight);
   }

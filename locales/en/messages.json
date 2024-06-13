@@ -35,6 +35,9 @@
   "openNewTab": {
     "message": "Open new tab"
   },
+  "openNewWindow": {
+    "message": "Open new window"
+  },
   "openIncognitoWindow": {
     "message": "Open incognito window"
   },

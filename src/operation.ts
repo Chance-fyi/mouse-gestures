@@ -43,6 +43,10 @@ export class Operation {
     chrome.runtime.sendMessage({action: 'openNewTab'}).then();
   }
 
+  openNewWindow() {
+    chrome.runtime.sendMessage({action: 'openNewWindow'}).then();
+  }
+
   openIncognitoWindow() {
     chrome.runtime.sendMessage({action: 'openIncognitoWindow'}).then();
   }

@@ -15,6 +15,11 @@ const actions = {
   openNewTab: () => {
     chrome.tabs.create({url: 'chrome://newtab'}).then();
   },
+  openNewWindow: () => {
+    chrome.windows.create({
+      state: "maximized",
+    }).then();
+  },
   openIncognitoWindow: () => {
     chrome.windows.create({
       incognito: true,

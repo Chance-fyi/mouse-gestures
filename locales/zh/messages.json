@@ -35,6 +35,9 @@
   "openNewTab": {
     "message": "打开新标签页"
   },
+  "openNewWindow": {
+    "message": "打开一个新窗口"
+  },
   "openIncognitoWindow": {
     "message": "打开一个无痕窗口"
   },

@@ -39,4 +39,5 @@ export enum Operations {
   SwitchRightTab = "switchRightTab",
   Fullscreen = "fullscreen",
   MinimizeWindow = "minimizeWindow",
+  IncognitoWindow = "incognitoWindow",
 }

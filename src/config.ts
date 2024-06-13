@@ -28,7 +28,7 @@ export const DefaultConfig: Config = {
     DownLeft: Operations.Fullscreen,
     DownRight: Operations.CloseCurrentTab,
     LeftRight: Operations.CloseOtherTabs,
-    LeftUp: Operations.Invalid,
+    LeftUp: Operations.IncognitoWindow,
     LeftDown: Operations.Invalid,
     RightLeft: Operations.ReopenLastClosedTab,
     RightUp: Operations.OpenNewTab,

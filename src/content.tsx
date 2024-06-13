@@ -28,10 +28,18 @@ const PlasmoOverlay = () => {
   useEffect(() => {
     if (canvasRef.current) {
       const canvasCtx = canvasRef.current.getContext();
-      document.addEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue));
+
+      const arg = {
+        canvasCtx: canvasCtx,
+        setCanvasVisible: setCanvasVisible,
+        setTooltipVisible: setTooltipVisible,
+        setTooltipValue: setTooltipValue,
+      };
+
+      document.addEventListener('mousedown', handleMouseDown.bind(null, arg));
       // Clean up the event listeners on component unmount
       return () => {
-        document.removeEventListener('mousedown', handleMouseDown.bind(null, setCanvasVisible, canvasCtx, setTooltipVisible, setTooltipValue));
+        document.removeEventListener('mousedown', handleMouseDown.bind(null, arg));
       };
     }
   }, []);

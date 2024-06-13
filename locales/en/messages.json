@@ -35,6 +35,9 @@
   "openNewTab": {
     "message": "Open new tab"
   },
+  "openIncognitoWindow": {
+    "message": "Open incognito window"
+  },
   "closeCurrentTab": {
     "message": "Close current tab"
   },
@@ -61,9 +64,6 @@
   },
   "minimizeWindow": {
     "message": "Minimize"
-  },
-  "incognitoWindow": {
-    "message": "create incognito Window"
   },
   "changesHaveBeenImplemented": {
     "message": "Changes have been implemented"

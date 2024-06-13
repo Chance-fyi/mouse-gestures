@@ -15,6 +15,12 @@ const actions = {
   openNewTab: () => {
     chrome.tabs.create({url: 'chrome://newtab'}).then();
   },
+  openIncognitoWindow: () => {
+    chrome.windows.create({
+      incognito: true,
+      state: "maximized",
+    }).then();
+  },
   closeCurrentTab: () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
       chrome.tabs.remove(tabs[0].id).then();
@@ -55,11 +61,6 @@ const actions = {
   minimizeWindow: () => {
     chrome.windows.getCurrent((window) => {
       chrome.windows.update(window.id, {state: 'minimized'}).then();
-    });
-  },
-  incognitoWindow: () => {
-    chrome.windows.create({
-      incognito: true,
     });
   }
 }

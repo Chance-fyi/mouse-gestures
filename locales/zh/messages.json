@@ -35,6 +35,9 @@
   "openNewTab": {
     "message": "打开新标签页"
   },
+  "openIncognitoWindow": {
+    "message": "打开一个无痕窗口"
+  },
   "closeCurrentTab": {
     "message": "关闭当前标签页"
   },
@@ -61,9 +64,6 @@
   },
   "minimizeWindow": {
     "message": "最小化"
-  },
-  "incognitoWindow": {
-    "message": "打开一个无痕窗口"
   },
   "changesHaveBeenImplemented": {
     "message": "修改已生效"

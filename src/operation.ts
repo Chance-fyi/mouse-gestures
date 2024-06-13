@@ -43,6 +43,10 @@ export class Operation {
     chrome.runtime.sendMessage({action: 'openNewTab'}).then();
   }
 
+  openIncognitoWindow() {
+    chrome.runtime.sendMessage({action: 'openIncognitoWindow'}).then();
+  }
+
   closeCurrentTab() {
     chrome.runtime.sendMessage({action: 'closeCurrentTab'}).then();
   }
@@ -81,9 +85,5 @@ export class Operation {
 
   minimizeWindow() {
     chrome.runtime.sendMessage({action: 'minimizeWindow'}).then();
-  }
-
-  incognitoWindow() {
-    chrome.runtime.sendMessage({action: 'incognitoWindow'}).then();
   }
 }

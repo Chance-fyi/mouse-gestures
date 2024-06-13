@@ -56,6 +56,11 @@ const actions = {
     chrome.windows.getCurrent((window) => {
       chrome.windows.update(window.id, {state: 'minimized'}).then();
     });
+  },
+  incognitoWindow: () => {
+    chrome.windows.create({
+      incognito: true,
+    });
   }
 }
 

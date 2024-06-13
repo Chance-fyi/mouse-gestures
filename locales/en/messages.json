@@ -62,6 +62,9 @@
   "minimizeWindow": {
     "message": "Minimize"
   },
+  "incognitoWindow": {
+    "message": "create incognito Window"
+  },
   "changesHaveBeenImplemented": {
     "message": "Changes have been implemented"
   },

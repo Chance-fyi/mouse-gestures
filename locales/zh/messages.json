@@ -62,6 +62,9 @@
   "minimizeWindow": {
     "message": "最小化"
   },
+  "incognitoWindow": {
+    "message": "打开一个无痕窗口"
+  },
   "changesHaveBeenImplemented": {
     "message": "修改已生效"
   },

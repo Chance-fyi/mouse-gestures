@@ -82,4 +82,8 @@ export class Operation {
   minimizeWindow() {
     chrome.runtime.sendMessage({action: 'minimizeWindow'}).then();
   }
+
+  incognitoWindow() {
+    chrome.runtime.sendMessage({action: 'incognitoWindow'}).then();
+  }
 }

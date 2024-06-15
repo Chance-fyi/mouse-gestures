@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@plasmohq/storage": "^1.10.0",
-    "plasmo": "0.87.1",
+    "plasmo": "0.87.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

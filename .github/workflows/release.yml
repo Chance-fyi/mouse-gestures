@@ -32,12 +32,13 @@ jobs:
           cache: "pnpm"
       - name: Build the extension
         run: |
-          pnpm build --target=chrome-mv3 --tag=${{ github.ref }} --zip
-          pnpm build --target=firefox-mv3 --tag=${{ github.ref }} --zip
-          pnpm build --target=edge-mv3 --tag=${{ github.ref }} --zip
-          pnpm build --target=brave-mv3 --tag=${{ github.ref }} --zip
-          pnpm build --target=opera-mv3 --tag=${{ github.ref }} --zip
-          pnpm build --target=safari-mv3 --tag=${{ github.ref }} --zip
+          pnpm build --target=chrome-mv3 --tag=${{ github.ref }}
+          pnpm build --target=firefox-mv3 --tag=${{ github.ref }}
+          pnpm build --target=edge-mv3 --tag=${{ github.ref }}
+          pnpm build --target=brave-mv3 --tag=${{ github.ref }}
+          pnpm build --target=opera-mv3 --tag=${{ github.ref }}
+          pnpm build --target=safari-mv3 --tag=${{ github.ref }}
+          pnpm package
           ls -l ./build
       - name: Release
         uses: softprops/action-gh-release@v2

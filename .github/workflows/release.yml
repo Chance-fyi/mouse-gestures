@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: latest
+          run_install: true
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "pnpm"
+      - name: Set tag variable
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+      - name: Build the extension
+        run: |
+          pnpm build --target=chrome-mv3 --tag=${{ env.TAG }} --zip
+          pnpm build --target=firefox-mv3 --tag=${{ env.TAG }} --zip
+          pnpm build --target=edge-mv3 --tag=${{ env.TAG }} --zip
+          pnpm build --target=brave-mv3 --tag=${{ env.TAG }} --zip
+          pnpm build --target=opera-mv3 --tag=${{ env.TAG }} --zip
+          pnpm build --target=safari-mv3 --tag=${{ env.TAG }} --zip
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          files: |
+            build/chrome-mv3-${{ env.TAG }}.zip
+            build/firefox-mv3-${{ env.TAG }}.zip
+            build/edge-mv3-${{ env.TAG }}.zip
+            build/brave-mv3-${{ env.TAG }}.zip
+            build/opera-mv3-${{ env.TAG }}.zip
+            build/safari-mv3-${{ env.TAG }}.zip

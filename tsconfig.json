@@ -11,7 +11,8 @@
   "compilerOptions": {
     "paths": {
       "~*": [
-        "./src/*"
+        "./src/*",
+        "./locales/*"
       ]
     },
     "baseUrl": "."

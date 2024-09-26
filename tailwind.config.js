@@ -2,9 +2,6 @@
 module.exports = {
     theme: {
         extend: {
-            scale: {
-                '150': '1.5',
-            }
         }
     },
     mode: "jit",
@@ -12,5 +9,6 @@ module.exports = {
     content: ["./**/*.tsx"],
     plugins: [
         require('daisyui'),
+        require('@tailwindcss/aspect-ratio'),
     ],
 }

@@ -1,1 +1,1 @@
-chrome.runtime.openOptionsPage();
+chrome.runtime.openOptionsPage()

@@ -1,5 +1,5 @@
-import GestureManagement from "~options/components/gesture-management";
-import {Menu} from "~enum/menu";
+import { Menu } from "~enum/menu"
+import GestureManagement from "~options/components/gesture-management"
 
 export default () => {
   return (
@@ -9,5 +9,5 @@ export default () => {
       createTitle="createGesture"
       editTitle="editGesture"
     />
-  );
+  )
 }

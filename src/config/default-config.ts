@@ -5,5 +5,5 @@ export interface ConfigInterface {
 
 export const DefaultConfig: ConfigInterface = {
   strokeStyle: "#0072f3",
-  lineWidth: 6,
+  lineWidth: 6
 }

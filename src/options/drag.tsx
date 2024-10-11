@@ -1,5 +1,3 @@
 export default () => {
-  return (
-    <h1>Drag</h1>
-  );
+  return <h1>Drag</h1>
 }

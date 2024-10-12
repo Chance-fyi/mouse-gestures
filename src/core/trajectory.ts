@@ -4,7 +4,6 @@ export interface Point {
 }
 
 export class Trajectory {
-  public static old: Point[] = []
   public static trajectory: Point[] = []
 
   public static addPoint(point: Point) {
@@ -12,7 +11,6 @@ export class Trajectory {
   }
 
   public static clear() {
-    this.old = this.trajectory
     this.trajectory = []
   }
 

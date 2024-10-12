@@ -2,16 +2,34 @@
   "gesture": {
     "message": "手势"
   },
+  "gesture_create": {
+    "message": "新建手势"
+  },
+  "gesture_edit": {
+    "message": "编辑手势"
+  },
+  "command": {
+    "message": "命令"
+  },
+  "command_description": {
+    "message": "选择分配到此手势的命令"
+  },
+  "textLabel": {
+    "message": "文字标签"
+  },
+  "textLabel_description": {
+    "message": "分配自定义的显示名称，代替命令名称"
+  },
+  "optional": {
+    "message": "可选"
+  },
   "drag": {
     "message": "拖拽"
   },
   "setting": {
     "message": "设置"
   },
-  "createGesture": {
-    "message": "新建手势"
-  },
-  "editGesture": {
-    "message": "编辑手势"
+  "save": {
+    "message": "保存"
   }
 }

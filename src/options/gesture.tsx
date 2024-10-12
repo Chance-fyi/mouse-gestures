@@ -5,9 +5,9 @@ export default () => {
   return (
     <GestureManagement
       title={Menu.Gesture}
-      createBtnText="createGesture"
-      createTitle="createGesture"
-      editTitle="editGesture"
+      createBtnText="gesture_create"
+      createTitle="gesture_create"
+      editTitle="gesture_edit"
     />
   )
 }

@@ -1,3 +1,4 @@
+import CommandDrawer from "~options/components/command-drawer"
 import GestureDrawing from "~options/components/gesture-drawing"
 import { i18n } from "~utils/common"
 
@@ -8,10 +9,8 @@ export interface GestureManagementProps {
   editTitle: string
 }
 
-enum PopupType {
-  create = "create-popup",
-  edit = "edit-popup"
-}
+const modalId: string = "drawing-modal"
+const drawerId: string = "command-drawer"
 
 export default (props: GestureManagementProps) => {
   return (
@@ -21,20 +20,21 @@ export default (props: GestureManagementProps) => {
       </div>
       <div className="divider mt-0"></div>
       <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))]">
-        <div
-          className="aspect-w-3 aspect-h-4 border-2 border-dashed hover:border-success text-base-300 hover:text-success cursor-pointer"
-          onClick={() =>
-            (
-              document.getElementById(PopupType.create) as HTMLDialogElement
-            ).showModal()
-          }>
+        <label
+          htmlFor={modalId}
+          className="aspect-w-3 aspect-h-4 border-2 border-dashed hover:border-success text-base-300 hover:text-success cursor-pointer">
           <div className="flex items-center justify-center h-full text-xl select-none">
             {i18n(props.createTitle)}
           </div>
-        </div>
+        </label>
         <div className="aspect-w-3 aspect-h-4 border">02</div>
       </div>
-      <GestureDrawing id={PopupType.create} title={props.createTitle} />
+      <GestureDrawing
+        modalId={modalId}
+        drawerId={drawerId}
+        title={props.createTitle}
+      />
+      <CommandDrawer drawerId={drawerId} />
     </div>
   )
 }

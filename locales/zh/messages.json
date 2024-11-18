@@ -20,6 +20,42 @@
   "textLabel_description": {
     "message": "分配自定义的显示名称，代替命令名称"
   },
+  "command_gesture_scroll_title": {
+    "message": "滚动页面"
+  },
+  "command_gesture_scroll_description": {
+    "message": "上下左右滚动页面"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "滚动方向"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "选择滚动方向"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "向上滚动"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "向下滚动"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "向左滚动"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "向右滚动"
+  },
+  "command_gesture_scroll_config_time_title": {
+    "message": "滚动用时"
+  },
+  "command_gesture_scroll_config_time_description": {
+    "message": "滚动动画的持续时间（毫秒）"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "滚动比例"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "页面滚动量相较的可视区域高度的百分比"
+  },
   "optional": {
     "message": "可选"
   },
@@ -31,5 +67,8 @@
   },
   "save": {
     "message": "保存"
+  },
+  "search": {
+    "message": "搜索"
   }
 }

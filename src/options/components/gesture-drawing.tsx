@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 
+import type { ConfigGesture } from "~config/default-config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 import Svg from "~options/components/svg"
@@ -9,6 +10,8 @@ export interface GestureDrawingProps {
   modalId: string
   drawerId: string
   title: string
+  configGesture: ConfigGesture
+  setConfigGesture: (configGesture: ConfigGesture) => void
 }
 
 export default (props: GestureDrawingProps) => {
@@ -31,6 +34,10 @@ export default (props: GestureDrawingProps) => {
     t.canvas.clearRect(0, 0, t.canvas.canvas.width, t.canvas.canvas.height)
     const trajectory = Trajectory.simplify(10, 10)
     if (trajectory.length < 2) return
+    props.setConfigGesture({
+      ...props.configGesture,
+      trajectory: trajectory
+    })
     setSvg(
       <Svg
         points={trajectory}
@@ -72,7 +79,9 @@ export default (props: GestureDrawingProps) => {
                   <div>
                     <label
                       htmlFor={props.drawerId}
-                      className="block input input-bordered input-sm w-full max-w-xs cursor-pointer"></label>
+                      className="block input input-bordered input-sm w-full max-w-xs cursor-pointer">
+                      <div>{i18n(props.configGesture?.command?.name)}</div>
+                    </label>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -85,6 +94,7 @@ export default (props: GestureDrawingProps) => {
                   <input
                     type="text"
                     className="input input-bordered input-sm w-full max-w-xs focus:outline-none"
+                    placeholder={i18n(props.configGesture?.command?.name)}
                   />
                 </div>
               </div>

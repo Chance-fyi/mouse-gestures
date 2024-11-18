@@ -1,24 +1,233 @@
+import { useState } from "react"
+
+import { Command } from "~commands/command"
+import type { CommandInterface } from "~commands/command-interface"
+import type { ConfigGesture } from "~config/default-config"
+import { ConfigType, type Group } from "~enum/command"
+import IconBack from "~options/components/icon-back"
+import IconClose from "~options/components/icon-close"
+import IconSearch from "~options/components/icon-search"
+import IconSetting from "~options/components/icon-setting"
+import { i18n } from "~utils/common"
+
 interface CommandDrawerProps {
   drawerId: string
+  commandGroup: Group
+  configGesture: ConfigGesture
+  setConfigGesture: (configGesture: ConfigGesture) => void
 }
+
+enum Tabs {
+  Tab1 = "tab1",
+  Tab2 = "tab2"
+}
+
 export default (props: CommandDrawerProps) => {
+  const command = new Command(props.commandGroup)
+  const commands = command.getCommands()
+  const [activeTab, setActiveTab] = useState(Tabs.Tab1)
+  const [search, setSearch] = useState(false)
+  const [searchText, setSearchText] = useState("")
+  const [tab2Command, setTab2Command] = useState<CommandInterface | null>(null)
+  const _ = require("lodash")
+
+  const closeDrawer = () => {
+    const checkbox = document.getElementById(props.drawerId) as HTMLInputElement
+    checkbox.checked = false
+  }
+
   return (
     <div className="drawer drawer-end">
-      <input id={props.drawerId} type="checkbox" className="drawer-toggle" />
+      <input
+        id={props.drawerId}
+        type="checkbox"
+        className="drawer-toggle"
+        onChange={(e) => e.target.checked && setActiveTab(Tabs.Tab1)}
+      />
       <div className="drawer-content"></div>
       <div className="drawer-side z-[1000]">
         <label
           htmlFor={props.drawerId}
           aria-label="close sidebar"
           className="drawer-overlay"></label>
-        <ul className="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+        <div className="min-h-full w-80 bg-white">
+          {Tabs.Tab1 === activeTab && (
+            <div className="flex flex-col">
+              <div className="w-full h-16 border-b border-gray-300 flex flex-row items-center">
+                <div className="w-1/6 h-full flex justify-center items-center">
+                  <label className="swap swap-rotate">
+                    <input type="checkbox" />
+                    <div className={`swap-on ${search ? "swap-active" : ""}`}>
+                      <div
+                        onClick={() => {
+                          setSearch(!search)
+                          setSearchText("")
+                        }}>
+                        <IconClose width={25} height={25} color={"#2b3440"} />
+                      </div>
+                    </div>
+                    <div className={`swap-off ${search ? "" : "swap-active"}`}>
+                      <div className="mt-1" onClick={() => setSearch(!search)}>
+                        <IconSearch width={20} height={20} color={"#2b3440"} />
+                      </div>
+                    </div>
+                  </label>
+                </div>
+                <div className="w-5/6">
+                  {search && (
+                    <input
+                      type="text"
+                      placeholder={i18n("search")}
+                      value={searchText}
+                      onChange={(e) => setSearchText(e.target.value)}
+                      className="input input-bordered w-5/6 input-sm focus:outline-none"
+                    />
+                  )}
+                  {!search && (
+                    <p className="text-xl w-4/6 text-center">
+                      {i18n("command")}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="w-full flex justify-center">
+                <ul className="w-full pt-4">
+                  {Object.entries(commands).map(([k, c]) => {
+                    return (
+                      <li
+                        key={k}
+                        className="hover:bg-neutral-100 pl-4 pt-2 pb-2">
+                        <div
+                          tabIndex={0}
+                          onClick={() => {
+                            if (Object.keys(c.config).length === 0) {
+                              props.setConfigGesture({
+                                ...props.configGesture,
+                                command: {
+                                  uniqueKey: c.uniqueKey,
+                                  name: c.title,
+                                  config: _.mapValues(
+                                    c.config,
+                                    (value: { [x: string]: any }) =>
+                                      value["value"]
+                                  )
+                                }
+                              })
+                              closeDrawer()
+                              return
+                            }
+
+                            setTab2Command(c)
+                            setActiveTab(Tabs.Tab2)
+                          }}
+                          className="collapse h-full collapse-close hover:collapse-open group pl-5">
+                          <div className="collapse-title p-0 min-h-0 text-base">
+                            <div className="flex flex-row w-full items-center relative before:absolute before:-left-5 before:top-1/2 before:-translate-y-1/2 before:bg-[#2b3440] before:w-1.5 before:h-1.5 before:rounded-full">
+                              <div
+                                className={
+                                  Object.keys(c.config).length !== 0
+                                    ? "w-10/12"
+                                    : "w-11/12"
+                                }>
+                                {i18n(c.title)}
+                              </div>
+                              {Object.keys(c.config).length !== 0 && (
+                                <IconSetting
+                                  width={17}
+                                  height={17}
+                                  color={"#2b3440"}
+                                />
+                              )}
+                            </div>
+                          </div>
+                          <div className="collapse-content p-0 min-h-0 mt-1.5 group-hover:pb-0 text-sm">
+                            {i18n(c.description)}
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </div>
+          )}
+          {Tabs.Tab2 === activeTab && (
+            <div className="flex flex-col">
+              <div className="w-full h-16 border-b border-gray-300 flex flex-row items-center">
+                <div
+                  className="w-1/6 h-full flex justify-center items-center cursor-pointer"
+                  onClick={() => setActiveTab(Tabs.Tab1)}>
+                  <IconBack width={30} height={30} color={"#2b3440"} />
+                </div>
+                <div className="w-5/6">
+                  <p className="text-xl w-4/6 text-center">
+                    {i18n(tab2Command.title)}
+                  </p>
+                </div>
+              </div>
+              <ul className="w-full pt-4 space-y-5">
+                {Object.values(tab2Command.config).map((c) => {
+                  switch (c.type) {
+                    case ConfigType.Input:
+                      return (
+                        <li className="pl-8 pr-5">
+                          <div className="w-full flex flex-col space-y-1">
+                            <p className="text-base">{i18n(c.title)}</p>
+                            <p className="text-sm text-gray-400 hover:text-inherit">
+                              {i18n(c.description)}
+                            </p>
+                            <input
+                              type="text"
+                              className="input input-bordered input-sm w-full max-w-xs focus:outline-none text-center"
+                              value={c.value}
+                            />
+                          </div>
+                        </li>
+                      )
+                    case ConfigType.Select:
+                      return (
+                        <li className="pl-8 pr-5">
+                          <div className="w-full flex flex-col space-y-1">
+                            <p className="text-base">{i18n(c.title)}</p>
+                            <p className="text-sm text-gray-400 hover:text-inherit">
+                              {i18n(c.description)}
+                            </p>
+                            <select className="select select-bordered select-sm w-full max-w-xs focus:outline-none text-center">
+                              {c.options.map((o) => (
+                                <option
+                                  key={o.value}
+                                  selected={o.value === c.value}>
+                                  {i18n(o.label)}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </li>
+                      )
+                    case ConfigType.Toggle:
+                      return (
+                        <li className="pl-8 pr-5">
+                          <div className="w-full flex flex-col space-y-1">
+                            <div className="flex flex-row w-full">
+                              <p className="text-base w-5/6">{i18n(c.title)}</p>
+                              <input
+                                type="checkbox"
+                                className="toggle w-1/6 focus:outline-none"
+                                value={c.value}
+                              />
+                            </div>
+                            <p className="text-sm text-gray-400 hover:text-inherit">
+                              {i18n(c.description)}
+                            </p>
+                          </div>
+                        </li>
+                      )
+                  }
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

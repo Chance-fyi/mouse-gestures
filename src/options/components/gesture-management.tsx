@@ -1,9 +1,14 @@
+import { useState } from "react"
+
+import type { ConfigGesture } from "~config/default-config"
+import type { Group } from "~enum/command"
 import CommandDrawer from "~options/components/command-drawer"
 import GestureDrawing from "~options/components/gesture-drawing"
 import { i18n } from "~utils/common"
 
 export interface GestureManagementProps {
   title: string
+  commandGroup: Group
   createBtnText: string
   createTitle: string
   editTitle: string
@@ -13,6 +18,7 @@ const modalId: string = "drawing-modal"
 const drawerId: string = "command-drawer"
 
 export default (props: GestureManagementProps) => {
+  const [configGesture, setConfigGesture] = useState<ConfigGesture | null>(null)
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -33,8 +39,15 @@ export default (props: GestureManagementProps) => {
         modalId={modalId}
         drawerId={drawerId}
         title={props.createTitle}
+        configGesture={configGesture}
+        setConfigGesture={setConfigGesture}
       />
-      <CommandDrawer drawerId={drawerId} />
+      <CommandDrawer
+        drawerId={drawerId}
+        commandGroup={props.commandGroup}
+        configGesture={configGesture}
+        setConfigGesture={setConfigGesture}
+      />
     </div>
   )
 }

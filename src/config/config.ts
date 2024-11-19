@@ -1,23 +1,11 @@
-import { Storage } from "@plasmohq/storage"
-
-import type { ConfigInterface } from "~config/default-config"
-import { DefaultConfig } from "~config/default-config"
+import type { ConfigInterface } from "~config/config-interface"
 
 export class Config {
-  private static instance: Config
-  private static configData: ConfigInterface
-
-  public static async loadConfig() {
-    if (!Config.instance) {
-      Config.instance = new Config()
-      const storage = new Storage()
-      let cfg: ConfigInterface = (await storage.get("config")) || DefaultConfig
-      const _ = require("lodash")
-      this.configData = _.merge(DefaultConfig, cfg)
-    }
-  }
-
-  public static get(): ConfigInterface {
-    return this.configData
+  public static readonly key: string = "config"
+  public static default: ConfigInterface = {
+    strokeStyle: "#0072f3",
+    lineWidth: 6,
+    lineWidth1: 111116,
+    gesture: []
   }
 }

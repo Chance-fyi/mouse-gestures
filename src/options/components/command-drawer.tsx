@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { Command } from "~commands/command"
 import type { CommandInterface } from "~commands/command-interface"
-import type { ConfigGesture } from "~config/default-config"
+import type { ConfigGesture } from "~config/config-interface"
 import { ConfigType, type Group } from "~enum/command"
 import IconBack from "~options/components/icon-back"
 import IconClose from "~options/components/icon-close"
@@ -117,7 +117,17 @@ export default (props: CommandDrawerProps) => {
                               return
                             }
 
-                            setTab2Command(c)
+                            const cc = _.cloneDeep(c)
+                            if (
+                              props.configGesture?.command?.uniqueKey ===
+                              cc.uniqueKey
+                            ) {
+                              Object.keys(cc.config).forEach((k) => {
+                                cc.config[k]["value"] =
+                                  props.configGesture.command.config[k]
+                              })
+                            }
+                            setTab2Command(cc)
                             setActiveTab(Tabs.Tab2)
                           }}
                           className="collapse h-full collapse-close hover:collapse-open group pl-5">
@@ -166,11 +176,11 @@ export default (props: CommandDrawerProps) => {
                 </div>
               </div>
               <ul className="w-full pt-4 space-y-5">
-                {Object.values(tab2Command.config).map((c) => {
+                {Object.entries(tab2Command.config).map(([k, c]) => {
                   switch (c.type) {
                     case ConfigType.Input:
                       return (
-                        <li className="pl-8 pr-5">
+                        <li className="pl-8 pr-5" key={k}>
                           <div className="w-full flex flex-col space-y-1">
                             <p className="text-base">{i18n(c.title)}</p>
                             <p className="text-sm text-gray-400 hover:text-inherit">
@@ -180,23 +190,31 @@ export default (props: CommandDrawerProps) => {
                               type="text"
                               className="input input-bordered input-sm w-full max-w-xs focus:outline-none text-center"
                               value={c.value}
+                              onChange={(e) => {
+                                tab2Command.config[k].value = e.target.value
+                                setTab2Command({ ...tab2Command })
+                              }}
                             />
                           </div>
                         </li>
                       )
                     case ConfigType.Select:
                       return (
-                        <li className="pl-8 pr-5">
+                        <li className="pl-8 pr-5" key={k}>
                           <div className="w-full flex flex-col space-y-1">
                             <p className="text-base">{i18n(c.title)}</p>
                             <p className="text-sm text-gray-400 hover:text-inherit">
                               {i18n(c.description)}
                             </p>
-                            <select className="select select-bordered select-sm w-full max-w-xs focus:outline-none text-center">
+                            <select
+                              className="select select-bordered select-sm w-full max-w-xs focus:outline-none text-center"
+                              value={c.value}
+                              onChange={(e) => {
+                                tab2Command.config[k].value = e.target.value
+                                setTab2Command({ ...tab2Command })
+                              }}>
                               {c.options.map((o) => (
-                                <option
-                                  key={o.value}
-                                  selected={o.value === c.value}>
+                                <option key={o.value} value={o.value}>
                                   {i18n(o.label)}
                                 </option>
                               ))}
@@ -206,7 +224,7 @@ export default (props: CommandDrawerProps) => {
                       )
                     case ConfigType.Toggle:
                       return (
-                        <li className="pl-8 pr-5">
+                        <li className="pl-8 pr-5" key={k}>
                           <div className="w-full flex flex-col space-y-1">
                             <div className="flex flex-row w-full">
                               <p className="text-base w-5/6">{i18n(c.title)}</p>
@@ -214,6 +232,10 @@ export default (props: CommandDrawerProps) => {
                                 type="checkbox"
                                 className="toggle w-1/6 focus:outline-none"
                                 value={c.value}
+                                onChange={(e) => {
+                                  tab2Command.config[k].value = e.target.value
+                                  setTab2Command({ ...tab2Command })
+                                }}
                               />
                             </div>
                             <p className="text-sm text-gray-400 hover:text-inherit">
@@ -224,6 +246,26 @@ export default (props: CommandDrawerProps) => {
                       )
                   }
                 })}
+                <li className="pl-8 pr-5 pt-20">
+                  <button
+                    className="btn btn-neutral btn-sm w-full"
+                    onClick={() => {
+                      props.setConfigGesture({
+                        ...props.configGesture,
+                        command: {
+                          uniqueKey: tab2Command.uniqueKey,
+                          name: tab2Command.title,
+                          config: _.mapValues(
+                            tab2Command.config,
+                            (value: { [x: string]: any }) => value["value"]
+                          )
+                        }
+                      })
+                      closeDrawer()
+                    }}>
+                    {i18n("save")}
+                  </button>
+                </li>
               </ul>
             </div>
           )}

@@ -1,22 +1,25 @@
-import { Config } from "~config/config"
+import type { ConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
 
 interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
+  config: ConfigInterface
 }
 
 export class Event {
   public canvas: CanvasRenderingContext2D
   public readonly upCallback: (t: Event) => void
+  public config: ConfigInterface
   public left: number
   public top: number
   private lastX: number
   private lastY: number
 
-  constructor({ canvas, upCallback }: Params) {
+  constructor({ canvas, upCallback, config }: Params) {
     this.canvas = canvas
     this.upCallback = upCallback
+    this.config = config
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -44,8 +47,8 @@ export class Event {
       currentX,
       currentY
     )
-    this.canvas.strokeStyle = Config.get().strokeStyle
-    this.canvas.lineWidth = Config.get().lineWidth
+    this.canvas.strokeStyle = this.config.strokeStyle
+    this.canvas.lineWidth = this.config.lineWidth
     this.canvas.stroke()
     this.canvas.closePath()
     this.lastX = currentX

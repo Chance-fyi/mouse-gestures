@@ -1,6 +1,9 @@
 import { useRef, useState } from "react"
 
-import type { ConfigGesture } from "~config/default-config"
+import { useStorage } from "@plasmohq/storage/dist/hook"
+
+import { Config } from "~config/config"
+import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 import Svg from "~options/components/svg"
@@ -17,6 +20,7 @@ export interface GestureDrawingProps {
 export default (props: GestureDrawingProps) => {
   const canvasRef = useRef(null)
   const [svg, setSvg] = useState(null)
+  const [config, setConfig] = useStorage(Config.key, Config.default)
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current
@@ -25,7 +29,8 @@ export default (props: GestureDrawingProps) => {
     const ctx = canvas.getContext("2d")
     const event = new Event({
       canvas: ctx,
-      upCallback: upCallback
+      upCallback: upCallback,
+      config
     })
     event.mouseDown(e)
   }
@@ -45,6 +50,11 @@ export default (props: GestureDrawingProps) => {
         height={t.canvas.canvas.height}
       />
     )
+  }
+
+  const closeDialog = () => {
+    const checkbox = document.getElementById(props.modalId) as HTMLInputElement
+    checkbox.checked = false
   }
 
   return (
@@ -94,12 +104,45 @@ export default (props: GestureDrawingProps) => {
                   <input
                     type="text"
                     className="input input-bordered input-sm w-full max-w-xs focus:outline-none"
-                    placeholder={i18n(props.configGesture?.command?.name)}
+                    placeholder={
+                      props.configGesture?.name ||
+                      i18n(props.configGesture?.command?.name)
+                    }
+                    onChange={(e) => {
+                      props.configGesture.name = e.target.value
+                      props.setConfigGesture({ ...props.configGesture })
+                    }}
                   />
                 </div>
               </div>
               <div className="justify-end">
-                <button className="btn btn-sm w-full btn-neutral">
+                <button
+                  className="btn btn-sm w-full btn-neutral"
+                  onClick={() => {
+                    if (
+                      props.configGesture &&
+                      props.configGesture?.trajectory &&
+                      props.configGesture?.command
+                    ) {
+                      if (!props.configGesture?.uniqueKey) {
+                        props.configGesture.uniqueKey = crypto.randomUUID()
+                      }
+
+                      let found = false
+                      config.gesture.forEach((v, i) => {
+                        if (v.uniqueKey === props.configGesture.uniqueKey) {
+                          found = true
+                          config.gesture[i] = props.configGesture
+                        }
+                      })
+                      if (!found) {
+                        config.gesture.push(props.configGesture)
+                      }
+
+                      setConfig(config).then()
+                      closeDialog()
+                    }
+                  }}>
                   {i18n("save")}
                 </button>
               </div>

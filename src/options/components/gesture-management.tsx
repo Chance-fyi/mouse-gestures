@@ -1,6 +1,9 @@
 import { useState } from "react"
 
-import type { ConfigGesture } from "~config/default-config"
+import { useStorage } from "@plasmohq/storage/dist/hook"
+
+import { Config } from "~config/config"
+import type { ConfigGesture } from "~config/config-interface"
 import type { Group } from "~enum/command"
 import CommandDrawer from "~options/components/command-drawer"
 import GestureDrawing from "~options/components/gesture-drawing"
@@ -19,6 +22,7 @@ const drawerId: string = "command-drawer"
 
 export default (props: GestureManagementProps) => {
   const [configGesture, setConfigGesture] = useState<ConfigGesture | null>(null)
+  const [config] = useStorage(Config.key, Config.default)
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -33,7 +37,15 @@ export default (props: GestureManagementProps) => {
             {i18n(props.createTitle)}
           </div>
         </label>
-        <div className="aspect-w-3 aspect-h-4 border">02</div>
+        {config?.gesture?.map((gesture: ConfigGesture) => {
+          return (
+            <div
+              key={gesture.uniqueKey}
+              className="aspect-w-3 aspect-h-4 border">
+              02
+            </div>
+          )
+        })}
       </div>
       <GestureDrawing
         modalId={modalId}

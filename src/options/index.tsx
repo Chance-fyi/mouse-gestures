@@ -2,7 +2,6 @@ import "~style.css"
 
 import { useEffect, useState } from "react"
 
-import { Config } from "~config/config"
 import { Menu } from "~enum/menu"
 import Drag from "~options/drag"
 import Gesture from "~options/gesture"
@@ -17,8 +16,8 @@ export default () => {
   }
   const [menu, setMenu] = useState(Menu.Gesture)
   const MenuPage = MenuPages[menu]
+
   useEffect(() => {
-    Config.loadConfig().then()
     if (window.location.hash) {
       setMenu(window.location.hash.slice(1) as Menu)
     }

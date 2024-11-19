@@ -1,6 +1,7 @@
 import type { Point } from "~core/trajectory"
 
 export type ConfigGesture = {
+  uniqueKey: string
   name: string
   trajectory: Point[]
   command: {
@@ -13,10 +14,6 @@ export type ConfigGesture = {
 export interface ConfigInterface {
   strokeStyle: string
   lineWidth: number
-  gesture?: [ConfigGesture]
-}
-
-export const DefaultConfig: ConfigInterface = {
-  strokeStyle: "#0072f3",
-  lineWidth: 6
+  lineWidth1: number
+  gesture: ConfigGesture[]
 }

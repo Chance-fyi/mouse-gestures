@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { Storage } from "@plasmohq/storage"
 import { useStorage } from "@plasmohq/storage/dist/hook"
@@ -6,7 +6,7 @@ import { useStorage } from "@plasmohq/storage/dist/hook"
 import { LocalConfig, SyncConfig } from "~config/config"
 import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
-import { Trajectory } from "~core/trajectory"
+import { Trajectory, type Point } from "~core/trajectory"
 import Svg from "~options/components/svg"
 import { i18n } from "~utils/common"
 
@@ -16,6 +16,8 @@ export interface GestureDrawingProps {
   title: string
   configGesture: ConfigGesture
   setConfigGesture: (configGesture: ConfigGesture) => void
+  editTrajectory: Point[]
+  setEditTrajectory: (editTrajectory: Point[]) => void
 }
 
 export default (props: GestureDrawingProps) => {
@@ -31,6 +33,18 @@ export default (props: GestureDrawingProps) => {
     },
     LocalConfig.default
   )
+
+  useEffect(() => {
+    if (props.editTrajectory.length > 0) {
+      setSvg(
+        <Svg
+          points={props.editTrajectory}
+          width={canvasRef.current?.clientWidth}
+          height={canvasRef.current?.clientHeight}
+        />
+      )
+    }
+  }, [props.editTrajectory])
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current
@@ -62,7 +76,14 @@ export default (props: GestureDrawingProps) => {
     )
   }
 
+  const clear = () => {
+    props.setConfigGesture(null)
+    props.setEditTrajectory([])
+    setSvg(null)
+  }
+
   const closeDialog = () => {
+    clear()
     const checkbox = document.getElementById(props.modalId) as HTMLInputElement
     checkbox.checked = false
   }
@@ -75,8 +96,7 @@ export default (props: GestureDrawingProps) => {
         className="modal-toggle"
         onChange={(e) => {
           if (!e.target.checked) {
-            props.setConfigGesture(null)
-            setSvg(null)
+            clear()
           }
         }}
       />
@@ -124,13 +144,13 @@ export default (props: GestureDrawingProps) => {
                   <input
                     type="text"
                     className="input input-bordered input-sm w-full max-w-xs focus:outline-none"
-                    placeholder={
-                      props.configGesture?.name ||
-                      i18n(props.configGesture?.command?.name)
-                    }
+                    placeholder={i18n(props.configGesture?.command?.name)}
+                    value={props.configGesture?.name || ""}
                     onChange={(e) => {
-                      props.configGesture.name = e.target.value
-                      props.setConfigGesture({ ...props.configGesture })
+                      props.setConfigGesture({
+                        ...props.configGesture,
+                        name: e.target.value
+                      })
                     }}
                   />
                 </div>
@@ -156,7 +176,7 @@ export default (props: GestureDrawingProps) => {
                         }
                       })
                       if (!found) {
-                        localConfig.gesture.push(props.configGesture)
+                        localConfig.gesture.unshift(props.configGesture)
                       }
 
                       setLocalConfig(localConfig).then()
@@ -169,6 +189,7 @@ export default (props: GestureDrawingProps) => {
             </div>
           </div>
         </div>
+        <label className="modal-backdrop" htmlFor={props.modalId}></label>
       </div>
     </>
   )

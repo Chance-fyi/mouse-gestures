@@ -27,7 +27,7 @@ export default (props: GestureManagementProps) => {
   const [title, setTitle] = useState(props.createTitle)
   const [configGesture, setConfigGesture] = useState<ConfigGesture | null>(null)
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
-  const [localConfig] = useStorage(
+  const [localConfig, setLocalConfig] = useStorage(
     {
       key: LocalConfig.key,
       instance: new Storage({
@@ -38,6 +38,7 @@ export default (props: GestureManagementProps) => {
   )
 
   const [editTrajectory, setEditTrajectory] = useState<Point[]>([])
+  const [, forceReRender] = useState("")
 
   return (
     <div>
@@ -58,7 +59,7 @@ export default (props: GestureManagementProps) => {
           return (
             <div
               key={gesture.uniqueKey}
-              className="aspect-[3/4] border flex flex-col h-full cursor-pointer"
+              className="aspect-[3/4] border flex flex-col h-full cursor-pointer indicator group"
               onClick={() => {
                 setTitle(props.editTitle)
                 setConfigGesture(gesture)
@@ -68,6 +69,18 @@ export default (props: GestureManagementProps) => {
                 ) as HTMLInputElement
                 checkbox.checked = true
               }}>
+              <div
+                className="indicator-item w-7 h-7 flex items-center justify-center text-base text-white font-bold bg-error rounded-full error opacity-0 scale-50 transform transition-all duration-500 group-hover:opacity-100 group-hover:scale-100"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  localConfig.gesture = localConfig.gesture.filter(
+                    (g) => g.uniqueKey !== gesture.uniqueKey
+                  )
+                  setLocalConfig(localConfig).then()
+                  forceReRender(gesture.uniqueKey)
+                }}>
+                ✕
+              </div>
               <div className="aspect-[1/1] border-b flex items-center justify-center">
                 <Svg
                   points={gesture.trajectory}

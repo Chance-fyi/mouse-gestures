@@ -5,6 +5,7 @@ import { useStorage } from "@plasmohq/storage/dist/hook"
 
 import { LocalConfig, SyncConfig } from "~config/config"
 import type { ConfigGesture } from "~config/config-interface"
+import type { Point } from "~core/trajectory"
 import type { Group } from "~enum/command"
 import CommandDrawer from "~options/components/command-drawer"
 import GestureDrawing from "~options/components/gesture-drawing"
@@ -23,6 +24,7 @@ const modalId: string = "drawing-modal"
 const drawerId: string = "command-drawer"
 
 export default (props: GestureManagementProps) => {
+  const [title, setTitle] = useState(props.createTitle)
   const [configGesture, setConfigGesture] = useState<ConfigGesture | null>(null)
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
   const [localConfig] = useStorage(
@@ -34,6 +36,9 @@ export default (props: GestureManagementProps) => {
     },
     LocalConfig.default
   )
+
+  const [editTrajectory, setEditTrajectory] = useState<Point[]>([])
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -43,7 +48,8 @@ export default (props: GestureManagementProps) => {
       <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(170px,_1fr))]">
         <label
           htmlFor={modalId}
-          className="aspect-[3/4] border-2 border-dashed hover:border-success text-base-300 hover:text-success cursor-pointer">
+          className="aspect-[3/4] border-2 border-dashed hover:border-success text-base-300 hover:text-success cursor-pointer"
+          onClick={() => setTitle(props.createTitle)}>
           <div className="flex items-center justify-center h-full text-xl select-none">
             {i18n(props.createTitle)}
           </div>
@@ -52,7 +58,16 @@ export default (props: GestureManagementProps) => {
           return (
             <div
               key={gesture.uniqueKey}
-              className="aspect-[3/4] border flex flex-col h-full cursor-pointer">
+              className="aspect-[3/4] border flex flex-col h-full cursor-pointer"
+              onClick={() => {
+                setTitle(props.editTitle)
+                setConfigGesture(gesture)
+                setEditTrajectory(gesture.trajectory)
+                const checkbox = document.getElementById(
+                  modalId
+                ) as HTMLInputElement
+                checkbox.checked = true
+              }}>
               <div className="aspect-[1/1] border-b flex items-center justify-center">
                 <Svg
                   points={gesture.trajectory}
@@ -72,9 +87,11 @@ export default (props: GestureManagementProps) => {
       <GestureDrawing
         modalId={modalId}
         drawerId={drawerId}
-        title={props.createTitle}
+        title={title}
         configGesture={configGesture}
         setConfigGesture={setConfigGesture}
+        editTrajectory={editTrajectory}
+        setEditTrajectory={setEditTrajectory}
       />
       <CommandDrawer
         drawerId={drawerId}

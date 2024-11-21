@@ -11,9 +11,11 @@ export type ConfigGesture = {
   }
 }
 
-export interface ConfigInterface {
+export interface SyncConfigInterface {
   strokeStyle: string
   lineWidth: number
-  lineWidth1: number
+}
+
+export interface LocalConfigInterface {
   gesture: ConfigGesture[]
 }

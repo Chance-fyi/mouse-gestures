@@ -8,6 +8,7 @@ type SvgProps = {
   width: number
   height: number
   animate?: boolean
+  color?: string
 }
 
 export default (props: SvgProps) => {
@@ -120,10 +121,15 @@ export default (props: SvgProps) => {
 
     if (props.animate) {
       svg.selectAll("path, circle").style("pointer-events", "none")
+      let isAnimating = false
+      let isHovering = false
       svg.on("mouseover", () => {
-        startPoint.attr("fill", "steelblue")
-        path.attr("stroke", "steelblue")
-        movingArrow.attr("fill", "steelblue")
+        if (isAnimating) return
+        if (props.color) {
+          startPoint.attr("fill", props.color)
+          path.attr("stroke", props.color)
+          movingArrow.attr("fill", props.color)
+        }
 
         // Path animation
         path
@@ -135,7 +141,8 @@ export default (props: SvgProps) => {
           .attr("stroke-dashoffset", 0)
 
         // Arrow movement animation
-        d3.transition()
+        movingArrow
+          .transition()
           .duration(500)
           .ease(d3.easeLinear)
           .tween("pathTween", () => {
@@ -143,12 +150,28 @@ export default (props: SvgProps) => {
               updateArrowPosition(t)
             }
           })
+          .on("start", () => {
+            isAnimating = true
+            isHovering = true
+          })
           .on("end", () => {
+            isAnimating = false
+            if (isHovering) return
             startPoint.attr("fill", "#2b3440")
             path.attr("stroke", "#2b3440")
             movingArrow.attr("fill", "#2b3440")
           })
       })
+      svg.on("mouseout", () => {
+        isHovering = false
+        if (isAnimating) return
+        startPoint.attr("fill", "#2b3440")
+        path.attr("stroke", "#2b3440")
+        movingArrow.attr("fill", "#2b3440")
+      })
+      path.attr("stroke-width", 7)
+      startPoint.attr("r", 3)
+      movingArrow.attr("viewBox", "0 -10 20 20").attr("d", "M0,-10L20,0L0,10")
     }
   }, [props])
 

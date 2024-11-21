@@ -1,11 +1,19 @@
-import type { ConfigInterface } from "~config/config-interface"
+import type {
+  LocalConfigInterface,
+  SyncConfigInterface
+} from "~config/config-interface"
 
-export class Config {
-  public static readonly key: string = "config"
-  public static default: ConfigInterface = {
-    strokeStyle: "#0072f3",
-    lineWidth: 6,
-    lineWidth1: 111116,
+export class SyncConfig {
+  public static readonly key: string = "sync-config"
+  public static default: SyncConfigInterface = {
+    strokeStyle: "#00a96e",
+    lineWidth: 6
+  }
+}
+
+export class LocalConfig {
+  public static readonly key: string = "local-config"
+  public static default: LocalConfigInterface = {
     gesture: []
   }
 }

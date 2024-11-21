@@ -1,8 +1,9 @@
 import { useRef, useState } from "react"
 
+import { Storage } from "@plasmohq/storage"
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
-import { Config } from "~config/config"
+import { LocalConfig, SyncConfig } from "~config/config"
 import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
@@ -20,7 +21,16 @@ export interface GestureDrawingProps {
 export default (props: GestureDrawingProps) => {
   const canvasRef = useRef(null)
   const [svg, setSvg] = useState(null)
-  const [config, setConfig] = useStorage(Config.key, Config.default)
+  const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
+  const [localConfig, setLocalConfig] = useStorage(
+    {
+      key: LocalConfig.key,
+      instance: new Storage({
+        area: "local"
+      })
+    },
+    LocalConfig.default
+  )
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current
@@ -30,14 +40,14 @@ export default (props: GestureDrawingProps) => {
     const event = new Event({
       canvas: ctx,
       upCallback: upCallback,
-      config
+      config: syncConfig
     })
     event.mouseDown(e)
   }
 
   const upCallback = (t: Event) => {
     t.canvas.clearRect(0, 0, t.canvas.canvas.width, t.canvas.canvas.height)
-    const trajectory = Trajectory.simplify(10, 10)
+    const trajectory = Trajectory.simplify(10, 30)
     if (trajectory.length < 2) return
     props.setConfigGesture({
       ...props.configGesture,
@@ -59,7 +69,17 @@ export default (props: GestureDrawingProps) => {
 
   return (
     <>
-      <input type="checkbox" id={props.modalId} className="modal-toggle" />
+      <input
+        type="checkbox"
+        id={props.modalId}
+        className="modal-toggle"
+        onChange={(e) => {
+          if (!e.target.checked) {
+            props.setConfigGesture(null)
+            setSvg(null)
+          }
+        }}
+      />
       <div className="modal" role="dialog">
         <div className="modal-box w-3/5 max-w-5xl">
           <div className="flex justify-between sticky top-0">
@@ -129,17 +149,17 @@ export default (props: GestureDrawingProps) => {
                       }
 
                       let found = false
-                      config.gesture.forEach((v, i) => {
+                      localConfig.gesture.forEach((v, i) => {
                         if (v.uniqueKey === props.configGesture.uniqueKey) {
                           found = true
-                          config.gesture[i] = props.configGesture
+                          localConfig.gesture[i] = props.configGesture
                         }
                       })
                       if (!found) {
-                        config.gesture.push(props.configGesture)
+                        localConfig.gesture.push(props.configGesture)
                       }
 
-                      setConfig(config).then()
+                      setLocalConfig(localConfig).then()
                       closeDialog()
                     }
                   }}>

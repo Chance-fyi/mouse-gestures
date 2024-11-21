@@ -1,16 +1,16 @@
-import type { ConfigInterface } from "~config/config-interface"
+import type { SyncConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
 
 interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
-  config: ConfigInterface
+  config: SyncConfigInterface
 }
 
 export class Event {
   public canvas: CanvasRenderingContext2D
   public readonly upCallback: (t: Event) => void
-  public config: ConfigInterface
+  public config: SyncConfigInterface
   public left: number
   public top: number
   private lastX: number

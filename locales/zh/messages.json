@@ -8,6 +8,9 @@
   "gesture_edit": {
     "message": "编辑手势"
   },
+  "gesture_similar_tips": {
+    "message": "该手势与“{}”手势相似"
+  },
   "command": {
     "message": "命令"
   },

@@ -8,7 +8,7 @@ import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
 import { Trajectory, type Point } from "~core/trajectory"
 import Svg from "~options/components/svg"
-import { i18n } from "~utils/common"
+import { i18n, matchGesture } from "~utils/common"
 
 export interface GestureDrawingProps {
   modalId: string
@@ -33,6 +33,7 @@ export default (props: GestureDrawingProps) => {
     },
     LocalConfig.default
   )
+  const [matchKey, setMatchKey] = useState("")
 
   useEffect(() => {
     if (props.editTrajectory.length > 0) {
@@ -61,8 +62,16 @@ export default (props: GestureDrawingProps) => {
 
   const upCallback = (t: Event) => {
     t.canvas.clearRect(0, 0, t.canvas.canvas.width, t.canvas.canvas.height)
-    const trajectory = Trajectory.simplify(10, 30)
+    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory, 10)
     if (trajectory.length < 2) return
+    setMatchKey(
+      matchGesture(
+        trajectory,
+        localConfig.gesture.filter(
+          (g) => g.uniqueKey !== props.configGesture?.uniqueKey
+        )
+      )
+    )
     props.setConfigGesture({
       ...props.configGesture,
       trajectory: trajectory
@@ -80,6 +89,7 @@ export default (props: GestureDrawingProps) => {
     props.setConfigGesture(null)
     props.setEditTrajectory([])
     setSvg(null)
+    setMatchKey("")
   }
 
   const closeDialog = () => {
@@ -114,8 +124,22 @@ export default (props: GestureDrawingProps) => {
           </div>
           <div className="grid grid-flow-row-dense grid-cols-5 gap-4 mt-2">
             <div
-              className="col-span-3 aspect-w-1 aspect-h-1 border-2 border-dashed hover:cursor-crosshair"
-              onMouseDown={startDrawing}>
+              className={`col-span-3 aspect-w-1 aspect-h-1 border-2 border-dashed ${matchKey ? "border-error" : ""} hover:cursor-crosshair`}
+              onMouseDown={startDrawing}
+              title={
+                matchKey
+                  ? i18n("gesture_similar_tips").replace(
+                      "{}",
+                      localConfig.gesture.find((g) => g.uniqueKey === matchKey)
+                        .name ||
+                        i18n(
+                          localConfig.gesture.find(
+                            (g) => g.uniqueKey === matchKey
+                          ).command.name
+                        )
+                    )
+                  : ""
+              }>
               <canvas ref={canvasRef} className="w-full h-full" />
               {svg}
             </div>

@@ -58,6 +58,8 @@ export class Event {
     )
     this.canvas.strokeStyle = this.config.strokeStyle
     this.canvas.lineWidth = this.config.lineWidth
+    this.canvas.lineCap = "round"
+    this.canvas.lineJoin = "round"
     this.canvas.stroke()
     this.canvas.closePath()
     this.lastX = currentX

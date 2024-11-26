@@ -15,6 +15,7 @@ export class Event {
   public top: number
   private lastX: number
   private lastY: number
+  private blockMenu: boolean = false
 
   constructor({ canvas, upCallback, config }: Params) {
     this.canvas = canvas
@@ -23,6 +24,14 @@ export class Event {
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
+
+    document.addEventListener("contextmenu", (e: MouseEvent) => {
+      if (this.blockMenu) {
+        // Block right-click menu
+        e.preventDefault()
+        this.blockMenu = false
+      }
+    })
   }
 
   public mouseDown(e: MouseEvent) {
@@ -58,6 +67,7 @@ export class Event {
   }
 
   public mouseUp(e: MouseEvent) {
+    this.blockMenu = Trajectory.trajectory.length > 5
     this.upCallback(this)
 
     document.removeEventListener("mousemove", this.mouseMove)

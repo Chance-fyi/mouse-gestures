@@ -140,7 +140,7 @@ export default (props: GestureDrawingProps) => {
                     )
                   : ""
               }>
-              <canvas ref={canvasRef} className="w-full h-full" />
+              <canvas ref={canvasRef} className="w-full h-full z-10" />
               {svg}
             </div>
             <div className="col-span-2 flex flex-col">

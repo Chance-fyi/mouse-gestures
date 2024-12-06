@@ -55,7 +55,8 @@ export default (props: GestureDrawingProps) => {
     const event = new Event({
       canvas: ctx,
       upCallback: upCallback,
-      config: syncConfig
+      config: syncConfig,
+      setting: true
     })
     event.mouseDown(e)
   }

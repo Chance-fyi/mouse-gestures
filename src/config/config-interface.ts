@@ -7,7 +7,7 @@ export type ConfigGesture = {
   command: {
     uniqueKey: string
     name: string
-    config: { [key: string]: string | number }
+    config: { [key: string]: string | number | boolean }
   }
 }
 

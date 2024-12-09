@@ -5,6 +5,8 @@ export interface CommandInterface {
   readonly title: string
   readonly description: string
   config?: { [key: string]: Config }
+  window?: boolean
+  execute: () => void
 }
 
 export type ConfigSelectOption = {
@@ -17,5 +19,5 @@ export type Config = {
   readonly description: string
   readonly type: ConfigType
   readonly options?: ConfigSelectOption[]
-  value: string
+  value: string | number | boolean
 }

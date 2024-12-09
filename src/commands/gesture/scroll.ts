@@ -30,17 +30,59 @@ export class Scroll implements CommandInterface {
       ],
       value: Direction.Up
     },
-    time: {
-      title: "command_gesture_scroll_config_time_title",
-      description: "command_gesture_scroll_config_time_description",
-      type: ConfigType.Input,
-      value: "100"
-    },
     proportions: {
       title: "command_gesture_scroll_config_proportions_title",
       description: "command_gesture_scroll_config_proportions_description",
       type: ConfigType.Input,
       value: "95"
+    },
+    behavior: {
+      title: "command_gesture_scroll_config_behavior_title",
+      description: "command_gesture_scroll_config_behavior_description",
+      type: ConfigType.Select,
+      options: [
+        {
+          label: "command_gesture_scroll_config_behavior_option_smooth",
+          value: "smooth"
+        },
+        {
+          label: "command_gesture_scroll_config_behavior_option_instant",
+          value: "instant"
+        },
+        {
+          label: "command_gesture_scroll_config_behavior_option_auto",
+          value: "auto"
+        }
+      ],
+      value: "smooth"
     }
+  }
+
+  window: boolean = true
+
+  execute() {
+    let top = 0
+    let left = 0
+    const proportions = this.config.proportions.value as number
+    switch (this.config.direction.value) {
+      case Direction.Up:
+        top = (-proportions * window.innerHeight) / 100
+        break
+      case Direction.Down:
+        top = (proportions * window.innerHeight) / 100
+        break
+      case Direction.Left:
+        left = (-proportions * window.innerWidth) / 100
+        break
+      case Direction.Right:
+        left = (proportions * window.innerWidth) / 100
+        break
+    }
+
+    window.scrollBy({
+      top: top,
+      left: left,
+      behavior: this.config.behavior.value as ScrollBehavior
+    })
   }
 }

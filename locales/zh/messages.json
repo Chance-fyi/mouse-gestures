@@ -47,17 +47,26 @@
   "command_gesture_scroll_config_direction_option_right": {
     "message": "向右滚动"
   },
-  "command_gesture_scroll_config_time_title": {
-    "message": "滚动用时"
-  },
-  "command_gesture_scroll_config_time_description": {
-    "message": "滚动动画的持续时间（毫秒）"
-  },
   "command_gesture_scroll_config_proportions_title": {
     "message": "滚动比例"
   },
   "command_gesture_scroll_config_proportions_description": {
     "message": "页面滚动量相较的可视区域高度的百分比"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "行为"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "立即滚动还是平滑动画滚动"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "smooth"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "instant"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "auto"
   },
   "optional": {
     "message": "可选"

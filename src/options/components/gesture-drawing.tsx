@@ -63,7 +63,7 @@ export default (props: GestureDrawingProps) => {
 
   const upCallback = (t: Event) => {
     t.canvas.clearRect(0, 0, t.canvas.canvas.width, t.canvas.canvas.height)
-    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory, 10)
+    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)
     if (trajectory.length < 2) return
     setMatchKey(
       matchGesture(

@@ -1,6 +1,6 @@
 import cssText from "data-text:~style.css"
 import type { PlasmoCSConfig } from "plasmo"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
 import { useStorage } from "@plasmohq/storage/dist/hook"
@@ -9,7 +9,6 @@ import { Command } from "~commands/command"
 import { SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
-import { Group } from "~enum/command"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"]
@@ -23,6 +22,8 @@ export const getStyle = () => {
 
 export default () => {
   const canvasRef = useRef(null)
+  const [tooltipVisible, setTooltipVisible] = useState(false)
+  const [tooltipText, setTooltipText] = useState("")
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
 
   useEffect(() => {
@@ -38,29 +39,36 @@ export default () => {
       canvas: ctx,
       upCallback: upCallback,
       config: syncConfig,
-      setting: false
+      setting: false,
+      setTooltipVisible,
+      setTooltipText
     })
     event.mouseDown(e)
   }
 
   const upCallback = (t: Event) => {
     t.canvas.clearRect(0, 0, t.canvas.canvas.width, t.canvas.canvas.height)
-    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory, 10)
+    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)
     if (trajectory.length < 2) return
 
     sendToBackground({
       name: "execute",
       body: {
         trajectory: trajectory,
-        group: Group.Gesture
+        group: t.group
       }
-    }).then((res) => {
-      const command = new Command(Group.Gesture).getCommands()[
-        res.command.uniqueKey
-      ]
-      command.config = res.command.config
-      command.execute()
     })
+      .then((res) => {
+        const command = new Command(t.group).getCommands()[
+          res.command.uniqueKey
+        ]
+        command.config = res.command.config
+        command.execute()
+      })
+      .finally(() => {
+        setTooltipVisible(false)
+        setTooltipText("")
+      })
   }
 
   return (
@@ -69,6 +77,13 @@ export default () => {
         ref={canvasRef}
         className="w-screen h-screen fixed top-0 left-0 z-[99999] pointer-events-none"
       />
+      {tooltipVisible && (
+        <div className="z-[999999] w-screen h-screen fixed top-0 left-0 flex items-center justify-center">
+          <div className="bg-gray-800 bg-opacity-75 text-white text-3xl p-10 rounded-3xl flex items-center justify-center min-w-[15%] min-h-[15%]">
+            {tooltipText}
+          </div>
+        </div>
+      )}
     </>
   )
 }

@@ -28,7 +28,7 @@ export class Trajectory {
   // Simplifying trajectories using the Douglas-Peucker algorithm
   public static simplifyTrajectory(
     points: Point[],
-    tolerance: number
+    tolerance: number = 10
   ): Point[] {
     if (points.length <= 2) return points
 

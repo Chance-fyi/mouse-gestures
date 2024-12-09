@@ -1,11 +1,18 @@
+import React from "react"
+
+import { sendToBackground } from "@plasmohq/messaging"
+
 import type { SyncConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
+import { Group } from "~enum/command"
 
 interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
   config: SyncConfigInterface
   setting: boolean
+  setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
+  setTooltipText?: React.Dispatch<React.SetStateAction<string>>
 }
 
 export class Event {
@@ -19,11 +26,25 @@ export class Event {
   private lastY: number
   private blockMenu: boolean = false
 
-  constructor({ canvas, upCallback, config, setting }: Params) {
+  public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
+  public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
+  public group: Group = Group.Gesture
+
+  constructor({
+    canvas,
+    upCallback,
+    config,
+    setting,
+    setTooltipVisible,
+    setTooltipText
+  }: Params) {
     this.canvas = canvas
     this.upCallback = upCallback
     this.config = config
     this.setting = setting
+
+    this.setTooltipVisible = setTooltipVisible
+    this.setTooltipText = setTooltipText
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -85,6 +106,21 @@ export class Event {
     this.lastY = currentY
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
+
+    if (!this.setting) {
+      const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)
+      if (trajectory.length < 2) return
+      sendToBackground({
+        name: "matching",
+        body: {
+          trajectory: trajectory,
+          group: this.group
+        }
+      }).then((res) => {
+        this.setTooltipVisible(res.message as boolean)
+        this.setTooltipText(res.message)
+      })
+    }
   }
 
   public mouseUp(e: MouseEvent) {

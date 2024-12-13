@@ -52,8 +52,8 @@ export default (props: CommandDrawerProps) => {
           className="drawer-overlay"></label>
         <div className="min-h-full w-80 bg-white">
           {Tabs.Tab1 === activeTab && (
-            <div className="flex flex-col">
-              <div className="w-full h-16 border-b border-gray-300 flex flex-row items-center">
+            <div className="flex flex-col h-screen">
+              <div className="sticky top-0 bg-white shadow-md z-10 w-full h-16 border-b border-gray-300 flex flex-row items-center">
                 <div className="w-1/6 h-full flex justify-center items-center">
                   <label className="swap swap-rotate">
                     <input type="checkbox" />
@@ -90,73 +90,84 @@ export default (props: CommandDrawerProps) => {
                   )}
                 </div>
               </div>
-              <div className="w-full flex justify-center">
+              <div className="w-[95%] flex-1 min-h-0 justify-center overflow-y-auto flex scrollbar-thin">
                 <ul className="w-full pt-4">
-                  {Object.entries(commands).map(([k, c]) => {
-                    return (
-                      <li
-                        key={k}
-                        className="hover:bg-neutral-100 pl-4 pt-2 pb-2">
-                        <div
-                          tabIndex={0}
-                          onClick={() => {
-                            if (Object.keys(c.config).length === 0) {
-                              props.setConfigGesture({
-                                ...props.configGesture,
-                                command: {
-                                  uniqueKey: c.uniqueKey,
-                                  name: c.title,
-                                  config: _.mapValues(
-                                    c.config,
-                                    (value: { [x: string]: any }) =>
-                                      value["value"]
-                                  )
-                                }
-                              })
-                              closeDrawer()
-                              return
-                            }
+                  {Object.entries(commands)
+                    .filter((c) => {
+                      return (
+                        !search ||
+                        searchText === "" ||
+                        i18n(c[1].title)
+                          .toLowerCase()
+                          .includes(searchText.toLowerCase())
+                      )
+                    })
+                    .map(([k, c]) => {
+                      return (
+                        <li
+                          key={k}
+                          className="hover:bg-neutral-100 pl-4 pt-2 pb-2">
+                          <div
+                            tabIndex={0}
+                            onClick={() => {
+                              if (Object.keys(c.config).length === 0) {
+                                props.setConfigGesture({
+                                  ...props.configGesture,
+                                  command: {
+                                    uniqueKey: c.uniqueKey,
+                                    name: c.title,
+                                    config: _.mapValues(
+                                      c.config,
+                                      (value: { [x: string]: any }) =>
+                                        value["value"]
+                                    )
+                                  }
+                                })
+                                closeDrawer()
+                                return
+                              }
 
-                            const cc = _.cloneDeep(c)
-                            if (
-                              props.configGesture?.command?.uniqueKey ===
-                              cc.uniqueKey
-                            ) {
-                              Object.keys(cc.config).forEach((k) => {
-                                cc.config[k]["value"] =
-                                  props.configGesture.command.config[k]
-                              })
-                            }
-                            setTab2Command(cc)
-                            setActiveTab(Tabs.Tab2)
-                          }}
-                          className="collapse h-full collapse-close hover:collapse-open group pl-5">
-                          <div className="collapse-title p-0 min-h-0 text-base">
-                            <div className="flex flex-row w-full items-center relative before:absolute before:-left-5 before:top-1/2 before:-translate-y-1/2 before:bg-[#2b3440] before:w-1.5 before:h-1.5 before:rounded-full">
+                              const cc = _.cloneDeep(c)
+                              if (
+                                props.configGesture?.command?.uniqueKey ===
+                                cc.uniqueKey
+                              ) {
+                                Object.keys(cc.config).forEach((k) => {
+                                  cc.config[k]["value"] =
+                                    props.configGesture.command.config[k]
+                                })
+                              }
+                              setTab2Command(cc)
+                              setActiveTab(Tabs.Tab2)
+                            }}
+                            className="collapse h-full collapse-close hover:collapse-open group pl-5 delay-300">
+                            <div className="collapse-title p-0 min-h-0 text-base">
                               <div
-                                className={
-                                  Object.keys(c.config).length !== 0
-                                    ? "w-10/12"
-                                    : "w-11/12"
-                                }>
-                                {i18n(c.title)}
+                                className={`flex flex-row w-full items-center relative ${c.uniqueKey === props.configGesture?.command?.uniqueKey ? "before:absolute before:-left-5 before:top-1/2 before:-translate-y-1/2 before:bg-[#2b3440] before:w-1.5 before:h-1.5 before:rounded-full" : ""}`}>
+                                <div
+                                  className={
+                                    Object.keys(c.config).length !== 0
+                                      ? "w-10/12"
+                                      : "w-11/12"
+                                  }>
+                                  {i18n(c.title)}
+                                </div>
+                                {Object.keys(c.config).length !== 0 && (
+                                  <IconSetting
+                                    width={17}
+                                    height={17}
+                                    color={"#2b3440"}
+                                  />
+                                )}
                               </div>
-                              {Object.keys(c.config).length !== 0 && (
-                                <IconSetting
-                                  width={17}
-                                  height={17}
-                                  color={"#2b3440"}
-                                />
-                              )}
+                            </div>
+                            <div className="collapse-content p-0 min-h-0 mt-1.5 group-hover:pb-0 text-sm">
+                              {i18n(c.description)}
                             </div>
                           </div>
-                          <div className="collapse-content p-0 min-h-0 mt-1.5 group-hover:pb-0 text-sm">
-                            {i18n(c.description)}
-                          </div>
-                        </div>
-                      </li>
-                    )
-                  })}
+                        </li>
+                      )
+                    })}
                 </ul>
               </div>
             </div>

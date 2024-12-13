@@ -70,7 +70,7 @@ export default (props: GestureManagementProps) => {
                 checkbox.checked = true
               }}>
               <div
-                className="indicator-item w-7 h-7 flex items-center justify-center text-base text-white font-bold bg-error rounded-full error opacity-0 scale-50 transform transition-all duration-500 group-hover:opacity-100 group-hover:scale-100"
+                className="indicator-item w-7 h-7 flex items-center justify-center text-base text-white font-bold bg-error rounded-full error opacity-0 scale-50 transform transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 delay-300"
                 onClick={(e) => {
                   e.stopPropagation()
                   localConfig.gesture = localConfig.gesture.filter(

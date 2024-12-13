@@ -123,46 +123,50 @@ export default (props: SvgProps) => {
       svg.selectAll("path, circle").style("pointer-events", "none")
       let isAnimating = false
       let isHovering = false
+      let hoverTimer: string | number | NodeJS.Timeout
       svg.on("mouseover", () => {
-        if (isAnimating) return
-        if (props.color) {
-          startPoint.attr("fill", props.color)
-          path.attr("stroke", props.color)
-          movingArrow.attr("fill", props.color)
-        }
+        hoverTimer = setTimeout(() => {
+          if (isAnimating) return
+          if (props.color) {
+            startPoint.attr("fill", props.color)
+            path.attr("stroke", props.color)
+            movingArrow.attr("fill", props.color)
+          }
 
-        // Path animation
-        path
-          .attr("stroke-dasharray", `${totalLength} ${totalLength}`)
-          .attr("stroke-dashoffset", totalLength)
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .attr("stroke-dashoffset", 0)
+          // Path animation
+          path
+            .attr("stroke-dasharray", `${totalLength} ${totalLength}`)
+            .attr("stroke-dashoffset", totalLength)
+            .transition()
+            .duration(500)
+            .ease(d3.easeLinear)
+            .attr("stroke-dashoffset", 0)
 
-        // Arrow movement animation
-        movingArrow
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .tween("pathTween", () => {
-            return (t) => {
-              updateArrowPosition(t)
-            }
-          })
-          .on("start", () => {
-            isAnimating = true
-            isHovering = true
-          })
-          .on("end", () => {
-            isAnimating = false
-            if (isHovering) return
-            startPoint.attr("fill", "#2b3440")
-            path.attr("stroke", "#2b3440")
-            movingArrow.attr("fill", "#2b3440")
-          })
+          // Arrow movement animation
+          movingArrow
+            .transition()
+            .duration(500)
+            .ease(d3.easeLinear)
+            .tween("pathTween", () => {
+              return (t) => {
+                updateArrowPosition(t)
+              }
+            })
+            .on("start", () => {
+              isAnimating = true
+              isHovering = true
+            })
+            .on("end", () => {
+              isAnimating = false
+              if (isHovering) return
+              startPoint.attr("fill", "#2b3440")
+              path.attr("stroke", "#2b3440")
+              movingArrow.attr("fill", "#2b3440")
+            })
+        }, 300)
       })
       svg.on("mouseout", () => {
+        clearTimeout(hoverTimer)
         isHovering = false
         if (isAnimating) return
         startPoint.attr("fill", "#2b3440")

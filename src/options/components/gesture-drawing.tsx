@@ -7,6 +7,7 @@ import { LocalConfig, SyncConfig } from "~config/config"
 import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
 import { Trajectory, type Point } from "~core/trajectory"
+import type { Group } from "~enum/command"
 import Svg from "~options/components/svg"
 import { i18n, matchGesture } from "~utils/common"
 
@@ -14,6 +15,7 @@ export interface GestureDrawingProps {
   modalId: string
   drawerId: string
   title: string
+  commandGroup: Group
   configGesture: ConfigGesture
   setConfigGesture: (configGesture: ConfigGesture) => void
   editTrajectory: Point[]
@@ -68,7 +70,7 @@ export default (props: GestureDrawingProps) => {
     setMatchKey(
       matchGesture(
         trajectory,
-        localConfig.gesture.filter(
+        localConfig[props.commandGroup].filter(
           (g) => g.uniqueKey !== props.configGesture?.uniqueKey
         )
       )
@@ -131,10 +133,11 @@ export default (props: GestureDrawingProps) => {
                 matchKey
                   ? i18n("gesture_similar_tips").replace(
                       "{}",
-                      localConfig.gesture.find((g) => g.uniqueKey === matchKey)
-                        .name ||
+                      localConfig[props.commandGroup].find(
+                        (g) => g.uniqueKey === matchKey
+                      ).name ||
                         i18n(
-                          localConfig.gesture.find(
+                          localConfig[props.commandGroup].find(
                             (g) => g.uniqueKey === matchKey
                           ).command.name
                         )
@@ -194,14 +197,17 @@ export default (props: GestureDrawingProps) => {
                       }
 
                       let found = false
-                      localConfig.gesture.forEach((v, i) => {
+                      localConfig[props.commandGroup].forEach((v, i) => {
                         if (v.uniqueKey === props.configGesture.uniqueKey) {
                           found = true
-                          localConfig.gesture[i] = props.configGesture
+                          localConfig[props.commandGroup][i] =
+                            props.configGesture
                         }
                       })
                       if (!found) {
-                        localConfig.gesture.unshift(props.configGesture)
+                        localConfig[props.commandGroup].unshift(
+                          props.configGesture
+                        )
                       }
 
                       setLocalConfig(localConfig).then()

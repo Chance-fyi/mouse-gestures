@@ -18,4 +18,7 @@ export interface SyncConfigInterface {
 
 export interface LocalConfigInterface {
   gesture: ConfigGesture[]
+  drag_text: ConfigGesture[]
+  drag_url: ConfigGesture[]
+  drag_image: ConfigGesture[]
 }

@@ -14,6 +14,9 @@ export class SyncConfig {
 export class LocalConfig {
   public static readonly key: string = "local-config"
   public static default: LocalConfigInterface = {
-    gesture: []
+    gesture: [],
+    drag_text: [],
+    drag_url: [],
+    drag_image: []
   }
 }

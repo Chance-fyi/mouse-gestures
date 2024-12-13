@@ -10,6 +10,8 @@ export default () => {
       createBtnText="gesture_create"
       createTitle="gesture_create"
       editTitle="gesture_edit"
+      modalId="gesture-drawing-modal"
+      drawerId="gesture-command-drawer"
     />
   )
 }

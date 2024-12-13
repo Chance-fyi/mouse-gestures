@@ -124,6 +124,10 @@ export class Event {
   }
 
   public mouseUp(e: MouseEvent) {
+    if (!this.setting) {
+      this.setTooltipVisible(false)
+      this.setTooltipText("")
+    }
     this.blockMenu = Trajectory.trajectory.length > 5
     this.upCallback(this)
 

@@ -33,7 +33,7 @@ const handler: PlasmoMessaging.MessageHandler<executeReq, executeRes> = async (
   Object.entries(gesture.command.config).forEach(([key, value]) => {
     command.config[key].value = value
   })
-  if (command.window) {
+  if (command?.window) {
     res.send({
       command: command
     })

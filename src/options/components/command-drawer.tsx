@@ -189,7 +189,7 @@ export default (props: CommandDrawerProps) => {
                             <input
                               type="text"
                               className="input input-bordered input-sm w-full max-w-xs focus:outline-none text-center"
-                              value={c.value}
+                              value={c.value as string}
                               onChange={(e) => {
                                 tab2Command.config[k].value = e.target.value
                                 setTab2Command({ ...tab2Command })
@@ -208,7 +208,7 @@ export default (props: CommandDrawerProps) => {
                             </p>
                             <select
                               className="select select-bordered select-sm w-full max-w-xs focus:outline-none text-center"
-                              value={c.value}
+                              value={c.value as string}
                               onChange={(e) => {
                                 tab2Command.config[k].value = e.target.value
                                 setTab2Command({ ...tab2Command })
@@ -231,9 +231,9 @@ export default (props: CommandDrawerProps) => {
                               <input
                                 type="checkbox"
                                 className="toggle w-1/6 focus:outline-none"
-                                value={c.value}
+                                checked={c.value as boolean}
                                 onChange={(e) => {
-                                  tab2Command.config[k].value = e.target.value
+                                  tab2Command.config[k].value = e.target.checked
                                   setTab2Command({ ...tab2Command })
                                 }}
                               />

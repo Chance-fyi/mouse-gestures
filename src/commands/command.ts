@@ -19,6 +19,15 @@ export class Command {
       case Group.Gesture:
         commands = require("~commands/gesture/index").default
         break
+      case Group.DragText:
+        commands = require("~commands/drag-text/index").default
+        break
+      case Group.DragUrl:
+        commands = require("~commands/drag-url/index").default
+        break
+      case Group.DragImage:
+        commands = require("~commands/drag-image/index").default
+        break
     }
     commands.forEach((c) => {
       if (!c.uniqueKey) {

@@ -1,5 +1,8 @@
 export enum Group {
-  Gesture = "gesture"
+  Gesture = "gesture",
+  DragText = "drag_text",
+  DragUrl = "drag_url",
+  DragImage = "drag_image"
 }
 
 export enum ConfigType {

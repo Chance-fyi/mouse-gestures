@@ -218,6 +218,12 @@
   "command_gesture_new_window_config_incognito_description": {
     "message": "新建一个空的无痕式窗口"
   },
+  "command_drag_text_copy_title": {
+    "message": "复制"
+  },
+  "command_drag_text_copy_description": {
+    "message": "复制拖拽的文字"
+  },
   "optional": {
     "message": "可选"
   },
@@ -232,5 +238,14 @@
   },
   "search": {
     "message": "搜索"
+  },
+  "drag_text": {
+    "message": "文字"
+  },
+  "drag_url": {
+    "message": "链接"
+  },
+  "drag_image": {
+    "message": "图片"
   }
 }

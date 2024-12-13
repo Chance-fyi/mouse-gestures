@@ -68,6 +68,156 @@
   "command_gesture_scroll_config_behavior_option_auto": {
     "message": "auto"
   },
+  "command_gesture_scroll_to_top_title": {
+    "message": "滚动到顶部"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "跳至页面顶部"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "滚动到底部"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "跳至页面底部"
+  },
+  "command_gesture_forward_title": {
+    "message": "前进"
+  },
+  "command_gesture_forward_description": {
+    "message": "返回历史记录中的下一个页面"
+  },
+  "command_gesture_backward_title": {
+    "message": "后退"
+  },
+  "command_gesture_backward_description": {
+    "message": "返回历史记录中的上一个页面"
+  },
+  "command_gesture_reload_title": {
+    "message": "重新加载"
+  },
+  "command_gesture_reload_description": {
+    "message": "重新加载当前页面"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "全部重新加载"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "重新加载所有标签页"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "复制标签页"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "复制当前标签页"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "新建标签页"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "创建新标签页"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "活跃"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "标签页是否成为窗口中的活动标签页"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "位置"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "标签页在窗口中占据的位置"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "开头"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "左侧"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "右侧"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "末尾"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "关闭标签页"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "关闭当前标签页"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "关闭其他标签页"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "关闭所有标签页，当前标签页和固定标签页除外"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "关闭左侧标签页"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "关闭当前标签页左侧的所有标签页，固定标签页除外"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "关闭右侧标签页"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "关闭当前标签页右侧的所有标签页"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "还原标签页"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "还原上一个关闭的标签页"
+  },
+  "command_gesture_pinned_title": {
+    "message": "固定/取消固定标签页"
+  },
+  "command_gesture_pinned_description": {
+    "message": "固定或取消固定当前标签页"
+  },
+  "command_gesture_muted_title": {
+    "message": "静音/取消静音标签页"
+  },
+  "command_gesture_muted_description": {
+    "message": "静音或取消静音当前标签页"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "静音其他标签页"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "静音所有标签页，当前标签页除外"
+  },
+  "command_gesture_maximized_title": {
+    "message": "最大化/还原窗口"
+  },
+  "command_gesture_maximized_description": {
+    "message": "切换最大化与正常的窗口大小"
+  },
+  "command_gesture_minimized_title": {
+    "message": "最小化窗口"
+  },
+  "command_gesture_minimized_description": {
+    "message": "最小化当前窗口"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "进入/退出全屏"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "激活或停用全屏模式"
+  },
+  "command_gesture_new_window_title": {
+    "message": "新建窗口"
+  },
+  "command_gesture_new_window_description": {
+    "message": "新建一个空的窗口"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "无痕式窗口"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "新建一个空的无痕式窗口"
+  },
   "optional": {
     "message": "可选"
   },

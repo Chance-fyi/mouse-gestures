@@ -14,3 +14,10 @@ export enum Direction {
   Left = "left",
   Right = "right"
 }
+
+export enum Position {
+  Left = "left",
+  Right = "right",
+  Home = "home",
+  End = "end"
+}

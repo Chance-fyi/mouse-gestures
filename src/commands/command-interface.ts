@@ -4,7 +4,7 @@ export interface CommandInterface {
   readonly uniqueKey: string
   readonly title: string
   readonly description: string
-  config?: { [key: string]: Config }
+  config: { [key: string]: Config }
   window?: boolean
   execute: () => void
 }

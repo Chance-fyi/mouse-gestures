@@ -63,12 +63,11 @@ export default (props: SvgProps) => {
       .attr("d", line)
       .attr("marker-end", "url(#arrowhead)")
 
-    // Calculating the bounding box of a path
-    const bbox = path.node().getBBox()
+    const xData = scaledData.map((d) => d.x)
+    const yData = scaledData.map((d) => d.y)
 
-    // Calculate centre point and offset
-    const bboxCenterX = bbox.x + bbox.width / 2
-    const bboxCenterY = bbox.y + bbox.height / 2
+    const bboxCenterX = Math.abs(Math.min(...xData) - Math.max(...xData)) / 2
+    const bboxCenterY = Math.abs(Math.min(...yData) - Math.max(...yData)) / 2
     const translateX = centerX - bboxCenterX
     const translateY = centerY - bboxCenterY
 

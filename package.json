@@ -39,7 +39,8 @@
     ],
     "permissions": [
       "tabs",
-      "sessions"
+      "sessions",
+      "search"
     ],
     "default_locale": "en"
   }

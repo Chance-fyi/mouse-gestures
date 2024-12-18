@@ -14,11 +14,16 @@ interface MatchResult {
   isMatched: boolean
   similarity: number
 }
+
 export class Trajectory {
   public static trajectory: Point[] = []
 
   public static addPoint(point: Point) {
     this.trajectory.push(point)
+  }
+
+  public static delPoint() {
+    this.trajectory.pop()
   }
 
   public static clear() {

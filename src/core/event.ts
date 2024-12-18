@@ -15,6 +15,11 @@ interface Params {
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
 }
 
+export type DragData = {
+  content: string
+  file?: File
+}
+
 export class Event {
   public canvas: CanvasRenderingContext2D
   public readonly upCallback: (t: Event) => void
@@ -29,6 +34,7 @@ export class Event {
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   public group: Group = Group.Gesture
+  public dragData: DragData
 
   constructor({
     canvas,
@@ -58,8 +64,8 @@ export class Event {
     })
   }
 
-  public mouseDown(e: MouseEvent) {
-    if (e.button !== 2) {
+  public mouseDown(e: MouseEvent | DragEvent) {
+    if (e.type === "mousedown" && e.button !== 2) {
       return
     }
     if (this.setting) {
@@ -72,11 +78,38 @@ export class Event {
     }
     this.lastX = e.clientX - this.left
     this.lastY = e.clientY - this.top
-    document.addEventListener("mousemove", this.mouseMove)
-    document.addEventListener("mouseup", this.mouseUp)
+    if (e.type === "mousedown") {
+      document.addEventListener("mousemove", this.mouseMove)
+      document.addEventListener("mouseup", this.mouseUp)
+    }
+
+    if (e.type === "dragstart") {
+      const types = (e as DragEvent).dataTransfer.types
+      if (types.includes("Files")) {
+        this.group = Group.DragImage
+        this.dragData = {
+          content: ((e as DragEvent).target as HTMLImageElement).currentSrc,
+          file: (e as DragEvent).dataTransfer.files[0]
+        }
+      } else if (types.includes("text/uri-list")) {
+        this.group = Group.DragUrl
+        this.dragData = {
+          content: (e as DragEvent).dataTransfer.getData("text/uri-list")
+        }
+      } else if (types.includes("text/plain")) {
+        this.group = Group.DragText
+        this.dragData = {
+          content: (e as DragEvent).dataTransfer.getData("text/plain")
+        }
+      } else {
+        return
+      }
+      document.addEventListener("drag", this.mouseMove)
+      document.addEventListener("dragend", this.mouseUp)
+    }
   }
 
-  public mouseMove(e: MouseEvent) {
+  public mouseMove(e: MouseEvent | DragEvent) {
     const currentX: number = e.clientX - this.left
     const currentY: number = e.clientY - this.top
 
@@ -123,16 +156,24 @@ export class Event {
     }
   }
 
-  public mouseUp(e: MouseEvent) {
+  public mouseUp(e: MouseEvent | DragEvent) {
     if (!this.setting) {
-      this.setTooltipVisible(false)
-      this.setTooltipText("")
+      setTimeout(() => {
+        this.setTooltipVisible(false)
+        this.setTooltipText("")
+      }, 500)
+    }
+
+    if (this.group !== Group.Gesture) {
+      Trajectory.delPoint()
     }
     this.blockMenu = Trajectory.trajectory.length > 5
     this.upCallback(this)
 
     document.removeEventListener("mousemove", this.mouseMove)
     document.removeEventListener("mouseup", this.mouseUp)
+    document.removeEventListener("drag", this.mouseMove)
+    document.removeEventListener("dragend", this.mouseUp)
     Trajectory.clear()
   }
 }

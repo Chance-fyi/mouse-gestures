@@ -245,6 +245,24 @@
   "command_drag_text_search_disposition_option_new_window": {
     "message": "新窗口"
   },
+  "command_drag_url_copy_title": {
+    "message": "复制"
+  },
+  "command_drag_url_copy_description": {
+    "message": "复制拖拽的链接"
+  },
+  "command_drag_url_open_title": {
+    "message": "打开"
+  },
+  "command_drag_url_open_description": {
+    "message": "打开拖拽的链接"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "新建窗口打开"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "新建窗口打开拖拽的链接"
+  },
   "optional": {
     "message": "可选"
   },

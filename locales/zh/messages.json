@@ -222,7 +222,7 @@
     "message": "复制"
   },
   "command_drag_text_copy_description": {
-    "message": "复制拖拽的文字"
+    "message": "复制拖拽的文字到剪贴板"
   },
   "command_drag_text_search_title": {
     "message": "搜索"
@@ -249,7 +249,7 @@
     "message": "复制"
   },
   "command_drag_url_copy_description": {
-    "message": "复制拖拽的链接"
+    "message": "复制拖拽的链接到剪贴板"
   },
   "command_drag_url_open_title": {
     "message": "打开"
@@ -262,6 +262,30 @@
   },
   "command_drag_url_open_window_description": {
     "message": "新建窗口打开拖拽的链接"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "复制图片地址"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "复制拖拽的图片地址到剪贴板"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "复制图片"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "复制拖拽的图片到剪贴板"
+  },
+  "command_drag_image_open_title": {
+    "message": "新标签页打开图片"
+  },
+  "command_drag_image_open_description": {
+    "message": "新标签页打开拖拽的图片"
+  },
+  "command_drag_image_download_title": {
+    "message": "下载图片"
+  },
+  "command_drag_image_download_description": {
+    "message": "下载拖拽的图片"
   },
   "optional": {
     "message": "可选"

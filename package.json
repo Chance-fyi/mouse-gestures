@@ -39,8 +39,9 @@
     ],
     "permissions": [
       "tabs",
+      "search",
       "sessions",
-      "search"
+      "downloads"
     ],
     "default_locale": "en"
   }

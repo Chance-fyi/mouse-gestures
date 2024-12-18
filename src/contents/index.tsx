@@ -28,6 +28,7 @@ export default () => {
 
   useEffect(() => {
     document.addEventListener("mousedown", startDrawing)
+    document.addEventListener("dragstart", startDrawing)
   }, [])
 
   const startDrawing = (e) => {
@@ -55,7 +56,8 @@ export default () => {
       name: "execute",
       body: {
         trajectory: trajectory,
-        group: t.group
+        group: t.group,
+        dragData: t.dragData
       }
     })
       .then((res) => {
@@ -63,6 +65,7 @@ export default () => {
           res.command.uniqueKey
         ]
         command.config = res.command.config
+        command.data = t.dragData
         command.execute()
       })
       .finally(() => {

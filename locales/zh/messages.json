@@ -224,6 +224,27 @@
   "command_drag_text_copy_description": {
     "message": "复制拖拽的文字"
   },
+  "command_drag_text_search_title": {
+    "message": "搜索"
+  },
+  "command_drag_text_search_description": {
+    "message": "搜索拖拽的文字"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "位置"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "显示搜索结果的位置"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "当前标签页"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "新标签页"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "新窗口"
+  },
   "optional": {
     "message": "可选"
   },

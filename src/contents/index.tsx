@@ -3,10 +3,8 @@ import type { PlasmoCSConfig } from "plasmo"
 import { useEffect, useRef, useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
-import { useStorage } from "@plasmohq/storage/dist/hook"
 
 import { Command } from "~commands/command"
-import { SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 
@@ -24,7 +22,6 @@ export default () => {
   const canvasRef = useRef(null)
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
-  const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
 
   useEffect(() => {
     document.addEventListener("mousedown", startDrawing)
@@ -39,7 +36,6 @@ export default () => {
     const event = new Event({
       canvas: ctx,
       upCallback: upCallback,
-      config: syncConfig,
       setting: false,
       setTooltipVisible,
       setTooltipText

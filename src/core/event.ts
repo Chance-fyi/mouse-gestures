@@ -1,7 +1,9 @@
 import React from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
+import { Storage } from "@plasmohq/storage"
 
+import { SyncConfig } from "~config/config"
 import type { SyncConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
 import { Group } from "~enum/command"
@@ -9,7 +11,6 @@ import { Group } from "~enum/command"
 interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
-  config: SyncConfigInterface
   setting: boolean
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
@@ -39,14 +40,17 @@ export class Event {
   constructor({
     canvas,
     upCallback,
-    config,
     setting,
     setTooltipVisible,
     setTooltipText
   }: Params) {
+    const storage = new Storage()
+    storage.get(SyncConfig.key).then((c) => {
+      this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
+    })
+
     this.canvas = canvas
     this.upCallback = upCallback
-    this.config = config
     this.setting = setting
 
     this.setTooltipVisible = setTooltipVisible
@@ -110,6 +114,7 @@ export class Event {
   }
 
   public mouseMove(e: MouseEvent | DragEvent) {
+    if (!this.config) return
     const currentX: number = e.clientX - this.left
     const currentY: number = e.clientY - this.top
 

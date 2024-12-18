@@ -1,10 +1,12 @@
 import type { CommandInterface } from "~commands/command-interface"
+import { NewTab } from "~commands/gesture/new-tab"
+import type { DragData } from "~core/event"
 import { ConfigType, Position } from "~enum/command"
 
-export class NewTab implements CommandInterface {
-  readonly uniqueKey: string = "gesture-new-tab"
-  readonly title: string = "command_gesture_new_tab_title"
-  readonly description: string = "command_gesture_new_tab_description"
+export class Open implements CommandInterface {
+  readonly uniqueKey: string = "drag-url-open"
+  readonly title: string = "command_drag_url_open_title"
+  readonly description: string = "command_drag_url_open_description"
   config: { [key: string]: any } = {
     active: {
       title: "command_gesture_new_tab_active_title",
@@ -37,43 +39,13 @@ export class NewTab implements CommandInterface {
       value: Position.End
     }
   }
+  data: DragData
 
   execute(): void {
-    this.newTab(this.config.position.value, this.config.active.value as boolean)
-  }
-
-  newTab(position: Position, activated: boolean, url?: string) {
-    let max = 0
-    let active = 0
-    chrome.tabs.query({ currentWindow: true }, (tabs) => {
-      for (let tab of tabs) {
-        max++
-        if (tab.active) {
-          active = max
-        }
-      }
-      let index = max
-      switch (position) {
-        case Position.Home:
-          index = 0
-          break
-        case Position.Left:
-          index = active - 1
-          break
-        case Position.Right:
-          index = active
-          break
-        case Position.End:
-          index = max
-          break
-      }
-      chrome.tabs
-        .create({
-          active: activated,
-          index: index,
-          url: url
-        })
-        .then()
-    })
+    new NewTab().newTab(
+      this.config.position.value,
+      this.config.active.value as boolean,
+      this.data.content
+    )
   }
 }

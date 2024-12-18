@@ -1,95 +1,320 @@
 {
-  "invalidOperation": {
-    "message": "Invalid operation"
-  },
-  "scrollUp": {
-    "message": "Scroll up"
-  },
-  "scrollDown": {
-    "message": "Scroll down"
-  },
-  "scrollLeft": {
-    "message": "Scroll left"
-  },
-  "scrollRight": {
-    "message": "Scroll right"
-  },
-  "scrollToTop": {
-    "message": "Scroll to top"
-  },
-  "scrollToBottom": {
-    "message": "Scroll to bottom"
-  },
-  "backward": {
-    "message": "Backward"
-  },
-  "forward": {
-    "message": "Forward"
-  },
-  "refresh": {
-    "message": "Refresh"
-  },
-  "reloadAllTabs": {
-    "message": "Reload all tabs"
-  },
-  "openNewTab": {
-    "message": "Open new tab"
-  },
-  "openNewWindow": {
-    "message": "Open new window"
-  },
-  "openIncognitoWindow": {
-    "message": "Open incognito window"
-  },
-  "closeCurrentTab": {
-    "message": "Close current tab"
-  },
-  "closeOtherTabs": {
-    "message": "Close other tabs"
-  },
-  "closeAllTabs": {
-    "message": "Close all tabs"
-  },
-  "closeWindow": {
-    "message": "Close current window"
-  },
-  "reopenLastClosedTab": {
-    "message": "Reopen last closed tab"
-  },
-  "switchLeftTab": {
-    "message": "Switch to left tab"
-  },
-  "switchRightTab": {
-    "message": "Switch to right tab"
-  },
-  "fullscreen": {
-    "message": "Fullscreen toggle"
-  },
-  "minimizeWindow": {
-    "message": "Minimize"
-  },
-  "changesHaveBeenImplemented": {
-    "message": "Changes have been implemented"
-  },
-  "gestures": {
+  "gesture": {
     "message": "Gestures"
   },
-  "icons": {
-    "message": "Icons"
+  "gesture_create": {
+    "message": "Create Gesture"
   },
-  "actions": {
-    "message": "Actions"
+  "gesture_edit": {
+    "message": "Edit Gesture"
   },
-  "enableMouseGestureHints": {
-    "message": "Enable mouse gesture hints"
+  "gesture_similar_tips": {
+    "message": "This gesture is similar to the \"{}\" gesture"
   },
-  "trailColor": {
-    "message": "Trail color"
+  "command": {
+    "message": "Command"
   },
-  "trailWidth": {
-    "message": "Trail width"
+  "command_description": {
+    "message": "Select command to assign to this gesture"
   },
-  "restoreDefaultSettings": {
-    "message": "Restore default settings"
+  "textLabel": {
+    "message": "Label"
+  },
+  "textLabel_description": {
+    "message": "Assign a custom display name to replace the command name"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Page Scrolling"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Scroll page up, down, left, and right"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Scroll Direction"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Choose scroll direction"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Scroll Up"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Scroll Down"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Scroll Left"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Scroll Right"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Scroll Percentage"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Percentage of the viewport height that the page scrolls"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Behavior"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Instant scroll or smooth animation scroll"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Smooth"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Instant"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Auto"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Scroll to Top"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Go to Top"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Scroll to Bottom"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Go to Bottom"
+  },
+  "command_gesture_forward_title": {
+    "message": "Forward"
+  },
+  "command_gesture_forward_description": {
+    "message": "Go to the Next Page in History"
+  },
+  "command_gesture_backward_title": {
+    "message": "Back"
+  },
+  "command_gesture_backward_description": {
+    "message": "Go to the Previous Page in History"
+  },
+  "command_gesture_reload_title": {
+    "message": "Reload"
+  },
+  "command_gesture_reload_description": {
+    "message": "Reload Current Page"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Reload All"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Reload All Tabs"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Duplicate Tab"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Duplicate Current Tab"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "New Tab"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Create New Tab"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Active"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "Is the tab the active tab in the window?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Position"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Tab position in the window"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Beginning"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Left"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Right"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "End"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Close Tab"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Close Current Tab"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Close Other Tabs"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Close All Tabs Except Current and Pinned"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Close Tabs to the Left"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Close All Tabs to the Left of Current (Except Pinned)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Close Tabs to the Right"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Close All Tabs to the Right of Current"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Restore Tab"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Restore Last Closed Tab"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Pin/Unpin Tab"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Pin or Unpin Current Tab"
+  },
+  "command_gesture_muted_title": {
+    "message": "Mute/Unmute Tab"
+  },
+  "command_gesture_muted_description": {
+    "message": "Mute or unmute current tab"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Mute other tabs"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Mute all tabs except current"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Maximize/Restore window"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Toggle maximized/normal window size"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimize window"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimize current window"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Enter/Exit fullscreen"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Toggle fullscreen mode"
+  },
+  "command_gesture_new_window_title": {
+    "message": "New window"
+  },
+  "command_gesture_new_window_description": {
+    "message": "New empty window"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Incognito window"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "New empty incognito window"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Copy"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Copy dragged text to clipboard"
+  },
+  "command_drag_text_search_title": {
+    "message": "Search"
+  },
+  "command_drag_text_search_description": {
+    "message": "Search dragged text"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Location"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Show search result location"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Current tab"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "New Tab"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "New Window"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Copy"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Copy Link"
+  },
+  "command_drag_url_open_title": {
+    "message": "Open"
+  },
+  "command_drag_url_open_description": {
+    "message": "Open Link"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Open in New Window"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Open Link in New Window"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Copy Image Address"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Copy Image Address"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Copy Image"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Copy Image"
+  },
+  "command_drag_image_open_title": {
+    "message": "Open Image in New Tab"
+  },
+  "command_drag_image_open_description": {
+    "message": "Open Image in New Tab"
+  },
+  "command_drag_image_download_title": {
+    "message": "Download Image"
+  },
+  "command_drag_image_download_description": {
+    "message": "Download Image"
+  },
+  "optional": {
+    "message": "Optional"
+  },
+  "drag": {
+    "message": "Drag"
+  },
+  "setting": {
+    "message": "Settings"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "search": {
+    "message": "Search"
+  },
+  "drag_text": {
+    "message": "Text"
+  },
+  "drag_url": {
+    "message": "Link"
+  },
+  "drag_image": {
+    "message": "Image"
+  },
+  "line_color": {
+    "message": "Line Color"
+  },
+  "line_width": {
+    "message": "Line Width"
   }
 }

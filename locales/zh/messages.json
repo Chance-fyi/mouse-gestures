@@ -310,5 +310,11 @@
   },
   "drag_image": {
     "message": "图片"
+  },
+  "line_color": {
+    "message": "线条颜色"
+  },
+  "line_width": {
+    "message": "线条宽度"
   }
 }

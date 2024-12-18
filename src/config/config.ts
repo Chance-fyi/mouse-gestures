@@ -6,7 +6,7 @@ import type {
 export class SyncConfig {
   public static readonly key: string = "sync-config"
   public static default: SyncConfigInterface = {
-    strokeStyle: "#00d7c0",
+    strokeStyle: "#2b3440",
     lineWidth: 10
   }
 }

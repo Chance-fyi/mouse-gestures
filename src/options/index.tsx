@@ -3,6 +3,7 @@ import "~style.css"
 import { useEffect, useState } from "react"
 
 import { Menu } from "~enum/menu"
+import Donation from "~options/components/donation"
 import Drag from "~options/drag"
 import Gesture from "~options/gesture"
 import Setting from "~options/setting"
@@ -43,6 +44,12 @@ export default () => {
         })}
       </ul>
       <div className="flex-grow pl-4">{MenuPage && <MenuPage />}</div>
+      <div
+        className="mask mask-heart w-10 h-10 bg-red-500 fixed bottom-40 left-12 animate-bounce hover:cursor-pointer"
+        onClick={() =>
+          (document.getElementById("donation") as HTMLDialogElement).showModal()
+        }></div>
+      <Donation />
     </div>
   )
 }

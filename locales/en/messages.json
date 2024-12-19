@@ -316,5 +316,8 @@
   },
   "line_width": {
     "message": "Line Width"
+  },
+  "donation": {
+    "message": "Thank you for using my plugin! I've been working hard to optimize and improve it, and I hope to make your browsing experience more convenient. If you find it helpful, feel free to support me by donating so that I have more motivation to continue updating and improving this plugin, thank you for your support!"
   }
 }

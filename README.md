@@ -1,10 +1,14 @@
 A powerful browser plug-in, through simple and intuitive mouse gestures and drag-and-drop operations, so that your web browsing experience more smooth and efficient!
 
-### Features:
+### Features
 
 - Mouse Gestures: Press the right mouse button to move around for common browsing operations.
 - Drag-and-drop gestures: Drag-and-drop page elements (text, links, images) for fast navigation and manipulation.
 - Highly customizable: support for custom gestures and corresponding actions.
+
+### Install
+
+**Chrome:** [https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa](https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa)
 
 ### Screenshot Demo
 

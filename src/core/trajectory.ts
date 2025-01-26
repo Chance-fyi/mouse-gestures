@@ -24,6 +24,7 @@ interface TrajectoryMatchOptions {
     minAngleChange?: number // Minimum angle change threshold
     minSegmentRatio?: number // Minimum line scale
   }
+  turnCountPenalty?: number // Penalty factor for number of turns
 }
 
 export class Trajectory {
@@ -195,11 +196,15 @@ export class Trajectory {
 
   // Secondary simplification key points
   private static simplifyKeyPoints(points: Point[], minDist: number): Point[] {
+    // Calculate the average distance between key points
+    const avgDistance = this.getTrajectoryLength(points) / (points.length - 1)
+    // Dynamic adjustment factor: the larger the spacing, the smaller the factor
+    const dynamicFactor = Math.min(0.6, 0.3 * (avgDistance / minDist))
     return points.filter(
       (p, i) =>
         i === 0 ||
         i === points.length - 1 ||
-        this.getDistance(p, points[i - 1]) >= minDist * 0.6
+        this.getDistance(p, points[i - 1]) >= minDist * dynamicFactor
     )
   }
 
@@ -223,13 +228,16 @@ export class Trajectory {
     relativeAngles: number[]
     normalizedPoints: Point[]
     keyPoints: Point[]
+    turnCount: number
   } {
+    let turnCount = 0
     if (!points || points.length < 2) {
       return {
         directionSequence: [],
         relativeAngles: [],
         normalizedPoints: [],
-        keyPoints: []
+        keyPoints: [],
+        turnCount
       }
     }
 
@@ -241,7 +249,8 @@ export class Trajectory {
         directionSequence: [vec.angle],
         relativeAngles: [],
         normalizedPoints: normalized,
-        keyPoints: points
+        keyPoints: points,
+        turnCount
       }
     }
 
@@ -259,7 +268,12 @@ export class Trajectory {
       directions.push(vec.angle)
       if (i >= 2) {
         const prevVec = this.getVector(normalized[i - 2], normalized[i - 1])
-        relativeAngles.push(this.getAngleDifference(prevVec.angle, vec.angle))
+        const angleDiff = this.getAngleDifference(prevVec.angle, vec.angle)
+        relativeAngles.push(angleDiff)
+        // Counts the number of turns above the angle threshold
+        if (Math.abs(angleDiff) >= finalOptions.minAngleChange) {
+          turnCount++
+        }
       }
     }
 
@@ -267,7 +281,8 @@ export class Trajectory {
       directionSequence: directions,
       relativeAngles,
       normalizedPoints: normalized,
-      keyPoints
+      keyPoints,
+      turnCount
     }
   }
 
@@ -305,6 +320,7 @@ export class Trajectory {
       angleThreshold: Math.PI / 4,
       lengthTolerance: 0.3,
       minSimilarity: 0.75,
+      turnCountPenalty: 0.1,
       ...options
     }
 
@@ -331,6 +347,10 @@ export class Trajectory {
     const f1 = this.getTrajectoryFeatures(t1, options.keyPointOptions)
     const f2 = this.getTrajectoryFeatures(t2, options.keyPointOptions)
 
+    // Calculate the difference in the number of turns
+    const turnCountDiff = Math.abs(f1.turnCount - f2.turnCount)
+    const turnPenalty = Math.exp(-turnCountDiff * options.turnCountPenalty)
+
     // directional sequence matching
     const directionSimilarity = this.dynamicTimeWarping(
       f1.directionSequence,
@@ -356,8 +376,9 @@ export class Trajectory {
     )
 
     // Combined similarity
-    const similarity =
+    const baseSimilarity =
       0.4 * directionSimilarity + 0.3 * angleSimilarity + 0.3 * shapeSimilarity
+    const similarity = Math.max(0, Math.min(1, baseSimilarity * turnPenalty))
 
     return {
       isMatched: similarity >= options.minSimilarity,

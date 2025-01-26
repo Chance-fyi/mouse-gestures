@@ -19,11 +19,12 @@ export const matchGesture = (
       {
         angleThreshold: Math.PI / 3, // 60 degree large angle tolerance
         lengthTolerance: 0.5, // 50% length variance allowed
-        minSimilarity: 0.65, // Lower similarity threshold
+        minSimilarity: 0.7, // Lower similarity threshold
         keyPointOptions: {
           minAngleChange: Math.PI / 6, // 30-degree turn before recording
           minSegmentRatio: 0.2 // Focus on major moving segments
-        }
+        },
+        turnCountPenalty: 0.2
       }
     )
     if (result.isMatched && result.similarity > similarity) {

@@ -15,6 +15,17 @@ interface MatchResult {
   similarity: number
 }
 
+interface TrajectoryMatchOptions {
+  angleThreshold?: number // Angular tolerance threshold
+  lengthTolerance?: number // length tolerance ratio
+  minSimilarity?: number // Minimum similarity
+  keyPointOptions?: {
+    // Configuration of key point parameters
+    minAngleChange?: number // Minimum angle change threshold
+    minSegmentRatio?: number // Minimum line scale
+  }
+}
+
 export class Trajectory {
   public static trajectory: Point[] = []
 
@@ -134,9 +145,12 @@ export class Trajectory {
   // Key point extraction
   private static extractKeyPoints(
     points: Point[],
-    options = {
-      minAngleChange: Math.PI / 9, // Angle change threshold
-      minSegmentLengthRatio: 0.15 // Dynamic length threshold ratio
+    options: {
+      minAngleChange: number
+      minSegmentLengthRatio: number
+    } = {
+      minAngleChange: Math.PI / 9,
+      minSegmentLengthRatio: 0.15
     }
   ): Point[] {
     if (!points || points.length < 2) return []
@@ -198,7 +212,13 @@ export class Trajectory {
   }
 
   // Trajectory feature extraction
-  private static getTrajectoryFeatures(points: Point[]): {
+  private static getTrajectoryFeatures(
+    points: Point[],
+    keyPointOptions?: {
+      minAngleChange?: number
+      minSegmentLengthRatio?: number
+    }
+  ): {
     directionSequence: number[]
     relativeAngles: number[]
     normalizedPoints: Point[]
@@ -225,7 +245,11 @@ export class Trajectory {
       }
     }
 
-    const keyPoints = this.extractKeyPoints(points) // Key point extraction
+    const finalOptions = {
+      minAngleChange: keyPointOptions?.minAngleChange ?? Math.PI / 9,
+      minSegmentLengthRatio: keyPointOptions?.minSegmentLengthRatio ?? 0.15
+    }
+    const keyPoints = this.extractKeyPoints(points, finalOptions) // Key point extraction
     const normalized = this.normalizeTrajectory(keyPoints) // Normalization based on keypoints
     const directions: number[] = []
     const relativeAngles: number[] = []
@@ -275,12 +299,15 @@ export class Trajectory {
   public static matchTrajectories(
     t1: Point[],
     t2: Point[],
-    options = {
-      angleThreshold: Math.PI / 4, // 45 degree tolerance
-      lengthTolerance: 0.3, // 30% difference in length
-      minSimilarity: 0.75 // similarity threshold
-    }
+    options: TrajectoryMatchOptions = {}
   ): MatchResult {
+    options = {
+      angleThreshold: Math.PI / 4,
+      lengthTolerance: 0.3,
+      minSimilarity: 0.75,
+      ...options
+    }
+
     // Handling of null cases
     if (!t1 || !t2 || t1.length < 2 || t2.length < 2) {
       return { isMatched: false, similarity: 0 }
@@ -301,8 +328,8 @@ export class Trajectory {
     }
 
     // Extraction Characteristics
-    const f1 = this.getTrajectoryFeatures(t1)
-    const f2 = this.getTrajectoryFeatures(t2)
+    const f1 = this.getTrajectoryFeatures(t1, options.keyPointOptions)
+    const f2 = this.getTrajectoryFeatures(t2, options.keyPointOptions)
 
     // directional sequence matching
     const directionSimilarity = this.dynamicTimeWarping(

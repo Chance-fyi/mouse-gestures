@@ -13,7 +13,19 @@ export const matchGesture = (
   let uniqueKey = ""
 
   for (const gesture of gestures) {
-    const result = Trajectory.matchTrajectories(trajectory, gesture.trajectory)
+    const result = Trajectory.matchTrajectories(
+      trajectory,
+      gesture.trajectory,
+      {
+        angleThreshold: Math.PI / 3, // 60 degree large angle tolerance
+        lengthTolerance: 0.5, // 50% length variance allowed
+        minSimilarity: 0.65, // Lower similarity threshold
+        keyPointOptions: {
+          minAngleChange: Math.PI / 6, // 30-degree turn before recording
+          minSegmentRatio: 0.2 // Focus on major moving segments
+        }
+      }
+    )
     if (result.isMatched && result.similarity > similarity) {
       similarity = result.similarity
       uniqueKey = gesture.uniqueKey

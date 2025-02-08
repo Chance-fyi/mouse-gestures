@@ -24,7 +24,7 @@
     "message": "Assign a custom display name to replace the command name"
   },
   "command_gesture_scroll_title": {
-    "message": "Page Scrolling"
+    "message": "Scroll Page"
   },
   "command_gesture_scroll_description": {
     "message": "Scroll page up, down, left, and right"
@@ -33,7 +33,7 @@
     "message": "Scroll Direction"
   },
   "command_gesture_scroll_config_direction_description": {
-    "message": "Choose scroll direction"
+    "message": "Select scroll direction"
   },
   "command_gesture_scroll_config_direction_option_up": {
     "message": "Scroll Up"
@@ -48,10 +48,10 @@
     "message": "Scroll Right"
   },
   "command_gesture_scroll_config_proportions_title": {
-    "message": "Scroll Percentage"
+    "message": "Scroll Ratio"
   },
   "command_gesture_scroll_config_proportions_description": {
-    "message": "Percentage of the viewport height that the page scrolls"
+    "message": "Percentage of the visible area height that the page scrolls"
   },
   "command_gesture_scroll_config_behavior_title": {
     "message": "Behavior"
@@ -84,19 +84,19 @@
     "message": "Forward"
   },
   "command_gesture_forward_description": {
-    "message": "Go to the Next Page in History"
+    "message": "Go to Next Page"
   },
   "command_gesture_backward_title": {
     "message": "Back"
   },
   "command_gesture_backward_description": {
-    "message": "Go to the Previous Page in History"
+    "message": "Go to Previous Page"
   },
   "command_gesture_reload_title": {
     "message": "Reload"
   },
   "command_gesture_reload_description": {
-    "message": "Reload Current Page"
+    "message": "Reload Page"
   },
   "command_gesture_reload_all_title": {
     "message": "Reload All"
@@ -150,19 +150,19 @@
     "message": "Close Other Tabs"
   },
   "command_gesture_close_other_tabs_description": {
-    "message": "Close All Tabs Except Current and Pinned"
+    "message": "Close All Tabs (Except Current and Pinned)"
   },
   "command_gesture_close_left_tabs_title": {
     "message": "Close Tabs to the Left"
   },
   "command_gesture_close_left_tabs_description": {
-    "message": "Close All Tabs to the Left of Current (Except Pinned)"
+    "message": "Close all tabs to the left of the current tab (except pinned tabs)"
   },
   "command_gesture_close_right_tabs_title": {
     "message": "Close Tabs to the Right"
   },
   "command_gesture_close_right_tabs_description": {
-    "message": "Close All Tabs to the Right of Current"
+    "message": "Close all tabs to the right of the current tab"
   },
   "command_gesture_restore_tab_title": {
     "message": "Restore Tab"
@@ -189,7 +189,7 @@
     "message": "Mute all tabs except current"
   },
   "command_gesture_maximized_title": {
-    "message": "Maximize/Restore window"
+    "message": "Maximize/restore window"
   },
   "command_gesture_maximized_description": {
     "message": "Toggle maximized/normal window size"
@@ -201,7 +201,7 @@
     "message": "Minimize current window"
   },
   "command_gesture_fullscreen_title": {
-    "message": "Enter/Exit fullscreen"
+    "message": "Enter/exit fullscreen"
   },
   "command_gesture_fullscreen_description": {
     "message": "Toggle fullscreen mode"
@@ -219,16 +219,16 @@
     "message": "New empty incognito window"
   },
   "command_gesture_toggle_left_tab_title": {
-    "message": "Go to left tab"
+    "message": "Go to previous tab"
   },
   "command_gesture_toggle_left_tab_description": {
-    "message": "Switch to the left tab of the current tab page"
+    "message": "Switch to the tab to the left of the current tab"
   },
   "command_gesture_toggle_right_tab_title": {
-    "message": "Go to the right tab"
+    "message": "Go to next tab"
   },
   "command_gesture_toggle_right_tab_description": {
-    "message": "Switch to the right tab of the current tab page"
+    "message": "Switch to the tab to the right of the current tab"
   },
   "command_drag_text_copy_title": {
     "message": "Copy"
@@ -246,58 +246,61 @@
     "message": "Location"
   },
   "command_drag_text_search_disposition_description": {
-    "message": "Show search result location"
+    "message": "Location to display search results"
   },
   "command_drag_text_search_disposition_option_current_tab": {
     "message": "Current tab"
   },
   "command_drag_text_search_disposition_option_new_tab": {
-    "message": "New Tab"
+    "message": "New tab"
   },
   "command_drag_text_search_disposition_option_new_window": {
-    "message": "New Window"
+    "message": "New window"
   },
   "command_drag_url_copy_title": {
     "message": "Copy"
   },
   "command_drag_url_copy_description": {
-    "message": "Copy Link"
+    "message": "Copy dragged link to clipboard"
   },
   "command_drag_url_open_title": {
     "message": "Open"
   },
   "command_drag_url_open_description": {
-    "message": "Open Link"
+    "message": "Open dragged link"
+  },
+  "command_drag_text_open_description": {
+    "message": "Open dragged text link"
   },
   "command_drag_url_open_window_title": {
-    "message": "Open in New Window"
+    "message": "Open in new window"
   },
   "command_drag_url_open_window_description": {
-    "message": "Open Link in New Window"
+    "message": "Open dragged link in new window"
   },
   "command_drag_image_copy_url_title": {
-    "message": "Copy Image Address"
+    "message": "Copy image address"
   },
   "command_drag_image_copy_url_description": {
-    "message": "Copy Image Address"
+    "message": "Copy dragged image address to clipboard"
   },
   "command_drag_image_copy_image_title": {
-    "message": "Copy Image"
+    "message": "Copy image"
   },
   "command_drag_image_copy_image_description": {
-    "message": "Copy Image"
+    "message": "Copy dragged image to clipboard"
   },
   "command_drag_image_open_title": {
-    "message": "Open Image in New Tab"
+    "message": "Open image in new tab"
   },
   "command_drag_image_open_description": {
-    "message": "Open Image in New Tab"
+    "message": "Open dragged image in new tab"
   },
   "command_drag_image_download_title": {
-    "message": "Download Image"
+    "message": "Download image"
   },
   "command_drag_image_download_description": {
-    "message": "Download Image"
+    "message": "Download Dragged Images"
   },
   "optional": {
     "message": "Optional"
@@ -330,18 +333,18 @@
     "message": "Line Width"
   },
   "donation": {
-    "message": "Thank you for using my plugin! I've been working hard to optimize and improve it, and I hope to make your browsing experience more convenient. If you find it helpful, feel free to support me by donating so that I have more motivation to continue updating and improving this plugin, thank you for your support!"
+    "message": "Thanks for using my plugin! I've been working hard to optimize and improve it, hoping to make your browsing experience more convenient. If you find it helpful, please consider supporting me with a donation.  It will motivate me to continue updating and improving this plugin. Thanks for your support!"
   },
   "about": {
     "message": "About"
   },
   "about_source_code": {
-    "message": "Source code"
+    "message": "Source Code"
   },
   "about_report_bug": {
-    "message": "Report a bug"
+    "message": "Report a Bug"
   },
   "about_good_review": {
-    "message": "Good Review"
+    "message": "Rate this plugin"
   }
 }

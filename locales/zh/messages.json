@@ -269,6 +269,9 @@
   "command_drag_url_open_description": {
     "message": "打开拖拽的链接"
   },
+  "command_drag_text_open_description": {
+    "message": "打开拖拽的文字链接"
+  },
   "command_drag_url_open_window_title": {
     "message": "新建窗口打开"
   },

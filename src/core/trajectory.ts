@@ -15,6 +15,18 @@ interface MatchResult {
   similarity: number
 }
 
+interface TrajectoryMatchOptions {
+  angleThreshold?: number // Angular tolerance threshold
+  lengthTolerance?: number // length tolerance ratio
+  minSimilarity?: number // Minimum similarity
+  keyPointOptions?: {
+    // Configuration of key point parameters
+    minAngleChange?: number // Minimum angle change threshold
+    minSegmentRatio?: number // Minimum line scale
+  }
+  turnCountPenalty?: number // Penalty factor for number of turns
+}
+
 export class Trajectory {
   public static trajectory: Point[] = []
 
@@ -104,308 +116,394 @@ export class Trajectory {
       yy = lineStart.y + param * D
     }
 
-    return this.getDistance(point, { x: xx, y: yy })
-  }
-
-  // Calculate the distance between two points
-  private static getDistance(p1: Point, p2: Point): number {
+    // Calculate the distance between two points
+    const p1 = point
+    const p2 = { x: xx, y: yy }
     return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2))
   }
 
   // -----------------------------------------------------Match---------------------------------------------------------
 
-  // computational vector
+  private static getDistance(p1: Point, p2: Point): number {
+    if (!p1 || !p2) return 0
+    return Math.hypot(p2.x - p1.x, p2.y - p1.y)
+  }
+
   private static getVector(start: Point, end: Point): Vector {
+    if (!start || !end) return { x: 0, y: 0, angle: 0, distance: 0 }
     const x = end.x - start.x
     const y = end.y - start.y
     const distance = this.getDistance(start, end)
-    const angle = Math.atan2(y, x)
+    const angle = distance > 0 ? Math.atan2(y, x) : 0
     return { x, y, angle, distance }
   }
 
-  // Calculate the angular difference (between -π and π)
-  private static getAngleDifference(angle1: number, angle2: number): number {
-    let diff = angle2 - angle1
-    while (diff > Math.PI) diff -= 2 * Math.PI
-    while (diff < -Math.PI) diff += 2 * Math.PI
-    return diff
+  private static getAngleDifference(a: number, b: number): number {
+    const diff = ((b - a + Math.PI) % (Math.PI * 2)) - Math.PI
+    return diff < -Math.PI ? diff + Math.PI * 2 : diff
   }
 
-  // Extract key feature points of the trajectory
+  // Key point extraction
   private static extractKeyPoints(
     points: Point[],
     options: {
-      minAngleChange: number // Minimum Angle Change
-      minSegmentLength: number // Minimum line length
+      minAngleChange: number
+      minSegmentLengthRatio: number
+    } = {
+      minAngleChange: Math.PI / 9,
+      minSegmentLengthRatio: 0.15
     }
   ): Point[] {
-    if (points.length <= 2) return points
+    if (!points || points.length < 2) return []
 
-    const result: Point[] = [points[0]]
-    let currentDirection = this.getVector(points[0], points[1]).angle
-    let accumulatedAngleChange = 0
-    let lastKeyPoint = points[0]
+    // Handling of two points
+    if (points.length === 2) return [points[0], points[1]]
 
-    for (let i = 1; i < points.length - 1; i++) {
-      const v1 = this.getVector(points[i], points[i + 1])
-      const angleChange = Math.abs(
-        this.getAngleDifference(currentDirection, v1.angle)
-      )
-      accumulatedAngleChange += angleChange
-
-      const distanceFromLast = this.getDistance(lastKeyPoint, points[i])
-
-      // Adding keypoints when the cumulative angle change exceeds a threshold or is far enough away
-      if (
-        accumulatedAngleChange > options.minAngleChange ||
-        distanceFromLast > options.minSegmentLength
-      ) {
-        result.push(points[i])
-        lastKeyPoint = points[i]
-        accumulatedAngleChange = 0
-        currentDirection = v1.angle
-      }
-    }
-
-    result.push(points[points.length - 1])
-    return result
-  }
-
-  // Calculate trajectory characteristics
-  private static getTrajectoryFeatures(points: Point[]): {
-    totalDistance: number
-    overallDirection: number
-    segmentDirections: number[]
-    keyPoints: Point[]
-  } {
-    const keyPoints = this.extractKeyPoints(points, {
-      minAngleChange: Math.PI / 6,
-      minSegmentLength:
-        this.getDistance(points[0], points[points.length - 1]) * 0.1
-    })
-
-    let totalDistance = 0
-    const segmentDirections: number[] = []
-
-    for (let i = 0; i < keyPoints.length - 1; i++) {
-      const vector = this.getVector(keyPoints[i], keyPoints[i + 1])
-      totalDistance += vector.distance
-      segmentDirections.push(vector.angle)
-    }
-
-    const overallDirection = this.getVector(
-      points[0],
-      points[points.length - 1]
-    ).angle
-
-    return {
-      totalDistance,
-      overallDirection,
-      segmentDirections,
-      keyPoints
-    }
-  }
-
-  // Compare two trajectories for matching
-  public static matchTrajectories(
-    trajectory1: Point[],
-    trajectory2: Point[],
-    options = {
-      angleThreshold: Math.PI / 6, // 30 degree angle tolerance
-      similarityThreshold: 0.8 // similarity threshold
-    }
-  ): MatchResult {
-    // Getting the features of two trajectories
-    const features1 = this.getTrajectoryFeatures(trajectory1)
-    const features2 = this.getTrajectoryFeatures(trajectory2)
-
-    // Check overall orientation
-    const overallAngleDiff = Math.abs(
-      this.getAngleDifference(
-        features1.overallDirection,
-        features2.overallDirection
-      )
+    const totalLength = this.getTrajectoryLength(points)
+    const minSegmentLength = Math.max(
+      totalLength * options.minSegmentLengthRatio,
+      0.001 // Preventing de-zeroing
     )
-    if (overallAngleDiff > options.angleThreshold) {
+    const keyPoints: Point[] = [points[0]]
+    let lastVector = this.getVector(points[0], points[1])
+    let accumulatedAngle = 0
+
+    for (let i = 2; i < points.length; i++) {
+      const currentVector = this.getVector(points[i - 1], points[i])
+      const angleDiff = Math.abs(
+        this.getAngleDifference(lastVector.angle, currentVector.angle)
+      )
+      const segmentLength = this.getDistance(
+        keyPoints[keyPoints.length - 1],
+        points[i]
+      )
+
+      accumulatedAngle += angleDiff
+
+      if (
+        accumulatedAngle > options.minAngleChange ||
+        segmentLength > minSegmentLength
+      ) {
+        keyPoints.push(points[i - 1])
+        lastVector = currentVector
+        accumulatedAngle = 0
+      }
+    }
+
+    keyPoints.push(points[points.length - 1])
+    return this.simplifyKeyPoints(keyPoints, minSegmentLength)
+  }
+
+  // Secondary simplification key points
+  private static simplifyKeyPoints(points: Point[], minDist: number): Point[] {
+    // Calculate the average distance between key points
+    const avgDistance = this.getTrajectoryLength(points) / (points.length - 1)
+    // Dynamic adjustment factor: the larger the spacing, the smaller the factor
+    const dynamicFactor = Math.min(0.6, 0.3 * (avgDistance / minDist))
+    return points.filter(
+      (p, i) =>
+        i === 0 ||
+        i === points.length - 1 ||
+        this.getDistance(p, points[i - 1]) >= minDist * dynamicFactor
+    )
+  }
+
+  // Get the total length of the track
+  private static getTrajectoryLength(points: Point[]): number {
+    return points.reduce(
+      (sum, p, i) => (i > 0 ? sum + this.getDistance(points[i - 1], p) : 0),
+      0
+    )
+  }
+
+  // Trajectory feature extraction
+  private static getTrajectoryFeatures(
+    points: Point[],
+    keyPointOptions?: {
+      minAngleChange?: number
+      minSegmentLengthRatio?: number
+    }
+  ): {
+    directionSequence: number[]
+    relativeAngles: number[]
+    normalizedPoints: Point[]
+    keyPoints: Point[]
+    turnCount: number
+  } {
+    let turnCount = 0
+    if (!points || points.length < 2) {
       return {
-        isMatched: false,
-        similarity: 0
+        directionSequence: [],
+        relativeAngles: [],
+        normalizedPoints: [],
+        keyPoints: [],
+        turnCount
       }
     }
 
-    const result = this.matchComplexShape(trajectory1, trajectory2, options)
-    if (result.isMatched) return result
-
-    // Calculate the similarity of key segment directions
-    const directions1 = features1.segmentDirections
-    const directions2 = features2.segmentDirections
-
-    // Dynamic programming calculates the best match
-    const dp: number[][] = Array(directions1.length + 1)
-      .fill(0)
-      .map(() => Array(directions2.length + 1).fill(0))
-
-    // Populating the DP table
-    for (let i = 1; i <= directions1.length; i++) {
-      for (let j = 1; j <= directions2.length; j++) {
-        const angleDiff = Math.abs(
-          this.getAngleDifference(directions1[i - 1], directions2[j - 1])
-        )
-        const score = angleDiff <= options.angleThreshold ? 1 : 0
-        dp[i][j] = Math.max(
-          dp[i - 1][j],
-          dp[i][j - 1],
-          dp[i - 1][j - 1] + score
-        )
+    // Addressing two special cases
+    if (points.length === 2) {
+      const vec = this.getVector(points[0], points[1])
+      const normalized = this.normalizeTrajectory(points)
+      return {
+        directionSequence: [vec.angle],
+        relativeAngles: [],
+        normalizedPoints: normalized,
+        keyPoints: points,
+        turnCount
       }
     }
 
-    const maxMatches = dp[directions1.length][directions2.length]
-    const maxPossibleMatches = Math.max(directions1.length, directions2.length)
-    const similarity =
-      maxPossibleMatches > 0 ? maxMatches / maxPossibleMatches : 0
+    const finalOptions = {
+      minAngleChange: keyPointOptions?.minAngleChange ?? Math.PI / 9,
+      minSegmentLengthRatio: keyPointOptions?.minSegmentLengthRatio ?? 0.15
+    }
+    const keyPoints = this.extractKeyPoints(points, finalOptions) // Key point extraction
+    const normalized = this.normalizeTrajectory(keyPoints) // Normalization based on keypoints
+    const directions: number[] = []
+    const relativeAngles: number[] = []
+
+    for (let i = 1; i < normalized.length; i++) {
+      const vec = this.getVector(normalized[i - 1], normalized[i])
+      directions.push(vec.angle)
+      if (i >= 2) {
+        const prevVec = this.getVector(normalized[i - 2], normalized[i - 1])
+        const angleDiff = this.getAngleDifference(prevVec.angle, vec.angle)
+        relativeAngles.push(angleDiff)
+        // Counts the number of turns above the angle threshold
+        if (Math.abs(angleDiff) >= finalOptions.minAngleChange) {
+          turnCount++
+        }
+      }
+    }
 
     return {
-      isMatched: similarity >= options.similarityThreshold,
-      similarity
+      directionSequence: directions,
+      relativeAngles,
+      normalizedPoints: normalized,
+      keyPoints,
+      turnCount
     }
   }
 
-  // Calculate shape centre point
-  private static getCentroid(points: Point[]): Point {
-    let sumX = 0,
-      sumY = 0
-    for (const p of points) {
-      sumX += p.x
-      sumY += p.y
-    }
-    return {
-      x: sumX / points.length,
-      y: sumY / points.length
-    }
-  }
+  // trajectory normalization
+  private static normalizeTrajectory(points: Point[]): Point[] {
+    if (!points || points.length < 2) return []
 
-  // Normalisation of point sets
-  private static normalizePoints(points: Point[]): Point[] {
-    const center = this.getCentroid(points)
+    const centroid = this.getCentroid(points)
+    const totalLength = this.getTrajectoryLength(points)
+    const scale = totalLength > 0.001 ? 1 / totalLength : 1
 
-    // Calculate maximum distance for scaling
-    let maxDist = 0
-    for (const p of points) {
-      const dist = this.getDistance(center, p)
-      maxDist = Math.max(maxDist, dist)
-    }
-
-    // Normalised to the unit circle
     return points.map((p) => ({
-      x: (p.x - center.x) / maxDist,
-      y: (p.y - center.y) / maxDist
+      x: (p.x - centroid.x) * scale,
+      y: (p.y - centroid.y) * scale
     }))
   }
 
-  // Characterisation of computational shapes
-  private static getShapeDescriptor(points: Point[]): {
-    turningAngles: number[] // corner sequence
-    radialDistances: number[] // Radial Distance Sequence
-    edgeLengths: number[] // sequence of side lengths
-  } {
-    const normalized = this.normalizePoints(points)
-    const center = this.getCentroid(normalized)
-
-    const turningAngles: number[] = []
-    const radialDistances: number[] = []
-    const edgeLengths: number[] = []
-
-    // Calculate the sequence of features
-    for (let i = 0; i < normalized.length - 1; i++) {
-      // Calculating Corners
-      if (i < normalized.length - 2) {
-        const v1 = this.getVector(normalized[i], normalized[i + 1])
-        const v2 = this.getVector(normalized[i + 1], normalized[i + 2])
-        turningAngles.push(this.getAngleDifference(v1.angle, v2.angle))
-      }
-
-      // Calculate the distance to the centre
-      radialDistances.push(this.getDistance(center, normalized[i]))
-
-      // Calculate side lengths
-      edgeLengths.push(this.getDistance(normalized[i], normalized[i + 1]))
-    }
-
-    // Add the radial distance of the last point
-    radialDistances.push(
-      this.getDistance(center, normalized[normalized.length - 1])
+  private static getCentroid(points: Point[]): Point {
+    return points.reduce(
+      (sum, p) => ({
+        x: sum.x + p.x / points.length,
+        y: sum.y + p.y / points.length
+      }),
+      { x: 0, y: 0 }
     )
-
-    return {
-      turningAngles,
-      radialDistances,
-      edgeLengths
-    }
   }
 
-  // Calculate the sequence similarity
-  private static getSequenceSimilarity(seq1: number[], seq2: number[]): number {
-    const len1 = seq1.length
-    const len2 = seq2.length
-
-    // Finding the best match using dynamic programming
-    const dp: number[][] = Array(len1 + 1)
-      .fill(0)
-      .map(() => Array(len2 + 1).fill(0))
-
-    for (let i = 1; i <= len1; i++) {
-      for (let j = 1; j <= len2; j++) {
-        const diff = Math.abs(seq1[i - 1] - seq2[j - 1])
-        const similarity = Math.exp(-diff * diff) // Gaussian similarity
-        dp[i][j] = Math.max(
-          dp[i - 1][j],
-          dp[i][j - 1],
-          dp[i - 1][j - 1] + similarity
-        )
-      }
-    }
-
-    const maxScore = dp[len1][len2]
-    const maxPossible = Math.max(len1, len2)
-    return maxScore / maxPossible
-  }
-
-  private static matchComplexShape(
-    trajectory1: Point[],
-    trajectory2: Point[],
-    options = {
-      angleThreshold: Math.PI / 6,
-      similarityThreshold: 0.8
-    }
+  // Similarity calculation
+  public static matchTrajectories(
+    t1: Point[],
+    t2: Point[],
+    options: TrajectoryMatchOptions = {}
   ): MatchResult {
-    // Get shape description
-    const desc1 = this.getShapeDescriptor(trajectory1)
-    const desc2 = this.getShapeDescriptor(trajectory2)
+    options = {
+      angleThreshold: Math.PI / 4,
+      lengthTolerance: 0.3,
+      minSimilarity: 0.75,
+      turnCountPenalty: 0.1,
+      ...options
+    }
 
-    // Calculate the similarity of each feature
-    const turningSimilarity = this.getSequenceSimilarity(
-      desc1.turningAngles,
-      desc2.turningAngles
+    // Handling of null cases
+    if (!t1 || !t2 || t1.length < 2 || t2.length < 2) {
+      return { isMatched: false, similarity: 0 }
+    }
+
+    // Direct treatment of the case of two-point straight lines
+    if (t1.length === 2 && t2.length === 2) {
+      const vec1 = this.getVector(t1[0], t1[1])
+      const vec2 = this.getVector(t2[0], t2[1])
+      const angleDiff = Math.abs(
+        this.getAngleDifference(vec1.angle, vec2.angle)
+      )
+      const similarity = Math.exp(-angleDiff / options.angleThreshold)
+      return {
+        isMatched: similarity >= options.minSimilarity,
+        similarity
+      }
+    }
+
+    // Extraction Characteristics
+    const f1 = this.getTrajectoryFeatures(t1, options.keyPointOptions)
+    const f2 = this.getTrajectoryFeatures(t2, options.keyPointOptions)
+
+    // Calculate the difference in the number of turns
+    const turnCountDiff = Math.abs(f1.turnCount - f2.turnCount)
+    const turnPenalty = Math.exp(-turnCountDiff * options.turnCountPenalty)
+
+    // directional sequence matching
+    const directionSimilarity = this.dynamicTimeWarping(
+      f1.directionSequence,
+      f2.directionSequence,
+      (a, b) =>
+        Math.exp(
+          -Math.abs(this.getAngleDifference(a, b)) / options.angleThreshold
+        )
     )
 
-    const radialSimilarity = this.getSequenceSimilarity(
-      desc1.radialDistances,
-      desc2.radialDistances
+    // Relative Angle Matching
+    const angleSimilarity = this.dynamicTimeWarping(
+      f1.relativeAngles,
+      f2.relativeAngles,
+      (a, b) => Math.exp(-Math.abs(a - b) / (options.angleThreshold * 0.5))
     )
 
-    const edgeSimilarity = this.getSequenceSimilarity(
-      desc1.edgeLengths,
-      desc2.edgeLengths
+    // Shape Matching(based on key points)
+    const shapeSimilarity = this.compareShapes(
+      f1.normalizedPoints,
+      f2.normalizedPoints,
+      options.angleThreshold
     )
 
-    // Combined similarity (weights can be adjusted)
-    const similarity =
-      0.4 * turningSimilarity + 0.3 * radialSimilarity + 0.3 * edgeSimilarity
+    // Combined similarity
+    const baseSimilarity =
+      0.4 * directionSimilarity + 0.3 * angleSimilarity + 0.3 * shapeSimilarity
+    const similarity = Math.max(0, Math.min(1, baseSimilarity * turnPenalty))
 
     return {
-      isMatched: similarity >= options.similarityThreshold,
+      isMatched: similarity >= options.minSimilarity,
       similarity
     }
+  }
+
+  // Dynamic time regularization algorithm
+  private static dynamicTimeWarping(
+    seq1: number[],
+    seq2: number[],
+    similarityFn: (a: number, b: number) => number
+  ): number {
+    // Handling empty sequences
+    if (seq1.length === 0 || seq2.length === 0) {
+      return seq1.length === seq2.length ? 1 : 0
+    }
+
+    const m = seq1.length
+    const n = seq2.length
+    const dtw: number[][] = Array.from({ length: m + 1 }, () =>
+      Array(n + 1).fill(Infinity)
+    )
+    dtw[0][0] = 0
+
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        const cost = 1 - similarityFn(seq1[i - 1], seq2[j - 1])
+        dtw[i][j] =
+          cost +
+          Math.min(
+            dtw[i - 1][j], // insertion
+            dtw[i][j - 1], // deletion
+            dtw[i - 1][j - 1] // match
+          )
+      }
+    }
+
+    // Calculate the normalized similarity
+    const maxPathLength = Math.max(m, n)
+    return 1 - dtw[m][n] / maxPathLength
+  }
+
+  // Shape Matching
+  private static compareShapes(
+    points1: Point[],
+    points2: Point[],
+    angleThreshold: number
+  ): number {
+    const CENTROID_WEIGHT = 0.2
+    const PATH_WEIGHT = 0.5
+    const DIRECTION_WEIGHT = 0.3
+
+    // path similarity
+    const pathSimilarity = this.dynamicTimeWarping(
+      points1.flatMap((p) => [p.x, p.y]),
+      points2.flatMap((p) => [p.x, p.y]),
+      (a, b) => Math.exp(-Math.abs(a - b))
+    )
+
+    // Directional distribution similarity
+    const dirs1 = this.getDirectionDistribution(points1)
+    const dirs2 = this.getDirectionDistribution(points2)
+    const dirSimilarity = this.cosineSimilarity(dirs1, dirs2)
+
+    // Key Point Angle Matching
+    const angleSimilarity = this.compareKeyPointAngles(
+      points1,
+      points2,
+      angleThreshold
+    )
+
+    return (
+      PATH_WEIGHT * pathSimilarity +
+      DIRECTION_WEIGHT * dirSimilarity +
+      CENTROID_WEIGHT * angleSimilarity
+    )
+  }
+
+  // Comparison of key point perspectives
+  private static compareKeyPointAngles(
+    points1: Point[],
+    points2: Point[],
+    threshold: number
+  ): number {
+    const minLen = Math.min(points1.length, points2.length)
+    let matchCount = 0
+
+    for (let i = 0; i < minLen; i++) {
+      const vec1 = this.getVector(
+        points1[i],
+        points1[Math.min(i + 1, points1.length - 1)]
+      )
+      const vec2 = this.getVector(
+        points2[i],
+        points2[Math.min(i + 1, points2.length - 1)]
+      )
+      const diff = Math.abs(this.getAngleDifference(vec1.angle, vec2.angle))
+      if (diff <= threshold) matchCount++
+    }
+
+    return matchCount / Math.max(points1.length, points2.length)
+  }
+
+  // Histogram of directional distribution
+  private static getDirectionDistribution(points: Point[]): number[] {
+    const bins = Array(8).fill(0)
+    if (!points || points.length < 2) return bins
+
+    for (let i = 1; i < points.length; i++) {
+      const angle = Math.atan2(
+        points[i].y - points[i - 1].y,
+        points[i].x - points[i - 1].x
+      )
+      const bin = Math.floor((angle + Math.PI) / (Math.PI / 4)) % 8
+      bins[bin] += 1
+    }
+    return bins.map((v) => v / (points.length - 1))
+  }
+
+  // cosine similarity
+  private static cosineSimilarity(a: number[], b: number[]): number {
+    const dot = a.reduce((sum, v, i) => sum + v * b[i], 0)
+    const normA = Math.sqrt(a.reduce((sum, v) => sum + v * v, 0))
+    const normB = Math.sqrt(b.reduce((sum, v) => sum + v * v, 0))
+    return normA * normB > 0 ? dot / (normA * normB) : 0
   }
 }

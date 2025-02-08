@@ -218,6 +218,18 @@
   "command_gesture_new_window_config_incognito_description": {
     "message": "新建一个空的无痕式窗口"
   },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "转至左侧标签页"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "切换到当前标签页的左侧标签页"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "转至右侧标签页"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "切换到当前标签页的右侧标签页"
+  },
   "command_drag_text_copy_title": {
     "message": "复制"
   },

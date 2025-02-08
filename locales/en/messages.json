@@ -218,6 +218,18 @@
   "command_gesture_new_window_config_incognito_description": {
     "message": "New empty incognito window"
   },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Go to left tab"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Switch to the left tab of the current tab page"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Go to the right tab"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Switch to the right tab of the current tab page"
+  },
   "command_drag_text_copy_title": {
     "message": "Copy"
   },

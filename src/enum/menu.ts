@@ -1,5 +1,6 @@
 export enum Menu {
   Gesture = "gesture",
   Drag = "drag",
-  Setting = "setting"
+  Setting = "setting",
+  About = "about"
 }

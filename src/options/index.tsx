@@ -3,6 +3,7 @@ import "~style.css"
 import { useEffect, useState } from "react"
 
 import { Menu } from "~enum/menu"
+import About from "~options/about"
 import Donation from "~options/components/donation"
 import Drag from "~options/drag"
 import Gesture from "~options/gesture"
@@ -13,7 +14,8 @@ export default () => {
   const MenuPages = {
     [Menu.Gesture]: Gesture,
     [Menu.Drag]: Drag,
-    [Menu.Setting]: Setting
+    [Menu.Setting]: Setting,
+    [Menu.About]: About
   }
   const [menu, setMenu] = useState(Menu.Gesture)
   const MenuPage = MenuPages[menu]

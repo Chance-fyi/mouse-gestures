@@ -14,6 +14,7 @@ export type ConfigGesture = {
 export interface SyncConfigInterface {
   strokeStyle: string
   lineWidth: number
+  showTooltip: boolean
 }
 
 export interface LocalConfigInterface {

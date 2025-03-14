@@ -45,6 +45,22 @@ export default () => {
             />
           </div>
         </div>
+        <div className="w-full flex flex-row">
+          <div className="w-1/2 flex items-center">{i18n("show_tooltip")}</div>
+          <div className="w-1/2 flex justify-end">
+            <input
+              type="checkbox"
+              defaultChecked={syncConfig.showTooltip}
+              onChange={(e) =>
+                setSyncConfig({
+                  ...syncConfig,
+                  showTooltip: e.target.checked
+                })
+              }
+              className="toggle"
+            />
+          </div>
+        </div>
       </div>
     </>
   )

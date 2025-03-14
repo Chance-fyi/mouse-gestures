@@ -47,6 +47,7 @@ export class Event {
     const storage = new Storage()
     storage.get(SyncConfig.key).then((c) => {
       this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
+      this.config = { ...SyncConfig.default, ...this.config }
     })
 
     this.canvas = canvas
@@ -155,7 +156,9 @@ export class Event {
           group: this.group
         }
       }).then((res) => {
-        this.setTooltipVisible(res.message as boolean)
+        this.setTooltipVisible(
+          this.config.showTooltip && (res.message as boolean)
+        )
         this.setTooltipText(res.message)
       })
     }

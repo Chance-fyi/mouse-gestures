@@ -7,7 +7,8 @@ export class SyncConfig {
   public static readonly key: string = "sync-config"
   public static default: SyncConfigInterface = {
     strokeStyle: "#2b3440",
-    lineWidth: 10
+    lineWidth: 10,
+    showTooltip: true
   }
 }
 

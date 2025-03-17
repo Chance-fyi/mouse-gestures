@@ -32,7 +32,7 @@ export class ScrollToBottom implements CommandInterface {
 
   execute(): void {
     window.scrollTo({
-      top: document.body.scrollHeight,
+      top: document.documentElement.scrollHeight,
       behavior: this.config.behavior.value as ScrollBehavior
     })
   }

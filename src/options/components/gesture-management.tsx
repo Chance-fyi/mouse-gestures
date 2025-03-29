@@ -64,7 +64,7 @@ export default (props: GestureManagementProps) => {
             return (
               <div
                 key={gesture.uniqueKey}
-                className="aspect-[3/4] border flex flex-col h-full cursor-pointer indicator group"
+                className="aspect-[3/4] border flex flex-col w-full h-full cursor-pointer indicator group"
                 onClick={() => {
                   setTitle(props.editTitle)
                   setConfigGesture(gesture)
@@ -95,8 +95,10 @@ export default (props: GestureManagementProps) => {
                     color={syncConfig.strokeStyle}
                   />
                 </div>
-                <div className="w-full flex-1 flex items-center justify-center text-base">
-                  {gesture?.name || i18n(gesture.command.name)}
+                <div className="w-full flex-1 flex items-center justify-center text-base p-2">
+                  <p className="line-clamp-1">
+                    {gesture?.name || i18n(gesture.command.name)}
+                  </p>
                 </div>
               </div>
             )

@@ -2,6 +2,7 @@ import isURL from "validator/lib/isURL"
 
 import type { CommandInterface } from "~commands/command-interface"
 import type { DragData } from "~core/event"
+import { ConfigType } from "~enum/command"
 
 export class Search implements CommandInterface {
   readonly uniqueKey: string = "drag-text-search"
@@ -11,7 +12,7 @@ export class Search implements CommandInterface {
     disposition: {
       title: "command_drag_text_search_disposition_title",
       description: "command_drag_text_search_disposition_description",
-      type: "select",
+      type: ConfigType.Select,
       options: [
         {
           label: "command_drag_text_search_disposition_option_current_tab",
@@ -31,7 +32,7 @@ export class Search implements CommandInterface {
     openUrl: {
       title: "command_drag_url_open_title",
       description: "command_drag_text_search_open_url_description",
-      type: "toggle",
+      type: ConfigType.Toggle,
       value: false
     }
   }

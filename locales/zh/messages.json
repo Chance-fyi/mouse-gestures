@@ -305,6 +305,12 @@
   "command_drag_image_download_description": {
     "message": "下载拖拽的图片"
   },
+  "command_gesture_reload_hard_title": {
+    "message": "强制刷新"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "是否要绕过本地缓存"
+  },
   "optional": {
     "message": "可选"
   },

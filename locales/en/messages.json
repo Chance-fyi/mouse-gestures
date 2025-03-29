@@ -305,6 +305,12 @@
   "command_drag_image_download_description": {
     "message": "Download Dragged Images"
   },
+  "command_gesture_reload_hard_title": {
+    "message": "Hard Reload"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Whether to bypass local caching"
+  },
   "optional": {
     "message": "Optional"
   },

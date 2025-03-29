@@ -1,3 +1,5 @@
+import isURL from "validator/lib/isURL"
+
 import type { CommandInterface } from "~commands/command-interface"
 import type { DragData } from "~core/event"
 
@@ -25,11 +27,26 @@ export class Search implements CommandInterface {
         }
       ],
       value: "NEW_TAB"
+    },
+    openUrl: {
+      title: "command_drag_url_open_title",
+      description: "command_drag_text_search_open_url_description",
+      type: "toggle",
+      value: false
     }
   }
   data: DragData
 
   execute(): void {
+    if (this.config.openUrl.value && isURL(this.data.content)) {
+      chrome.tabs
+        .create({
+          url: this.data.content
+        })
+        .then()
+      return
+    }
+
     chrome.search
       .query({
         text: this.data.content,

@@ -257,6 +257,9 @@
   "command_drag_text_search_disposition_option_new_window": {
     "message": "新窗口"
   },
+  "command_drag_text_search_open_url_description": {
+    "message": "如果文字是网址，在新标签页打开"
+  },
   "command_drag_url_copy_title": {
     "message": "复制"
   },

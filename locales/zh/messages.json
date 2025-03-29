@@ -302,6 +302,24 @@
   "command_drag_image_download_title": {
     "message": "下载图片"
   },
+  "command_gesture_open_url_title": {
+    "message": "新建标签页打开自定义网址"
+  },
+  "command_gesture_open_url_description": {
+    "message": "新建一个标签页来打开指定的网址"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "自定义URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "要打开的网址"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "新建窗口打开自定义网址"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "新建一个窗口来打开指定的网址"
+  },
   "command_drag_image_download_description": {
     "message": "下载拖拽的图片"
   },

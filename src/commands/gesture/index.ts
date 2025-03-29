@@ -12,6 +12,8 @@ import { Muted } from "~commands/gesture/muted"
 import { MutedOtherTabs } from "~commands/gesture/muted-other-tabs"
 import { NewTab } from "~commands/gesture/new-tab"
 import { NewWindow } from "~commands/gesture/new-window"
+import { OpenUrl } from "~commands/gesture/open-url"
+import { OpenUrlWindow } from "~commands/gesture/open-url-window"
 import { Pinned } from "~commands/gesture/pinned"
 import { Reload } from "~commands/gesture/reload"
 import { ReloadAll } from "~commands/gesture/reload-all"
@@ -45,5 +47,7 @@ export default [
   new Maximized(),
   new Minimized(),
   new Fullscreen(),
-  new NewWindow()
+  new NewWindow(),
+  new OpenUrl(),
+  new OpenUrlWindow()
 ]

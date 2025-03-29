@@ -311,6 +311,24 @@
   "command_gesture_reload_hard_description": {
     "message": "Whether to bypass local caching"
   },
+  "command_gesture_open_url_title": {
+    "message": "Open custom URL in new tab"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Opens the specified URL in a new tab"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "Custom URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "The URL that should be opened"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Open custom URL in new window"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Opens the specified URL in a new window"
+  },
   "optional": {
     "message": "Optional"
   },

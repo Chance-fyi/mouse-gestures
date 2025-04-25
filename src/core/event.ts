@@ -12,6 +12,7 @@ interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
   setting: boolean
+  os: string
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
 }
@@ -20,6 +21,8 @@ export type DragData = {
   content: string
   file?: File
 }
+
+let lastRightClickTime: number = 0
 
 export class Event {
   public canvas: CanvasRenderingContext2D
@@ -31,6 +34,8 @@ export class Event {
   private lastX: number
   private lastY: number
   private blockMenu: boolean = false
+  private readonly os: string // operating system
+  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a mac or linux environment.
 
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
@@ -41,6 +46,7 @@ export class Event {
     canvas,
     upCallback,
     setting,
+    os,
     setTooltipVisible,
     setTooltipText
   }: Params) {
@@ -49,24 +55,19 @@ export class Event {
       this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
       this.config = { ...SyncConfig.default, ...this.config }
     })
-
     this.canvas = canvas
     this.upCallback = upCallback
     this.setting = setting
+    this.os = os
 
     this.setTooltipVisible = setTooltipVisible
     this.setTooltipText = setTooltipText
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
+    this.contextmenu = this.contextmenu.bind(this)
 
-    document.addEventListener("contextmenu", (e: MouseEvent) => {
-      if (this.blockMenu) {
-        // Block right-click menu
-        e.preventDefault()
-        this.blockMenu = false
-      }
-    })
+    document.addEventListener("contextmenu", this.contextmenu)
   }
 
   public mouseDown(e: MouseEvent | DragEvent) {
@@ -116,6 +117,12 @@ export class Event {
 
   public mouseMove(e: MouseEvent | DragEvent) {
     if (!this.config) return
+    if (this.doubleRightClick) {
+      this.doubleRightClick = false
+      this.mouseUp(e)
+      return
+    }
+
     const currentX: number = e.clientX - this.left
     const currentY: number = e.clientY - this.top
 
@@ -182,6 +189,28 @@ export class Event {
     document.removeEventListener("mouseup", this.mouseUp)
     document.removeEventListener("drag", this.mouseMove)
     document.removeEventListener("dragend", this.mouseUp)
+    document.removeEventListener("contextmenu", this.contextmenu)
     Trajectory.clear()
+  }
+
+  public contextmenu(e: MouseEvent) {
+    if (this.os == "mac" || this.os == "linux") {
+      const time = Date.now()
+      // Two right clicks with a time interval of less than 600ms are considered to be a double right-click
+      if (time - lastRightClickTime < 600) {
+        this.doubleRightClick = true
+      } else {
+        // Block right-click menu
+        e.preventDefault()
+      }
+      lastRightClickTime = time
+      document.removeEventListener("contextmenu", this.contextmenu)
+    } else {
+      if (this.blockMenu) {
+        // Block right-click menu
+        e.preventDefault()
+        this.blockMenu = false
+      }
+    }
   }
 }

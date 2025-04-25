@@ -23,9 +23,16 @@ export default () => {
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
 
+  let os: string
   useEffect(() => {
     document.addEventListener("mousedown", startDrawing)
     document.addEventListener("dragstart", startDrawing)
+    sendToBackground({
+      name: "os",
+      body: {}
+    }).then((res) => {
+      os = res.os
+    })
   }, [])
 
   const startDrawing = (e) => {
@@ -37,6 +44,7 @@ export default () => {
       canvas: ctx,
       upCallback: upCallback,
       setting: false,
+      os: os,
       setTooltipVisible,
       setTooltipText
     })

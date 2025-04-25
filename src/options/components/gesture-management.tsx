@@ -40,12 +40,19 @@ export default (props: GestureManagementProps) => {
   const [editTrajectory, setEditTrajectory] = useState<Point[]>([])
   const [, forceReRender] = useState("")
 
+  const [os, setOs] = useState("")
+  chrome.runtime.getPlatformInfo().then((info) => setOs(info.os))
   return (
     <div>
       {props.title !== Menu.Drag && (
         <>
           <div className="navbar bg-base-100">
             <span className="text-2xl">{i18n(props.title)}</span>
+            {(os == "mac" || os == "linux") && (
+              <span className="text ml-10 text-red-500">
+                {i18n("warnings")}
+              </span>
+            )}
           </div>
           <div className="divider mt-0"></div>
         </>

@@ -2,6 +2,9 @@
   "gesture": {
     "message": "手势"
   },
+  "warnings": {
+    "message": "在 Mac 和 Linux 中，右键上下文菜单与手势冲突。启用本插件后，需要双击右键才能打开上下文菜单！！！"
+  },
   "gesture_create": {
     "message": "新建手势"
   },

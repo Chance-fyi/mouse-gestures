@@ -48,6 +48,8 @@ export default (props: GestureDrawingProps) => {
     }
   }, [props.editTrajectory])
 
+  let os: string
+  chrome.runtime.getPlatformInfo().then((info) => (os = info.os))
   const startDrawing = (e) => {
     const canvas = canvasRef.current
     canvas.width = canvas.clientWidth
@@ -56,7 +58,8 @@ export default (props: GestureDrawingProps) => {
     const event = new Event({
       canvas: ctx,
       upCallback: upCallback,
-      setting: true
+      setting: true,
+      os: os
     })
     event.mouseDown(e)
   }

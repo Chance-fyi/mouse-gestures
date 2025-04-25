@@ -2,6 +2,9 @@
   "gesture": {
     "message": "Gestures"
   },
+  "warnings": {
+    "message": "Right-click context menus conflict with gestures in Mac and Linux.When this plugin is enabled, you need to double-click the right button to open the context menu!!!"
+  },
   "gesture_create": {
     "message": "Create Gesture"
   },

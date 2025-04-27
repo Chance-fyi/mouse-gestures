@@ -1,4 +1,10 @@
 {
+  "displayName": {
+    "message": "Mouse gestures"
+  },
+  "description": {
+    "message": "An extension that supports customizable mouse gestures and drag-and-drop features"
+  },
   "gesture": {
     "message": "Gestures"
   },

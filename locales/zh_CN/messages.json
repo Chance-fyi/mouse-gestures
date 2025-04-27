@@ -1,4 +1,10 @@
 {
+  "displayName": {
+    "message": "鼠标手势"
+  },
+  "description": {
+    "message": "支持自定义鼠标手势和拖拽功能的扩展"
+  },
   "gesture": {
     "message": "手势"
   },

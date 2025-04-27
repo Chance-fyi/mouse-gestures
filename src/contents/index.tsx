@@ -25,8 +25,8 @@ export default () => {
 
   let os: string
   useEffect(() => {
-    document.addEventListener("mousedown", startDrawing)
-    document.addEventListener("dragstart", startDrawing)
+    document.addEventListener("mousedown", startDrawing, { capture: true })
+    document.addEventListener("dragstart", startDrawing, { capture: true })
     sendToBackground({
       name: "os",
       body: {}

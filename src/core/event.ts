@@ -67,7 +67,9 @@ export class Event {
     this.mouseUp = this.mouseUp.bind(this)
     this.contextmenu = this.contextmenu.bind(this)
 
-    document.addEventListener("contextmenu", this.contextmenu)
+    document.addEventListener("contextmenu", this.contextmenu, {
+      capture: true
+    })
   }
 
   public mouseDown(e: MouseEvent | DragEvent) {
@@ -85,8 +87,8 @@ export class Event {
     this.lastX = e.clientX - this.left
     this.lastY = e.clientY - this.top
     if (e.type === "mousedown") {
-      document.addEventListener("mousemove", this.mouseMove)
-      document.addEventListener("mouseup", this.mouseUp)
+      document.addEventListener("mousemove", this.mouseMove, { capture: true })
+      document.addEventListener("mouseup", this.mouseUp, { capture: true })
     }
 
     if (e.type === "dragstart") {
@@ -110,8 +112,8 @@ export class Event {
       } else {
         return
       }
-      document.addEventListener("drag", this.mouseMove)
-      document.addEventListener("dragend", this.mouseUp)
+      document.addEventListener("drag", this.mouseMove, { capture: true })
+      document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
   }
 
@@ -185,10 +187,10 @@ export class Event {
     this.blockMenu = Trajectory.trajectory.length > 5
     this.upCallback(this)
 
-    document.removeEventListener("mousemove", this.mouseMove)
-    document.removeEventListener("mouseup", this.mouseUp)
-    document.removeEventListener("drag", this.mouseMove)
-    document.removeEventListener("dragend", this.mouseUp)
+    document.removeEventListener("mousemove", this.mouseMove, { capture: true })
+    document.removeEventListener("mouseup", this.mouseUp, { capture: true })
+    document.removeEventListener("drag", this.mouseMove, { capture: true })
+    document.removeEventListener("dragend", this.mouseUp, { capture: true })
     Trajectory.clear()
   }
 
@@ -210,6 +212,8 @@ export class Event {
         this.blockMenu = false
       }
     }
-    document.removeEventListener("contextmenu", this.contextmenu)
+    document.removeEventListener("contextmenu", this.contextmenu, {
+      capture: true
+    })
   }
 }

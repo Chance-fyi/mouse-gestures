@@ -31,8 +31,6 @@ export class Event {
   public setting: boolean
   public left: number
   public top: number
-  private lastX: number
-  private lastY: number
   private blockMenu: boolean = false
   private readonly os: string // operating system
   private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a mac or linux environment.
@@ -84,8 +82,6 @@ export class Event {
       this.left = 0
       this.top = 0
     }
-    this.lastX = e.clientX - this.left
-    this.lastY = e.clientY - this.top
     if (e.type === "mousedown") {
       document.addEventListener("mousemove", this.mouseMove, { capture: true })
       document.addEventListener("mouseup", this.mouseUp, { capture: true })
@@ -125,35 +121,43 @@ export class Event {
       return
     }
 
-    const currentX: number = e.clientX - this.left
-    const currentY: number = e.clientY - this.top
-
-    const distance = Math.sqrt(
-      Math.pow(currentX - this.lastX, 2) + Math.pow(currentY - this.lastY, 2)
-    )
-
-    this.canvas.beginPath()
-    this.canvas.moveTo(this.lastX, this.lastY)
-
-    // Bessel curve
-    const smoothness = Math.min(0.5, distance / 100)
-    const controlX = this.lastX + (currentX - this.lastX) * smoothness
-    const controlY = this.lastY + (currentY - this.lastY) * smoothness
-
-    this.canvas.quadraticCurveTo(controlX, controlY, currentX, currentY)
-
-    this.canvas.strokeStyle = this.config.strokeStyle
-    this.canvas.lineWidth = this.config.lineWidth
-    this.canvas.lineCap = "round"
-    this.canvas.lineJoin = "round"
-
-    this.canvas.stroke()
-    this.canvas.closePath()
-
-    this.lastX = currentX
-    this.lastY = currentY
+    const ctx = this.canvas
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
+    const points = Trajectory.trajectory
+    if (points.length < 3) return
+
+    ctx.beginPath()
+    const startX = points[0].x - this.left
+    const startY = points[0].y - this.top
+    ctx.moveTo(startX, startY)
+
+    for (let i = 1; i < points.length - 1; i++) {
+      const currentX = points[i].x - this.left
+      const currentY = points[i].y - this.top
+      const nextX = points[i + 1].x - this.left
+      const nextY = points[i + 1].y - this.top
+
+      const xc = (currentX + nextX) / 2
+      const yc = (currentY + nextY) / 2
+
+      ctx.quadraticCurveTo(currentX, currentY, xc, yc)
+    }
+
+    const lastSecondX = points[points.length - 2].x - this.left
+    const lastSecondY = points[points.length - 2].y - this.top
+    const lastX = points[points.length - 1].x - this.left
+    const lastY = points[points.length - 1].y - this.top
+    ctx.quadraticCurveTo(lastSecondX, lastSecondY, lastX, lastY)
+
+    ctx.strokeStyle = this.config.strokeStyle
+    ctx.lineWidth = this.config.lineWidth
+    ctx.lineCap = "round"
+    ctx.lineJoin = "round"
+
+    ctx.stroke()
+    ctx.closePath()
 
     if (!this.setting) {
       const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)

@@ -189,7 +189,6 @@ export class Event {
     document.removeEventListener("mouseup", this.mouseUp)
     document.removeEventListener("drag", this.mouseMove)
     document.removeEventListener("dragend", this.mouseUp)
-    document.removeEventListener("contextmenu", this.contextmenu)
     Trajectory.clear()
   }
 
@@ -204,7 +203,6 @@ export class Event {
         e.preventDefault()
       }
       lastRightClickTime = time
-      document.removeEventListener("contextmenu", this.contextmenu)
     } else {
       if (this.blockMenu) {
         // Block right-click menu
@@ -212,5 +210,6 @@ export class Event {
         this.blockMenu = false
       }
     }
+    document.removeEventListener("contextmenu", this.contextmenu)
   }
 }

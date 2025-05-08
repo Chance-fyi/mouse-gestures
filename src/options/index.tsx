@@ -21,6 +21,7 @@ export default () => {
   const MenuPage = MenuPages[menu]
 
   useEffect(() => {
+    document.title = chrome.runtime.getManifest().name
     if (window.location.hash) {
       setMenu(window.location.hash.slice(1) as Menu)
     }

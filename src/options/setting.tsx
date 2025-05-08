@@ -50,7 +50,7 @@ export default () => {
           <div className="w-1/2 flex justify-end">
             <input
               type="checkbox"
-              defaultChecked={syncConfig.showTooltip}
+              checked={syncConfig.showTooltip}
               onChange={(e) =>
                 setSyncConfig({
                   ...syncConfig,

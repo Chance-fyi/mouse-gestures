@@ -371,6 +371,15 @@
   "show_tooltip": {
     "message": "Show matching commands"
   },
+  "backup": {
+    "message": "Backup"
+  },
+  "restore": {
+    "message": "Restore"
+  },
+  "reset": {
+    "message": "Reset"
+  },
   "donation": {
     "message": "Thanks for using my plugin! I've been working hard to optimize and improve it, hoping to make your browsing experience more convenient. If you find it helpful, please consider supporting me with a donation.  It will motivate me to continue updating and improving this plugin. Thanks for your support!"
   },
@@ -385,5 +394,20 @@
   },
   "about_good_review": {
     "message": "Rate this plugin"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "confirm_content": {
+    "message": "Are you sure?"
+  },
+  "confirm_restore": {
+    "message": "All settings including gestures will be replaced by the selected config file."
+  },
+  "confirm_reset": {
+    "message": "All settings including gestures will be reset. This cannot be undone!"
   }
 }

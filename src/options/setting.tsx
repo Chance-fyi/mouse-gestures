@@ -1,7 +1,8 @@
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
-import { SyncConfig } from "~config/config"
+import { Backup, Reset, Restore, SyncConfig } from "~config/config"
 import { Menu } from "~enum/menu"
+import { useConfirm } from "~options/components/confirm"
 import { i18n } from "~utils/common"
 
 export default () => {
@@ -9,6 +10,8 @@ export default () => {
     SyncConfig.key,
     SyncConfig.default
   )
+  const { ConfirmUI, showConfirm } = useConfirm()
+
   return (
     <>
       <div className="navbar bg-base-100">
@@ -61,7 +64,47 @@ export default () => {
             />
           </div>
         </div>
+        <div className="divider mt-0"></div>
+        <div className="w-full flex flex-row space-x-5 justify-end">
+          <button className="btn min-w-20" onClick={Backup}>
+            {i18n("backup")}
+          </button>
+          <button
+            className="btn min-w-20"
+            onClick={() => {
+              const input = document.createElement("input")
+              input.type = "file"
+              input.accept = ".json"
+              input.onchange = (e) => {
+                const file = (e.target as HTMLInputElement).files[0]
+                const reader = new FileReader()
+                reader.onload = () => {
+                  showConfirm({
+                    title: i18n("restore"),
+                    content: i18n("confirm_restore"),
+                    onConfirm: () => Restore(reader.result as string)
+                  })
+                }
+                reader.readAsText(file)
+              }
+              input.click()
+            }}>
+            {i18n("restore")}
+          </button>
+          <button
+            className="btn min-w-20"
+            onClick={() =>
+              showConfirm({
+                title: i18n("reset"),
+                content: i18n("confirm_reset"),
+                onConfirm: Reset
+              })
+            }>
+            {i18n("reset")}
+          </button>
+        </div>
       </div>
+      {ConfirmUI}
     </>
   )
 }

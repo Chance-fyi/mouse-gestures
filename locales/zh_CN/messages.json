@@ -371,6 +371,15 @@
   "show_tooltip": {
     "message": "显示匹配的命令"
   },
+  "backup": {
+    "message": "备份"
+  },
+  "restore": {
+    "message": "还原"
+  },
+  "reset": {
+    "message": "重置"
+  },
   "donation": {
     "message": "感谢你使用我的插件！我一直在努力优化和改进它，希望能为你的浏览体验带来更多的便利。如果你觉得它有帮助，欢迎通过捐助支持我，让我有更多动力继续更新和完善这个插件，感谢你的支持！"
   },
@@ -385,5 +394,20 @@
   },
   "about_good_review": {
     "message": "好评"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "confirm": {
+    "message": "确认"
+  },
+  "confirm_content": {
+    "message": "你确认吗？"
+  },
+  "confirm_restore": {
+    "message": "将用选择的配置文件覆盖所有设置项（包括手势）"
+  },
+  "confirm_reset": {
+    "message": "将重置所有设置（包括手势），该操作无法撤销！"
   }
 }

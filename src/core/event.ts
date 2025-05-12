@@ -120,6 +120,7 @@ export class Event {
       this.mouseUp(e)
       return
     }
+    if (e.clientX === 0 && e.clientY === 0) return
 
     const ctx = this.canvas
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)

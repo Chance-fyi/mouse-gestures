@@ -16,3 +16,7 @@ export const getLocalConfig = async () => {
   return (localConfig =
     (await storage.get(LocalConfig.key)) || LocalConfig.default)
 }
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.runtime.openOptionsPage()
+})

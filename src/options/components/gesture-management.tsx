@@ -27,7 +27,7 @@ export default (props: GestureManagementProps) => {
   const [title, setTitle] = useState(props.createTitle)
   const [configGesture, setConfigGesture] = useState<ConfigGesture | null>(null)
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
-  const [localConfig, setLocalConfig] = useStorage(
+  const [localConfig, setLocalConfig, { isLoading }] = useStorage(
     {
       key: LocalConfig.key,
       instance: new Storage({
@@ -66,7 +66,7 @@ export default (props: GestureManagementProps) => {
             {i18n(props.createTitle)}
           </div>
         </label>
-        {(localConfig[props.commandGroup] as ConfigGesture[])?.map(
+        {!isLoading && (localConfig[props.commandGroup] as ConfigGesture[])?.map(
           (gesture: ConfigGesture) => {
             return (
               <div

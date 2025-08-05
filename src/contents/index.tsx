@@ -8,6 +8,10 @@ import { Command } from "~commands/command"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 
+
+
+
+
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"]
 }
@@ -86,7 +90,7 @@ export default () => {
       />
       {tooltipVisible && (
         <div className="z-[999999] w-screen h-screen fixed top-0 left-0 flex items-center justify-center">
-          <div className="bg-gray-800 bg-opacity-75 text-white text-3xl p-10 rounded-3xl flex items-center justify-center min-w-[15%] min-h-[15%] max-w-[50%] max-h-[50%]">
+          <div className="bg-gray-800 bg-opacity-75 text-white text-[30px] p-[40px] rounded-[30px] flex items-center justify-center min-w-[15%] min-h-[15%] max-w-[50%] max-h-[50%]">
             {tooltipText}
           </div>
         </div>

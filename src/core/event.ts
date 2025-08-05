@@ -190,6 +190,11 @@ export class Event {
       Trajectory.delPoint()
     }
     this.blockMenu = Trajectory.trajectory.length > 5
+    // Cancel the gesture by left-clicking
+    if (e.type === "mouseup" && e.button === 0) {
+      this.setTooltipVisible(false)
+      Trajectory.clear()
+    }
     this.upCallback(this)
 
     document.removeEventListener("mousemove", this.mouseMove, { capture: true })

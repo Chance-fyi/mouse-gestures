@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "重新加载所有标签页"
   },
+  "command_gesture_stop_loading_title": {
+    "message": "停止加载"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "停止加载当前页面"
+  },
   "command_gesture_duplicate_title": {
     "message": "复制标签页"
   },

@@ -8,12 +8,9 @@ import { Command } from "~commands/command"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 
-
-
-
-
 export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"]
+  matches: ["<all_urls>"],
+  run_at: "document_start"
 }
 
 export const getStyle = () => {

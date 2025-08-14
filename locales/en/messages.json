@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Reload All Tabs"
   },
+  "command_gesture_stop_loading_title": {
+    "message": "Stop loading"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Stop loading the current page"
+  },
   "command_gesture_duplicate_title": {
     "message": "Duplicate Tab"
   },

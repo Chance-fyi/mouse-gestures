@@ -21,6 +21,7 @@ import { RestoreTab } from "~commands/gesture/restore-tab"
 import { Scroll } from "~commands/gesture/scroll"
 import { ScrollToBottom } from "~commands/gesture/scroll-to-bottom"
 import { ScrollToTop } from "~commands/gesture/scroll-to-top"
+import { StopLoading } from "~commands/gesture/stop-loading"
 import { ToggleLeftTab } from "~commands/gesture/toggle-left-tab"
 import { ToggleRightTab } from "~commands/gesture/toggle-right-tab"
 
@@ -32,6 +33,7 @@ export default [
   new Backward(),
   new Reload(),
   new ReloadAll(),
+  new StopLoading(),
   new Duplicate(),
   new NewTab(),
   new CloseTab(),

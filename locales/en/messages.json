@@ -263,6 +263,18 @@
   "command_gesture_toggle_last_tab_description": {
     "message": "Switch to the rightmost tab"
   },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Move tab to start"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Moves the current tab to the start of the tab strip"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Move tab to end"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Moves the current tab to the end of the tab strip"
+  },
   "command_drag_text_copy_title": {
     "message": "Copy"
   },

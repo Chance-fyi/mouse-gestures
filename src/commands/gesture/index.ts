@@ -8,6 +8,8 @@ import { Forward } from "~commands/gesture/forward"
 import { Fullscreen } from "~commands/gesture/fullscreen"
 import { Maximized } from "~commands/gesture/maximized"
 import { Minimized } from "~commands/gesture/minimized"
+import { MoveTabToEnd } from "~commands/gesture/move-tab-to-end"
+import { MoveTabToStart } from "~commands/gesture/move-tab-to-start"
 import { Muted } from "~commands/gesture/muted"
 import { MutedOtherTabs } from "~commands/gesture/muted-other-tabs"
 import { NewTab } from "~commands/gesture/new-tab"
@@ -47,6 +49,8 @@ export default [
   new ToggleRightTab(),
   new ToggleFirstTab(),
   new ToggleLastTab(),
+  new MoveTabToStart(),
+  new MoveTabToEnd(),
   new Pinned(),
   new Muted(),
   new MutedOtherTabs(),

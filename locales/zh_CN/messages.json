@@ -263,6 +263,18 @@
   "command_gesture_toggle_last_tab_description": {
     "message": "切换到最右侧的标签页"
   },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "移动标签页到开头"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "移动当前标签页到标签栏的开头"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "移动标签页到末尾"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "移动当前标签页到标签栏的末尾"
+  },
   "command_drag_text_copy_title": {
     "message": "复制"
   },

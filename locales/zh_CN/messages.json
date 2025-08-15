@@ -245,6 +245,24 @@
   "command_gesture_toggle_right_tab_description": {
     "message": "切换到当前标签页的右侧标签页"
   },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "转至第一个标签页"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "切换到最左侧的标签页"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "包含固定标签页"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "是否将固定标签页视为最左侧的标签页"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "转至最后一个标签页"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "切换到最右侧的标签页"
+  },
   "command_drag_text_copy_title": {
     "message": "复制"
   },

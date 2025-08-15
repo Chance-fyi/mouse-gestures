@@ -245,6 +245,24 @@
   "command_gesture_toggle_right_tab_description": {
     "message": "Switch to the tab to the right of the current tab"
   },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Go to the first tab"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Switch to the leftmost tab"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Fixed tabs included"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Whether or not to treat fixed tabs as leftmost tabs"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Go to last tab"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Switch to the rightmost tab"
+  },
   "command_drag_text_copy_title": {
     "message": "Copy"
   },

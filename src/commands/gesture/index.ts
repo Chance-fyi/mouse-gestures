@@ -22,6 +22,8 @@ import { Scroll } from "~commands/gesture/scroll"
 import { ScrollToBottom } from "~commands/gesture/scroll-to-bottom"
 import { ScrollToTop } from "~commands/gesture/scroll-to-top"
 import { StopLoading } from "~commands/gesture/stop-loading"
+import { ToggleFirstTab } from "~commands/gesture/toggle-first-tab"
+import { ToggleLastTab } from "~commands/gesture/toggle-last-tab"
 import { ToggleLeftTab } from "~commands/gesture/toggle-left-tab"
 import { ToggleRightTab } from "~commands/gesture/toggle-right-tab"
 
@@ -43,6 +45,8 @@ export default [
   new RestoreTab(),
   new ToggleLeftTab(),
   new ToggleRightTab(),
+  new ToggleFirstTab(),
+  new ToggleLastTab(),
   new Pinned(),
   new Muted(),
   new MutedOtherTabs(),

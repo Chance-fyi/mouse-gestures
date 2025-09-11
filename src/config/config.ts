@@ -10,7 +10,32 @@ export class SyncConfig {
   public static default: SyncConfigInterface = {
     strokeStyle: "#2b3440",
     lineWidth: 10,
-    showTooltip: true
+    showTooltip: true,
+    tooltipStyle: {
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+      backgroundColor: "#1F2937BF",
+      color: "#FFF",
+      fontSize: "30px",
+
+      padding: "40px",
+      borderRadius: "30px",
+
+      minWidth: "15%",
+      minHeight: "15%",
+      maxWidth: "50%",
+      maxHeight: "50%",
+
+      pointerEvents: "none",
+      zIndex: 999
+    }
   }
 }
 

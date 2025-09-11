@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
 import { Backup, Reset, Restore, SyncConfig } from "~config/config"
@@ -11,6 +13,8 @@ export default () => {
     SyncConfig.default
   )
   const { ConfirmUI, showConfirm } = useConfirm()
+  const [tooltipStyle, setTooltipStyle] = useState("")
+  const [tooltipStyleError, setTooltipStyleError] = useState(false)
 
   return (
     <>
@@ -62,6 +66,34 @@ export default () => {
               }
               className="toggle"
             />
+          </div>
+        </div>
+        <div className="w-full flex flex-row">
+          <div className="w-1/2 flex items-center">{i18n("tooltip_style")}</div>
+          <div className="w-1/2 flex justify-end">
+            <textarea
+              className={`textarea textarea-bordered ${tooltipStyleError ? "textarea-error" : ""} focus:outline-none w-full border`}
+              rows={5}
+              spellCheck={false}
+              value={
+                tooltipStyle
+                  ? tooltipStyle
+                  : JSON.stringify(syncConfig.tooltipStyle, null, 2)
+              }
+              onChange={(e) => {
+                try {
+                  let json = JSON.parse(e.target.value)
+                  setTooltipStyleError(false)
+                  setSyncConfig({
+                    ...syncConfig,
+                    tooltipStyle: json
+                  }).then()
+                  console.log(syncConfig)
+                } catch {
+                  setTooltipStyleError(true)
+                }
+                setTooltipStyle(e.target.value)
+              }}></textarea>
           </div>
         </div>
         <div className="divider mt-0"></div>

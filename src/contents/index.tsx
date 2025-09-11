@@ -3,8 +3,10 @@ import type { PlasmoCSConfig } from "plasmo"
 import { useEffect, useRef, useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
+import { useStorage } from "@plasmohq/storage/hook"
 
 import { Command } from "~commands/command"
+import { SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
 
@@ -23,6 +25,7 @@ export default () => {
   const canvasRef = useRef(null)
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
+  const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
 
   let os: string
   useEffect(() => {
@@ -86,10 +89,8 @@ export default () => {
         className="w-screen h-screen fixed top-0 left-0 z-[99999] pointer-events-none"
       />
       {tooltipVisible && (
-        <div className="z-[999999] w-screen h-screen fixed top-0 left-0 flex items-center justify-center">
-          <div className="bg-gray-800 bg-opacity-75 text-white text-[30px] p-[40px] rounded-[30px] flex items-center justify-center min-w-[15%] min-h-[15%] max-w-[50%] max-h-[50%]">
-            {tooltipText}
-          </div>
+        <div style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>
+          {tooltipText}
         </div>
       )}
     </>

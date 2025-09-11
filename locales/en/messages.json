@@ -407,6 +407,9 @@
   "show_tooltip": {
     "message": "Show matching commands"
   },
+  "tooltip_style": {
+    "message": "Customizable command tooltip style"
+  },
   "backup": {
     "message": "Backup"
   },

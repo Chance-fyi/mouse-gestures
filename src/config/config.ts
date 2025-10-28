@@ -11,6 +11,7 @@ export class SyncConfig {
     strokeStyle: "#2b3440",
     lineWidth: 10,
     showTooltip: true,
+    showTrajectory: true,
     tooltipStyle: {
       position: "fixed",
       top: "50%",

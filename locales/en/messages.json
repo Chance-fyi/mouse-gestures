@@ -407,6 +407,9 @@
   "show_tooltip": {
     "message": "Show matching commands"
   },
+  "show_trajectory": {
+    "message": "Show mouse trail"
+  },
   "tooltip_style": {
     "message": "Customizable command tooltip style"
   },

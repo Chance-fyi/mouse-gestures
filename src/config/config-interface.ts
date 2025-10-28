@@ -15,6 +15,7 @@ export interface SyncConfigInterface {
   strokeStyle: string
   lineWidth: number
   showTooltip: boolean
+  showTrajectory: boolean
   tooltipStyle: object
 }
 

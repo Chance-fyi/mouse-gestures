@@ -407,6 +407,9 @@
   "show_tooltip": {
     "message": "显示匹配的命令"
   },
+  "show_trajectory": {
+    "message": "显示鼠标轨迹"
+  },
   "tooltip_style": {
     "message": "自定义命令提示框样式"
   },

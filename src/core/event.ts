@@ -129,36 +129,38 @@ export class Event {
     const points = Trajectory.trajectory
     if (points.length < 3) return
 
-    ctx.beginPath()
-    const startX = points[0].x - this.left
-    const startY = points[0].y - this.top
-    ctx.moveTo(startX, startY)
+    if (this.setting || this.config.showTrajectory) {
+      ctx.beginPath()
+      const startX = points[0].x - this.left
+      const startY = points[0].y - this.top
+      ctx.moveTo(startX, startY)
 
-    for (let i = 1; i < points.length - 1; i++) {
-      const currentX = points[i].x - this.left
-      const currentY = points[i].y - this.top
-      const nextX = points[i + 1].x - this.left
-      const nextY = points[i + 1].y - this.top
+      for (let i = 1; i < points.length - 1; i++) {
+        const currentX = points[i].x - this.left
+        const currentY = points[i].y - this.top
+        const nextX = points[i + 1].x - this.left
+        const nextY = points[i + 1].y - this.top
 
-      const xc = (currentX + nextX) / 2
-      const yc = (currentY + nextY) / 2
+        const xc = (currentX + nextX) / 2
+        const yc = (currentY + nextY) / 2
 
-      ctx.quadraticCurveTo(currentX, currentY, xc, yc)
+        ctx.quadraticCurveTo(currentX, currentY, xc, yc)
+      }
+
+      const lastSecondX = points[points.length - 2].x - this.left
+      const lastSecondY = points[points.length - 2].y - this.top
+      const lastX = points[points.length - 1].x - this.left
+      const lastY = points[points.length - 1].y - this.top
+      ctx.quadraticCurveTo(lastSecondX, lastSecondY, lastX, lastY)
+
+      ctx.strokeStyle = this.config.strokeStyle
+      ctx.lineWidth = this.config.lineWidth
+      ctx.lineCap = "round"
+      ctx.lineJoin = "round"
+
+      ctx.stroke()
+      ctx.closePath()
     }
-
-    const lastSecondX = points[points.length - 2].x - this.left
-    const lastSecondY = points[points.length - 2].y - this.top
-    const lastX = points[points.length - 1].x - this.left
-    const lastY = points[points.length - 1].y - this.top
-    ctx.quadraticCurveTo(lastSecondX, lastSecondY, lastX, lastY)
-
-    ctx.strokeStyle = this.config.strokeStyle
-    ctx.lineWidth = this.config.lineWidth
-    ctx.lineCap = "round"
-    ctx.lineJoin = "round"
-
-    ctx.stroke()
-    ctx.closePath()
 
     if (!this.setting) {
       const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)

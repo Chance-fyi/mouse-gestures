@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Fare Hareketleri"
+  },
+  "description": {
+    "message": "Özelleştirilebilir fare hareketlerini ve sürükle-bırak özelliklerini destekleyen bir eklenti"
+  },
+  "gesture": {
+    "message": "Hareketler"
+  },
+  "warnings": {
+    "message": "Mac ve Linux'ta sağ tıklama bağlam menüleri hareketlerle çakışır. Bu eklenti etkinleştirildiğinde bağlam menüsünü açmak için sağ tıklamayı iki kez yapmanız gerekir!"
+  },
+  "gesture_create": {
+    "message": "Hareket Oluştur"
+  },
+  "gesture_edit": {
+    "message": "Hareketi Düzenle"
+  },
+  "gesture_similar_tips": {
+    "message": "Bu hareket \"{}\" hareketine benziyor"
+  },
+  "command": {
+    "message": "Komut"
+  },
+  "command_description": {
+    "message": "Bu harekete atanacak komutu seçin"
+  },
+  "textLabel": {
+    "message": "Etiket"
+  },
+  "textLabel_description": {
+    "message": "Komut adının yerine gösterilecek özel bir isim atayın"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Sayfayı Kaydır"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Sayfayı yukarı, aşağı, sola ve sağa kaydırın"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Kaydırma Yönü"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Kaydırma yönünü seçin"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Yukarı Kaydır"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Aşağı Kaydır"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Sola Kaydır"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Sağa Kaydır"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Kaydırma Oranı"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Sayfanın görünür alanının ne kadarının kaydırılacağını yüzde olarak seçin"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Davranış"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Anında kaydırma veya yumuşak animasyonla kaydırma"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Yumuşak"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Anında"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Otomatik"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Başa Kaydır"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Sayfanın başına git"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Sona Kaydır"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Sayfanın sonuna git"
+  },
+  "command_gesture_forward_title": {
+    "message": "İleri"
+  },
+  "command_gesture_forward_description": {
+    "message": "Sonraki sayfaya git"
+  },
+  "command_gesture_backward_title": {
+    "message": "Geri"
+  },
+  "command_gesture_backward_description": {
+    "message": "Önceki sayfaya git"
+  },
+  "command_gesture_reload_title": {
+    "message": "Yenile"
+  },
+  "command_gesture_reload_description": {
+    "message": "Sayfayı yenile"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Tümünü Yenile"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Tüm sekmeleri yenile"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Yüklemeyi Durdur"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Mevcut sayfanın yüklemesini durdur"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Sekmeyi Kopyala"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Mevcut sekmeyi kopyala"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Yeni Sekme"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Yeni sekme oluştur"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Aktif"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "Sekme pencerede aktif olacak mı?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Pozisyon"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Sekmenin penceredeki konumu"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Başlangıç"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Sol"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Sağ"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Son"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Sekmeyi Kapat"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Mevcut sekmeyi kapat"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Diğer Sekmeleri Kapat"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Tüm sekmeleri kapat (mevcut ve sabitlenmiş olanlar hariç)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Sol Sekmeleri Kapat"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Mevcut sekmenin solundaki tüm sekmeleri kapat (sabitlenmiş olanlar hariç)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Sağ Sekmeleri Kapat"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Mevcut sekmenin sağındaki tüm sekmeleri kapat"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Sekmeyi Geri Yükle"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Son kapatılan sekmeyi geri yükle"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Sekmeyi Sabitle/Sabit Kaldır"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Mevcut sekmeyi sabitle veya sabitlemesini kaldır"
+  },
+  "command_gesture_muted_title": {
+    "message": "Sekmeyi Sessize Al/Aç"
+  },
+  "command_gesture_muted_description": {
+    "message": "Mevcut sekmenin sesini kapat veya aç"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Diğer Sekmeleri Sessize Al"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Mevcut sekme dışındaki tüm sekmeleri sessize al"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Pencereyi Maksimize/Eski Haline Getir"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Pencerenin boyutunu maksimize/normal arasında değiştir"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Pencereyi Küçült"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Mevcut pencereyi küçült"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Tam Ekrana Geç/Çık"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Tam ekran modunu değiştir"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Yeni Pencere"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Yeni boş pencere oluştur"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Gizli Pencere"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Yeni boş gizli pencere oluştur"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Önceki Sekmeye Git"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Mevcut sekmenin solundaki sekmeye geç"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Sonraki Sekmeye Git"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Mevcut sekmenin sağındaki sekmeye geç"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "İlk Sekmeye Git"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "En sol sekmeye geç"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Sabit Sekmeler Dahil"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Sabit sekmelerin en soldaki sekmeler olarak sayılıp sayılmayacağını belirleyin"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Son Sekmeye Git"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "En sağdaki sekmeye geç"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Sekmeyi Başlangıca Taşı"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Mevcut sekmeyi sekme çubuğunun başına taşı"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Sekmeyi Sona Taşı"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Mevcut sekmeyi sekme çubuğunun sonuna taşı"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Kopyala"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Sürüklenen metni panoya kopyala"
+  },
+  "command_drag_text_search_title": {
+    "message": "Ara"
+  },
+  "command_drag_text_search_description": {
+    "message": "Sürüklenen metni ara"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Konum"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Arama sonuçlarının gösterileceği yer"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Mevcut Sekme"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Yeni Sekme"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Yeni Pencere"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Metin bir URL ise, yeni sekmede aç"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Kopyala"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Sürüklenen bağlantıyı panoya kopyala"
+  },
+  "command_drag_url_open_title": {
+    "message": "Aç"
+  },
+  "command_drag_url_open_description": {
+    "message": "Sürüklenen bağlantıyı aç"
+  },
+  "command_drag_text_open_description": {
+    "message": "Sürüklenen metin bağlantısını aç"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Yeni Pencerede Aç"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Sürüklenen bağlantıyı yeni pencerede aç"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Resim Adresini Kopyala"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Sürüklenen resmin adresini panoya kopyala"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Resmi Kopyala"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Sürüklenen resmi panoya kopyala"
+  },
+  "command_drag_image_open_title": {
+    "message": "Resmi Yeni Sekmede Aç"
+  },
+  "command_drag_image_open_description": {
+    "message": "Sürüklenen resmi yeni sekmede aç"
+  },
+  "command_drag_image_download_title": {
+    "message": "Resmi İndir"
+  },
+  "command_drag_image_download_description": {
+    "message": "Sürüklenen resmi indir"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Zorla Yenile"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Yerel önbelleği atlayarak yenile"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Özel URL'yi Yeni Sekmede Aç"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Belirtilen URL'yi yeni sekmede açar"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "Özel URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "Açılacak URL"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Özel URL'yi Yeni Pencerede Aç"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Belirtilen URL'yi yeni pencerede açar"
+  },
+  "optional": {
+    "message": "İsteğe Bağlı"
+  },
+  "drag": {
+    "message": "Sürükle"
+  },
+  "setting": {
+    "message": "Ayarlar"
+  },
+  "save": {
+    "message": "Kaydet"
+  },
+  "search": {
+    "message": "Ara"
+  },
+  "drag_text": {
+    "message": "Metin"
+  },
+  "drag_url": {
+    "message": "Bağlantı"
+  },
+  "drag_image": {
+    "message": "Resim"
+  },
+  "line_color": {
+    "message": "Çizgi Rengi"
+  },
+  "line_width": {
+    "message": "Çizgi Kalınlığı"
+  },
+  "show_tooltip": {
+    "message": "Eşleşen komutları göster"
+  },
+  "show_trajectory": {
+    "message": "Fare izini göster"
+  },
+  "tooltip_style": {
+    "message": "Özelleştirilebilir komut ipucu stili"
+  },
+  "backup": {
+    "message": "Yedekle"
+  },
+  "restore": {
+    "message": "Geri Yükle"
+  },
+  "reset": {
+    "message": "Sıfırla"
+  },
+  "donation": {
+    "message": "Eklentimi kullandığınız için teşekkürler! Tarayıcı deneyiminizi daha rahat hale getirmek için çok çalıştım. Eğer faydalı buluyorsanız, lütfen bağış ile destek olun. Bu, eklentiyi geliştirmeye devam etmem için motivasyon sağlayacaktır. Destekleriniz için teşekkürler!"
+  },
+  "about": {
+    "message": "Hakkında"
+  },
+  "about_source_code": {
+    "message": "Kaynak Kod"
+  },
+  "about_report_bug": {
+    "message": "Hata Bildir"
+  },
+  "about_good_review": {
+    "message": "Bu eklentiyi değerlendirin"
+  },
+  "cancel": {
+    "message": "İptal"
+  },
+  "confirm": {
+    "message": "Onayla"
+  },
+  "confirm_content": {
+    "message": "Emin misiniz?"
+  },
+  "confirm_restore": {
+    "message": "Seçilen yapılandırma dosyası ile tüm ayarlar ve hareketler değiştirilecektir."
+  },
+  "confirm_reset": {
+    "message": "Tüm ayarlar ve hareketler sıfırlanacaktır. Bu işlemi geri alamazsınız!"
+  }
+}

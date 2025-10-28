@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "إيماءات الماوس"
+  },
+  "description": {
+    "message": "امتداد يدعم إيماءات الماوس القابلة للتخصيص وميزات السحب والإفلات"
+  },
+  "gesture": {
+    "message": "الإيماءات"
+  },
+  "warnings": {
+    "message": "قوائم النقر بزر الماوس الأيمن تتعارض مع الإيماءات في نظامي Mac وLinux. عند تمكين هذا الملحق، تحتاج إلى النقر المزدوج على الزر الأيمن لفتح القائمة!"
+  },
+  "gesture_create": {
+    "message": "إنشاء إيماءة"
+  },
+  "gesture_edit": {
+    "message": "تحرير الإيماءة"
+  },
+  "gesture_similar_tips": {
+    "message": "هذه الإيماءة مشابهة للإيماءة \"{}\""
+  },
+  "command": {
+    "message": "الأمر"
+  },
+  "command_description": {
+    "message": "اختر الأمر لتعيينه لهذه الإيماءة"
+  },
+  "textLabel": {
+    "message": "التسمية"
+  },
+  "textLabel_description": {
+    "message": "قم بتعيين اسم عرض مخصص لاستبدال اسم الأمر"
+  },
+  "command_gesture_scroll_title": {
+    "message": "تمرير الصفحة"
+  },
+  "command_gesture_scroll_description": {
+    "message": "تمرير الصفحة لأعلى، أسفل، يسار ويمين"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "اتجاه التمرير"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "اختر اتجاه التمرير"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "تمرير لأعلى"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "تمرير لأسفل"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "تمرير لليسار"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "تمرير لليمين"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "نسبة التمرير"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "نسبة ارتفاع المنطقة المرئية التي يتم تمرير الصفحة من خلالها"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "السلوك"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "تمرير فوري أو تمرير بسلاسة مع الرسوم المتحركة"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "سلس"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "فوري"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "تلقائي"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "الذهاب للأعلى"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "الذهاب إلى أعلى الصفحة"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "الذهاب للأسفل"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "الذهاب إلى أسفل الصفحة"
+  },
+  "command_gesture_forward_title": {
+    "message": "إلى الأمام"
+  },
+  "command_gesture_forward_description": {
+    "message": "الانتقال إلى الصفحة التالية"
+  },
+  "command_gesture_backward_title": {
+    "message": "رجوع"
+  },
+  "command_gesture_backward_description": {
+    "message": "الانتقال إلى الصفحة السابقة"
+  },
+  "command_gesture_reload_title": {
+    "message": "إعادة التحميل"
+  },
+  "command_gesture_reload_description": {
+    "message": "إعادة تحميل الصفحة"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "إعادة تحميل الكل"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "إعادة تحميل جميع الألسنة"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "إيقاف التحميل"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "إيقاف تحميل الصفحة الحالية"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "تكرار التبويب"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "تكرار التبويب الحالي"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "تبويب جديد"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "إنشاء تبويب جديد"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "نشط"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "هل التبويب هو التبويب النشط في النافذة؟"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "الموضع"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "موضع التبويب في النافذة"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "البداية"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "يسار"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "يمين"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "النهاية"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "إغلاق التبويب"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "إغلاق التبويب الحالي"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "إغلاق باقي الألسنة"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "إغلاق جميع الألسنة (باستثناء الحالية والمثبتة)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "إغلاق الألسنة على اليسار"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "إغلاق جميع الألسنة على يسار التبويب الحالي (باستثناء المثبتة)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "إغلاق الألسنة على اليمين"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "إغلاق جميع الألسنة على يمين التبويب الحالي"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "استعادة التبويب"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "استعادة آخر تبويب تم إغلاقه"
+  },
+  "command_gesture_pinned_title": {
+    "message": "تثبيت/إلغاء تثبيت التبويب"
+  },
+  "command_gesture_pinned_description": {
+    "message": "تثبيت أو إلغاء تثبيت التبويب الحالي"
+  },
+  "command_gesture_muted_title": {
+    "message": "كتم/إلغاء كتم التبويب"
+  },
+  "command_gesture_muted_description": {
+    "message": "كتم أو إلغاء كتم التبويب الحالي"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "كتم باقي الألسنة"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "كتم جميع الألسنة باستثناء التبويب الحالي"
+  },
+  "command_gesture_maximized_title": {
+    "message": "تكبير/استعادة النافذة"
+  },
+  "command_gesture_maximized_description": {
+    "message": "تبديل حجم النافذة بين المكبرة والطبيعية"
+  },
+  "command_gesture_minimized_title": {
+    "message": "تصغير النافذة"
+  },
+  "command_gesture_minimized_description": {
+    "message": "تصغير النافذة الحالية"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "تفعيل/إيقاف وضع ملء الشاشة"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "تبديل وضع ملء الشاشة"
+  },
+  "command_gesture_new_window_title": {
+    "message": "نافذة جديدة"
+  },
+  "command_gesture_new_window_description": {
+    "message": "إنشاء نافذة فارغة جديدة"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "نافذة التصفح المتخفي"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "إنشاء نافذة جديدة فارغة في وضع التصفح المتخفي"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "الانتقال إلى التبويب السابق"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "التبديل إلى التبويب على يسار التبويب الحالي"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "الانتقال إلى التبويب التالي"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "التبديل إلى التبويب على يمين التبويب الحالي"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "الانتقال إلى أول تبويب"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "التبديل إلى التبويب الأكثر يسارًا"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "تضمين الألسنة المثبتة"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "تحديد ما إذا كان سيتم اعتبار الألسنة المثبتة كأقصى اليسار أم لا"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "الانتقال إلى آخر تبويب"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "التبديل إلى التبويب الأكثر يمينًا"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "نقل التبويب للبداية"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "نقل التبويب الحالي إلى بداية شريط الألسنة"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "نقل التبويب للنهاية"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "نقل التبويب الحالي إلى نهاية شريط الألسنة"
+  },
+  "command_drag_text_copy_title": {
+    "message": "نسخ"
+  },
+  "command_drag_text_copy_description": {
+    "message": "نسخ النص المسحوب إلى الحافظة"
+  },
+  "command_drag_text_search_title": {
+    "message": "بحث"
+  },
+  "command_drag_text_search_description": {
+    "message": "البحث عن النص المسحوب"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "الموقع"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "المكان الذي سيتم عرض نتائج البحث فيه"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "التبويب الحالي"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "تبويب جديد"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "نافذة جديدة"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "إذا كان النص عنوان URL، افتحه في تبويب جديد"
+  },
+  "command_drag_url_copy_title": {
+    "message": "نسخ"
+  },
+  "command_drag_url_copy_description": {
+    "message": "نسخ الرابط المسحوب إلى الحافظة"
+  },
+  "command_drag_url_open_title": {
+    "message": "فتح"
+  },
+  "command_drag_url_open_description": {
+    "message": "فتح الرابط المسحوب"
+  },
+  "command_drag_text_open_description": {
+    "message": "فتح رابط النص المسحوب"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "فتح في نافذة جديدة"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "فتح الرابط المسحوب في نافذة جديدة"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "نسخ عنوان الصورة"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "نسخ عنوان الصورة المسحوبة إلى الحافظة"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "نسخ الصورة"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "نسخ الصورة المسحوبة إلى الحافظة"
+  },
+  "command_drag_image_open_title": {
+    "message": "فتح الصورة في تبويب جديد"
+  },
+  "command_drag_image_open_description": {
+    "message": "فتح الصورة المسحوبة في تبويب جديد"
+  },
+  "command_drag_image_download_title": {
+    "message": "تحميل الصورة"
+  },
+  "command_drag_image_download_description": {
+    "message": "تحميل الصورة المسحوبة"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "إعادة تحميل كاملة"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "تجاوز التخزين المؤقت المحلي"
+  },
+  "command_gesture_open_url_title": {
+    "message": "فتح عنوان URL مخصص في تبويب جديد"
+  },
+  "command_gesture_open_url_description": {
+    "message": "فتح عنوان URL المحدد في تبويب جديد"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL مخصص"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "عنوان URL الذي يجب فتحه"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "فتح عنوان URL مخصص في نافذة جديدة"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "فتح عنوان URL المحدد في نافذة جديدة"
+  },
+  "optional": {
+    "message": "اختياري"
+  },
+  "drag": {
+    "message": "سحب"
+  },
+  "setting": {
+    "message": "الإعدادات"
+  },
+  "save": {
+    "message": "حفظ"
+  },
+  "search": {
+    "message": "بحث"
+  },
+  "drag_text": {
+    "message": "نص"
+  },
+  "drag_url": {
+    "message": "رابط"
+  },
+  "drag_image": {
+    "message": "صورة"
+  },
+  "line_color": {
+    "message": "لون الخط"
+  },
+  "line_width": {
+    "message": "عرض الخط"
+  },
+  "show_tooltip": {
+    "message": "عرض الأوامر المطابقة"
+  },
+  "show_trajectory": {
+    "message": "عرض مسار الماوس"
+  },
+  "tooltip_style": {
+    "message": "نمط تلميح الأوامر القابل للتخصيص"
+  },
+  "backup": {
+    "message": "نسخ احتياطي"
+  },
+  "restore": {
+    "message": "استعادة"
+  },
+  "reset": {
+    "message": "إعادة ضبط"
+  },
+  "donation": {
+    "message": "شكرًا لاستخدامك مكوّني الإضافي! لقد عملت بجد لتحسينه وتطويره لجعل تجربة التصفح الخاصة بك أكثر سهولة. إذا وجدته مفيدًا، يرجى التفكير في دعمي من خلال التبرع. سيحفزني ذلك على الاستمرار في تحديث وتحسين هذا المكوّن الإضافي. شكرًا لدعمك!"
+  },
+  "about": {
+    "message": "حول"
+  },
+  "about_source_code": {
+    "message": "رمز المصدر"
+  },
+  "about_report_bug": {
+    "message": "الإبلاغ عن خطأ"
+  },
+  "about_good_review": {
+    "message": "تقييم هذا الملحق"
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "confirm": {
+    "message": "تأكيد"
+  },
+  "confirm_content": {
+    "message": "هل أنت متأكد؟"
+  },
+  "confirm_restore": {
+    "message": "سيتم استبدال جميع الإعدادات بما في ذلك الإيماءات بملف التكوين المحدد."
+  },
+  "confirm_reset": {
+    "message": "سيتم إعادة تعيين جميع الإعدادات بما في ذلك الإيماءات. لا يمكن التراجع عن هذا!"
+  }
+}

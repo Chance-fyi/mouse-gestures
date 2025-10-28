@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Gesty myszy"
+  },
+  "description": {
+    "message": "Rozszerzenie obsługujące konfigurowalne gesty myszy i funkcje przeciągania i upuszczania"
+  },
+  "gesture": {
+    "message": "Gesty"
+  },
+  "warnings": {
+    "message": "Menu kontekstowe prawego przycisku koliduje z gestami na Mac i Linux. Po włączeniu tego wtyczki, aby otworzyć menu kontekstowe, należy dwukrotnie kliknąć prawym przyciskiem!"
+  },
+  "gesture_create": {
+    "message": "Utwórz gest"
+  },
+  "gesture_edit": {
+    "message": "Edytuj gest"
+  },
+  "gesture_similar_tips": {
+    "message": "Ten gest jest podobny do gestu \"{}\""
+  },
+  "command": {
+    "message": "Polecenie"
+  },
+  "command_description": {
+    "message": "Wybierz polecenie do przypisania temu gestowi"
+  },
+  "textLabel": {
+    "message": "Etykieta"
+  },
+  "textLabel_description": {
+    "message": "Przypisz niestandardową nazwę wyświetlaną zamiast nazwy polecenia"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Przewiń stronę"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Przewijaj stronę w górę, w dół, w lewo i w prawo"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Kierunek przewijania"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Wybierz kierunek przewijania"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Przewiń w górę"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Przewiń w dół"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Przewiń w lewo"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Przewiń w prawo"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Proporcja przewijania"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Procent wysokości widocznej strony, o który strona zostanie przewinięta"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Zachowanie"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Natychmiastowe przewijanie lub płynne przewijanie animowane"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Płynne"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Natychmiastowe"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automatyczne"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Przewiń na górę"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Przejdź na początek strony"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Przewiń na dół"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Przejdź na koniec strony"
+  },
+  "command_gesture_forward_title": {
+    "message": "Dalej"
+  },
+  "command_gesture_forward_description": {
+    "message": "Przejdź do następnej strony"
+  },
+  "command_gesture_backward_title": {
+    "message": "Wstecz"
+  },
+  "command_gesture_backward_description": {
+    "message": "Przejdź do poprzedniej strony"
+  },
+  "command_gesture_reload_title": {
+    "message": "Odśwież"
+  },
+  "command_gesture_reload_description": {
+    "message": "Odśwież stronę"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Odśwież wszystkie"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Odśwież wszystkie karty"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Zatrzymaj ładowanie"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Zatrzymaj ładowanie bieżącej strony"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Duplikuj kartę"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Duplikuj bieżącą kartę"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Nowa karta"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Utwórz nową kartę"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Aktywna"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "Czy karta jest aktywna w oknie?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Pozycja"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Pozycja karty w oknie"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Początek"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Lewo"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Prawo"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Koniec"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Zamknij kartę"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Zamknij bieżącą kartę"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Zamknij inne karty"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Zamknij wszystkie karty (oprócz bieżącej i przypiętych)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Zamknij karty po lewej"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Zamknij wszystkie karty po lewej od bieżącej (oprócz przypiętych)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Zamknij karty po prawej"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Zamknij wszystkie karty po prawej od bieżącej"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Przywróć kartę"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Przywróć ostatnio zamkniętą kartę"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Przypnij/Odprzypnij kartę"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Przypnij lub odprzypnij bieżącą kartę"
+  },
+  "command_gesture_muted_title": {
+    "message": "Wycisz/Włącz kartę"
+  },
+  "command_gesture_muted_description": {
+    "message": "Wycisz lub włącz dźwięk bieżącej karty"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Wycisz inne karty"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Wycisz wszystkie karty oprócz bieżącej"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Maksymalizuj/przywróć okno"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Przełącz między maksymalizowanym a normalnym rozmiarem okna"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimalizuj okno"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimalizuj bieżące okno"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Wejdź/wyjdź z trybu pełnoekranowego"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Przełącz tryb pełnoekranowy"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Nowe okno"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Utwórz nowe puste okno"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Okno incognito"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Utwórz nowe puste okno incognito"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Przejdź do poprzedniej karty"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Przełącz na kartę po lewej od bieżącej"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Przejdź do następnej karty"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Przełącz na kartę po prawej od bieżącej"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Przejdź do pierwszej karty"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Przełącz na najbardziej lewą kartę"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Uwzględnij przypięte karty"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Czy przypięte karty są traktowane jako najbardziej lewe"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Przejdź do ostatniej karty"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Przełącz na najbardziej prawą kartę"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Przenieś kartę na początek"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Przenieś bieżącą kartę na początek paska kart"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Przenieś kartę na koniec"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Przenieś bieżącą kartę na koniec paska kart"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Kopiuj"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Skopiuj przeciągnięty tekst do schowka"
+  },
+  "command_drag_text_search_title": {
+    "message": "Szukaj"
+  },
+  "command_drag_text_search_description": {
+    "message": "Wyszukaj przeciągnięty tekst"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Lokalizacja"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Miejsce wyświetlania wyników wyszukiwania"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Bieżąca karta"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Nowa karta"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Nowe okno"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Jeśli tekst jest URL, otwórz go w nowej karcie"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Kopiuj"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Skopiuj przeciągnięty link do schowka"
+  },
+  "command_drag_url_open_title": {
+    "message": "Otwórz"
+  },
+  "command_drag_url_open_description": {
+    "message": "Otwórz przeciągnięty link"
+  },
+  "command_drag_text_open_description": {
+    "message": "Otwórz przeciągnięty link tekstowy"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Otwórz w nowym oknie"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Otwórz przeciągnięty link w nowym oknie"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Kopiuj adres obrazu"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Skopiuj adres przeciągniętego obrazu do schowka"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Kopiuj obraz"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Skopiuj przeciągnięty obraz do schowka"
+  },
+  "command_drag_image_open_title": {
+    "message": "Otwórz obraz w nowej karcie"
+  },
+  "command_drag_image_open_description": {
+    "message": "Otwórz przeciągnięty obraz w nowej karcie"
+  },
+  "command_drag_image_download_title": {
+    "message": "Pobierz obraz"
+  },
+  "command_drag_image_download_description": {
+    "message": "Pobierz przeciągnięty obraz"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Twarde odświeżenie"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Ignoruj lokalną pamięć podręczną"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Otwórz niestandardowy URL w nowej karcie"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Otwiera określony URL w nowej karcie"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "Niestandardowy URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "URL, który ma zostać otwarty"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Otwórz niestandardowy URL w nowym oknie"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Otwiera określony URL w nowym oknie"
+  },
+  "optional": {
+    "message": "Opcjonalne"
+  },
+  "drag": {
+    "message": "Przeciągnij"
+  },
+  "setting": {
+    "message": "Ustawienia"
+  },
+  "save": {
+    "message": "Zapisz"
+  },
+  "search": {
+    "message": "Szukaj"
+  },
+  "drag_text": {
+    "message": "Tekst"
+  },
+  "drag_url": {
+    "message": "Link"
+  },
+  "drag_image": {
+    "message": "Obraz"
+  },
+  "line_color": {
+    "message": "Kolor linii"
+  },
+  "line_width": {
+    "message": "Grubość linii"
+  },
+  "show_tooltip": {
+    "message": "Pokaż pasujące polecenia"
+  },
+  "show_trajectory": {
+    "message": "Pokaż ślad myszy"
+  },
+  "tooltip_style": {
+    "message": "Dostosowywalny styl podpowiedzi poleceń"
+  },
+  "backup": {
+    "message": "Kopia zapasowa"
+  },
+  "restore": {
+    "message": "Przywróć"
+  },
+  "reset": {
+    "message": "Resetuj"
+  },
+  "donation": {
+    "message": "Dziękuję za korzystanie z mojego wtyczki! Ciężko nad nią pracowałem, aby zoptymalizować i ulepszyć ją, mając nadzieję na wygodniejszą przeglądarkę dla Ciebie. Jeśli jest pomocna, rozważ wsparcie mnie darowizną. To zmotywuje mnie do dalszego aktualizowania i ulepszania wtyczki. Dziękuję za wsparcie!"
+  },
+  "about": {
+    "message": "O wtyczce"
+  },
+  "about_source_code": {
+    "message": "Kod źródłowy"
+  },
+  "about_report_bug": {
+    "message": "Zgłoś błąd"
+  },
+  "about_good_review": {
+    "message": "Oceń tę wtyczkę"
+  },
+  "cancel": {
+    "message": "Anuluj"
+  },
+  "confirm": {
+    "message": "Potwierdź"
+  },
+  "confirm_content": {
+    "message": "Czy na pewno?"
+  },
+  "confirm_restore": {
+    "message": "Wszystkie ustawienia, w tym gesty, zostaną zastąpione wybranym plikiem konfiguracyjnym."
+  },
+  "confirm_reset": {
+    "message": "Wszystkie ustawienia, w tym gesty, zostaną zresetowane. Operacji tej nie można cofnąć!"
+  }
+}

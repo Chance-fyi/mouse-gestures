@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Gestes de la souris"
+  },
+  "description": {
+    "message": "Une extension qui prend en charge les gestes de souris personnalisables et les fonctionnalités de glisser-déposer"
+  },
+  "gesture": {
+    "message": "Gestes"
+  },
+  "warnings": {
+    "message": "Les menus contextuels du clic droit entrent en conflit avec les gestes sur Mac et Linux. Lorsque ce plugin est activé, vous devez double-cliquer sur le bouton droit pour ouvrir le menu contextuel !"
+  },
+  "gesture_create": {
+    "message": "Créer un geste"
+  },
+  "gesture_edit": {
+    "message": "Modifier le geste"
+  },
+  "gesture_similar_tips": {
+    "message": "Ce geste est similaire au geste \"{}\""
+  },
+  "command": {
+    "message": "Commande"
+  },
+  "command_description": {
+    "message": "Sélectionnez une commande à assigner à ce geste"
+  },
+  "textLabel": {
+    "message": "Étiquette"
+  },
+  "textLabel_description": {
+    "message": "Attribuez un nom personnalisé pour remplacer le nom de la commande"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Faire défiler la page"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Faire défiler la page vers le haut, le bas, la gauche et la droite"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Direction du défilement"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Sélectionnez la direction du défilement"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Défiler vers le haut"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Défiler vers le bas"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Défiler vers la gauche"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Défiler vers la droite"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Ratio de défilement"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Pourcentage de la hauteur visible de la page à faire défiler"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Comportement"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Défilement instantané ou défilement animé"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Lisse"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Instantané"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automatique"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Aller en haut"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Aller en haut de la page"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Aller en bas"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Aller en bas de la page"
+  },
+  "command_gesture_forward_title": {
+    "message": "Avancer"
+  },
+  "command_gesture_forward_description": {
+    "message": "Aller à la page suivante"
+  },
+  "command_gesture_backward_title": {
+    "message": "Retour"
+  },
+  "command_gesture_backward_description": {
+    "message": "Aller à la page précédente"
+  },
+  "command_gesture_reload_title": {
+    "message": "Recharger"
+  },
+  "command_gesture_reload_description": {
+    "message": "Recharger la page"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Recharger tout"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Recharger tous les onglets"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Arrêter le chargement"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Arrêter le chargement de la page actuelle"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Dupliquer l'onglet"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Dupliquer l'onglet actuel"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Nouvel onglet"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Créer un nouvel onglet"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Actif"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "L'onglet est-il actif dans la fenêtre ?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Position"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Position de l'onglet dans la fenêtre"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Début"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Gauche"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Droite"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Fin"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Fermer l'onglet"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Fermer l'onglet actuel"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Fermer les autres onglets"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Fermer tous les onglets (sauf l'actuel et ceux épinglés)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Fermer les onglets à gauche"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Fermer tous les onglets à gauche de l'onglet actuel (sauf les épinglés)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Fermer les onglets à droite"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Fermer tous les onglets à droite de l'onglet actuel"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Restaurer l'onglet"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Restaurer le dernier onglet fermé"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Épingler/Désépingler l'onglet"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Épingler ou désépingler l'onglet actuel"
+  },
+  "command_gesture_muted_title": {
+    "message": "Activer/Désactiver le son de l'onglet"
+  },
+  "command_gesture_muted_description": {
+    "message": "Activer ou désactiver le son de l'onglet actuel"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Mettre en sourdine les autres onglets"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Mettre en sourdine tous les onglets sauf l'actuel"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Maximiser/restaurer la fenêtre"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Basculer entre la taille de fenêtre maximisée et normale"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimiser la fenêtre"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimiser la fenêtre actuelle"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Activer/désactiver le mode plein écran"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Basculer le mode plein écran"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Nouvelle fenêtre"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Nouvelle fenêtre vide"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Fenêtre incognito"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Nouvelle fenêtre incognito vide"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Aller à l'onglet précédent"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Passer à l'onglet à gauche de l'onglet actuel"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Aller à l'onglet suivant"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Passer à l'onglet à droite de l'onglet actuel"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Aller au premier onglet"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Passer à l'onglet le plus à gauche"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Inclure les onglets épinglés"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Inclure ou non les onglets épinglés comme les plus à gauche"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Aller au dernier onglet"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Passer à l'onglet le plus à droite"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Déplacer l'onglet au début"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Déplace l'onglet actuel au début de la barre d'onglets"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Déplacer l'onglet à la fin"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Déplace l'onglet actuel à la fin de la barre d'onglets"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Copier"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Copier le texte glissé dans le presse-papiers"
+  },
+  "command_drag_text_search_title": {
+    "message": "Rechercher"
+  },
+  "command_drag_text_search_description": {
+    "message": "Rechercher le texte glissé"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Emplacement"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Emplacement pour afficher les résultats de recherche"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Onglet actuel"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Nouvel onglet"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Nouvelle fenêtre"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Si le texte est une URL, l'ouvrir dans un nouvel onglet"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Copier"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Copier le lien glissé dans le presse-papiers"
+  },
+  "command_drag_url_open_title": {
+    "message": "Ouvrir"
+  },
+  "command_drag_url_open_description": {
+    "message": "Ouvrir le lien glissé"
+  },
+  "command_drag_text_open_description": {
+    "message": "Ouvrir le lien du texte glissé"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Ouvrir dans une nouvelle fenêtre"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Ouvrir le lien glissé dans une nouvelle fenêtre"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Copier l'adresse de l'image"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Copier l'adresse de l'image glissée dans le presse-papiers"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Copier l'image"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Copier l'image glissée dans le presse-papiers"
+  },
+  "command_drag_image_open_title": {
+    "message": "Ouvrir l'image dans un nouvel onglet"
+  },
+  "command_drag_image_open_description": {
+    "message": "Ouvrir l'image glissée dans un nouvel onglet"
+  },
+  "command_drag_image_download_title": {
+    "message": "Télécharger l'image"
+  },
+  "command_drag_image_download_description": {
+    "message": "Télécharger l'image glissée"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Rechargement complet"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Ignorer le cache local"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Ouvrir une URL personnalisée dans un nouvel onglet"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Ouvre l'URL spécifiée dans un nouvel onglet"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL personnalisée"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "L'URL à ouvrir"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Ouvrir une URL personnalisée dans une nouvelle fenêtre"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Ouvre l'URL spécifiée dans une nouvelle fenêtre"
+  },
+  "optional": {
+    "message": "Optionnel"
+  },
+  "drag": {
+    "message": "Glisser"
+  },
+  "setting": {
+    "message": "Paramètres"
+  },
+  "save": {
+    "message": "Enregistrer"
+  },
+  "search": {
+    "message": "Rechercher"
+  },
+  "drag_text": {
+    "message": "Texte"
+  },
+  "drag_url": {
+    "message": "Lien"
+  },
+  "drag_image": {
+    "message": "Image"
+  },
+  "line_color": {
+    "message": "Couleur de la ligne"
+  },
+  "line_width": {
+    "message": "Épaisseur de ligne"
+  },
+  "show_tooltip": {
+    "message": "Afficher les commandes correspondantes"
+  },
+  "show_trajectory": {
+    "message": "Afficher la trajectoire de la souris"
+  },
+  "tooltip_style": {
+    "message": "Style de tooltip de commande personnalisable"
+  },
+  "backup": {
+    "message": "Sauvegarde"
+  },
+  "restore": {
+    "message": "Restaurer"
+  },
+  "reset": {
+    "message": "Réinitialiser"
+  },
+  "donation": {
+    "message": "Merci d'utiliser mon plugin ! J'ai travaillé dur pour l'optimiser et l'améliorer afin de rendre votre expérience de navigation plus pratique. Si vous le trouvez utile, envisagez de me soutenir par un don. Cela me motivera à continuer de mettre à jour et améliorer ce plugin. Merci pour votre soutien !"
+  },
+  "about": {
+    "message": "À propos"
+  },
+  "about_source_code": {
+    "message": "Code source"
+  },
+  "about_report_bug": {
+    "message": "Signaler un bug"
+  },
+  "about_good_review": {
+    "message": "Évaluer ce plugin"
+  },
+  "cancel": {
+    "message": "Annuler"
+  },
+  "confirm": {
+    "message": "Confirmer"
+  },
+  "confirm_content": {
+    "message": "Êtes-vous sûr ?"
+  },
+  "confirm_restore": {
+    "message": "Tous les paramètres, y compris les gestes, seront remplacés par le fichier de configuration sélectionné."
+  },
+  "confirm_reset": {
+    "message": "Tous les paramètres, y compris les gestes, seront réinitialisés. Cela ne peut pas être annulé !"
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "마우스 제스처"
+  },
+  "description": {
+    "message": "사용자 정의 마우스 제스처 및 드래그 앤 드롭 기능을 지원하는 확장 프로그램"
+  },
+  "gesture": {
+    "message": "제스처"
+  },
+  "warnings": {
+    "message": "Mac 및 Linux에서 우클릭 컨텍스트 메뉴가 제스처와 충돌합니다. 이 플러그인을 활성화하면 컨텍스트 메뉴를 열려면 오른쪽 버튼을 두 번 클릭해야 합니다!!!"
+  },
+  "gesture_create": {
+    "message": "제스처 생성"
+  },
+  "gesture_edit": {
+    "message": "제스처 편집"
+  },
+  "gesture_similar_tips": {
+    "message": "이 제스처는 \"{}\" 제스처와 유사합니다"
+  },
+  "command": {
+    "message": "명령"
+  },
+  "command_description": {
+    "message": "이 제스처에 할당할 명령을 선택하세요"
+  },
+  "textLabel": {
+    "message": "라벨"
+  },
+  "textLabel_description": {
+    "message": "명령 이름을 대체할 사용자 정의 표시 이름을 지정하세요"
+  },
+  "command_gesture_scroll_title": {
+    "message": "페이지 스크롤"
+  },
+  "command_gesture_scroll_description": {
+    "message": "페이지를 위, 아래, 좌, 우로 스크롤"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "스크롤 방향"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "스크롤 방향을 선택하세요"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "위로 스크롤"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "아래로 스크롤"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "왼쪽으로 스크롤"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "오른쪽으로 스크롤"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "스크롤 비율"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "페이지가 스크롤되는 가시 영역 높이의 비율"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "동작"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "즉시 스크롤 또는 부드러운 애니메이션 스크롤"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "부드럽게"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "즉시"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "자동"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "맨 위로 스크롤"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "맨 위로 이동"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "맨 아래로 스크롤"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "맨 아래로 이동"
+  },
+  "command_gesture_forward_title": {
+    "message": "앞으로"
+  },
+  "command_gesture_forward_description": {
+    "message": "다음 페이지로 이동"
+  },
+  "command_gesture_backward_title": {
+    "message": "뒤로"
+  },
+  "command_gesture_backward_description": {
+    "message": "이전 페이지로 이동"
+  },
+  "command_gesture_reload_title": {
+    "message": "새로고침"
+  },
+  "command_gesture_reload_description": {
+    "message": "페이지 새로고침"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "모두 새로고침"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "모든 탭 새로고침"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "로딩 중지"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "현재 페이지 로딩 중지"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "탭 복제"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "현재 탭 복제"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "새 탭"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "새 탭 생성"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "활성화"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "탭이 현재 창에서 활성 탭인가요?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "위치"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "창 내 탭 위치"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "처음"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "왼쪽"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "오른쪽"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "끝"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "탭 닫기"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "현재 탭 닫기"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "다른 탭 닫기"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "현재 탭과 고정된 탭을 제외한 모든 탭 닫기"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "왼쪽 탭 닫기"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "현재 탭 왼쪽의 모든 탭 닫기(고정 탭 제외)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "오른쪽 탭 닫기"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "현재 탭 오른쪽의 모든 탭 닫기"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "탭 복원"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "마지막으로 닫은 탭 복원"
+  },
+  "command_gesture_pinned_title": {
+    "message": "탭 고정/해제"
+  },
+  "command_gesture_pinned_description": {
+    "message": "현재 탭을 고정하거나 해제"
+  },
+  "command_gesture_muted_title": {
+    "message": "탭 음소거/해제"
+  },
+  "command_gesture_muted_description": {
+    "message": "현재 탭 음소거 또는 해제"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "다른 탭 음소거"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "현재 탭을 제외한 모든 탭 음소거"
+  },
+  "command_gesture_maximized_title": {
+    "message": "창 최대화/복원"
+  },
+  "command_gesture_maximized_description": {
+    "message": "창 크기를 최대화/정상으로 전환"
+  },
+  "command_gesture_minimized_title": {
+    "message": "창 최소화"
+  },
+  "command_gesture_minimized_description": {
+    "message": "현재 창 최소화"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "전체 화면 진입/종료"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "전체 화면 모드 전환"
+  },
+  "command_gesture_new_window_title": {
+    "message": "새 창"
+  },
+  "command_gesture_new_window_description": {
+    "message": "빈 새 창"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "시크릿 창"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "빈 시크릿 창"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "이전 탭으로 이동"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "현재 탭 왼쪽의 탭으로 전환"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "다음 탭으로 이동"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "현재 탭 오른쪽의 탭으로 전환"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "첫 번째 탭으로 이동"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "가장 왼쪽 탭으로 전환"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "고정 탭 포함"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "고정 탭을 왼쪽 탭으로 취급할지 여부"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "마지막 탭으로 이동"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "가장 오른쪽 탭으로 전환"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "탭을 시작 위치로 이동"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "현재 탭을 탭 스트립의 시작 위치로 이동"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "탭을 끝으로 이동"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "현재 탭을 탭 스트립의 끝으로 이동"
+  },
+  "command_drag_text_copy_title": {
+    "message": "복사"
+  },
+  "command_drag_text_copy_description": {
+    "message": "드래그한 텍스트를 클립보드로 복사"
+  },
+  "command_drag_text_search_title": {
+    "message": "검색"
+  },
+  "command_drag_text_search_description": {
+    "message": "드래그한 텍스트 검색"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "위치"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "검색 결과 표시 위치"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "현재 탭"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "새 탭"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "새 창"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "텍스트가 URL이면 새 탭에서 열기"
+  },
+  "command_drag_url_copy_title": {
+    "message": "복사"
+  },
+  "command_drag_url_copy_description": {
+    "message": "드래그한 링크를 클립보드로 복사"
+  },
+  "command_drag_url_open_title": {
+    "message": "열기"
+  },
+  "command_drag_url_open_description": {
+    "message": "드래그한 링크 열기"
+  },
+  "command_drag_text_open_description": {
+    "message": "드래그한 텍스트 링크 열기"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "새 창에서 열기"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "드래그한 링크를 새 창에서 열기"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "이미지 주소 복사"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "드래그한 이미지 주소를 클립보드로 복사"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "이미지 복사"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "드래그한 이미지를 클립보드로 복사"
+  },
+  "command_drag_image_open_title": {
+    "message": "새 탭에서 이미지 열기"
+  },
+  "command_drag_image_open_description": {
+    "message": "드래그한 이미지를 새 탭에서 열기"
+  },
+  "command_drag_image_download_title": {
+    "message": "이미지 다운로드"
+  },
+  "command_drag_image_download_description": {
+    "message": "드래그한 이미지 다운로드"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "강력 새로고침"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "로컬 캐시를 우회할지 여부"
+  },
+  "command_gesture_open_url_title": {
+    "message": "새 탭에서 사용자 지정 URL 열기"
+  },
+  "command_gesture_open_url_description": {
+    "message": "지정된 URL을 새 탭에서 열기"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "사용자 지정 URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "열 URL을 지정"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "새 창에서 사용자 지정 URL 열기"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "지정된 URL을 새 창에서 열기"
+  },
+  "optional": {
+    "message": "선택 사항"
+  },
+  "drag": {
+    "message": "드래그"
+  },
+  "setting": {
+    "message": "설정"
+  },
+  "save": {
+    "message": "저장"
+  },
+  "search": {
+    "message": "검색"
+  },
+  "drag_text": {
+    "message": "텍스트"
+  },
+  "drag_url": {
+    "message": "링크"
+  },
+  "drag_image": {
+    "message": "이미지"
+  },
+  "line_color": {
+    "message": "선 색상"
+  },
+  "line_width": {
+    "message": "선 굵기"
+  },
+  "show_tooltip": {
+    "message": "일치하는 명령 표시"
+  },
+  "show_trajectory": {
+    "message": "마우스 궤적 표시"
+  },
+  "tooltip_style": {
+    "message": "사용자 정의 가능한 명령 툴팁 스타일"
+  },
+  "backup": {
+    "message": "백업"
+  },
+  "restore": {
+    "message": "복원"
+  },
+  "reset": {
+    "message": "초기화"
+  },
+  "donation": {
+    "message": "제 플러그인을 사용해 주셔서 감사합니다! 브라우징 경험을 더 편리하게 만들기 위해 열심히 최적화하고 개선하고 있습니다. 유용하다고 생각되면 기부를 통해 저를 지원해 주세요. 기부는 플러그인을 계속 업데이트하고 개선하도록 동기를 부여합니다. 지원해 주셔서 감사합니다!"
+  },
+  "about": {
+    "message": "정보"
+  },
+  "about_source_code": {
+    "message": "소스 코드"
+  },
+  "about_report_bug": {
+    "message": "버그 신고"
+  },
+  "about_good_review": {
+    "message": "플러그인 평가"
+  },
+  "cancel": {
+    "message": "취소"
+  },
+  "confirm": {
+    "message": "확인"
+  },
+  "confirm_content": {
+    "message": "정말로 하시겠습니까?"
+  },
+  "confirm_restore": {
+    "message": "제스처를 포함한 모든 설정이 선택한 구성 파일로 대체됩니다."
+  },
+  "confirm_reset": {
+    "message": "제스처를 포함한 모든 설정이 초기화됩니다. 이 작업은 되돌릴 수 없습니다!"
+  }
+}

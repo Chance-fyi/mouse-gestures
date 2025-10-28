@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Mausgesten"
+  },
+  "description": {
+    "message": "Eine Erweiterung, die anpassbare Mausgesten und Drag-and-Drop-Funktionen unterstützt"
+  },
+  "gesture": {
+    "message": "Gesten"
+  },
+  "warnings": {
+    "message": "Rechtsklick-Kontextmenüs stehen in Konflikt mit Gesten auf Mac und Linux. Wenn dieses Plugin aktiviert ist, müssen Sie die rechte Maustaste doppelklicken, um das Kontextmenü zu öffnen!"
+  },
+  "gesture_create": {
+    "message": "Geste erstellen"
+  },
+  "gesture_edit": {
+    "message": "Geste bearbeiten"
+  },
+  "gesture_similar_tips": {
+    "message": "Diese Geste ähnelt der \"{}\"-Geste"
+  },
+  "command": {
+    "message": "Befehl"
+  },
+  "command_description": {
+    "message": "Wählen Sie den Befehl aus, der dieser Geste zugewiesen werden soll"
+  },
+  "textLabel": {
+    "message": "Bezeichnung"
+  },
+  "textLabel_description": {
+    "message": "Weisen Sie einen benutzerdefinierten Anzeigenamen zur Ersetzung des Befehlsnamens zu"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Seite scrollen"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Seite nach oben, unten, links oder rechts scrollen"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Scrollrichtung"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Scrollrichtung auswählen"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Nach oben scrollen"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Nach unten scrollen"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Nach links scrollen"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Nach rechts scrollen"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Scroll-Verhältnis"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Prozentsatz der sichtbaren Höhe, um die die Seite gescrollt wird"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Verhalten"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Sofortiges Scrollen oder sanftes animiertes Scrollen"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Sanft"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Sofort"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automatisch"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Zum Anfang scrollen"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Gehe zum Seitenanfang"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Zum Ende scrollen"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Gehe zum Seitenende"
+  },
+  "command_gesture_forward_title": {
+    "message": "Vorwärts"
+  },
+  "command_gesture_forward_description": {
+    "message": "Zur nächsten Seite gehen"
+  },
+  "command_gesture_backward_title": {
+    "message": "Zurück"
+  },
+  "command_gesture_backward_description": {
+    "message": "Zur vorherigen Seite gehen"
+  },
+  "command_gesture_reload_title": {
+    "message": "Neu laden"
+  },
+  "command_gesture_reload_description": {
+    "message": "Seite neu laden"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Alle neu laden"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Alle Tabs neu laden"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Laden stoppen"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Aktuelles Laden der Seite stoppen"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Tab duplizieren"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Aktuelles Tab duplizieren"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Neues Tab"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Neues Tab erstellen"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Aktiv"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "Ist das Tab im Fenster aktiv?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Position"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Position des Tabs im Fenster"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Anfang"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Links"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Rechts"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Ende"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Tab schließen"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Aktuelles Tab schließen"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Andere Tabs schließen"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Alle Tabs schließen (außer aktuellem und fixierten)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Links liegende Tabs schließen"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Alle Tabs links vom aktuellen Tab schließen (außer fixierten Tabs)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Rechts liegende Tabs schließen"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Alle Tabs rechts vom aktuellen Tab schließen"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Tab wiederherstellen"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Zuletzt geschlossenes Tab wiederherstellen"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Tab anheften/loslösen"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Aktuelles Tab anheften oder lösen"
+  },
+  "command_gesture_muted_title": {
+    "message": "Tab stummschalten/aktivieren"
+  },
+  "command_gesture_muted_description": {
+    "message": "Aktuelles Tab stummschalten oder Ton aktivieren"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Andere Tabs stummschalten"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Alle Tabs außer dem aktuellen stummschalten"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Fenster maximieren/wiederherstellen"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Maximiertes oder normales Fenster umschalten"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Fenster minimieren"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Aktuelles Fenster minimieren"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Vollbild ein-/ausschalten"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Vollbildmodus umschalten"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Neues Fenster"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Neues leeres Fenster erstellen"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Inkognitofenster"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Neues leeres Inkognitofenster erstellen"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Zum vorherigen Tab wechseln"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Zum Tab links vom aktuellen Tab wechseln"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Zum nächsten Tab wechseln"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Zum Tab rechts vom aktuellen Tab wechseln"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Zum ersten Tab wechseln"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Zum linksesten Tab wechseln"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Fixierte Tabs einbeziehen"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Ob fixierte Tabs als linkseste Tabs behandelt werden sollen"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Zum letzten Tab wechseln"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Zum rechtsesten Tab wechseln"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Tab nach vorne verschieben"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Verschiebt das aktuelle Tab an den Anfang der Tab-Leiste"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Tab ans Ende verschieben"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Verschiebt das aktuelle Tab ans Ende der Tab-Leiste"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Kopieren"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Zieht Text in die Zwischenablage"
+  },
+  "command_drag_text_search_title": {
+    "message": "Suchen"
+  },
+  "command_drag_text_search_description": {
+    "message": "Gezogenen Text suchen"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Ort"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Ort, an dem die Suchergebnisse angezeigt werden sollen"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Aktuelles Tab"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Neues Tab"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Neues Fenster"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Wenn der Text eine URL ist, in einem neuen Tab öffnen"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Kopieren"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Gezogene URL in die Zwischenablage kopieren"
+  },
+  "command_drag_url_open_title": {
+    "message": "Öffnen"
+  },
+  "command_drag_url_open_description": {
+    "message": "Gezogene URL öffnen"
+  },
+  "command_drag_text_open_description": {
+    "message": "Gezogenen Text-Link öffnen"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "In neuem Fenster öffnen"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Gezogene URL in neuem Fenster öffnen"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Bildadresse kopieren"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Gezogene Bildadresse in die Zwischenablage kopieren"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Bild kopieren"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Gezogenes Bild in die Zwischenablage kopieren"
+  },
+  "command_drag_image_open_title": {
+    "message": "Bild in neuem Tab öffnen"
+  },
+  "command_drag_image_open_description": {
+    "message": "Gezogenes Bild in neuem Tab öffnen"
+  },
+  "command_drag_image_download_title": {
+    "message": "Bild herunterladen"
+  },
+  "command_drag_image_download_description": {
+    "message": "Gezogenes Bild herunterladen"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Hard Reload"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Lokalen Cache umgehen"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Benutzerdefinierte URL in neuem Tab öffnen"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Öffnet die angegebene URL in einem neuen Tab"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "Benutzerdefinierte URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "Die URL, die geöffnet werden soll"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Benutzerdefinierte URL in neuem Fenster öffnen"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Öffnet die angegebene URL in einem neuen Fenster"
+  },
+  "optional": {
+    "message": "Optional"
+  },
+  "drag": {
+    "message": "Ziehen"
+  },
+  "setting": {
+    "message": "Einstellungen"
+  },
+  "save": {
+    "message": "Speichern"
+  },
+  "search": {
+    "message": "Suchen"
+  },
+  "drag_text": {
+    "message": "Text"
+  },
+  "drag_url": {
+    "message": "Link"
+  },
+  "drag_image": {
+    "message": "Bild"
+  },
+  "line_color": {
+    "message": "Linienfarbe"
+  },
+  "line_width": {
+    "message": "Linienstärke"
+  },
+  "show_tooltip": {
+    "message": "Übereinstimmende Befehle anzeigen"
+  },
+  "show_trajectory": {
+    "message": "Mausspur anzeigen"
+  },
+  "tooltip_style": {
+    "message": "Anpassbarer Befehls-Tooltip-Stil"
+  },
+  "backup": {
+    "message": "Backup"
+  },
+  "restore": {
+    "message": "Wiederherstellen"
+  },
+  "reset": {
+    "message": "Zurücksetzen"
+  },
+  "donation": {
+    "message": "Danke, dass Sie mein Plugin verwenden! Ich habe hart daran gearbeitet, es zu optimieren und zu verbessern, um Ihr Surferlebnis komfortabler zu gestalten. Wenn Sie es nützlich finden, erwägen Sie bitte, mich mit einer Spende zu unterstützen. Dies motiviert mich, das Plugin weiterhin zu aktualisieren und zu verbessern. Vielen Dank für Ihre Unterstützung!"
+  },
+  "about": {
+    "message": "Über"
+  },
+  "about_source_code": {
+    "message": "Quellcode"
+  },
+  "about_report_bug": {
+    "message": "Fehler melden"
+  },
+  "about_good_review": {
+    "message": "Dieses Plugin bewerten"
+  },
+  "cancel": {
+    "message": "Abbrechen"
+  },
+  "confirm": {
+    "message": "Bestätigen"
+  },
+  "confirm_content": {
+    "message": "Sind Sie sicher?"
+  },
+  "confirm_restore": {
+    "message": "Alle Einstellungen einschließlich Gesten werden durch die ausgewählte Konfigurationsdatei ersetzt."
+  },
+  "confirm_reset": {
+    "message": "Alle Einstellungen einschließlich Gesten werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!"
+  }
+}

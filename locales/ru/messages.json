@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Жесты мыши"
+  },
+  "description": {
+    "message": "Расширение, поддерживающее настраиваемые жесты мыши и функции перетаскивания"
+  },
+  "gesture": {
+    "message": "Жесты"
+  },
+  "warnings": {
+    "message": "Контекстное меню правой кнопки мыши конфликтует с жестами на Mac и Linux. Когда этот плагин включен, чтобы открыть контекстное меню, необходимо дважды щелкнуть правой кнопкой мыши!!!"
+  },
+  "gesture_create": {
+    "message": "Создать жест"
+  },
+  "gesture_edit": {
+    "message": "Редактировать жест"
+  },
+  "gesture_similar_tips": {
+    "message": "Этот жест похож на жест \"{}\""
+  },
+  "command": {
+    "message": "Команда"
+  },
+  "command_description": {
+    "message": "Выберите команду для назначения этому жесту"
+  },
+  "textLabel": {
+    "message": "Метка"
+  },
+  "textLabel_description": {
+    "message": "Назначьте пользовательское имя для отображения вместо имени команды"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Прокрутка страницы"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Прокрутка страницы вверх, вниз, влево и вправо"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Направление прокрутки"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Выберите направление прокрутки"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Прокрутка вверх"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Прокрутка вниз"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Прокрутка влево"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Прокрутка вправо"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Коэффициент прокрутки"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Процент видимой области страницы, на который происходит прокрутка"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Поведение"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Мгновенная прокрутка или плавная анимация прокрутки"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Плавно"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Мгновенно"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Авто"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Прокрутить вверх"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Перейти в начало страницы"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Прокрутить вниз"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Перейти в конец страницы"
+  },
+  "command_gesture_forward_title": {
+    "message": "Вперед"
+  },
+  "command_gesture_forward_description": {
+    "message": "Перейти на следующую страницу"
+  },
+  "command_gesture_backward_title": {
+    "message": "Назад"
+  },
+  "command_gesture_backward_description": {
+    "message": "Перейти на предыдущую страницу"
+  },
+  "command_gesture_reload_title": {
+    "message": "Перезагрузить"
+  },
+  "command_gesture_reload_description": {
+    "message": "Перезагрузить страницу"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Перезагрузить все"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Перезагрузить все вкладки"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Остановить загрузку"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Остановить загрузку текущей страницы"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Дублировать вкладку"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Дублировать текущую вкладку"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Новая вкладка"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Создать новую вкладку"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Активная"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "Вкладка является активной в окне?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Позиция"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Позиция вкладки в окне"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Начало"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Слева"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Справа"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Конец"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Закрыть вкладку"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Закрыть текущую вкладку"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Закрыть другие вкладки"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Закрыть все вкладки, кроме текущей и закрепленных"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Закрыть вкладки слева"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Закрыть все вкладки слева от текущей (кроме закрепленных)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Закрыть вкладки справа"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Закрыть все вкладки справа от текущей"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Восстановить вкладку"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Восстановить последнюю закрытую вкладку"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Закрепить/Открепить вкладку"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Закрепить или открепить текущую вкладку"
+  },
+  "command_gesture_muted_title": {
+    "message": "Выключить/Включить звук вкладки"
+  },
+  "command_gesture_muted_description": {
+    "message": "Выключить или включить звук текущей вкладки"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Выключить звук других вкладок"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Выключить звук всех вкладок, кроме текущей"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Развернуть/Восстановить окно"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Переключить между развернутым и нормальным размером окна"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Свернуть окно"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Свернуть текущее окно"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Войти/Выйти из полноэкранного режима"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Переключение полноэкранного режима"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Новое окно"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Создать новое пустое окно"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Инкогнито окно"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Создать новое пустое инкогнито окно"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Перейти к предыдущей вкладке"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Переключиться на вкладку слева от текущей"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Перейти к следующей вкладке"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Переключиться на вкладку справа от текущей"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Перейти к первой вкладке"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Переключиться на самую левую вкладку"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Включая закрепленные вкладки"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Учитывать ли закрепленные вкладки как самые левые"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Перейти к последней вкладке"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Переключиться на самую правую вкладку"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Переместить вкладку в начало"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Перемещает текущую вкладку в начало полосы вкладок"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Переместить вкладку в конец"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Перемещает текущую вкладку в конец полосы вкладок"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Копировать"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Скопировать перетаскиваемый текст в буфер обмена"
+  },
+  "command_drag_text_search_title": {
+    "message": "Поиск"
+  },
+  "command_drag_text_search_description": {
+    "message": "Искать перетаскиваемый текст"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Расположение"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Где отображать результаты поиска"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Текущая вкладка"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Новая вкладка"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Новое окно"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Если текст является URL, открыть его в новой вкладке"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Копировать"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Скопировать перетаскиваемую ссылку в буфер обмена"
+  },
+  "command_drag_url_open_title": {
+    "message": "Открыть"
+  },
+  "command_drag_url_open_description": {
+    "message": "Открыть перетаскиваемую ссылку"
+  },
+  "command_drag_text_open_description": {
+    "message": "Открыть ссылку из перетаскиваемого текста"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Открыть в новом окне"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Открыть перетаскиваемую ссылку в новом окне"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Копировать адрес изображения"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Скопировать адрес перетаскиваемого изображения в буфер обмена"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Копировать изображение"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Скопировать перетаскиваемое изображение в буфер обмена"
+  },
+  "command_drag_image_open_title": {
+    "message": "Открыть изображение в новой вкладке"
+  },
+  "command_drag_image_open_description": {
+    "message": "Открыть перетаскиваемое изображение в новой вкладке"
+  },
+  "command_drag_image_download_title": {
+    "message": "Скачать изображение"
+  },
+  "command_drag_image_download_description": {
+    "message": "Скачать перетаскиваемое изображение"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Жесткая перезагрузка"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Обойти локальный кэш при перезагрузке"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Открыть пользовательский URL в новой вкладке"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Открыть указанный URL в новой вкладке"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "Пользовательский URL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "Укажите URL, который следует открыть"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Открыть пользовательский URL в новом окне"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Открыть указанный URL в новом окне"
+  },
+  "optional": {
+    "message": "Необязательно"
+  },
+  "drag": {
+    "message": "Перетаскивание"
+  },
+  "setting": {
+    "message": "Настройки"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "search": {
+    "message": "Поиск"
+  },
+  "drag_text": {
+    "message": "Текст"
+  },
+  "drag_url": {
+    "message": "Ссылка"
+  },
+  "drag_image": {
+    "message": "Изображение"
+  },
+  "line_color": {
+    "message": "Цвет линии"
+  },
+  "line_width": {
+    "message": "Толщина линии"
+  },
+  "show_tooltip": {
+    "message": "Показывать соответствующие команды"
+  },
+  "show_trajectory": {
+    "message": "Показывать след мыши"
+  },
+  "tooltip_style": {
+    "message": "Настраиваемый стиль подсказки команды"
+  },
+  "backup": {
+    "message": "Резервное копирование"
+  },
+  "restore": {
+    "message": "Восстановить"
+  },
+  "reset": {
+    "message": "Сбросить"
+  },
+  "donation": {
+    "message": "Спасибо за использование моего плагина! Я усердно работаю над его оптимизацией и улучшением, чтобы сделать ваш опыт просмотра более удобным. Если вы считаете его полезным, пожалуйста, поддержите меня пожертвованием. Это мотивирует меня продолжать обновлять и улучшать плагин. Спасибо за вашу поддержку!"
+  },
+  "about": {
+    "message": "О программе"
+  },
+  "about_source_code": {
+    "message": "Исходный код"
+  },
+  "about_report_bug": {
+    "message": "Сообщить об ошибке"
+  },
+  "about_good_review": {
+    "message": "Оценить плагин"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "confirm": {
+    "message": "Подтвердить"
+  },
+  "confirm_content": {
+    "message": "Вы уверены?"
+  },
+  "confirm_restore": {
+    "message": "Все настройки, включая жесты, будут заменены выбранным конфигурационным файлом."
+  },
+  "confirm_reset": {
+    "message": "Все настройки, включая жесты, будут сброшены. Это действие нельзя отменить!"
+  }
+}

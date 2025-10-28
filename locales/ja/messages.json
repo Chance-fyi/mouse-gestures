@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "マウスジェスチャー"
+  },
+  "description": {
+    "message": "カスタマイズ可能なマウスジェスチャーとドラッグ＆ドロップ機能をサポートする拡張機能"
+  },
+  "gesture": {
+    "message": "ジェスチャー"
+  },
+  "warnings": {
+    "message": "MacおよびLinuxでは、右クリックコンテキストメニューがジェスチャーと競合します。このプラグインを有効にすると、コンテキストメニューを開くには右ボタンをダブルクリックする必要があります!!!"
+  },
+  "gesture_create": {
+    "message": "ジェスチャーを作成"
+  },
+  "gesture_edit": {
+    "message": "ジェスチャーを編集"
+  },
+  "gesture_similar_tips": {
+    "message": "このジェスチャーは「{}」ジェスチャーと似ています"
+  },
+  "command": {
+    "message": "コマンド"
+  },
+  "command_description": {
+    "message": "このジェスチャーに割り当てるコマンドを選択"
+  },
+  "textLabel": {
+    "message": "ラベル"
+  },
+  "textLabel_description": {
+    "message": "コマンド名の代わりに表示するカスタム名を設定"
+  },
+  "command_gesture_scroll_title": {
+    "message": "ページスクロール"
+  },
+  "command_gesture_scroll_description": {
+    "message": "ページを上下左右にスクロール"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "スクロール方向"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "スクロール方向を選択"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "上にスクロール"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "下にスクロール"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "左にスクロール"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "右にスクロール"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "スクロール比率"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "スクロールするページの割合（表示領域の高さに対して）"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "動作"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "即時スクロールまたはスムーズスクロールを選択"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "スムーズ"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "即時"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "自動"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "ページの先頭へ"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "先頭に移動"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "ページの末尾へ"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "末尾に移動"
+  },
+  "command_gesture_forward_title": {
+    "message": "進む"
+  },
+  "command_gesture_forward_description": {
+    "message": "次のページへ移動"
+  },
+  "command_gesture_backward_title": {
+    "message": "戻る"
+  },
+  "command_gesture_backward_description": {
+    "message": "前のページへ戻る"
+  },
+  "command_gesture_reload_title": {
+    "message": "再読み込み"
+  },
+  "command_gesture_reload_description": {
+    "message": "ページを再読み込み"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "すべて再読み込み"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "すべてのタブを再読み込み"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "読み込みを停止"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "現在のページの読み込みを停止"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "タブを複製"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "現在のタブを複製"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "新しいタブ"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "新しいタブを作成"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "アクティブ"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "タブをアクティブにするかどうか"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "位置"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "タブの位置を指定"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "先頭"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "左"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "右"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "末尾"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "タブを閉じる"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "現在のタブを閉じる"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "他のタブを閉じる"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "現在および固定タブ以外のすべてを閉じる"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "左側のタブを閉じる"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "現在のタブの左にあるすべてのタブを閉じる（固定タブを除く）"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "右側のタブを閉じる"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "現在のタブの右にあるすべてのタブを閉じる"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "タブを復元"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "最後に閉じたタブを復元"
+  },
+  "command_gesture_pinned_title": {
+    "message": "タブを固定／解除"
+  },
+  "command_gesture_pinned_description": {
+    "message": "現在のタブを固定または解除"
+  },
+  "command_gesture_muted_title": {
+    "message": "タブをミュート／ミュート解除"
+  },
+  "command_gesture_muted_description": {
+    "message": "現在のタブをミュートまたはミュート解除"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "他のタブをミュート"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "現在のタブ以外のすべてをミュート"
+  },
+  "command_gesture_maximized_title": {
+    "message": "ウィンドウを最大化／元に戻す"
+  },
+  "command_gesture_maximized_description": {
+    "message": "ウィンドウサイズを切り替え"
+  },
+  "command_gesture_minimized_title": {
+    "message": "ウィンドウを最小化"
+  },
+  "command_gesture_minimized_description": {
+    "message": "現在のウィンドウを最小化"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "全画面表示／解除"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "全画面モードを切り替え"
+  },
+  "command_gesture_new_window_title": {
+    "message": "新しいウィンドウ"
+  },
+  "command_gesture_new_window_description": {
+    "message": "新しい空のウィンドウを開く"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "シークレットウィンドウ"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "新しいシークレットウィンドウを開く"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "前のタブへ"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "左隣のタブに切り替え"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "次のタブへ"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "右隣のタブに切り替え"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "最初のタブへ"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "最も左のタブに切り替え"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "固定タブを含める"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "固定タブを左端として扱うかどうか"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "最後のタブへ"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "最も右のタブに切り替え"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "タブを先頭に移動"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "現在のタブをタブ列の先頭に移動"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "タブを末尾に移動"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "現在のタブをタブ列の末尾に移動"
+  },
+  "command_drag_text_copy_title": {
+    "message": "コピー"
+  },
+  "command_drag_text_copy_description": {
+    "message": "ドラッグしたテキストをクリップボードにコピー"
+  },
+  "command_drag_text_search_title": {
+    "message": "検索"
+  },
+  "command_drag_text_search_description": {
+    "message": "ドラッグしたテキストを検索"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "場所"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "検索結果を表示する場所"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "現在のタブ"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "新しいタブ"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "新しいウィンドウ"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "テキストがURLの場合は新しいタブで開く"
+  },
+  "command_drag_url_copy_title": {
+    "message": "コピー"
+  },
+  "command_drag_url_copy_description": {
+    "message": "ドラッグしたリンクをクリップボードにコピー"
+  },
+  "command_drag_url_open_title": {
+    "message": "開く"
+  },
+  "command_drag_url_open_description": {
+    "message": "ドラッグしたリンクを開く"
+  },
+  "command_drag_text_open_description": {
+    "message": "ドラッグしたテキストリンクを開く"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "新しいウィンドウで開く"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "ドラッグしたリンクを新しいウィンドウで開く"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "画像アドレスをコピー"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "ドラッグした画像のアドレスをクリップボードにコピー"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "画像をコピー"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "ドラッグした画像をクリップボードにコピー"
+  },
+  "command_drag_image_open_title": {
+    "message": "新しいタブで画像を開く"
+  },
+  "command_drag_image_open_description": {
+    "message": "ドラッグした画像を新しいタブで開く"
+  },
+  "command_drag_image_download_title": {
+    "message": "画像をダウンロード"
+  },
+  "command_drag_image_download_description": {
+    "message": "ドラッグした画像をダウンロード"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "ハードリロード"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "ローカルキャッシュを無視するかどうか"
+  },
+  "command_gesture_open_url_title": {
+    "message": "カスタムURLを新しいタブで開く"
+  },
+  "command_gesture_open_url_description": {
+    "message": "指定されたURLを新しいタブで開く"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "カスタムURL"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "開くべきURL"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "カスタムURLを新しいウィンドウで開く"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "指定されたURLを新しいウィンドウで開く"
+  },
+  "optional": {
+    "message": "任意"
+  },
+  "drag": {
+    "message": "ドラッグ"
+  },
+  "setting": {
+    "message": "設定"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "search": {
+    "message": "検索"
+  },
+  "drag_text": {
+    "message": "テキスト"
+  },
+  "drag_url": {
+    "message": "リンク"
+  },
+  "drag_image": {
+    "message": "画像"
+  },
+  "line_color": {
+    "message": "線の色"
+  },
+  "line_width": {
+    "message": "線の太さ"
+  },
+  "show_tooltip": {
+    "message": "一致するコマンドを表示"
+  },
+  "show_trajectory": {
+    "message": "マウストレイルを表示"
+  },
+  "tooltip_style": {
+    "message": "カスタマイズ可能なコマンドツールチップのスタイル"
+  },
+  "backup": {
+    "message": "バックアップ"
+  },
+  "restore": {
+    "message": "復元"
+  },
+  "reset": {
+    "message": "リセット"
+  },
+  "donation": {
+    "message": "このプラグインをご利用いただきありがとうございます！より便利なブラウジング体験を提供できるよう、最適化と改善に努めています。このプラグインが役に立ったと感じた場合は、ぜひ寄付をご検討ください。ご支援が今後の更新と改善の励みになります！"
+  },
+  "about": {
+    "message": "情報"
+  },
+  "about_source_code": {
+    "message": "ソースコード"
+  },
+  "about_report_bug": {
+    "message": "バグを報告"
+  },
+  "about_good_review": {
+    "message": "このプラグインを評価"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "confirm": {
+    "message": "確認"
+  },
+  "confirm_content": {
+    "message": "本当によろしいですか？"
+  },
+  "confirm_restore": {
+    "message": "選択した設定ファイルにより、すべての設定（ジェスチャーを含む）が置き換えられます。"
+  },
+  "confirm_reset": {
+    "message": "すべての設定（ジェスチャーを含む）がリセットされます。この操作は元に戻せません！"
+  }
+}

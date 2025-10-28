@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Gesti del mouse"
+  },
+  "description": {
+    "message": "Un'estensione che supporta gesti del mouse personalizzabili e funzionalità di trascinamento"
+  },
+  "gesture": {
+    "message": "Gesti"
+  },
+  "warnings": {
+    "message": "I menu contestuali con clic destro confliggono con i gesti su Mac e Linux. Quando questo plugin è attivo, è necessario fare doppio clic sul pulsante destro per aprire il menu contestuale!"
+  },
+  "gesture_create": {
+    "message": "Crea gesto"
+  },
+  "gesture_edit": {
+    "message": "Modifica gesto"
+  },
+  "gesture_similar_tips": {
+    "message": "Questo gesto è simile al gesto \"{}\""
+  },
+  "command": {
+    "message": "Comando"
+  },
+  "command_description": {
+    "message": "Seleziona il comando da assegnare a questo gesto"
+  },
+  "textLabel": {
+    "message": "Etichetta"
+  },
+  "textLabel_description": {
+    "message": "Assegna un nome visualizzato personalizzato per sostituire il nome del comando"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Scorri pagina"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Scorri la pagina verso l'alto, il basso, a sinistra e a destra"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Direzione di scorrimento"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Seleziona la direzione di scorrimento"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Scorri verso l'alto"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Scorri verso il basso"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Scorri a sinistra"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Scorri a destra"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Rapporto di scorrimento"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Percentuale dell'altezza visibile della pagina da scorrere"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Comportamento"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Scorrimento istantaneo o scorrimento animato fluido"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Fluido"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Istantaneo"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automatico"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Vai all'inizio"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Vai all'inizio della pagina"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Vai in fondo"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Vai alla fine della pagina"
+  },
+  "command_gesture_forward_title": {
+    "message": "Avanti"
+  },
+  "command_gesture_forward_description": {
+    "message": "Vai alla pagina successiva"
+  },
+  "command_gesture_backward_title": {
+    "message": "Indietro"
+  },
+  "command_gesture_backward_description": {
+    "message": "Vai alla pagina precedente"
+  },
+  "command_gesture_reload_title": {
+    "message": "Ricarica"
+  },
+  "command_gesture_reload_description": {
+    "message": "Ricarica la pagina"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Ricarica tutto"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Ricarica tutte le schede"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Interrompi caricamento"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Interrompi il caricamento della pagina corrente"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Duplica scheda"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Duplica la scheda corrente"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Nuova scheda"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Crea una nuova scheda"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Attiva"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "La scheda è attiva nella finestra?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Posizione"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Posizione della scheda nella finestra"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Inizio"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Sinistra"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Destra"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Fine"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Chiudi scheda"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Chiudi la scheda corrente"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Chiudi altre schede"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Chiudi tutte le schede (eccetto quella corrente e quelle fissate)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Chiudi schede a sinistra"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Chiudi tutte le schede a sinistra di quella corrente (eccetto quelle fissate)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Chiudi schede a destra"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Chiudi tutte le schede a destra di quella corrente"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Ripristina scheda"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Ripristina l'ultima scheda chiusa"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Fissa/sblocca scheda"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Fissa o sblocca la scheda corrente"
+  },
+  "command_gesture_muted_title": {
+    "message": "Silenzia/attiva scheda"
+  },
+  "command_gesture_muted_description": {
+    "message": "Silenzia o attiva l'audio della scheda corrente"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Silenzia altre schede"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Silenzia tutte le schede eccetto quella corrente"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Massimizza/ripristina finestra"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Alterna tra finestra massimizzata e normale"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimizza finestra"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimizza la finestra corrente"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Attiva/disattiva schermo intero"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Attiva o disattiva la modalità schermo intero"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Nuova finestra"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Crea una nuova finestra vuota"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Finestra in incognito"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Crea una nuova finestra in incognito"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Vai alla scheda precedente"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Passa alla scheda a sinistra di quella corrente"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Vai alla scheda successiva"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Passa alla scheda a destra di quella corrente"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Vai alla prima scheda"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Passa alla scheda più a sinistra"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Includi schede fissate"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Indica se trattare le schede fissate come quelle più a sinistra"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Vai all'ultima scheda"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Passa alla scheda più a destra"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Sposta scheda all'inizio"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Sposta la scheda corrente all'inizio della barra delle schede"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Sposta scheda alla fine"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Sposta la scheda corrente alla fine della barra delle schede"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Copia"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Copia il testo trascinato negli appunti"
+  },
+  "command_drag_text_search_title": {
+    "message": "Cerca"
+  },
+  "command_drag_text_search_description": {
+    "message": "Cerca il testo trascinato"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Posizione"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Dove visualizzare i risultati della ricerca"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Scheda corrente"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Nuova scheda"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Nuova finestra"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Se il testo è un URL, aprilo in una nuova scheda"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Copia"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Copia il link trascinato negli appunti"
+  },
+  "command_drag_url_open_title": {
+    "message": "Apri"
+  },
+  "command_drag_url_open_description": {
+    "message": "Apri il link trascinato"
+  },
+  "command_drag_text_open_description": {
+    "message": "Apri il link di testo trascinato"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Apri in nuova finestra"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Apri il link trascinato in una nuova finestra"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Copia indirizzo immagine"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Copia l'indirizzo dell'immagine trascinata negli appunti"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Copia immagine"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Copia l'immagine trascinata negli appunti"
+  },
+  "command_drag_image_open_title": {
+    "message": "Apri immagine in nuova scheda"
+  },
+  "command_drag_image_open_description": {
+    "message": "Apri l'immagine trascinata in una nuova scheda"
+  },
+  "command_drag_image_download_title": {
+    "message": "Scarica immagine"
+  },
+  "command_drag_image_download_description": {
+    "message": "Scarica l'immagine trascinata"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Ricarica forzata"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Ignora la cache locale"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Apri URL personalizzato in nuova scheda"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Apre l'URL specificato in una nuova scheda"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL personalizzato"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "L'URL che deve essere aperto"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Apri URL personalizzato in nuova finestra"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Apre l'URL specificato in una nuova finestra"
+  },
+  "optional": {
+    "message": "Opzionale"
+  },
+  "drag": {
+    "message": "Trascina"
+  },
+  "setting": {
+    "message": "Impostazioni"
+  },
+  "save": {
+    "message": "Salva"
+  },
+  "search": {
+    "message": "Cerca"
+  },
+  "drag_text": {
+    "message": "Testo"
+  },
+  "drag_url": {
+    "message": "Link"
+  },
+  "drag_image": {
+    "message": "Immagine"
+  },
+  "line_color": {
+    "message": "Colore linea"
+  },
+  "line_width": {
+    "message": "Spessore linea"
+  },
+  "show_tooltip": {
+    "message": "Mostra comandi corrispondenti"
+  },
+  "show_trajectory": {
+    "message": "Mostra traiettoria del mouse"
+  },
+  "tooltip_style": {
+    "message": "Stile tooltip comandi personalizzabile"
+  },
+  "backup": {
+    "message": "Backup"
+  },
+  "restore": {
+    "message": "Ripristina"
+  },
+  "reset": {
+    "message": "Resetta"
+  },
+  "donation": {
+    "message": "Grazie per aver usato il mio plugin! Ho lavorato duramente per ottimizzarlo e migliorarlo, sperando di rendere la tua esperienza di navigazione più comoda. Se lo trovi utile, considera di supportarmi con una donazione. Questo mi motiverà a continuare ad aggiornare e migliorare il plugin. Grazie per il tuo supporto!"
+  },
+  "about": {
+    "message": "Informazioni"
+  },
+  "about_source_code": {
+    "message": "Codice sorgente"
+  },
+  "about_report_bug": {
+    "message": "Segnala un bug"
+  },
+  "about_good_review": {
+    "message": "Valuta questo plugin"
+  },
+  "cancel": {
+    "message": "Annulla"
+  },
+  "confirm": {
+    "message": "Conferma"
+  },
+  "confirm_content": {
+    "message": "Sei sicuro?"
+  },
+  "confirm_restore": {
+    "message": "Tutte le impostazioni, inclusi i gesti, saranno sostituite dal file di configurazione selezionato."
+  },
+  "confirm_reset": {
+    "message": "Tutte le impostazioni, inclusi i gesti, saranno resettate. Questa operazione non può essere annullata!"
+  }
+}

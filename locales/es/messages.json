@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Gestos del ratón"
+  },
+  "description": {
+    "message": "Una extensión que admite gestos de ratón personalizables y funciones de arrastrar y soltar"
+  },
+  "gesture": {
+    "message": "Gestos"
+  },
+  "warnings": {
+    "message": "Los menús contextuales del clic derecho entran en conflicto con los gestos en Mac y Linux. ¡Cuando este complemento está habilitado, debes hacer doble clic en el botón derecho para abrir el menú contextual!"
+  },
+  "gesture_create": {
+    "message": "Crear gesto"
+  },
+  "gesture_edit": {
+    "message": "Editar gesto"
+  },
+  "gesture_similar_tips": {
+    "message": "Este gesto es similar al gesto \"{}\""
+  },
+  "command": {
+    "message": "Comando"
+  },
+  "command_description": {
+    "message": "Selecciona un comando para asignarlo a este gesto"
+  },
+  "textLabel": {
+    "message": "Etiqueta"
+  },
+  "textLabel_description": {
+    "message": "Asigna un nombre personalizado para reemplazar el nombre del comando"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Desplazar página"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Desplaza la página hacia arriba, abajo, izquierda y derecha"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Dirección de desplazamiento"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Selecciona la dirección del desplazamiento"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Desplazar hacia arriba"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Desplazar hacia abajo"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Desplazar a la izquierda"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Desplazar a la derecha"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Proporción de desplazamiento"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Porcentaje de la altura visible de la página que se desplazará"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Comportamiento"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Desplazamiento instantáneo o desplazamiento con animación suave"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Suave"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Instantáneo"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automático"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Ir al inicio"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Ir al principio"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Ir al final"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Ir al final"
+  },
+  "command_gesture_forward_title": {
+    "message": "Adelante"
+  },
+  "command_gesture_forward_description": {
+    "message": "Ir a la página siguiente"
+  },
+  "command_gesture_backward_title": {
+    "message": "Atrás"
+  },
+  "command_gesture_backward_description": {
+    "message": "Ir a la página anterior"
+  },
+  "command_gesture_reload_title": {
+    "message": "Recargar"
+  },
+  "command_gesture_reload_description": {
+    "message": "Recargar página"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Recargar todo"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Recargar todas las pestañas"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Detener carga"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Detener la carga de la página actual"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Duplicar pestaña"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Duplicar la pestaña actual"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Nueva pestaña"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Crear nueva pestaña"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Activo"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "¿Es la pestaña la activa en la ventana?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Posición"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Posición de la pestaña en la ventana"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Inicio"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Izquierda"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Derecha"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Final"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Cerrar pestaña"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Cerrar la pestaña actual"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Cerrar otras pestañas"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Cerrar todas las pestañas (excepto la actual y las fijadas)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Cerrar pestañas a la izquierda"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Cerrar todas las pestañas a la izquierda de la actual (excepto las fijadas)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Cerrar pestañas a la derecha"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Cerrar todas las pestañas a la derecha de la actual"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Restaurar pestaña"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Restaurar la última pestaña cerrada"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Fijar/Desfijar pestaña"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Fijar o desfijar la pestaña actual"
+  },
+  "command_gesture_muted_title": {
+    "message": "Silenciar/Activar sonido de pestaña"
+  },
+  "command_gesture_muted_description": {
+    "message": "Silenciar o activar el sonido de la pestaña actual"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Silenciar otras pestañas"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Silenciar todas las pestañas excepto la actual"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Maximizar/Restaurar ventana"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Alternar tamaño de ventana maximizado/normal"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimizar ventana"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimizar la ventana actual"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Entrar/Salir de pantalla completa"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Alternar modo de pantalla completa"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Nueva ventana"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Nueva ventana vacía"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Ventana de incógnito"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Nueva ventana vacía de incógnito"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Ir a la pestaña anterior"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Cambiar a la pestaña a la izquierda de la actual"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Ir a la siguiente pestaña"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Cambiar a la pestaña a la derecha de la actual"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Ir a la primera pestaña"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Cambiar a la pestaña más a la izquierda"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Incluir pestañas fijadas"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Incluir o no las pestañas fijadas como las más a la izquierda"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Ir a la última pestaña"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Cambiar a la pestaña más a la derecha"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Mover pestaña al inicio"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Mueve la pestaña actual al inicio de la barra de pestañas"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Mover pestaña al final"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Mueve la pestaña actual al final de la barra de pestañas"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Copiar"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Copiar texto arrastrado al portapapeles"
+  },
+  "command_drag_text_search_title": {
+    "message": "Buscar"
+  },
+  "command_drag_text_search_description": {
+    "message": "Buscar texto arrastrado"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Ubicación"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Ubicación para mostrar los resultados de búsqueda"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Pestaña actual"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Nueva pestaña"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Nueva ventana"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Si el texto es una URL, abrirlo en una nueva pestaña"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Copiar"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Copiar enlace arrastrado al portapapeles"
+  },
+  "command_drag_url_open_title": {
+    "message": "Abrir"
+  },
+  "command_drag_url_open_description": {
+    "message": "Abrir enlace arrastrado"
+  },
+  "command_drag_text_open_description": {
+    "message": "Abrir enlace del texto arrastrado"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Abrir en nueva ventana"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Abrir enlace arrastrado en nueva ventana"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Copiar dirección de la imagen"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Copiar dirección de la imagen arrastrada al portapapeles"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Copiar imagen"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Copiar imagen arrastrada al portapapeles"
+  },
+  "command_drag_image_open_title": {
+    "message": "Abrir imagen en nueva pestaña"
+  },
+  "command_drag_image_open_description": {
+    "message": "Abrir imagen arrastrada en nueva pestaña"
+  },
+  "command_drag_image_download_title": {
+    "message": "Descargar imagen"
+  },
+  "command_drag_image_download_description": {
+    "message": "Descargar imagen arrastrada"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Recarga completa"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Omitir la caché local"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Abrir URL personalizada en nueva pestaña"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Abre la URL especificada en una nueva pestaña"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL personalizada"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "La URL que se debe abrir"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Abrir URL personalizada en nueva ventana"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Abre la URL especificada en una nueva ventana"
+  },
+  "optional": {
+    "message": "Opcional"
+  },
+  "drag": {
+    "message": "Arrastrar"
+  },
+  "setting": {
+    "message": "Configuración"
+  },
+  "save": {
+    "message": "Guardar"
+  },
+  "search": {
+    "message": "Buscar"
+  },
+  "drag_text": {
+    "message": "Texto"
+  },
+  "drag_url": {
+    "message": "Enlace"
+  },
+  "drag_image": {
+    "message": "Imagen"
+  },
+  "line_color": {
+    "message": "Color de línea"
+  },
+  "line_width": {
+    "message": "Grosor de línea"
+  },
+  "show_tooltip": {
+    "message": "Mostrar comandos coincidentes"
+  },
+  "show_trajectory": {
+    "message": "Mostrar rastro del ratón"
+  },
+  "tooltip_style": {
+    "message": "Estilo de tooltip de comando personalizable"
+  },
+  "backup": {
+    "message": "Copia de seguridad"
+  },
+  "restore": {
+    "message": "Restaurar"
+  },
+  "reset": {
+    "message": "Restablecer"
+  },
+  "donation": {
+    "message": "¡Gracias por usar mi plugin! He trabajado arduamente para optimizarlo y mejorarlo, esperando hacer tu experiencia de navegación más conveniente. Si lo encuentras útil, considera apoyarme con una donación. ¡Esto me motivará a seguir actualizando y mejorando el plugin! Gracias por tu apoyo."
+  },
+  "about": {
+    "message": "Acerca de"
+  },
+  "about_source_code": {
+    "message": "Código fuente"
+  },
+  "about_report_bug": {
+    "message": "Reportar un error"
+  },
+  "about_good_review": {
+    "message": "Calificar este plugin"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "confirm": {
+    "message": "Confirmar"
+  },
+  "confirm_content": {
+    "message": "¿Estás seguro?"
+  },
+  "confirm_restore": {
+    "message": "Todas las configuraciones, incluidos los gestos, serán reemplazadas por el archivo de configuración seleccionado."
+  },
+  "confirm_reset": {
+    "message": "Todas las configuraciones, incluidos los gestos, serán restablecidas. ¡Esto no se puede deshacer!"
+  }
+}

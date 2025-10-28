@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "Gestos do Mouse"
+  },
+  "description": {
+    "message": "Uma extensão que suporta gestos de mouse personalizáveis e recursos de arrastar e soltar"
+  },
+  "gesture": {
+    "message": "Gestos"
+  },
+  "warnings": {
+    "message": "Os menus de contexto do clique direito entram em conflito com gestos no Mac e Linux. Ao ativar este plugin, você precisará clicar duas vezes com o botão direito para abrir o menu de contexto!"
+  },
+  "gesture_create": {
+    "message": "Criar Gesto"
+  },
+  "gesture_edit": {
+    "message": "Editar Gesto"
+  },
+  "gesture_similar_tips": {
+    "message": "Este gesto é semelhante ao gesto \"{}\""
+  },
+  "command": {
+    "message": "Comando"
+  },
+  "command_description": {
+    "message": "Selecione o comando para atribuir a este gesto"
+  },
+  "textLabel": {
+    "message": "Rótulo"
+  },
+  "textLabel_description": {
+    "message": "Atribua um nome personalizado para exibir no lugar do nome do comando"
+  },
+  "command_gesture_scroll_title": {
+    "message": "Rolar Página"
+  },
+  "command_gesture_scroll_description": {
+    "message": "Role a página para cima, para baixo, para esquerda e para direita"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "Direção da Rolagem"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "Selecione a direção da rolagem"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "Rolar para Cima"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "Rolar para Baixo"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "Rolar para Esquerda"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "Rolar para Direita"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "Proporção de Rolagem"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "Percentual da altura visível que a página rolará"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "Comportamento"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "Rolagem instantânea ou animação suave"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "Suave"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "Instantâneo"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "Automático"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "Rolar para o Topo"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "Ir para o topo da página"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "Rolar para o Fundo"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "Ir para o final da página"
+  },
+  "command_gesture_forward_title": {
+    "message": "Avançar"
+  },
+  "command_gesture_forward_description": {
+    "message": "Ir para a próxima página"
+  },
+  "command_gesture_backward_title": {
+    "message": "Voltar"
+  },
+  "command_gesture_backward_description": {
+    "message": "Ir para a página anterior"
+  },
+  "command_gesture_reload_title": {
+    "message": "Recarregar"
+  },
+  "command_gesture_reload_description": {
+    "message": "Recarregar página"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "Recarregar Todas"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "Recarregar todas as abas"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "Parar Carregamento"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "Parar o carregamento da página atual"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "Duplicar Aba"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "Duplicar a aba atual"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "Nova Aba"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "Criar nova aba"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "Ativa"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "A aba será ativa na janela?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "Posição"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "Posição da aba na janela"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "Início"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "Esquerda"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "Direita"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "Fim"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "Fechar Aba"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "Fechar a aba atual"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "Fechar Outras Abas"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "Fechar todas as abas (exceto a atual e fixadas)"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "Fechar Abas à Esquerda"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "Fechar todas as abas à esquerda da atual (exceto as fixadas)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "Fechar Abas à Direita"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "Fechar todas as abas à direita da atual"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "Restaurar Aba"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "Restaurar a última aba fechada"
+  },
+  "command_gesture_pinned_title": {
+    "message": "Fixar/Desfixar Aba"
+  },
+  "command_gesture_pinned_description": {
+    "message": "Fixar ou desfixar a aba atual"
+  },
+  "command_gesture_muted_title": {
+    "message": "Silenciar/Ativar Aba"
+  },
+  "command_gesture_muted_description": {
+    "message": "Silenciar ou ativar som da aba atual"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "Silenciar outras abas"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "Silenciar todas as abas, exceto a atual"
+  },
+  "command_gesture_maximized_title": {
+    "message": "Maximizar/Restaurar janela"
+  },
+  "command_gesture_maximized_description": {
+    "message": "Alternar entre tamanho máximo e normal da janela"
+  },
+  "command_gesture_minimized_title": {
+    "message": "Minimizar janela"
+  },
+  "command_gesture_minimized_description": {
+    "message": "Minimizar a janela atual"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "Entrar/Sair de tela cheia"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "Alternar o modo de tela cheia"
+  },
+  "command_gesture_new_window_title": {
+    "message": "Nova Janela"
+  },
+  "command_gesture_new_window_description": {
+    "message": "Criar nova janela vazia"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "Janela anônima"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "Criar nova janela anônima vazia"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "Ir para aba anterior"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "Alternar para a aba à esquerda da atual"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "Ir para próxima aba"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "Alternar para a aba à direita da atual"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "Ir para a primeira aba"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "Alternar para a aba mais à esquerda"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "Incluir abas fixadas"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "Se as abas fixadas devem ser tratadas como as mais à esquerda"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "Ir para a última aba"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "Alternar para a aba mais à direita"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "Mover aba para o início"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "Move a aba atual para o início da barra de abas"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "Mover aba para o fim"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "Move a aba atual para o fim da barra de abas"
+  },
+  "command_drag_text_copy_title": {
+    "message": "Copiar"
+  },
+  "command_drag_text_copy_description": {
+    "message": "Copiar o texto arrastado para a área de transferência"
+  },
+  "command_drag_text_search_title": {
+    "message": "Pesquisar"
+  },
+  "command_drag_text_search_description": {
+    "message": "Pesquisar o texto arrastado"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "Localização"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "Local onde os resultados da pesquisa serão exibidos"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "Aba atual"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "Nova aba"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "Nova janela"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "Se o texto for uma URL, abra em uma nova aba"
+  },
+  "command_drag_url_copy_title": {
+    "message": "Copiar"
+  },
+  "command_drag_url_copy_description": {
+    "message": "Copiar o link arrastado para a área de transferência"
+  },
+  "command_drag_url_open_title": {
+    "message": "Abrir"
+  },
+  "command_drag_url_open_description": {
+    "message": "Abrir o link arrastado"
+  },
+  "command_drag_text_open_description": {
+    "message": "Abrir link de texto arrastado"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "Abrir em nova janela"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "Abrir link arrastado em nova janela"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "Copiar endereço da imagem"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "Copiar o endereço da imagem arrastada para a área de transferência"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "Copiar imagem"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "Copiar a imagem arrastada para a área de transferência"
+  },
+  "command_drag_image_open_title": {
+    "message": "Abrir imagem em nova aba"
+  },
+  "command_drag_image_open_description": {
+    "message": "Abrir imagem arrastada em nova aba"
+  },
+  "command_drag_image_download_title": {
+    "message": "Baixar imagem"
+  },
+  "command_drag_image_download_description": {
+    "message": "Baixar a imagem arrastada"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "Recarregamento Forçado"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "Ignorar cache local"
+  },
+  "command_gesture_open_url_title": {
+    "message": "Abrir URL personalizada em nova aba"
+  },
+  "command_gesture_open_url_description": {
+    "message": "Abre a URL especificada em uma nova aba"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL personalizada"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "A URL que deve ser aberta"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "Abrir URL personalizada em nova janela"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "Abre a URL especificada em nova janela"
+  },
+  "optional": {
+    "message": "Opcional"
+  },
+  "drag": {
+    "message": "Arrastar"
+  },
+  "setting": {
+    "message": "Configurações"
+  },
+  "save": {
+    "message": "Salvar"
+  },
+  "search": {
+    "message": "Pesquisar"
+  },
+  "drag_text": {
+    "message": "Texto"
+  },
+  "drag_url": {
+    "message": "Link"
+  },
+  "drag_image": {
+    "message": "Imagem"
+  },
+  "line_color": {
+    "message": "Cor da Linha"
+  },
+  "line_width": {
+    "message": "Espessura da Linha"
+  },
+  "show_tooltip": {
+    "message": "Mostrar comandos correspondentes"
+  },
+  "show_trajectory": {
+    "message": "Mostrar rastro do mouse"
+  },
+  "tooltip_style": {
+    "message": "Estilo personalizável do tooltip de comando"
+  },
+  "backup": {
+    "message": "Backup"
+  },
+  "restore": {
+    "message": "Restaurar"
+  },
+  "reset": {
+    "message": "Redefinir"
+  },
+  "donation": {
+    "message": "Obrigado por usar meu plugin! Tenho trabalhado duro para otimizar e melhorar ele, visando tornar sua experiência de navegação mais conveniente. Se achar útil, considere me apoiar com uma doação. Isso me motivará a continuar atualizando e aprimorando o plugin. Obrigado pelo seu apoio!"
+  },
+  "about": {
+    "message": "Sobre"
+  },
+  "about_source_code": {
+    "message": "Código Fonte"
+  },
+  "about_report_bug": {
+    "message": "Reportar um Bug"
+  },
+  "about_good_review": {
+    "message": "Avaliar este plugin"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "confirm": {
+    "message": "Confirmar"
+  },
+  "confirm_content": {
+    "message": "Tem certeza?"
+  },
+  "confirm_restore": {
+    "message": "Todas as configurações, incluindo gestos, serão substituídas pelo arquivo de configuração selecionado."
+  },
+  "confirm_reset": {
+    "message": "Todas as configurações, incluindo gestos, serão redefinidas. Isso não pode ser desfeito!"
+  }
+}

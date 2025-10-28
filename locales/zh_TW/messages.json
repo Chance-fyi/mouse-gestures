@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "滑鼠手勢"
+  },
+  "description": {
+    "message": "支援自訂滑鼠手勢與拖曳功能的擴充套件"
+  },
+  "gesture": {
+    "message": "手勢"
+  },
+  "warnings": {
+    "message": "在 Mac 與 Linux 中，右鍵選單與手勢衝突。啟用本外掛後，需要雙擊右鍵才能開啟選單！！！"
+  },
+  "gesture_create": {
+    "message": "新增手勢"
+  },
+  "gesture_edit": {
+    "message": "編輯手勢"
+  },
+  "gesture_similar_tips": {
+    "message": "此手勢與「{}」手勢相似"
+  },
+  "command": {
+    "message": "指令"
+  },
+  "command_description": {
+    "message": "選擇分配到此手勢的指令"
+  },
+  "textLabel": {
+    "message": "文字標籤"
+  },
+  "textLabel_description": {
+    "message": "設定自訂顯示名稱，以取代指令名稱"
+  },
+  "command_gesture_scroll_title": {
+    "message": "捲動頁面"
+  },
+  "command_gesture_scroll_description": {
+    "message": "上下左右捲動頁面"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "捲動方向"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "選擇捲動方向"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "向上捲動"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "向下捲動"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "向左捲動"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "向右捲動"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "捲動比例"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "頁面捲動量相對於可視區域高度的百分比"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "行為"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "選擇立即捲動或平滑動畫捲動"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "smooth"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "instant"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "auto"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "捲動至頂端"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "跳至頁面頂端"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "捲動至底部"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "跳至頁面底部"
+  },
+  "command_gesture_forward_title": {
+    "message": "前進"
+  },
+  "command_gesture_forward_description": {
+    "message": "返回瀏覽紀錄中的下一個頁面"
+  },
+  "command_gesture_backward_title": {
+    "message": "後退"
+  },
+  "command_gesture_backward_description": {
+    "message": "返回瀏覽紀錄中的上一個頁面"
+  },
+  "command_gesture_reload_title": {
+    "message": "重新載入"
+  },
+  "command_gesture_reload_description": {
+    "message": "重新載入目前頁面"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "全部重新載入"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "重新載入所有分頁"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "停止載入"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "停止載入目前頁面"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "複製分頁"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "複製目前分頁"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "新增分頁"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "建立新的分頁"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "啟用"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "新增的分頁是否成為目前視窗的活動分頁"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "位置"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "分頁在視窗中的位置"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "開頭"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "左側"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "右側"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "末尾"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "關閉分頁"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "關閉目前分頁"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "關閉其他分頁"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "關閉除目前與固定分頁外的所有分頁"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "關閉左側分頁"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "關閉目前分頁左側的所有分頁（固定分頁除外）"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "關閉右側分頁"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "關閉目前分頁右側的所有分頁"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "還原分頁"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "還原上一個關閉的分頁"
+  },
+  "command_gesture_pinned_title": {
+    "message": "固定／取消固定分頁"
+  },
+  "command_gesture_pinned_description": {
+    "message": "固定或取消固定目前分頁"
+  },
+  "command_gesture_muted_title": {
+    "message": "靜音／取消靜音分頁"
+  },
+  "command_gesture_muted_description": {
+    "message": "靜音或取消靜音目前分頁"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "靜音其他分頁"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "靜音除目前分頁外的所有分頁"
+  },
+  "command_gesture_maximized_title": {
+    "message": "最大化／還原視窗"
+  },
+  "command_gesture_maximized_description": {
+    "message": "切換最大化與一般視窗大小"
+  },
+  "command_gesture_minimized_title": {
+    "message": "最小化視窗"
+  },
+  "command_gesture_minimized_description": {
+    "message": "最小化目前視窗"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "進入／退出全螢幕"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "啟用或停用全螢幕模式"
+  },
+  "command_gesture_new_window_title": {
+    "message": "新建視窗"
+  },
+  "command_gesture_new_window_description": {
+    "message": "建立一個新的空白視窗"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "無痕視窗"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "建立一個新的無痕視窗"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "切換至左側分頁"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "切換到目前分頁左側的分頁"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "切換至右側分頁"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "切換到目前分頁右側的分頁"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "切換至第一個分頁"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "切換到最左側的分頁"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "包含固定分頁"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "是否將固定分頁視為最左側分頁"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "切換至最後一個分頁"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "切換到最右側的分頁"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "移動分頁到開頭"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "將目前分頁移動到分頁列的開頭"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "移動分頁到末尾"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "將目前分頁移動到分頁列的末尾"
+  },
+  "command_drag_text_copy_title": {
+    "message": "複製"
+  },
+  "command_drag_text_copy_description": {
+    "message": "將拖曳的文字複製到剪貼簿"
+  },
+  "command_drag_text_search_title": {
+    "message": "搜尋"
+  },
+  "command_drag_text_search_description": {
+    "message": "搜尋拖曳的文字"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "位置"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "顯示搜尋結果的位置"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "目前分頁"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "新分頁"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "新視窗"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "若文字為網址，則在新分頁開啟"
+  },
+  "command_drag_url_copy_title": {
+    "message": "複製"
+  },
+  "command_drag_url_copy_description": {
+    "message": "將拖曳的連結複製到剪貼簿"
+  },
+  "command_drag_url_open_title": {
+    "message": "開啟"
+  },
+  "command_drag_url_open_description": {
+    "message": "開啟拖曳的連結"
+  },
+  "command_drag_text_open_description": {
+    "message": "開啟拖曳的文字連結"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "新建視窗開啟"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "以新視窗開啟拖曳的連結"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "複製圖片位址"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "將拖曳的圖片位址複製到剪貼簿"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "複製圖片"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "將拖曳的圖片複製到剪貼簿"
+  },
+  "command_drag_image_open_title": {
+    "message": "新分頁開啟圖片"
+  },
+  "command_drag_image_open_description": {
+    "message": "在新分頁開啟拖曳的圖片"
+  },
+  "command_drag_image_download_title": {
+    "message": "下載圖片"
+  },
+  "command_drag_image_download_description": {
+    "message": "下載拖曳的圖片"
+  },
+  "command_gesture_open_url_title": {
+    "message": "新建分頁開啟自訂網址"
+  },
+  "command_gesture_open_url_description": {
+    "message": "以新分頁開啟指定網址"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "自訂網址"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "要開啟的網址"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "新建視窗開啟自訂網址"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "以新視窗開啟指定網址"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "強制重新整理"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "是否要略過本機快取"
+  },
+  "optional": {
+    "message": "可選"
+  },
+  "drag": {
+    "message": "拖曳"
+  },
+  "setting": {
+    "message": "設定"
+  },
+  "save": {
+    "message": "儲存"
+  },
+  "search": {
+    "message": "搜尋"
+  },
+  "drag_text": {
+    "message": "文字"
+  },
+  "drag_url": {
+    "message": "連結"
+  },
+  "drag_image": {
+    "message": "圖片"
+  },
+  "line_color": {
+    "message": "線條顏色"
+  },
+  "line_width": {
+    "message": "線條寬度"
+  },
+  "show_tooltip": {
+    "message": "顯示匹配的指令"
+  },
+  "show_trajectory": {
+    "message": "顯示滑鼠軌跡"
+  },
+  "tooltip_style": {
+    "message": "自訂指令提示框樣式"
+  },
+  "backup": {
+    "message": "備份"
+  },
+  "restore": {
+    "message": "還原"
+  },
+  "reset": {
+    "message": "重設"
+  },
+  "donation": {
+    "message": "感謝你使用我的外掛！我一直努力優化與改進，希望能為你的瀏覽體驗帶來更多便利。如果覺得有幫助，歡迎贊助支持我，讓我更有動力持續更新與完善，感謝你的支持！"
+  },
+  "about": {
+    "message": "關於"
+  },
+  "about_source_code": {
+    "message": "原始碼"
+  },
+  "about_report_bug": {
+    "message": "回報錯誤"
+  },
+  "about_good_review": {
+    "message": "好評"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "confirm": {
+    "message": "確認"
+  },
+  "confirm_content": {
+    "message": "你確認嗎？"
+  },
+  "confirm_restore": {
+    "message": "將使用選取的設定檔覆蓋所有設定項（包括手勢）"
+  },
+  "confirm_reset": {
+    "message": "將重設所有設定（包括手勢），此操作無法復原！"
+  }
+}

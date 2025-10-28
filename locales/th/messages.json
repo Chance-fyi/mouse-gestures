@@ -1,0 +1,455 @@
+{
+  "displayName": {
+    "message": "ท่าทางเมาส์"
+  },
+  "description": {
+    "message": "ส่วนขยายที่รองรับท่าทางเมาส์ที่ปรับแต่งได้และคุณสมบัติการลากและวาง"
+  },
+  "gesture": {
+    "message": "ท่าทาง"
+  },
+  "warnings": {
+    "message": "เมนูบริบทคลิกขวาขัดแย้งกับท่าทางบน Mac และ Linux เมื่อเปิดใช้งานปลั๊กอินนี้ คุณต้องดับเบิลคลิกปุ่มขวาเพื่อเปิดเมนูบริบท!!!"
+  },
+  "gesture_create": {
+    "message": "สร้างท่าทาง"
+  },
+  "gesture_edit": {
+    "message": "แก้ไขท่าทาง"
+  },
+  "gesture_similar_tips": {
+    "message": "ท่าทางนี้คล้ายกับท่าทาง \"{}\""
+  },
+  "command": {
+    "message": "คำสั่ง"
+  },
+  "command_description": {
+    "message": "เลือกคำสั่งเพื่อกำหนดให้ท่าทางนี้"
+  },
+  "textLabel": {
+    "message": "ป้ายชื่อ"
+  },
+  "textLabel_description": {
+    "message": "กำหนดชื่อที่แสดงเองแทนชื่อคำสั่ง"
+  },
+  "command_gesture_scroll_title": {
+    "message": "เลื่อนหน้า"
+  },
+  "command_gesture_scroll_description": {
+    "message": "เลื่อนหน้า ขึ้น ลง ซ้าย และขวา"
+  },
+  "command_gesture_scroll_config_direction_title": {
+    "message": "ทิศทางการเลื่อน"
+  },
+  "command_gesture_scroll_config_direction_description": {
+    "message": "เลือกทิศทางการเลื่อน"
+  },
+  "command_gesture_scroll_config_direction_option_up": {
+    "message": "เลื่อนขึ้น"
+  },
+  "command_gesture_scroll_config_direction_option_down": {
+    "message": "เลื่อนลง"
+  },
+  "command_gesture_scroll_config_direction_option_left": {
+    "message": "เลื่อนไปซ้าย"
+  },
+  "command_gesture_scroll_config_direction_option_right": {
+    "message": "เลื่อนไปขวา"
+  },
+  "command_gesture_scroll_config_proportions_title": {
+    "message": "อัตราส่วนการเลื่อน"
+  },
+  "command_gesture_scroll_config_proportions_description": {
+    "message": "เปอร์เซ็นต์ของความสูงส่วนที่มองเห็นของหน้าเพื่อเลื่อน"
+  },
+  "command_gesture_scroll_config_behavior_title": {
+    "message": "พฤติกรรม"
+  },
+  "command_gesture_scroll_config_behavior_description": {
+    "message": "เลื่อนทันทีหรือเลื่อนแบบแอนิเมชันเรียบ"
+  },
+  "command_gesture_scroll_config_behavior_option_smooth": {
+    "message": "เรียบ"
+  },
+  "command_gesture_scroll_config_behavior_option_instant": {
+    "message": "ทันที"
+  },
+  "command_gesture_scroll_config_behavior_option_auto": {
+    "message": "อัตโนมัติ"
+  },
+  "command_gesture_scroll_to_top_title": {
+    "message": "เลื่อนไปบนสุด"
+  },
+  "command_gesture_scroll_to_top_description": {
+    "message": "ไปยังด้านบน"
+  },
+  "command_gesture_scroll_to_bottom_title": {
+    "message": "เลื่อนไปล่างสุด"
+  },
+  "command_gesture_scroll_to_bottom_description": {
+    "message": "ไปยังด้านล่าง"
+  },
+  "command_gesture_forward_title": {
+    "message": "ไปข้างหน้า"
+  },
+  "command_gesture_forward_description": {
+    "message": "ไปยังหน้าถัดไป"
+  },
+  "command_gesture_backward_title": {
+    "message": "ย้อนกลับ"
+  },
+  "command_gesture_backward_description": {
+    "message": "ไปยังหน้าก่อนหน้า"
+  },
+  "command_gesture_reload_title": {
+    "message": "รีโหลด"
+  },
+  "command_gesture_reload_description": {
+    "message": "รีโหลดหน้า"
+  },
+  "command_gesture_reload_all_title": {
+    "message": "รีโหลดทั้งหมด"
+  },
+  "command_gesture_reload_all_description": {
+    "message": "รีโหลดทุกแท็บ"
+  },
+  "command_gesture_stop_loading_title": {
+    "message": "หยุดโหลด"
+  },
+  "command_gesture_stop_loading_description": {
+    "message": "หยุดการโหลดหน้าปัจจุบัน"
+  },
+  "command_gesture_duplicate_title": {
+    "message": "ทำซ้ำแท็บ"
+  },
+  "command_gesture_duplicate_description": {
+    "message": "ทำซ้ำแท็บปัจจุบัน"
+  },
+  "command_gesture_new_tab_title": {
+    "message": "แท็บใหม่"
+  },
+  "command_gesture_new_tab_description": {
+    "message": "สร้างแท็บใหม่"
+  },
+  "command_gesture_new_tab_active_title": {
+    "message": "เปิดใช้งาน"
+  },
+  "command_gesture_new_tab_active_description": {
+    "message": "แท็บนี้เป็นแท็บปัจจุบันหรือไม่?"
+  },
+  "command_gesture_new_tab_position_title": {
+    "message": "ตำแหน่ง"
+  },
+  "command_gesture_new_tab_position_description": {
+    "message": "ตำแหน่งแท็บในหน้าต่าง"
+  },
+  "command_gesture_new_tab_position_option_home": {
+    "message": "ต้น"
+  },
+  "command_gesture_new_tab_position_option_left": {
+    "message": "ซ้าย"
+  },
+  "command_gesture_new_tab_position_option_right": {
+    "message": "ขวา"
+  },
+  "command_gesture_new_tab_position_option_end": {
+    "message": "สุด"
+  },
+  "command_gesture_close_tab_title": {
+    "message": "ปิดแท็บ"
+  },
+  "command_gesture_close_tab_description": {
+    "message": "ปิดแท็บปัจจุบัน"
+  },
+  "command_gesture_close_other_tabs_title": {
+    "message": "ปิดแท็บอื่น"
+  },
+  "command_gesture_close_other_tabs_description": {
+    "message": "ปิดแท็บทั้งหมดยกเว้นแท็บปัจจุบันและแท็บปักหมุด"
+  },
+  "command_gesture_close_left_tabs_title": {
+    "message": "ปิดแท็บทางซ้าย"
+  },
+  "command_gesture_close_left_tabs_description": {
+    "message": "ปิดแท็บทั้งหมดทางซ้ายของแท็บปัจจุบัน (ยกเว้นแท็บปักหมุด)"
+  },
+  "command_gesture_close_right_tabs_title": {
+    "message": "ปิดแท็บทางขวา"
+  },
+  "command_gesture_close_right_tabs_description": {
+    "message": "ปิดแท็บทั้งหมดทางขวาของแท็บปัจจุบัน"
+  },
+  "command_gesture_restore_tab_title": {
+    "message": "กู้คืนแท็บ"
+  },
+  "command_gesture_restore_tab_description": {
+    "message": "กู้คืนแท็บที่ปิดล่าสุด"
+  },
+  "command_gesture_pinned_title": {
+    "message": "ปักหมุด/ยกเลิกปักหมุดแท็บ"
+  },
+  "command_gesture_pinned_description": {
+    "message": "ปักหมุดหรือยกเลิกปักหมุดแท็บปัจจุบัน"
+  },
+  "command_gesture_muted_title": {
+    "message": "ปิด/เปิดเสียงแท็บ"
+  },
+  "command_gesture_muted_description": {
+    "message": "ปิดหรือเปิดเสียงแท็บปัจจุบัน"
+  },
+  "command_gesture_muted_other_tabs_title": {
+    "message": "ปิดเสียงแท็บอื่น"
+  },
+  "command_gesture_muted_other_tabs_description": {
+    "message": "ปิดเสียงทุกแท็บยกเว้นแท็บปัจจุบัน"
+  },
+  "command_gesture_maximized_title": {
+    "message": "ขยาย/คืนขนาดหน้าต่าง"
+  },
+  "command_gesture_maximized_description": {
+    "message": "สลับระหว่างหน้าต่างขนาดเต็มและขนาดปกติ"
+  },
+  "command_gesture_minimized_title": {
+    "message": "ย่อหน้าต่าง"
+  },
+  "command_gesture_minimized_description": {
+    "message": "ย่อหน้าต่างปัจจุบัน"
+  },
+  "command_gesture_fullscreen_title": {
+    "message": "เข้าสู่/ออกเต็มหน้าจอ"
+  },
+  "command_gesture_fullscreen_description": {
+    "message": "สลับโหมดเต็มหน้าจอ"
+  },
+  "command_gesture_new_window_title": {
+    "message": "หน้าต่างใหม่"
+  },
+  "command_gesture_new_window_description": {
+    "message": "สร้างหน้าต่างเปล่าใหม่"
+  },
+  "command_gesture_new_window_config_incognito_title": {
+    "message": "หน้าต่างไม่ระบุตัวตน"
+  },
+  "command_gesture_new_window_config_incognito_description": {
+    "message": "สร้างหน้าต่างไม่ระบุตัวตนใหม่"
+  },
+  "command_gesture_toggle_left_tab_title": {
+    "message": "ไปยังแท็บก่อนหน้า"
+  },
+  "command_gesture_toggle_left_tab_description": {
+    "message": "สลับไปยังแท็บทางซ้ายของแท็บปัจจุบัน"
+  },
+  "command_gesture_toggle_right_tab_title": {
+    "message": "ไปยังแท็บถัดไป"
+  },
+  "command_gesture_toggle_right_tab_description": {
+    "message": "สลับไปยังแท็บทางขวาของแท็บปัจจุบัน"
+  },
+  "command_gesture_toggle_first_tab_title": {
+    "message": "ไปยังแท็บแรก"
+  },
+  "command_gesture_toggle_first_tab_description": {
+    "message": "สลับไปยังแท็บซ้ายสุด"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_title": {
+    "message": "รวมแท็บปักหมุด"
+  },
+  "command_gesture_toggle_first_tab_include_fixed_description": {
+    "message": "จะรวมแท็บปักหมุดเป็นแท็บซ้ายสุดหรือไม่"
+  },
+  "command_gesture_toggle_last_tab_title": {
+    "message": "ไปยังแท็บสุดท้าย"
+  },
+  "command_gesture_toggle_last_tab_description": {
+    "message": "สลับไปยังแท็บขวาสุด"
+  },
+  "command_gesture_move_tab_to_start_title": {
+    "message": "ย้ายแท็บไปต้น"
+  },
+  "command_gesture_move_tab_to_start_description": {
+    "message": "ย้ายแท็บปัจจุบันไปยังต้นแถบแท็บ"
+  },
+  "command_gesture_move_tab_to_end_title": {
+    "message": "ย้ายแท็บไปสุด"
+  },
+  "command_gesture_move_tab_to_end_description": {
+    "message": "ย้ายแท็บปัจจุบันไปยังท้ายแถบแท็บ"
+  },
+  "command_drag_text_copy_title": {
+    "message": "คัดลอก"
+  },
+  "command_drag_text_copy_description": {
+    "message": "คัดลอกข้อความที่ลากไปยังคลิปบอร์ด"
+  },
+  "command_drag_text_search_title": {
+    "message": "ค้นหา"
+  },
+  "command_drag_text_search_description": {
+    "message": "ค้นหาข้อความที่ลาก"
+  },
+  "command_drag_text_search_disposition_title": {
+    "message": "ตำแหน่ง"
+  },
+  "command_drag_text_search_disposition_description": {
+    "message": "ตำแหน่งแสดงผลลัพธ์การค้นหา"
+  },
+  "command_drag_text_search_disposition_option_current_tab": {
+    "message": "แท็บปัจจุบัน"
+  },
+  "command_drag_text_search_disposition_option_new_tab": {
+    "message": "แท็บใหม่"
+  },
+  "command_drag_text_search_disposition_option_new_window": {
+    "message": "หน้าต่างใหม่"
+  },
+  "command_drag_text_search_open_url_description": {
+    "message": "หากข้อความเป็น URL ให้เปิดในแท็บใหม่"
+  },
+  "command_drag_url_copy_title": {
+    "message": "คัดลอก"
+  },
+  "command_drag_url_copy_description": {
+    "message": "คัดลอกลิงก์ที่ลากไปยังคลิปบอร์ด"
+  },
+  "command_drag_url_open_title": {
+    "message": "เปิด"
+  },
+  "command_drag_url_open_description": {
+    "message": "เปิดลิงก์ที่ลาก"
+  },
+  "command_drag_text_open_description": {
+    "message": "เปิดลิงก์จากข้อความที่ลาก"
+  },
+  "command_drag_url_open_window_title": {
+    "message": "เปิดในหน้าต่างใหม่"
+  },
+  "command_drag_url_open_window_description": {
+    "message": "เปิดลิงก์ที่ลากในหน้าต่างใหม่"
+  },
+  "command_drag_image_copy_url_title": {
+    "message": "คัดลอกที่อยู่ภาพ"
+  },
+  "command_drag_image_copy_url_description": {
+    "message": "คัดลอกที่อยู่ภาพที่ลากไปยังคลิปบอร์ด"
+  },
+  "command_drag_image_copy_image_title": {
+    "message": "คัดลอกภาพ"
+  },
+  "command_drag_image_copy_image_description": {
+    "message": "คัดลอกภาพที่ลากไปยังคลิปบอร์ด"
+  },
+  "command_drag_image_open_title": {
+    "message": "เปิดภาพในแท็บใหม่"
+  },
+  "command_drag_image_open_description": {
+    "message": "เปิดภาพที่ลากในแท็บใหม่"
+  },
+  "command_drag_image_download_title": {
+    "message": "ดาวน์โหลดภาพ"
+  },
+  "command_drag_image_download_description": {
+    "message": "ดาวน์โหลดภาพที่ลาก"
+  },
+  "command_gesture_reload_hard_title": {
+    "message": "รีโหลดแบบแรง"
+  },
+  "command_gesture_reload_hard_description": {
+    "message": "ข้ามแคชท้องถิ่น"
+  },
+  "command_gesture_open_url_title": {
+    "message": "เปิด URL ที่กำหนดเองในแท็บใหม่"
+  },
+  "command_gesture_open_url_description": {
+    "message": "เปิด URL ที่ระบุในแท็บใหม่"
+  },
+  "command_gesture_open_url_config_url_title": {
+    "message": "URL ที่กำหนดเอง"
+  },
+  "command_gesture_open_url_config_url_description": {
+    "message": "ระบุ URL ที่ควรเปิด"
+  },
+  "command_gesture_open_url_window_title": {
+    "message": "เปิด URL ที่กำหนดเองในหน้าต่างใหม่"
+  },
+  "command_gesture_open_url_window_description": {
+    "message": "เปิด URL ที่ระบุในหน้าต่างใหม่"
+  },
+  "optional": {
+    "message": "ไม่จำเป็น"
+  },
+  "drag": {
+    "message": "ลาก"
+  },
+  "setting": {
+    "message": "การตั้งค่า"
+  },
+  "save": {
+    "message": "บันทึก"
+  },
+  "search": {
+    "message": "ค้นหา"
+  },
+  "drag_text": {
+    "message": "ข้อความ"
+  },
+  "drag_url": {
+    "message": "ลิงก์"
+  },
+  "drag_image": {
+    "message": "ภาพ"
+  },
+  "line_color": {
+    "message": "สีเส้น"
+  },
+  "line_width": {
+    "message": "ความกว้างเส้น"
+  },
+  "show_tooltip": {
+    "message": "แสดงคำสั่งที่ตรงกัน"
+  },
+  "show_trajectory": {
+    "message": "แสดงเส้นทางเมาส์"
+  },
+  "tooltip_style": {
+    "message": "รูปแบบคำแนะนำคำสั่งที่ปรับแต่งได้"
+  },
+  "backup": {
+    "message": "สำรองข้อมูล"
+  },
+  "restore": {
+    "message": "กู้คืน"
+  },
+  "reset": {
+    "message": "รีเซ็ต"
+  },
+  "donation": {
+    "message": "ขอบคุณที่ใช้ปลั๊กอินของฉัน! ฉันทำงานหนักเพื่อปรับปรุงและพัฒนามันให้ดียิ่งขึ้น เพื่อให้ประสบการณ์การท่องเว็บของคุณสะดวกสบายยิ่งขึ้น หากคุณพบว่ามีประโยชน์ โปรดสนับสนุนฉันด้วยการบริจาค ซึ่งจะเป็นแรงบันดาลใจให้ฉันพัฒนาปลั๊กอินต่อไป ขอบคุณสำหรับการสนับสนุน!"
+  },
+  "about": {
+    "message": "เกี่ยวกับ"
+  },
+  "about_source_code": {
+    "message": "รหัสต้นฉบับ"
+  },
+  "about_report_bug": {
+    "message": "รายงานบั๊ก"
+  },
+  "about_good_review": {
+    "message": "ให้คะแนนปลั๊กอินนี้"
+  },
+  "cancel": {
+    "message": "ยกเลิก"
+  },
+  "confirm": {
+    "message": "ยืนยัน"
+  },
+  "confirm_content": {
+    "message": "คุณแน่ใจไหม?"
+  },
+  "confirm_restore": {
+    "message": "การตั้งค่าทั้งหมดรวมถึงท่าทางจะถูกแทนที่ด้วยไฟล์คอนฟิกที่เลือก"
+  },
+  "confirm_reset": {
+    "message": "การตั้งค่าทั้งหมดรวมถึงท่าทางจะถูกรีเซ็ต การกระทำนี้ไม่สามารถย้อนกลับได้!"
+  }
+}

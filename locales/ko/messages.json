@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "현재 탭을 탭 스트립의 끝으로 이동"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "상위로 이동"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "현재 페이지의 상위 수준으로 이동합니다"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "도메인 상위 이동 허용"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "활성화 시, 루트 경로에 도달한 후에도 도메인 계층을 계속 위로 이동합니다 (예: \"a.b.c.example.com\" → \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "복사"
   },

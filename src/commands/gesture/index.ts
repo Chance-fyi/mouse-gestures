@@ -12,6 +12,7 @@ import { MoveTabToEnd } from "~commands/gesture/move-tab-to-end"
 import { MoveTabToStart } from "~commands/gesture/move-tab-to-start"
 import { Muted } from "~commands/gesture/muted"
 import { MutedOtherTabs } from "~commands/gesture/muted-other-tabs"
+import { NavigateUp } from "~commands/gesture/navigate-up"
 import { NewTab } from "~commands/gesture/new-tab"
 import { NewWindow } from "~commands/gesture/new-window"
 import { OpenUrl } from "~commands/gesture/open-url"
@@ -59,5 +60,6 @@ export default [
   new Fullscreen(),
   new NewWindow(),
   new OpenUrl(),
-  new OpenUrlWindow()
+  new OpenUrlWindow(),
+  new NavigateUp()
 ]

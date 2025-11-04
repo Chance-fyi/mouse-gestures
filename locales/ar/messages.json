@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "نقل التبويب الحالي إلى نهاية شريط الألسنة"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "التنقل للأعلى"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "انتقل إلى المستوى الأعلى من الصفحة الحالية"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "السماح بالانتقال إلى مستوى النطاق الأعلى"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "عند التمكين، استمر في الصعود في مستويات النطاق بعد الوصول إلى المسار الجذر (مثلاً من \"a.b.c.example.com\" إلى \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "نسخ"
   },

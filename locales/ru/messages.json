@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Перемещает текущую вкладку в конец полосы вкладок"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Перейти вверх"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Перейти на родительский уровень текущей страницы"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Разрешить переход на уровень домена выше"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Если включено, продолжать подниматься по уровням домена после достижения корневого пути (например, с «a.b.c.example.com» на «b.c.example.com»)"
+  },
   "command_drag_text_copy_title": {
     "message": "Копировать"
   },

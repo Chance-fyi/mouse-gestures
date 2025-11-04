@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Przenieś bieżącą kartę na koniec paska kart"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Przejdź wyżej"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Przejdź do nadrzędnego poziomu bieżącej strony"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Zezwól na przejście do wyższego poziomu domeny"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Po włączeniu kontynuuj przechodzenie w górę poziomów domen po osiągnięciu ścieżki głównej (np. z „a.b.c.example.com” do „b.c.example.com”)"
+  },
   "command_drag_text_copy_title": {
     "message": "Kopiuj"
   },

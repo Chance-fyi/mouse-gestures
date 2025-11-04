@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "移动当前标签页到标签栏的末尾"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "向上导航"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "跳转到当前页面的上一级网址"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "允许上移域名"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "启用后，在到达网址根路径后，会继续向上移除子域名（例如从 “a.b.c.example.com” 到 “b.c.example.com”）"
+  },
   "command_drag_text_copy_title": {
     "message": "复制"
   },

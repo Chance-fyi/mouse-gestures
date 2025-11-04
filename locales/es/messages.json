@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Mueve la pestaña actual al final de la barra de pestañas"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Navegar hacia arriba"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Ir al nivel superior de la página actual"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Permitir subir nivel de dominio"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Cuando está habilitado, continúa subiendo niveles de dominio después de alcanzar la ruta raíz (por ejemplo, de \"a.b.c.example.com\" a \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "Copiar"
   },

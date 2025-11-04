@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "ย้ายแท็บปัจจุบันไปยังท้ายแถบแท็บ"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "นำทางขึ้น"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "ไปยังระดับบนของหน้าปัจจุบัน"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "อนุญาตให้เลื่อนระดับโดเมนขึ้น"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "เมื่อเปิดใช้งาน ให้เลื่อนระดับโดเมนขึ้นต่อไปหลังจากถึงเส้นทางหลัก (เช่น จาก \"a.b.c.example.com\" ไปยัง \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "คัดลอก"
   },

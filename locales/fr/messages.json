@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Déplace l'onglet actuel à la fin de la barre d'onglets"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Naviguer vers le haut"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Aller au niveau parent de la page actuelle"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Autoriser la montée de niveau de domaine"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Lorsque cette option est activée, continuer à monter les niveaux de domaine après avoir atteint le chemin racine (par ex. de « a.b.c.example.com » à « b.c.example.com »)"
+  },
   "command_drag_text_copy_title": {
     "message": "Copier"
   },

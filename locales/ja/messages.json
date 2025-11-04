@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "現在のタブをタブ列の末尾に移動"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "上の階層へ移動"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "現在のページの親レベルに移動します"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "ドメイン階層の上位移動を許可"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "有効にすると、ルートパスに到達した後もドメイン階層を上に進みます（例：「a.b.c.example.com」から「b.c.example.com」へ）"
+  },
   "command_drag_text_copy_title": {
     "message": "コピー"
   },

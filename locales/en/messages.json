@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Moves the current tab to the end of the tab strip"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Navigate Up"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Go to the parent level of the current page"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Allow Domain Level Up"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "When enabled, continue going up the domain levels after reaching the root path (e.g., from \"a.b.c.example.com\" to \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "Copy"
   },

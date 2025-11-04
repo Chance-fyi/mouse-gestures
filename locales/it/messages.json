@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Sposta la scheda corrente alla fine della barra delle schede"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Naviga in alto"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Vai al livello superiore della pagina corrente"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Consenti avanzamento di livello dominio"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Quando abilitato, continua a salire nei livelli di dominio dopo aver raggiunto il percorso principale (ad es. da \"a.b.c.example.com\" a \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "Copia"
   },

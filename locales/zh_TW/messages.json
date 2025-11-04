@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "將目前分頁移動到分頁列的末尾"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "向上導航"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "前往當前頁面的上層級"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "允許跨網域層級上移"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "啟用後，在到達根路徑後繼續向上移動網域層級（例如從「a.b.c.example.com」移動到「b.c.example.com」）"
+  },
   "command_drag_text_copy_title": {
     "message": "複製"
   },

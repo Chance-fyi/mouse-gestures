@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Verschiebt das aktuelle Tab ans Ende der Tab-Leiste"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Nach oben navigieren"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Zur übergeordneten Ebene der aktuellen Seite gehen"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Domain-Ebene nach oben erlauben"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Wenn aktiviert, weiter durch die Domainebenen nach oben gehen, nachdem der Stammordner erreicht wurde (z. B. von „a.b.c.example.com“ zu „b.c.example.com“)"
+  },
   "command_drag_text_copy_title": {
     "message": "Kopieren"
   },

@@ -275,6 +275,18 @@
   "command_gesture_move_tab_to_end_description": {
     "message": "Mevcut sekmeyi sekme çubuğunun sonuna taşı"
   },
+  "command_gesture_navigate_up_title": {
+    "message": "Yukarı git"
+  },
+  "command_gesture_navigate_up_description": {
+    "message": "Geçerli sayfanın üst düzeyine git"
+  },
+  "command_gesture_navigate_up_remove_subdomain_title": {
+    "message": "Alan adı seviyesinde yukarı çıkmaya izin ver"
+  },
+  "command_gesture_navigate_up_remove_subdomain_description": {
+    "message": "Etkinleştirildiğinde, kök yola ulaştıktan sonra alan adı seviyelerinde yukarı çıkmaya devam edin (ör. \"a.b.c.example.com\" → \"b.c.example.com\")"
+  },
   "command_drag_text_copy_title": {
     "message": "Kopyala"
   },

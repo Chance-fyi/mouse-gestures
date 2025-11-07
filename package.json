@@ -41,7 +41,6 @@
       "https://*/*"
     ],
     "permissions": [
-      "tabs",
       "search",
       "sessions",
       "downloads"

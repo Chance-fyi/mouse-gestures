@@ -1,7 +1,7 @@
 {
   "name": "mouse-gestures",
   "displayName": "__MSG_displayName__",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "__MSG_description__",
   "author": "Chance <chance.fyii@gmail.com>",
   "scripts": {

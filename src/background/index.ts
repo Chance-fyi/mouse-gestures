@@ -17,6 +17,8 @@ export const getLocalConfig = async () => {
     (await storage.get(LocalConfig.key)) || LocalConfig.default)
 }
 
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.runtime.openOptionsPage()
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install" || details.reason === "update") {
+    chrome.runtime.openOptionsPage()
+  }
 })

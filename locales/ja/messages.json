@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "テキストがURLの場合は新しいタブで開く"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "検索エンジンのURL"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "検索するテキストは、指定された検索エンジンURL内の %s プレースホルダーがあれば置き換え、ない場合は末尾に追加されます。省略した場合は、ブラウザのデフォルト検索エンジンが使用されます。"
+  },
   "command_drag_url_copy_title": {
     "message": "コピー"
   },

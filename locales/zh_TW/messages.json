@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "若文字為網址，則在新分頁開啟"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "搜尋引擎網址"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "要搜尋的文字會取代提供的搜尋引擎網址中的 %s 佔位符（若有），否則將會附加在末尾。若省略，將使用瀏覽器的預設搜尋引擎。"
+  },
   "command_drag_url_copy_title": {
     "message": "複製"
   },

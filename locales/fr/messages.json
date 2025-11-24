@@ -287,6 +287,12 @@
   "command_gesture_navigate_up_remove_subdomain_description": {
     "message": "Lorsque cette option est activée, continuer à monter les niveaux de domaine après avoir atteint le chemin racine (par ex. de « a.b.c.example.com » à « b.c.example.com »)"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "URL du moteur de recherche"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "Le texte à rechercher remplacera l’espace réservé %s dans l’URL du moteur de recherche fourni (s’il existe), sinon il sera ajouté à la fin. S’il est omis, le moteur de recherche par défaut du navigateur sera utilisé."
+  },
   "command_drag_text_copy_title": {
     "message": "Copier"
   },

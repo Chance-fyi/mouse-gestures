@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "Если текст является URL, открыть его в новой вкладке"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "URL поисковой системы"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "Текст для поиска заменит символ %s в указанном URL поисковой системы (если он есть), иначе будет добавлен в конец. Если не указано, будет использована поисковая система по умолчанию браузера."
+  },
   "command_drag_url_copy_title": {
     "message": "Копировать"
   },

@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "หากข้อความเป็น URL ให้เปิดในแท็บใหม่"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "URL ของเครื่องมือค้นหา"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "ข้อความที่ต้องการค้นหาจะถูกแทนที่ตัวแทน %s ใน URL ของเครื่องมือค้นหาที่ให้ไว้ (ถ้ามี) มิฉะนั้นจะถูกเพิ่มต่อท้าย หากละไว้ จะใช้เครื่องมือค้นหาเริ่มต้นของเบราว์เซอร์"
+  },
   "command_drag_url_copy_title": {
     "message": "คัดลอก"
   },

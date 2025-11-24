@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "Se il testo è un URL, aprilo in una nuova scheda"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "URL del motore di ricerca"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "Il testo da cercare sostituirà il segnaposto %s nell'URL del motore di ricerca fornito (se presente), altrimenti verrà aggiunto alla fine. Se omesso, verrà utilizzato il motore di ricerca predefinito del browser."
+  },
   "command_drag_url_copy_title": {
     "message": "Copia"
   },

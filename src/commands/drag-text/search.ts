@@ -34,6 +34,12 @@ export class Search implements CommandInterface {
       description: "command_drag_text_search_open_url_description",
       type: ConfigType.Toggle,
       value: false
+    },
+    engine: {
+      title: "command_drag_text_search_engine_title",
+      description: "command_drag_text_search_engine_description",
+      type: ConfigType.Input,
+      value: ""
     }
   }
   data: DragData
@@ -45,6 +51,19 @@ export class Search implements CommandInterface {
           url: this.data.content
         })
         .then()
+      return
+    }
+
+    const engine: string = this.config.engine.value
+    if (engine) {
+      let url: string
+      if (engine.includes("%s")) {
+        url = engine.replace("%s", this.data.content)
+      } else {
+        url = engine + this.data.content
+      }
+
+      chrome.tabs.create({ url: url }).then()
       return
     }
 

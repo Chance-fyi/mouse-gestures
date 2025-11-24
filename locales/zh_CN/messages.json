@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "如果文字是网址，在新标签页打开"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "搜索引擎网址"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "要搜索的文本会替换提供的搜索引擎网址中的 %s 占位符（若有），否则将会附加到末尾。 如果省略，将使用浏览器默认的搜索引擎"
+  },
   "command_drag_url_copy_title": {
     "message": "复制"
   },

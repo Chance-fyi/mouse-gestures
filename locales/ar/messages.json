@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "إذا كان النص عنوان URL، افتحه في تبويب جديد"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "عنوان URL لمحرك البحث"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "سيتم استبدال النص المراد البحث عنه بمحدد %s في عنوان URL لمحرك البحث المقدم (إن وجد)، وإلا فسيتم إلحاقه في النهاية. إذا لم يتم تحديده، فسيتم استخدام محرك البحث الافتراضي للمتصفح."
+  },
   "command_drag_url_copy_title": {
     "message": "نسخ"
   },

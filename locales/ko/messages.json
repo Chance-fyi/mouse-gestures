@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "텍스트가 URL이면 새 탭에서 열기"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "검색 엔진 URL"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "검색할 텍스트는 제공된 검색 엔진 URL의 %s 자리표시자를 대체하며(있는 경우), 없다면 끝에 추가됩니다. 생략할 경우 브라우저의 기본 검색 엔진이 사용됩니다."
+  },
   "command_drag_url_copy_title": {
     "message": "복사"
   },

@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "Jeśli tekst jest URL, otwórz go w nowej karcie"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "Adres URL wyszukiwarki"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "Tekst do wyszukania zastąpi symbol %s w podanym adresie URL wyszukiwarki (jeśli istnieje), w przeciwnym razie zostanie dodany na końcu. Jeśli pominięto, zostanie użyta domyślna wyszukiwarka przeglądarki."
+  },
   "command_drag_url_copy_title": {
     "message": "Kopiuj"
   },

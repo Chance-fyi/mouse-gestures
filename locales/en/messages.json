@@ -317,6 +317,12 @@
   "command_drag_text_search_open_url_description": {
     "message": "If the text is a URL, open it in a new tab"
   },
+  "command_drag_text_search_engine_title": {
+    "message": "Search engine URL"
+  },
+  "command_drag_text_search_engine_description": {
+    "message": "The text to search will replace the %s placeholder in the provided search engine URL (if present), otherwise it will be appended to the end. If omitted, the browser's default search engine will be used."
+  },
   "command_drag_url_copy_title": {
     "message": "Copy"
   },

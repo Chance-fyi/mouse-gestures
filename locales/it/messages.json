@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Tutte le impostazioni, inclusi i gesti, saranno resettate. Questa operazione non può essere annullata!"
+  },
+  "local": {
+    "message": "Locale"
+  },
+  "backup_successful": {
+    "message": "Backup riuscito"
+  },
+  "delete": {
+    "message": "Elimina"
+  },
+  "confirm_delete": {
+    "message": "Sei sicuro di voler eliminare?"
+  },
+  "deleted": {
+    "message": "Eliminato"
+  },
+  "restored": {
+    "message": "Ripristinato"
   }
 }

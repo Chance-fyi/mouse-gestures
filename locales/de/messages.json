@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Alle Einstellungen einschließlich Gesten werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!"
+  },
+  "local": {
+    "message": "Lokal"
+  },
+  "backup_successful": {
+    "message": "Backup erfolgreich"
+  },
+  "delete": {
+    "message": "Löschen"
+  },
+  "confirm_delete": {
+    "message": "Möchten Sie wirklich löschen?"
+  },
+  "deleted": {
+    "message": "Gelöscht"
+  },
+  "restored": {
+    "message": "Wiederhergestellt"
   }
 }

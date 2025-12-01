@@ -18,6 +18,7 @@
     "plasmo": "0.90.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.6.0",
     "tldts": "^7.0.19",
     "validator": "^13.15.23"
   },
@@ -43,9 +44,16 @@
     "permissions": [
       "search",
       "sessions",
-      "downloads"
+      "downloads",
+      "identity"
     ],
-    "default_locale": "en"
+    "default_locale": "en",
+    "oauth2": {
+      "client_id": "356710694502-h3hv6car28k57n2u58kg4uc8qestsb6t.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive.appdata"
+      ]
+    }
   },
   "pnpm": {
     "supportedArchitectures": {

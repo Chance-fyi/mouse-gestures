@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "제스처를 포함한 모든 설정이 초기화됩니다. 이 작업은 되돌릴 수 없습니다!"
+  },
+  "local": {
+    "message": "로컬"
+  },
+  "backup_successful": {
+    "message": "백업 성공"
+  },
+  "delete": {
+    "message": "삭제"
+  },
+  "confirm_delete": {
+    "message": "정말 삭제하시겠습니까?"
+  },
+  "deleted": {
+    "message": "삭제됨"
+  },
+  "restored": {
+    "message": "복원됨"
   }
 }

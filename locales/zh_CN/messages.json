@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "将重置所有设置（包括手势），该操作无法撤销！"
+  },
+  "local": {
+    "message": "本地"
+  },
+  "backup_successful": {
+    "message": "备份成功"
+  },
+  "delete": {
+    "message": "删除"
+  },
+  "confirm_delete": {
+    "message": "确认删除吗?"
+  },
+  "deleted": {
+    "message": "已删除"
+  },
+  "restored": {
+    "message": "已还原"
   }
 }

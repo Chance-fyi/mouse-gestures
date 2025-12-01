@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Todas las configuraciones, incluidos los gestos, serán restablecidas. ¡Esto no se puede deshacer!"
+  },
+  "local": {
+    "message": "Local"
+  },
+  "backup_successful": {
+    "message": "Copia de seguridad exitosa"
+  },
+  "delete": {
+    "message": "Eliminar"
+  },
+  "confirm_delete": {
+    "message": "¿Estás seguro de que deseas eliminar?"
+  },
+  "deleted": {
+    "message": "Eliminado"
+  },
+  "restored": {
+    "message": "Restaurado"
   }
 }

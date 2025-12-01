@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Todas as configurações, incluindo gestos, serão redefinidas. Isso não pode ser desfeito!"
+  },
+  "local": {
+    "message": "Local"
+  },
+  "backup_successful": {
+    "message": "Backup realizado com sucesso"
+  },
+  "delete": {
+    "message": "Excluir"
+  },
+  "confirm_delete": {
+    "message": "Tem certeza de que deseja excluir?"
+  },
+  "deleted": {
+    "message": "Excluído"
+  },
+  "restored": {
+    "message": "Restaurado"
   }
 }

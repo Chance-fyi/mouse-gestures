@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "All settings including gestures will be reset. This cannot be undone!"
+  },
+  "local": {
+    "message": "Local"
+  },
+  "backup_successful": {
+    "message": "Backup successful"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "confirm_delete": {
+    "message": "Are you sure you want to delete?"
+  },
+  "deleted": {
+    "message": "Deleted"
+  },
+  "restored": {
+    "message": "Restored"
   }
 }

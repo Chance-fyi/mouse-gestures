@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Tüm ayarlar ve hareketler sıfırlanacaktır. Bu işlemi geri alamazsınız!"
+  },
+  "local": {
+    "message": "Yerel"
+  },
+  "backup_successful": {
+    "message": "Yedekleme başarılı"
+  },
+  "delete": {
+    "message": "Sil"
+  },
+  "confirm_delete": {
+    "message": "Silmek istediğinizden emin misiniz?"
+  },
+  "deleted": {
+    "message": "Silindi"
+  },
+  "restored": {
+    "message": "Geri yüklendi"
   }
 }

@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "سيتم إعادة تعيين جميع الإعدادات بما في ذلك الإيماءات. لا يمكن التراجع عن هذا!"
+  },
+  "local": {
+    "message": "محلي"
+  },
+  "backup_successful": {
+    "message": "تم النسخ الاحتياطي بنجاح"
+  },
+  "delete": {
+    "message": "حذف"
+  },
+  "confirm_delete": {
+    "message": "هل أنت متأكد أنك تريد الحذف؟"
+  },
+  "deleted": {
+    "message": "تم الحذف"
+  },
+  "restored": {
+    "message": "تم الاستعادة"
   }
 }

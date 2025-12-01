@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Tous les paramètres, y compris les gestes, seront réinitialisés. Cela ne peut pas être annulé !"
+  },
+  "local": {
+    "message": "Local"
+  },
+  "backup_successful": {
+    "message": "Sauvegarde réussie"
+  },
+  "delete": {
+    "message": "Supprimer"
+  },
+  "confirm_delete": {
+    "message": "Êtes-vous sûr de vouloir supprimer ?"
+  },
+  "deleted": {
+    "message": "Supprimé"
+  },
+  "restored": {
+    "message": "Restauré"
   }
 }

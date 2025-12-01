@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "การตั้งค่าทั้งหมดรวมถึงท่าทางจะถูกรีเซ็ต การกระทำนี้ไม่สามารถย้อนกลับได้!"
+  },
+  "local": {
+    "message": "ภายในเครื่อง"
+  },
+  "backup_successful": {
+    "message": "สำรองข้อมูลสำเร็จ"
+  },
+  "delete": {
+    "message": "ลบ"
+  },
+  "confirm_delete": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการลบ?"
+  },
+  "deleted": {
+    "message": "ลบแล้ว"
+  },
+  "restored": {
+    "message": "กู้คืนแล้ว"
   }
 }

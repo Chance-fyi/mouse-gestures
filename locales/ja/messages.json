@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "すべての設定（ジェスチャーを含む）がリセットされます。この操作は元に戻せません！"
+  },
+  "local": {
+    "message": "ローカル"
+  },
+  "backup_successful": {
+    "message": "バックアップ成功"
+  },
+  "delete": {
+    "message": "削除"
+  },
+  "confirm_delete": {
+    "message": "本当に削除しますか？"
+  },
+  "deleted": {
+    "message": "削除済み"
+  },
+  "restored": {
+    "message": "復元済み"
   }
 }

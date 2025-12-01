@@ -469,5 +469,23 @@
   },
   "confirm_reset": {
     "message": "Wszystkie ustawienia, w tym gesty, zostaną zresetowane. Operacji tej nie można cofnąć!"
+  },
+  "local": {
+    "message": "Lokalny"
+  },
+  "backup_successful": {
+    "message": "Kopia zapasowa zakończona pomyślnie"
+  },
+  "delete": {
+    "message": "Usuń"
+  },
+  "confirm_delete": {
+    "message": "Czy na pewno chcesz usunąć?"
+  },
+  "deleted": {
+    "message": "Usunięto"
+  },
+  "restored": {
+    "message": "Przywrócono"
   }
 }

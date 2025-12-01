@@ -441,7 +441,7 @@
     "message": "Reset"
   },
   "donation": {
-    "message": "Thanks for using my plugin! I've been working hard to optimize and improve it, hoping to make your browsing experience more convenient. If you find it helpful, please consider supporting me with a donation.  It will motivate me to continue updating and improving this plugin. Thanks for your support!"
+    "message": "This extension is independently developed and maintained by me,\nwith every feature and update crafted in my spare time.\nIt remains completely free to use, with no ads or paid features.\n\nIf it has been helpful to you,\nplease consider making a small donation to support ongoing updates and improvements.\nThank you so much for your support! 🙏"
   },
   "about": {
     "message": "About"

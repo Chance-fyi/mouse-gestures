@@ -1,16 +1,43 @@
 import Alipay from "data-base64:assets/Alipay.jpg"
 import WeChatPay from "data-base64:assets/WeChatPay.png"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+import { Storage } from "@plasmohq/storage"
+import { useStorage } from "@plasmohq/storage/hook"
 
 import { i18n } from "~utils/common"
 
 export default () => {
   const [qrCode, setQrCode] = useState("")
+  const [lastDonationPopupAt, setLastDonationPopupAt, { isLoading }] =
+    useStorage(
+      {
+        key: "lastDonationPopupAt",
+        instance: new Storage({
+          area: "local"
+        })
+      },
+      0
+    )
+  useEffect(() => {
+    if (isLoading) return
+
+    const now = Date.now()
+    const last = lastDonationPopupAt ?? 0
+    const days14 = 14 * 24 * 60 * 60 * 1000
+
+    if (now - last > days14 || last > now) {
+      setLastDonationPopupAt(now).then()
+      ;(document.getElementById("donation") as HTMLDialogElement).showModal()
+    }
+  }, [lastDonationPopupAt, isLoading])
   return (
     <>
       <dialog id="donation" className="modal">
         <div className="modal-box">
-          <p className="pb-4 text-base">{i18n("donation")}</p>
+          <p className="pb-4 text-base whitespace-pre-line">
+            {i18n("donation")}
+          </p>
           <div className="flex flex-row space-x-2 justify-center">
             <div
               className="hover:cursor-pointer"

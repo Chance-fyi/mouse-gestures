@@ -441,7 +441,7 @@
     "message": "Réinitialiser"
   },
   "donation": {
-    "message": "Merci d'utiliser mon plugin ! J'ai travaillé dur pour l'optimiser et l'améliorer afin de rendre votre expérience de navigation plus pratique. Si vous le trouvez utile, envisagez de me soutenir par un don. Cela me motivera à continuer de mettre à jour et améliorer ce plugin. Merci pour votre soutien !"
+    "message": "Cette extension est développée et maintenue indépendamment par moi,\nchaque fonctionnalité et mise à jour est conçue dans mon temps libre.\nElle reste entièrement gratuite, sans publicité ni fonctionnalités payantes.\n\nSi elle vous a été utile,\nveuillez envisager de faire un petit don pour soutenir les mises à jour et améliorations continues.\nMerci beaucoup pour votre soutien ! 🙏"
   },
   "about": {
     "message": "À propos"

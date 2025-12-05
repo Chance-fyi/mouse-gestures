@@ -63,7 +63,7 @@ export class GoogleDrive {
 
       if (data.files) allFiles.push(...data.files)
 
-      if (!data.nextPageToken) break // 没有下一页了
+      if (!data.nextPageToken) break
       pageToken = data.nextPageToken
     }
 

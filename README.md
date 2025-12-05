@@ -1,19 +1,30 @@
-A powerful browser plug-in, through simple and intuitive mouse gestures and drag-and-drop operations, so that your web browsing experience more smooth and efficient!
+# Mouse Gestures
 
-> ⚠️ **Right-click context menus conflict with gestures in Mac and Linux. When this plugin is enabled, you need to double-click the right button to open the context menu**
+A lightweight yet powerful browser extension that enhances your browsing efficiency through **intuitive mouse gestures**, **drag-and-drop actions**, and **cloud-synchronized settings**.
 
-### Features
+> ⚠️ **Mac & Linux:** Right-click context menus conflict with gestures. When this extension is enabled, you need to **double-right-click** to open the context menu.
 
-- Mouse Gestures: Press the right mouse button to move around for common browsing operations
-- Drag-and-drop gestures: Drag-and-drop page elements (text, links, images) for fast navigation and manipulation
-- Highly customizable: support for custom gestures and corresponding actions
+---
 
-### Install
+## ✨ Features
 
-**Chrome:** [https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa](https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa)
+* **Mouse gestures:** Perform common browsing actions with right-button movements
+* **Drag-and-drop gestures:** Quickly operate using text, links, and images
+* **Customizable actions:** Create and manage your own gestures and behaviors
+* **Google Drive sync:** Back up and restore your configuration across devices
+* **Lightweight & efficient:** Smooth UI, low resource usage, no ads
 
-### Screenshot Demo
+---
+
+## 🛠️ Install
+
+**Chrome:**
+[https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa](https://chrome.google.com/webstore/detail/hiijklikoclhijlkkljppnnbpfdcgdpa)
+
+---
+
+## 🖼️ Screenshot Demo
 
 ![picture 1](https://github.com/user-attachments/assets/776e0e81-c271-47b6-8edf-af10f7db72f7)
 
-![picture 2](https://github.com/user-attachments/assets/617cef87-6628-4e94-992e-35ceab4d2097)
+![picture 2](https://github.com/user-attachments/assets/5484789a-e88e-4ce8-bbfe-aa7db0c043f4)

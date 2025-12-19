@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Mouse gestures"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "An extension that supports customizable mouse gestures and drag-and-drop features"
+    "message": "Mouse Gestures extension for Chrome. Control your browser with right-click mouse gestures and drag-and-drop actions."
   },
   "gesture": {
     "message": "Gestures"

@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Gestos del ratón"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Una extensión que admite gestos de ratón personalizables y funciones de arrastrar y soltar"
+    "message": "Extensión de gestos del ratón para Chrome. Controla tu navegador con gestos del botón derecho del ratón y acciones de arrastrar y soltar."
   },
   "gesture": {
     "message": "Gestos"

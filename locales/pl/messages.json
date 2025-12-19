@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Gesty myszy"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Rozszerzenie obsługujące konfigurowalne gesty myszy i funkcje przeciągania i upuszczania"
+    "message": "Rozszerzenie gestów myszy dla Chrome. Steruj przeglądarką za pomocą gestów prawego przycisku myszy oraz przeciągania i upuszczania."
   },
   "gesture": {
     "message": "Gesty"

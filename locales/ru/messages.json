@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Жесты мыши"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Расширение, поддерживающее настраиваемые жесты мыши и функции перетаскивания"
+    "message": "Расширение жестов мыши для Chrome. Управляйте браузером с помощью жестов правой кнопкой мыши и действий перетаскивания."
   },
   "gesture": {
     "message": "Жесты"

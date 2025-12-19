@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "鼠标手势"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "支持自定义鼠标手势和拖拽功能的扩展"
+    "message": "Chrome 的鼠标手势扩展。通过鼠标右键手势和拖拽操作来控制浏览器。"
   },
   "gesture": {
     "message": "手势"

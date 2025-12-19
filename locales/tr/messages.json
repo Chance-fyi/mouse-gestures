@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Fare Hareketleri"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Özelleştirilebilir fare hareketlerini ve sürükle-bırak özelliklerini destekleyen bir eklenti"
+    "message": "Chrome için fare hareketleri uzantısı. Tarayıcınızı sağ tıklama fare hareketleri ve sürükle-bırak işlemleriyle kontrol edin."
   },
   "gesture": {
     "message": "Hareketler"

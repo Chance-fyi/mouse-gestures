@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Gesti del mouse"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Un'estensione che supporta gesti del mouse personalizzabili e funzionalità di trascinamento"
+    "message": "Estensione per i gesti del mouse per Chrome. Controlla il tuo browser con gesti del tasto destro del mouse e azioni di trascinamento."
   },
   "gesture": {
     "message": "Gesti"

@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Gestes de la souris"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Une extension qui prend en charge les gestes de souris personnalisables et les fonctionnalités de glisser-déposer"
+    "message": "Extension de gestes de souris pour Chrome. Contrôlez votre navigateur avec des gestes de souris au clic droit et des actions de glisser-déposer."
   },
   "gesture": {
     "message": "Gestes"

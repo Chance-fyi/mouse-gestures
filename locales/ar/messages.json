@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "إيماءات الماوس"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "امتداد يدعم إيماءات الماوس القابلة للتخصيص وميزات السحب والإفلات"
+    "message": "إضافة إيماءات الماوس لمتصفح Chrome. تحكم في متصفحك باستخدام إيماءات النقر بزر الفأرة الأيمن وعمليات السحب والإفلات."
   },
   "gesture": {
     "message": "الإيماءات"

@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "ท่าทางเมาส์"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "ส่วนขยายที่รองรับท่าทางเมาส์ที่ปรับแต่งได้และคุณสมบัติการลากและวาง"
+    "message": "ส่วนขยายท่าทางเมาส์สำหรับ Chrome ควบคุมเบราว์เซอร์ของคุณด้วยท่าทางเมาส์คลิกขวาและการลากวาง"
   },
   "gesture": {
     "message": "ท่าทาง"

@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "Mausgesten"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "Eine Erweiterung, die anpassbare Mausgesten und Drag-and-Drop-Funktionen unterstützt"
+    "message": "Mouse-Gesten-Erweiterung für Chrome. Steuern Sie Ihren Browser mit Rechtsklick-Mausgesten und Drag-and-Drop-Aktionen."
   },
   "gesture": {
     "message": "Gesten"

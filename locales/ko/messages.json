@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "마우스 제스처"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "사용자 정의 마우스 제스처 및 드래그 앤 드롭 기능을 지원하는 확장 프로그램"
+    "message": "Chrome용 마우스 제스처 확장 프로그램입니다. 마우스 오른쪽 버튼 제스처와 드래그 앤 드롭 동작으로 브라우저를 제어하세요."
   },
   "gesture": {
     "message": "제스처"

@@ -1,9 +1,9 @@
 {
   "displayName": {
-    "message": "マウスジェスチャー"
+    "message": "Mouse Gestures – Right-Click Gestures & Drag Actions"
   },
   "description": {
-    "message": "カスタマイズ可能なマウスジェスチャーとドラッグ＆ドロップ機能をサポートする拡張機能"
+    "message": "Chrome 用マウスジェスチャー拡張機能。右クリックのマウスジェスチャーやドラッグ＆ドロップ操作でブラウザを操作できます。"
   },
   "gesture": {
     "message": "ジェスチャー"

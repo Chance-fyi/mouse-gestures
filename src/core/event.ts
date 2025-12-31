@@ -129,6 +129,10 @@ export class Event {
     const points = Trajectory.trajectory
     if (points.length < 3) return
 
+    if (points.length > 5) {
+      lastRightClickTime = 0
+    }
+
     if (this.setting || this.config.showTrajectory) {
       ctx.beginPath()
       const startX = points[0].x - this.left

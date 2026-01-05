@@ -39,13 +39,14 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "<all_urls>"
     ],
     "permissions": [
       "search",
       "sessions",
       "downloads",
-      "identity"
+      "identity",
+      "scripting"
     ],
     "default_locale": "en",
     "oauth2": {

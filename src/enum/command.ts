@@ -7,6 +7,7 @@ export enum Group {
 
 export enum ConfigType {
   Input = "input",
+  Textarea = "textarea",
   Select = "select",
   Toggle = "toggle"
 }

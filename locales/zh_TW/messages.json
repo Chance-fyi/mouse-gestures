@@ -392,6 +392,18 @@
   "command_gesture_reload_hard_description": {
     "message": "是否要略過本機快取"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "執行使用者腳本"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "在目前的網頁上執行自訂的 JavaScript 程式碼。"
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "腳本程式碼"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ 警告：使用者腳本可能會導致個人資料遺失。"
+  },
   "optional": {
     "message": "可選"
   },

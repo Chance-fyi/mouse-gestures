@@ -392,6 +392,18 @@
   "command_gesture_open_url_window_description": {
     "message": "Abre la URL especificada en una nueva ventana"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "Ejecutar script de usuario"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "Ejecuta código JavaScript personalizado en la página web actual."
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "Código del script"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ Advertencia: Los scripts de usuario pueden provocar la pérdida de datos personales."
+  },
   "optional": {
     "message": "Opcional"
   },

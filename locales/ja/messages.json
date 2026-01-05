@@ -392,6 +392,18 @@
   "command_gesture_open_url_window_description": {
     "message": "指定されたURLを新しいウィンドウで開く"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "ユーザースクリプトを実行"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "現在のウェブページでカスタム JavaScript コードを実行します。"
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "スクリプトコード"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ 警告：ユーザースクリプトは個人データの損失を引き起こす可能性があります。"
+  },
   "optional": {
     "message": "任意"
   },

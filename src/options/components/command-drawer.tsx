@@ -209,6 +209,24 @@ export default (props: CommandDrawerProps) => {
                           </div>
                         </li>
                       )
+                    case ConfigType.Textarea:
+                      return (
+                        <li className="pl-8 pr-5" key={k}>
+                          <div className="w-full flex flex-col space-y-1">
+                            <p className="text-base">{i18n(c.title)}</p>
+                            <p className="text-sm text-gray-400 hover:text-inherit">
+                              {i18n(c.description)}
+                            </p>
+                            <textarea
+                              className="textarea textarea-bordered focus:outline-none"
+                              value={c.value as string}
+                              onChange={(e) => {
+                                tab2Command.config[k].value = e.target.value
+                                setTab2Command({ ...tab2Command })
+                              }}></textarea>
+                          </div>
+                        </li>
+                      )
                     case ConfigType.Select:
                       return (
                         <li className="pl-8 pr-5" key={k}>

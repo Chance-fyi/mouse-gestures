@@ -392,6 +392,18 @@
   "command_gesture_open_url_window_description": {
     "message": "Открыть указанный URL в новом окне"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "Выполнить пользовательский скрипт"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "Запустить пользовательский JavaScript-код на текущей веб-странице."
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "Код скрипта"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ Предупреждение: пользовательские скрипты могут привести к потере личных данных."
+  },
   "optional": {
     "message": "Необязательно"
   },

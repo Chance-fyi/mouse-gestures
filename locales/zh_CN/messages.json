@@ -392,6 +392,18 @@
   "command_gesture_reload_hard_description": {
     "message": "是否要绕过本地缓存"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "执行用户脚本"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "在当前网页上运行自定义的 JavaScript 代码。"
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "脚本代码"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ 警告：用户脚本可能导致个人数据丢失。"
+  },
   "optional": {
     "message": "可选"
   },

@@ -392,6 +392,18 @@
   "command_gesture_open_url_window_description": {
     "message": "فتح عنوان URL المحدد في نافذة جديدة"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "تنفيذ نص المستخدم"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "تشغيل كود JavaScript مخصص على صفحة الويب الحالية."
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "كود السكربت"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ تحذير: قد تتسبب سكربتات المستخدم في فقدان البيانات الشخصية."
+  },
   "optional": {
     "message": "اختياري"
   },

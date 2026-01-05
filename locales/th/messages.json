@@ -392,6 +392,18 @@
   "command_gesture_open_url_window_description": {
     "message": "เปิด URL ที่ระบุในหน้าต่างใหม่"
   },
+  "command_gesture_execute_user_script_title": {
+    "message": "เรียกใช้สคริปต์ผู้ใช้"
+  },
+  "command_gesture_execute_user_script_description": {
+    "message": "รันโค้ด JavaScript แบบกำหนดเองบนหน้าเว็บปัจจุบัน"
+  },
+  "command_gesture_execute_user_script_config_script_title": {
+    "message": "โค้ดสคริปต์"
+  },
+  "command_gesture_execute_user_script_config_script_description": {
+    "message": "⚠️ คำเตือน: สคริปต์ของผู้ใช้อาจทำให้ข้อมูลส่วนบุคคลสูญหาย"
+  },
   "optional": {
     "message": "ไม่จำเป็น"
   },

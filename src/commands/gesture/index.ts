@@ -4,6 +4,7 @@ import { CloseOtherTabs } from "~commands/gesture/close-other-tabs"
 import { CloseRightTabs } from "~commands/gesture/close-right-tabs"
 import { CloseTab } from "~commands/gesture/close-tab"
 import { Duplicate } from "~commands/gesture/duplicate"
+import { ExecuteUserScript } from "~commands/gesture/execute-user-script"
 import { Forward } from "~commands/gesture/forward"
 import { Fullscreen } from "~commands/gesture/fullscreen"
 import { Maximized } from "~commands/gesture/maximized"
@@ -61,5 +62,6 @@ export default [
   new NewWindow(),
   new OpenUrl(),
   new OpenUrlWindow(),
-  new NavigateUp()
+  new NavigateUp(),
+  new ExecuteUserScript()
 ]

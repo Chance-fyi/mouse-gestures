@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Перезагрузить все вкладки"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "Только текущее окно"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "Перезагрузить все вкладки только в текущем окне"
+  },
   "command_gesture_stop_loading_title": {
     "message": "Остановить загрузку"
   },

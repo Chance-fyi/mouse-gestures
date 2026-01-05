@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "모든 탭 새로고침"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "현재 창만"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "현재 창의 모든 탭만 새로 고침"
+  },
   "command_gesture_stop_loading_title": {
     "message": "로딩 중지"
   },

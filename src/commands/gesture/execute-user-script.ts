@@ -23,6 +23,8 @@ export class ExecuteUserScript implements CommandInterface {
           target: { tabId: tabs[0].id },
           world: "MAIN",
           func: (code) => {
+            // TODO: On pages with strict CSP (such as GitHub), because 'unsafe-eval' is disallowed,
+            //  dynamically executing strings using new Function() or eval() will trigger an EvalError and fail.
             new Function(code)()
           },
           args: [this.config.script.value]

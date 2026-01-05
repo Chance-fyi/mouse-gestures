@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Tüm sekmeleri yenile"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "Yalnızca geçerli pencere"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "Yalnızca geçerli penceredeki tüm sekmeleri yeniden yükle"
+  },
   "command_gesture_stop_loading_title": {
     "message": "Yüklemeyi Durdur"
   },

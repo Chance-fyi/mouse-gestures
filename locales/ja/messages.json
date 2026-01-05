@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "すべてのタブを再読み込み"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "現在のウィンドウのみ"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "現在のウィンドウ内のすべてのタブのみを再読み込みします"
+  },
   "command_gesture_stop_loading_title": {
     "message": "読み込みを停止"
   },

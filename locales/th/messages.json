@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "รีโหลดทุกแท็บ"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "เฉพาะหน้าต่างปัจจุบัน"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "รีโหลดแท็บทั้งหมดเฉพาะในหน้าต่างปัจจุบัน"
+  },
   "command_gesture_stop_loading_title": {
     "message": "หยุดโหลด"
   },

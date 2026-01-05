@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "重新載入所有分頁"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "僅限目前視窗"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "僅重新載入目前視窗中的所有分頁"
+  },
   "command_gesture_stop_loading_title": {
     "message": "停止載入"
   },

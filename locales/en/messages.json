@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Reload All Tabs"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "Current window only"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "Reload all tabs in current window only"
+  },
   "command_gesture_stop_loading_title": {
     "message": "Stop loading"
   },

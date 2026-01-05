@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "إعادة تحميل جميع الألسنة"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "النافذة الحالية فقط"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "إعادة تحميل جميع علامات التبويب في النافذة الحالية فقط"
+  },
   "command_gesture_stop_loading_title": {
     "message": "إيقاف التحميل"
   },

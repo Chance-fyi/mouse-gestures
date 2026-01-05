@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "重新加载所有标签页"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "仅当前窗口"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "仅重新加载当前窗口中的所有标签页"
+  },
   "command_gesture_stop_loading_title": {
     "message": "停止加载"
   },

@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Ricarica tutte le schede"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "Solo finestra corrente"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "Ricarica tutte le schede solo nella finestra corrente"
+  },
   "command_gesture_stop_loading_title": {
     "message": "Interrompi caricamento"
   },

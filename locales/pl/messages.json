@@ -113,6 +113,12 @@
   "command_gesture_reload_all_description": {
     "message": "Odśwież wszystkie karty"
   },
+  "command_gesture_reload_all_config_current_window_title": {
+    "message": "Tylko bieżące okno"
+  },
+  "command_gesture_reload_all_config_current_window_description": {
+    "message": "Przeładuj wszystkie karty tylko w bieżącym oknie"
+  },
   "command_gesture_stop_loading_title": {
     "message": "Zatrzymaj ładowanie"
   },

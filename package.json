@@ -41,7 +41,7 @@
     "host_permissions": [
       "<all_urls>"
     ],
-    "permissions": [
+    "optional_permissions": [
       "search",
       "sessions",
       "downloads",

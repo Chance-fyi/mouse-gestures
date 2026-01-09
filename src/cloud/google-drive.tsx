@@ -1,11 +1,15 @@
+import { requestPermissions } from "~utils/common"
+
 export class GoogleDrive {
   name: string = "Google Drive"
 
   private async getToken(interactive = true): Promise<string> {
     return new Promise((resolve, reject) => {
-      chrome.identity.getAuthToken({ interactive }, (token) => {
-        if (chrome.runtime.lastError) reject(chrome.runtime.lastError)
-        else resolve(token)
+      requestPermissions(["identity"]).then(() => {
+        chrome.identity.getAuthToken({ interactive }, (token) => {
+          if (chrome.runtime.lastError) reject(chrome.runtime.lastError)
+          else resolve(token)
+        })
       })
     })
   }

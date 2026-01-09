@@ -5,6 +5,7 @@ export class RestoreTab implements CommandInterface {
   readonly title: string = "command_gesture_restore_tab_title"
   readonly description: string = "command_gesture_restore_tab_description"
   config: { [key: string]: any } = {}
+  permissions: string[] = ["sessions"]
 
   execute(): void {
     chrome.sessions.getRecentlyClosed({ maxResults: 1 }, (sessions) => {

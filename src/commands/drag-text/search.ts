@@ -43,6 +43,7 @@ export class Search implements CommandInterface {
     }
   }
   data: DragData
+  permissions: string[] = ["search"]
 
   execute(): void {
     if (this.config.openUrl.value && isURL(this.data.content)) {

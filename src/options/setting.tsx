@@ -114,7 +114,6 @@ export default () => {
                     ...syncConfig,
                     tooltipStyle: json
                   }).then()
-                  console.log(syncConfig)
                 } catch {
                   setTooltipStyleError(true)
                 }

@@ -7,6 +7,7 @@ export interface CommandInterface {
   config: { [key: string]: Config }
   window?: boolean
   data?: any
+  permissions?: string[]
   execute: () => void
 }
 

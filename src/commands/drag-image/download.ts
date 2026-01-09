@@ -7,6 +7,7 @@ export class Download implements CommandInterface {
   readonly description: string = "command_drag_image_download_description"
   config: { [key: string]: any } = {}
   data: DragData
+  permissions: string[] = ["downloads"]
 
   execute(): void {
     chrome.downloads

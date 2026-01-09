@@ -34,3 +34,23 @@ export const matchGesture = (
   }
   return uniqueKey
 }
+
+export const requestPermissions = (permissions = []): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (!permissions || permissions.length === 0) {
+      resolve(true)
+      return
+    }
+
+    chrome.permissions.contains({ permissions }, (has) => {
+      if (has) {
+        resolve(true)
+        return
+      }
+
+      chrome.permissions.request({ permissions }, (granted) => {
+        resolve(Boolean(granted))
+      })
+    })
+  })
+}

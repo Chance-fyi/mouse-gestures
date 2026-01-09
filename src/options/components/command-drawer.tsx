@@ -6,9 +6,10 @@ import type { ConfigGesture } from "~config/config-interface"
 import { ConfigType, type Group } from "~enum/command"
 import IconBack from "~options/components/icon-back"
 import IconClose from "~options/components/icon-close"
+import IconPermissions from "~options/components/icon-permissions"
 import IconSearch from "~options/components/icon-search"
 import IconSetting from "~options/components/icon-setting"
-import { i18n } from "~utils/common"
+import { i18n, requestPermissions } from "~utils/common"
 
 interface CommandDrawerProps {
   drawerId: string
@@ -110,55 +111,64 @@ export default (props: CommandDrawerProps) => {
                           <div
                             tabIndex={0}
                             onClick={() => {
-                              if (Object.keys(c.config).length === 0) {
-                                props.setConfigGesture({
-                                  ...props.configGesture,
-                                  command: {
-                                    uniqueKey: c.uniqueKey,
-                                    name: c.title,
-                                    config: _.mapValues(
-                                      c.config,
-                                      (value: { [x: string]: any }) =>
-                                        value["value"]
-                                    )
+                              requestPermissions(c.permissions).then(
+                                (granted) => {
+                                  if (!granted) {
+                                    return
                                   }
-                                })
-                                closeDrawer()
-                                return
-                              }
+                                  if (Object.keys(c.config).length === 0) {
+                                    props.setConfigGesture({
+                                      ...props.configGesture,
+                                      command: {
+                                        uniqueKey: c.uniqueKey,
+                                        name: c.title,
+                                        config: _.mapValues(
+                                          c.config,
+                                          (value: { [x: string]: any }) =>
+                                            value["value"]
+                                        )
+                                      }
+                                    })
+                                    closeDrawer()
+                                    return
+                                  }
 
-                              const cc = _.cloneDeep(c)
-                              if (
-                                props.configGesture?.command?.uniqueKey ===
-                                cc.uniqueKey
-                              ) {
-                                Object.keys(cc.config).forEach((k) => {
-                                  cc.config[k]["value"] =
-                                    props.configGesture.command.config[k]
-                                })
-                              }
-                              setTab2Command(cc)
-                              setActiveTab(Tabs.Tab2)
+                                  const cc = _.cloneDeep(c)
+                                  if (
+                                    props.configGesture?.command?.uniqueKey ===
+                                    cc.uniqueKey
+                                  ) {
+                                    Object.keys(cc.config).forEach((k) => {
+                                      cc.config[k]["value"] =
+                                        props.configGesture.command.config[k]
+                                    })
+                                  }
+                                  setTab2Command(cc)
+                                  setActiveTab(Tabs.Tab2)
+                                }
+                              )
                             }}
                             className="collapse h-full collapse-close hover:collapse-open group pl-5 delay-300">
                             <div className="collapse-title p-0 min-h-0 text-base">
                               <div
-                                className={`flex flex-row w-full items-center relative ${c.uniqueKey === props.configGesture?.command?.uniqueKey ? "before:absolute before:-left-5 before:top-1/2 before:-translate-y-1/2 before:bg-[#2b3440] before:w-1.5 before:h-1.5 before:rounded-full" : ""}`}>
-                                <div
-                                  className={
-                                    Object.keys(c.config).length !== 0
-                                      ? "w-10/12"
-                                      : "w-11/12"
-                                  }>
-                                  {i18n(c.title)}
+                                className={`flex flex-row w-full items-center justify-between pr-2 relative ${c.uniqueKey === props.configGesture?.command?.uniqueKey ? "before:absolute before:-left-5 before:top-1/2 before:-translate-y-1/2 before:bg-[#2b3440] before:w-1.5 before:h-1.5 before:rounded-full" : ""}`}>
+                                <div>{i18n(c.title)}</div>
+                                <div className="flex flex-row gap-2">
+                                  {(c.permissions?.length ?? 0) !== 0 && (
+                                    <IconPermissions
+                                      width={17}
+                                      height={17}
+                                      color={"#2b3440"}
+                                    />
+                                  )}
+                                  {Object.keys(c.config).length !== 0 && (
+                                    <IconSetting
+                                      width={17}
+                                      height={17}
+                                      color={"#2b3440"}
+                                    />
+                                  )}
                                 </div>
-                                {Object.keys(c.config).length !== 0 && (
-                                  <IconSetting
-                                    width={17}
-                                    height={17}
-                                    color={"#2b3440"}
-                                  />
-                                )}
                               </div>
                             </div>
                             <div className="collapse-content p-0 min-h-0 mt-1.5 group-hover:pb-0 text-sm">

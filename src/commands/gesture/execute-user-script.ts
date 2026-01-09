@@ -15,6 +15,7 @@ export class ExecuteUserScript implements CommandInterface {
       default: ""
     }
   }
+  permissions: string[] = ["scripting"]
 
   execute(): void {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {

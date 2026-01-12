@@ -10,7 +10,7 @@ import { useConfirm } from "~options/components/confirm"
 import IconDelete from "~options/components/icon-delete"
 import IconDownload from "~options/components/icon-download"
 import IconRestore from "~options/components/icon-restore"
-import { i18n } from "~utils/common"
+import { checkMissingPermissions, i18n } from "~utils/common"
 
 export default () => {
   const [syncConfig, setSyncConfig] = useStorage(
@@ -190,7 +190,10 @@ export default () => {
                         showConfirm({
                           title: i18n("restore"),
                           content: i18n("confirm_restore"),
-                          onConfirm: () => Restore(reader.result as string)
+                          onConfirm: () =>
+                            Restore(reader.result as string).then(() =>
+                              checkMissingPermissions(showConfirm)
+                            )
                         })
                       }
                       reader.readAsText(file)
@@ -228,7 +231,8 @@ export default () => {
               showConfirm({
                 title: i18n("reset"),
                 content: i18n("confirm_reset"),
-                onConfirm: Reset
+                onConfirm: () =>
+                  Reset().then(() => checkMissingPermissions(showConfirm))
               })
             }>
             {i18n("reset")}
@@ -305,6 +309,7 @@ export default () => {
                           )
                           const text = await blob.text()
                           await Restore(text)
+                          await checkMissingPermissions(showConfirm)
                           toast.success(i18n("restored"))
                         }
                       })

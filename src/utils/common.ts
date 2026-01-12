@@ -1,10 +1,14 @@
+import { Storage } from "@plasmohq/storage"
+
 import { Command } from "~commands/command"
+import { LocalConfig } from "~config/config"
 import type {
   ConfigGesture,
   LocalConfigInterface
 } from "~config/config-interface"
 import { Trajectory, type Point } from "~core/trajectory"
 import { Group } from "~enum/command"
+import type { ConfirmDialogProps } from "~options/components/confirm"
 
 export const i18n = (key: string = ""): string => {
   return chrome.i18n.getMessage(key)
@@ -60,10 +64,20 @@ export const requestPermissions = (permissions = []): Promise<boolean> => {
   })
 }
 
-export const checkMissingPermissions = async (config: LocalConfigInterface) => {
+export const checkMissingPermissions = async (
+  showConfirm: (options: ConfirmDialogProps) => void
+) => {
+  const config = await new Storage({ area: "local" }).get(LocalConfig.key)
+  let parsed: LocalConfigInterface
+  if (typeof config === "string") {
+    parsed = JSON.parse(config) as LocalConfigInterface
+  } else {
+    parsed = config ?? LocalConfig.default
+  }
+
   let permissions: string[] = []
 
-  Object.entries(config).forEach(([key, gesture]) => {
+  Object.entries(parsed).forEach(([key, gesture]) => {
     for (const g of gesture) {
       const command = new Command(key as Group).getCommands()[
         g.command.uniqueKey
@@ -80,5 +94,15 @@ export const checkMissingPermissions = async (config: LocalConfigInterface) => {
     permissions = permissions.filter((v) => !p.permissions.includes(v))
   }
 
-  return permissions
+  if (permissions.length > 0) {
+    showConfirm({
+      title: i18n("request_permissions"),
+      content: i18n("request_permissions_desc").replace(
+        "{}",
+        permissions.map((v) => "• " + v).join("\n")
+      ),
+      forceConfirm: true,
+      onConfirm: () => requestPermissions(permissions)
+    })
+  }
 }

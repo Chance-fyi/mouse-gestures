@@ -2,10 +2,6 @@ import "~style.css"
 
 import { useEffect, useState } from "react"
 
-import { Storage } from "@plasmohq/storage"
-
-import { LocalConfig } from "~config/config"
-import type { LocalConfigInterface } from "~config/config-interface"
 import { Menu } from "~enum/menu"
 import About from "~options/about"
 import { useConfirm } from "~options/components/confirm"
@@ -13,11 +9,7 @@ import Donation from "~options/components/donation"
 import Drag from "~options/drag"
 import Gesture from "~options/gesture"
 import Setting from "~options/setting"
-import {
-  checkMissingPermissions,
-  i18n,
-  requestPermissions
-} from "~utils/common"
+import { checkMissingPermissions, i18n } from "~utils/common"
 
 export default () => {
   const MenuPages = {
@@ -36,29 +28,7 @@ export default () => {
       setMenu(window.location.hash.slice(1) as Menu)
     }
 
-    new Storage({ area: "local" }).get(LocalConfig.key).then((config) => {
-      let parsed: LocalConfigInterface
-
-      if (typeof config === "string") {
-        parsed = JSON.parse(config) as LocalConfigInterface
-      } else {
-        parsed = config ?? LocalConfig.default
-      }
-
-      checkMissingPermissions(parsed).then((permissions) => {
-        if (permissions.length > 0) {
-          showConfirm({
-            title: i18n("request_permissions"),
-            content: i18n("request_permissions_desc").replace(
-              "{}",
-              permissions.map((v) => "• " + v).join("\n")
-            ),
-            forceConfirm: true,
-            onConfirm: () => requestPermissions(permissions)
-          })
-        }
-      })
-    })
+    checkMissingPermissions(showConfirm).then()
   }, [])
   const handleMenuClick = (page) => {
     setMenu(page)

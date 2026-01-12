@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "Ripristinato"
+  },
+  "request_permissions": {
+    "message": "Richiedi autorizzazioni"
+  },
+  "request_permissions_desc": {
+    "message": "Alcuni gesti richiedono le seguenti autorizzazioni per funzionare correttamente.\nSe non vengono concesse, questi gesti non potranno essere eseguiti.\n{}"
   }
 }

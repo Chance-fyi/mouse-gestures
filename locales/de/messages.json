@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "Wiederhergestellt"
+  },
+  "request_permissions": {
+    "message": "Berechtigungen anfordern"
+  },
+  "request_permissions_desc": {
+    "message": "Einige Gesten erfordern die folgenden Berechtigungen, um ordnungsgemäß zu funktionieren.\nWenn sie nicht gewährt werden, können diese Gesten nicht ausgeführt werden.\n{}"
   }
 }

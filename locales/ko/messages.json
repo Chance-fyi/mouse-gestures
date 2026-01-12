@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "복원됨"
+  },
+  "request_permissions": {
+    "message": "권한 요청"
+  },
+  "request_permissions_desc": {
+    "message": "일부 제스처는 정상적으로 작동하기 위해 다음 권한이 필요합니다.\n권한이 부여되지 않으면 이러한 제스처는 실행되지 않습니다.\n{}"
   }
 }

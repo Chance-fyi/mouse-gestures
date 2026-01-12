@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "已還原"
+  },
+  "request_permissions": {
+    "message": "請求權限"
+  },
+  "request_permissions_desc": {
+    "message": "部分手勢需要以下權限才能正常運作。\n若未授權，這些手勢將無法執行。\n{}"
   }
 }

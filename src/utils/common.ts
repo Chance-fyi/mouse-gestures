@@ -1,5 +1,10 @@
-import type { ConfigGesture } from "~config/config-interface"
+import { Command } from "~commands/command"
+import type {
+  ConfigGesture,
+  LocalConfigInterface
+} from "~config/config-interface"
 import { Trajectory, type Point } from "~core/trajectory"
+import { Group } from "~enum/command"
 
 export const i18n = (key: string = ""): string => {
   return chrome.i18n.getMessage(key)
@@ -53,4 +58,27 @@ export const requestPermissions = (permissions = []): Promise<boolean> => {
       })
     })
   })
+}
+
+export const checkMissingPermissions = async (config: LocalConfigInterface) => {
+  let permissions: string[] = []
+
+  Object.entries(config).forEach(([key, gesture]) => {
+    for (const g of gesture) {
+      const command = new Command(key as Group).getCommands()[
+        g.command.uniqueKey
+      ]
+      if (command.permissions) {
+        permissions = permissions.concat(command.permissions)
+      }
+    }
+  })
+  permissions = [...new Set(permissions)]
+
+  if (permissions.length > 0) {
+    const p = await chrome.permissions.getAll()
+    permissions = permissions.filter((v) => !p.permissions.includes(v))
+  }
+
+  return permissions
 }

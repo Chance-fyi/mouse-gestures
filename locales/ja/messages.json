@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "復元済み"
+  },
+  "request_permissions": {
+    "message": "権限をリクエスト"
+  },
+  "request_permissions_desc": {
+    "message": "一部のジェスチャーは、正しく動作するために以下の権限が必要です。\n許可されていない場合、これらのジェスチャーは実行できません。\n{}"
   }
 }

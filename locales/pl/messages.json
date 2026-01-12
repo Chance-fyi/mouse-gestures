@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "Przywrócono"
+  },
+  "request_permissions": {
+    "message": "Żądanie uprawnień"
+  },
+  "request_permissions_desc": {
+    "message": "Niektóre gesty wymagają następujących uprawnień, aby działać poprawnie.\nJeśli nie zostaną przyznane, gesty te nie będą mogły zostać wykonane.\n{}"
   }
 }

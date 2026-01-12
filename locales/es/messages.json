@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "Restaurado"
+  },
+  "request_permissions": {
+    "message": "Solicitar permisos"
+  },
+  "request_permissions_desc": {
+    "message": "Algunos gestos requieren los siguientes permisos para funcionar correctamente.\nSi no se conceden, estos gestos no se podrán ejecutar.\n{}"
   }
 }

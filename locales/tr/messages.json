@@ -505,5 +505,11 @@
   },
   "restored": {
     "message": "Geri yüklendi"
+  },
+  "request_permissions": {
+    "message": "İzinleri iste"
+  },
+  "request_permissions_desc": {
+    "message": "Bazı hareketlerin düzgün çalışabilmesi için aşağıdaki izinler gereklidir.\nİzinler verilmezse bu hareketler çalıştırılamaz.\n{}"
   }
 }

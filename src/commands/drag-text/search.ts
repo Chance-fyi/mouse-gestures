@@ -47,9 +47,13 @@ export class Search implements CommandInterface {
 
   execute(): void {
     if (this.config.openUrl.value && isURL(this.data.content)) {
+      let url: string = this.data.content
+      if (!url.startsWith("http")) {
+        url = "https://" + url
+      }
       chrome.tabs
         .create({
-          url: this.data.content
+          url: url
         })
         .then()
       return

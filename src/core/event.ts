@@ -35,6 +35,13 @@ export class Event {
   private readonly os: string // operating system
   private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a mac or linux environment.
 
+  private dpr: number = window.devicePixelRatio || 1
+  private offscreenCanvas: OffscreenCanvas
+  private offscreenCtx: OffscreenCanvasRenderingContext2D
+  private isDrawing: boolean = false
+  private rafId: number | null = null
+  private lastMatchTime: number = 0
+
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   public group: Group = Group.Gesture
@@ -64,6 +71,8 @@ export class Event {
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
     this.contextmenu = this.contextmenu.bind(this)
+    this.renderLoop = this.renderLoop.bind(this)
+    this.initCanvasDPI()
 
     document.addEventListener("contextmenu", this.contextmenu, {
       capture: true
@@ -111,6 +120,9 @@ export class Event {
       document.addEventListener("drag", this.mouseMove, { capture: true })
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
+
+    this.isDrawing = true
+    this.startAnimation()
   }
 
   public mouseMove(e: MouseEvent | DragEvent) {
@@ -122,66 +134,9 @@ export class Event {
     }
     if (e.clientX === 0 && e.clientY === 0) return
 
-    const ctx = this.canvas
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
-    const points = Trajectory.trajectory
-    if (points.length < 3) return
 
-    if (points.length > 5) {
-      lastRightClickTime = 0
-    }
-
-    if (this.setting || this.config.showTrajectory) {
-      ctx.beginPath()
-      const startX = points[0].x - this.left
-      const startY = points[0].y - this.top
-      ctx.moveTo(startX, startY)
-
-      for (let i = 1; i < points.length - 1; i++) {
-        const currentX = points[i].x - this.left
-        const currentY = points[i].y - this.top
-        const nextX = points[i + 1].x - this.left
-        const nextY = points[i + 1].y - this.top
-
-        const xc = (currentX + nextX) / 2
-        const yc = (currentY + nextY) / 2
-
-        ctx.quadraticCurveTo(currentX, currentY, xc, yc)
-      }
-
-      const lastSecondX = points[points.length - 2].x - this.left
-      const lastSecondY = points[points.length - 2].y - this.top
-      const lastX = points[points.length - 1].x - this.left
-      const lastY = points[points.length - 1].y - this.top
-      ctx.quadraticCurveTo(lastSecondX, lastSecondY, lastX, lastY)
-
-      ctx.strokeStyle = this.config.strokeStyle
-      ctx.lineWidth = this.config.lineWidth
-      ctx.lineCap = "round"
-      ctx.lineJoin = "round"
-
-      ctx.stroke()
-      ctx.closePath()
-    }
-
-    if (!this.setting) {
-      const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)
-      if (trajectory.length < 2) return
-      sendToBackground({
-        name: "matching",
-        body: {
-          trajectory: trajectory,
-          group: this.group
-        }
-      }).then((res) => {
-        this.setTooltipVisible(
-          this.config.showTooltip && (res.message as boolean)
-        )
-        this.setTooltipText(res.message)
-      })
-    }
+    this.matchRealtime()
   }
 
   public mouseUp(e: MouseEvent | DragEvent) {
@@ -208,6 +163,9 @@ export class Event {
     document.removeEventListener("drag", this.mouseMove, { capture: true })
     document.removeEventListener("dragend", this.mouseUp, { capture: true })
     Trajectory.clear()
+
+    this.isDrawing = false
+    this.stopAnimation()
   }
 
   public contextmenu(e: MouseEvent) {
@@ -230,6 +188,110 @@ export class Event {
     }
     document.removeEventListener("contextmenu", this.contextmenu, {
       capture: true
+    })
+  }
+
+  private initCanvasDPI() {
+    const { width, height } = this.canvas.canvas
+    this.canvas.canvas.style.width = `${width}px`
+    this.canvas.canvas.style.height = `${height}px`
+    this.canvas.canvas.width = width * this.dpr
+    this.canvas.canvas.height = height * this.dpr
+
+    this.offscreenCanvas = new OffscreenCanvas(width, height)
+    this.offscreenCtx = this.offscreenCanvas.getContext("2d")
+
+    this.offscreenCanvas.width = width * this.dpr
+    this.offscreenCanvas.height = height * this.dpr
+
+    this.canvas.scale(this.dpr, this.dpr)
+    this.offscreenCtx.scale(this.dpr, this.dpr)
+  }
+
+  private startAnimation() {
+    if (!this.rafId) {
+      this.rafId = requestAnimationFrame(this.renderLoop)
+    }
+  }
+
+  private renderLoop() {
+    if (!this.isDrawing) {
+      this.stopAnimation()
+      return
+    }
+    this.draw()
+    this.rafId = requestAnimationFrame(this.renderLoop)
+  }
+
+  private draw() {
+    if (!this.config) return
+    if (!this.setting && !this.config.showTrajectory) return
+    const points = Trajectory.trajectory
+    if (points.length < 3) return
+    const ctx = this.offscreenCtx
+    const mainCtx = this.canvas
+    const { width, height } = ctx.canvas
+
+    ctx.clearRect(0, 0, width / this.dpr, height / this.dpr)
+
+    ctx.beginPath()
+    ctx.moveTo(points[0].x - this.left, points[0].y - this.top)
+
+    for (let i = 1; i < points.length - 1; i++) {
+      const xc = (points[i].x + points[i + 1].x) / 2 - this.left
+      const yc = (points[i].y + points[i + 1].y) / 2 - this.top
+      ctx.quadraticCurveTo(
+        points[i].x - this.left,
+        points[i].y - this.top,
+        xc,
+        yc
+      )
+    }
+
+    ctx.strokeStyle = this.config.strokeStyle
+    ctx.lineWidth = this.config.lineWidth
+    ctx.lineCap = "round"
+    ctx.lineJoin = "round"
+    ctx.stroke()
+
+    mainCtx.clearRect(0, 0, width / this.dpr, height / this.dpr)
+    mainCtx.drawImage(
+      this.offscreenCanvas,
+      0,
+      0,
+      width / this.dpr,
+      height / this.dpr
+    )
+  }
+
+  private stopAnimation() {
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId)
+      this.rafId = null
+    }
+  }
+
+  private matchRealtime() {
+    if (this.setting) return
+    const now = performance.now()
+    if (now - this.lastMatchTime < 50) return
+    this.lastMatchTime = now
+
+    const trajectory = Trajectory.simplifyTrajectory(Trajectory.trajectory)
+
+    if (trajectory.length < 2) return
+
+    sendToBackground({
+      name: "matching",
+      body: {
+        trajectory,
+        group: this.group
+      }
+    }).then((res) => {
+      this.setTooltipVisible(
+        this.config!.showTooltip && (res.message as boolean)
+      )
+      this.setTooltipText(res.message)
     })
   }
 }

@@ -72,7 +72,6 @@ export class Event {
     this.mouseUp = this.mouseUp.bind(this)
     this.contextmenu = this.contextmenu.bind(this)
     this.renderLoop = this.renderLoop.bind(this)
-    this.initCanvasDPI()
 
     document.addEventListener("contextmenu", this.contextmenu, {
       capture: true
@@ -121,6 +120,7 @@ export class Event {
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
+    this.initCanvasDPI()
     this.isDrawing = true
     this.startAnimation()
   }
@@ -166,6 +166,8 @@ export class Event {
 
     this.isDrawing = false
     this.stopAnimation()
+    this.offscreenCtx = null
+    this.offscreenCanvas = null
   }
 
   public contextmenu(e: MouseEvent) {

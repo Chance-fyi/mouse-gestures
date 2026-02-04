@@ -86,7 +86,7 @@ export default () => {
     <>
       <canvas
         ref={canvasRef}
-        className="w-screen h-screen fixed top-0 left-0 z-[99999] pointer-events-none"
+        className="w-screen h-screen fixed top-0 left-0 z-[888] pointer-events-none"
       />
       {tooltipVisible && (
         <div style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>

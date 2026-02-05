@@ -1,5 +1,5 @@
 import cssText from "data-text:~style.css"
-import type { PlasmoCSConfig } from "plasmo"
+import type { PlasmoCSConfig, PlasmoGetOverlayAnchor } from "plasmo"
 import { useEffect, useRef, useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
@@ -21,6 +21,9 @@ export const getStyle = () => {
   return style
 }
 
+export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
+  document.querySelector("body")
+
 export default () => {
   const canvasRef = useRef(null)
   const [tooltipVisible, setTooltipVisible] = useState(false)
@@ -29,6 +32,8 @@ export default () => {
 
   let os: string
   useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
     document.addEventListener("mousedown", startDrawing, { capture: true })
     document.addEventListener("dragstart", startDrawing, { capture: true })
     sendToBackground({
@@ -37,12 +42,17 @@ export default () => {
     }).then((res) => {
       os = res.os
     })
-  }, [])
+    return () => {
+      document.removeEventListener("mousedown", startDrawing, { capture: true })
+      document.removeEventListener("dragstart", startDrawing, { capture: true })
+    }
+  }, [canvasRef.current])
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current
-    canvas.width = canvas.clientWidth
-    canvas.height = canvas.clientHeight
+    canvas.width = canvas?.clientWidth || document.documentElement.clientWidth
+    canvas.height =
+      canvas?.clientHeight || document.documentElement.clientHeight
     const ctx = canvas.getContext("2d")
     const event = new Event({
       canvas: ctx,

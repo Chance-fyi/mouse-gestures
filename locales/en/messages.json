@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Customizable command tooltip style"
   },
+  "strictness": {
+    "message": "Gesture recognition strictness"
+  },
+  "strictness_strict": {
+    "message": "Strict"
+  },
+  "strictness_normal": {
+    "message": "Normal"
+  },
+  "strictness_loose": {
+    "message": "Loose"
+  },
+  "strictness_custom": {
+    "message": "Custom"
+  },
+  "strictness_angle_threshold": {
+    "message": "Direction deviation allowance"
+  },
+  "strictness_length_tolerance": {
+    "message": "Trajectory length tolerance"
+  },
+  "strictness_min_similarity": {
+    "message": "Minimum similarity"
+  },
   "backup": {
     "message": "Backup"
   },

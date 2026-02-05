@@ -1,9 +1,12 @@
 import type { PlasmoMessaging } from "@plasmohq/messaging"
 
-import { getLocalConfig } from "~background"
+import { getGestureMatchConfigCustomOptions, getLocalConfig } from "~background"
 import { Command } from "~commands/command"
 import type { CommandInterface } from "~commands/command-interface"
-import type { LocalConfigInterface } from "~config/config-interface"
+import type {
+  GestureMatchConfigCustomOptions,
+  LocalConfigInterface
+} from "~config/config-interface"
 import type { DragData } from "~core/event"
 import type { Point } from "~core/trajectory"
 import type { Group } from "~enum/command"
@@ -24,7 +27,13 @@ const handler: PlasmoMessaging.MessageHandler<executeReq, executeRes> = async (
   res
 ) => {
   const config: LocalConfigInterface = await getLocalConfig()
-  const uniqueKey = matchGesture(req.body.trajectory, config[req.body.group])
+  const options: GestureMatchConfigCustomOptions =
+    await getGestureMatchConfigCustomOptions()
+  const uniqueKey = matchGesture(
+    req.body.trajectory,
+    config[req.body.group],
+    options
+  )
   if (!uniqueKey) {
     return
   }

@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "カスタマイズ可能なコマンドツールチップのスタイル"
   },
+  "strictness": {
+    "message": "ジェスチャー認識の厳密さ"
+  },
+  "strictness_strict": {
+    "message": "厳格"
+  },
+  "strictness_normal": {
+    "message": "標準"
+  },
+  "strictness_loose": {
+    "message": "緩い"
+  },
+  "strictness_custom": {
+    "message": "カスタム"
+  },
+  "strictness_angle_threshold": {
+    "message": "方向の許容偏差"
+  },
+  "strictness_length_tolerance": {
+    "message": "軌跡長の許容範囲"
+  },
+  "strictness_min_similarity": {
+    "message": "最小類似度"
+  },
   "backup": {
     "message": "バックアップ"
   },

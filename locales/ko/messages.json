@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "사용자 정의 가능한 명령 툴팁 스타일"
   },
+  "strictness": {
+    "message": "제스처 인식 엄격도"
+  },
+  "strictness_strict": {
+    "message": "엄격"
+  },
+  "strictness_normal": {
+    "message": "표준"
+  },
+  "strictness_loose": {
+    "message": "느슨함"
+  },
+  "strictness_custom": {
+    "message": "사용자 지정"
+  },
+  "strictness_angle_threshold": {
+    "message": "방향 허용 편차"
+  },
+  "strictness_length_tolerance": {
+    "message": "궤적 길이 허용 오차"
+  },
+  "strictness_min_similarity": {
+    "message": "최소 유사도"
+  },
   "backup": {
     "message": "백업"
   },

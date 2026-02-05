@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "自定义命令提示框样式"
   },
+  "strictness": {
+    "message": "手势识别严格度"
+  },
+  "strictness_strict": {
+    "message": "严格"
+  },
+  "strictness_normal": {
+    "message": "标准"
+  },
+  "strictness_loose": {
+    "message": "宽松"
+  },
+  "strictness_custom": {
+    "message": "自定义"
+  },
+  "strictness_angle_threshold": {
+    "message": "方向允许偏移"
+  },
+  "strictness_length_tolerance": {
+    "message": "轨迹长度容差"
+  },
+  "strictness_min_similarity": {
+    "message": "最低相似度"
+  },
   "backup": {
     "message": "备份"
   },

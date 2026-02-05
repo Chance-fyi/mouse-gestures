@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Anpassbarer Befehls-Tooltip-Stil"
   },
+  "strictness": {
+    "message": "Strenge der Gestenerkennung"
+  },
+  "strictness_strict": {
+    "message": "Streng"
+  },
+  "strictness_normal": {
+    "message": "Standard"
+  },
+  "strictness_loose": {
+    "message": "Locker"
+  },
+  "strictness_custom": {
+    "message": "Benutzerdefiniert"
+  },
+  "strictness_angle_threshold": {
+    "message": "Zulässige Richtungsabweichung"
+  },
+  "strictness_length_tolerance": {
+    "message": "Toleranz der Trajektorienlänge"
+  },
+  "strictness_min_similarity": {
+    "message": "Minimale Ähnlichkeit"
+  },
   "backup": {
     "message": "Backup"
   },

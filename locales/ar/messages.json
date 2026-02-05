@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "نمط تلميح الأوامر القابل للتخصيص"
   },
+  "strictness": {
+    "message": "درجة صرامة التعرف على الإيماءات"
+  },
+  "strictness_strict": {
+    "message": "صارم"
+  },
+  "strictness_normal": {
+    "message": "عادي"
+  },
+  "strictness_loose": {
+    "message": "مرن"
+  },
+  "strictness_custom": {
+    "message": "مخصص"
+  },
+  "strictness_angle_threshold": {
+    "message": "الانحراف المسموح به للاتجاه"
+  },
+  "strictness_length_tolerance": {
+    "message": "هامش طول المسار"
+  },
+  "strictness_min_similarity": {
+    "message": "الحد الأدنى للتشابه"
+  },
   "backup": {
     "message": "نسخ احتياطي"
   },

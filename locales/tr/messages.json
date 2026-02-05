@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Özelleştirilebilir komut ipucu stili"
   },
+  "strictness": {
+    "message": "Jest tanıma hassasiyeti"
+  },
+  "strictness_strict": {
+    "message": "Katı"
+  },
+  "strictness_normal": {
+    "message": "Standart"
+  },
+  "strictness_loose": {
+    "message": "Esnek"
+  },
+  "strictness_custom": {
+    "message": "Özel"
+  },
+  "strictness_angle_threshold": {
+    "message": "İzin verilen yön sapması"
+  },
+  "strictness_length_tolerance": {
+    "message": "Yörünge uzunluğu toleransı"
+  },
+  "strictness_min_similarity": {
+    "message": "Minimum benzerlik"
+  },
   "backup": {
     "message": "Yedekle"
   },

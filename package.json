@@ -20,6 +20,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.6.0",
     "tldts": "^7.0.19",
+    "use-debounce": "^10.1.0",
     "validator": "^13.15.23"
   },
   "devDependencies": {

@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Dostosowywalny styl podpowiedzi poleceń"
   },
+  "strictness": {
+    "message": "Poziom dokładności rozpoznawania gestów"
+  },
+  "strictness_strict": {
+    "message": "Ścisły"
+  },
+  "strictness_normal": {
+    "message": "Standardowy"
+  },
+  "strictness_loose": {
+    "message": "Luźny"
+  },
+  "strictness_custom": {
+    "message": "Niestandardowy"
+  },
+  "strictness_angle_threshold": {
+    "message": "Dopuszczalne odchylenie kierunku"
+  },
+  "strictness_length_tolerance": {
+    "message": "Tolerancja długości trajektorii"
+  },
+  "strictness_min_similarity": {
+    "message": "Minimalne podobieństwo"
+  },
   "backup": {
     "message": "Kopia zapasowa"
   },

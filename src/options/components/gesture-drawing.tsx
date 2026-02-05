@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { Storage } from "@plasmohq/storage"
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
-import { LocalConfig } from "~config/config"
+import { LocalConfig, SyncConfig } from "~config/config"
 import type { ConfigGesture } from "~config/config-interface"
 import { Event } from "~core/event"
 import { Trajectory, type Point } from "~core/trajectory"
@@ -25,6 +25,7 @@ export interface GestureDrawingProps {
 export default (props: GestureDrawingProps) => {
   const canvasRef = useRef(null)
   const [svg, setSvg] = useState(null)
+  const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
   const [localConfig, setLocalConfig] = useStorage(
     {
       key: LocalConfig.key,
@@ -73,7 +74,9 @@ export default (props: GestureDrawingProps) => {
         trajectory,
         localConfig[props.commandGroup].filter(
           (g) => g.uniqueKey !== props.configGesture?.uniqueKey
-        )
+        ),
+        syncConfig?.gestureMatchConfig?.customOptions ||
+          SyncConfig.default.gestureMatchConfig.customOptions
       )
     )
     props.setConfigGesture({

@@ -1,7 +1,10 @@
 import type { PlasmoMessaging } from "@plasmohq/messaging"
 
-import { getLocalConfig } from "~background"
-import type { LocalConfigInterface } from "~config/config-interface"
+import { getGestureMatchConfigCustomOptions, getLocalConfig } from "~background"
+import type {
+  GestureMatchConfigCustomOptions,
+  LocalConfigInterface
+} from "~config/config-interface"
 import type { Point } from "~core/trajectory"
 import type { Group } from "~enum/command"
 import { i18n, matchGesture } from "~utils/common"
@@ -20,7 +23,13 @@ const handler: PlasmoMessaging.MessageHandler<
   matchingRes
 > = async (req, res) => {
   const config: LocalConfigInterface = await getLocalConfig()
-  const uniqueKey = matchGesture(req.body.trajectory, config[req.body.group])
+  const options: GestureMatchConfigCustomOptions =
+    await getGestureMatchConfigCustomOptions()
+  const uniqueKey = matchGesture(
+    req.body.trajectory,
+    config[req.body.group],
+    options
+  )
   if (!uniqueKey) {
     res.send({
       message: ""

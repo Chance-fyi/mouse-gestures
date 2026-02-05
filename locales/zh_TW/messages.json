@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "自訂指令提示框樣式"
   },
+  "strictness": {
+    "message": "手勢識別嚴格度"
+  },
+  "strictness_strict": {
+    "message": "嚴格"
+  },
+  "strictness_normal": {
+    "message": "標準"
+  },
+  "strictness_loose": {
+    "message": "寬鬆"
+  },
+  "strictness_custom": {
+    "message": "自訂"
+  },
+  "strictness_angle_threshold": {
+    "message": "方向允許偏移"
+  },
+  "strictness_length_tolerance": {
+    "message": "軌跡長度容差"
+  },
+  "strictness_min_similarity": {
+    "message": "最低相似度"
+  },
   "backup": {
     "message": "備份"
   },

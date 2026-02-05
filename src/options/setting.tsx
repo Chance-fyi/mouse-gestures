@@ -1,10 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast, Toaster } from "react-hot-toast"
+import { useDebouncedCallback } from "use-debounce"
 
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
 import { GoogleDrive } from "~cloud/google-drive"
 import { Backup, Reset, Restore, SyncConfig } from "~config/config"
+import {
+  GestureStrictness,
+  LooseOptions,
+  NormalOptions,
+  StrictOptions
+} from "~enum/config"
 import { Menu } from "~enum/menu"
 import { useConfirm } from "~options/components/confirm"
 import IconDelete from "~options/components/icon-delete"
@@ -13,7 +20,7 @@ import IconRestore from "~options/components/icon-restore"
 import { checkMissingPermissions, i18n } from "~utils/common"
 
 export default () => {
-  const [syncConfig, setSyncConfig] = useStorage(
+  const [syncConfig, setSyncConfig, { isLoading }] = useStorage(
     SyncConfig.key,
     SyncConfig.default
   )
@@ -23,6 +30,62 @@ export default () => {
   const [backupDropdownOpen, setBackupDropdownOpen] = useState(false)
   const [restoreDropdownOpen, setRestoreDropdownOpen] = useState(false)
   const [fileList, setFileList] = useState([])
+  const [localLineWidth, setLocalLineWidth] = useState(0)
+  const [localStrictness, setLocalStrictness] = useState("")
+  const [localAngleThreshold, setLocalAngleThreshold] = useState(0)
+  const [localLengthTolerance, setLocalLengthTolerance] = useState(0)
+  const [localMinSimilarity, setLocalMinSimilarity] = useState(0)
+
+  const debouncedSetSyncConfig = useDebouncedCallback(
+    (config) => setSyncConfig(config),
+    300
+  )
+  useEffect(() => {
+    if (isLoading) return
+    debouncedSetSyncConfig({
+      ...syncConfig,
+      lineWidth: localLineWidth,
+      gestureMatchConfig: {
+        ...syncConfig?.gestureMatchConfig,
+        strictness: localStrictness,
+        customOptions: {
+          ...syncConfig?.gestureMatchConfig?.customOptions,
+          angleThreshold: localAngleThreshold,
+          lengthTolerance: localLengthTolerance,
+          minSimilarity: localMinSimilarity
+        }
+      }
+    })
+  }, [
+    localLineWidth,
+    localStrictness,
+    localAngleThreshold,
+    localLengthTolerance,
+    localMinSimilarity
+  ])
+  const setLocalValue = () => {
+    setLocalLineWidth(syncConfig?.lineWidth ?? SyncConfig.default.lineWidth)
+    setLocalStrictness(
+      syncConfig?.gestureMatchConfig?.strictness ??
+        SyncConfig.default.gestureMatchConfig.strictness
+    )
+    setLocalAngleThreshold(
+      syncConfig?.gestureMatchConfig?.customOptions?.angleThreshold ??
+        SyncConfig.default.gestureMatchConfig.customOptions.angleThreshold
+    )
+    setLocalLengthTolerance(
+      syncConfig?.gestureMatchConfig?.customOptions?.lengthTolerance ??
+        SyncConfig.default.gestureMatchConfig.customOptions.lengthTolerance
+    )
+    setLocalMinSimilarity(
+      syncConfig?.gestureMatchConfig?.customOptions?.minSimilarity ??
+        SyncConfig.default.gestureMatchConfig.customOptions.minSimilarity
+    )
+  }
+  useEffect(() => {
+    if (isLoading) return
+    setLocalValue()
+  }, [syncConfig])
 
   return (
     <>
@@ -48,16 +111,16 @@ export default () => {
           <div className="w-1/2 flex items-center">{i18n("line_width")}</div>
           <div className="w-1/2 flex justify-end">
             <input
-              type="text"
-              value={syncConfig.lineWidth}
-              onChange={(e) =>
-                setSyncConfig({
-                  ...syncConfig,
-                  lineWidth: Number(e.target.value)
-                })
-              }
-              className="input input-bordered input-sm w-20 max-w-xs focus:outline-none"
+              type="range"
+              min="1"
+              max="20"
+              value={localLineWidth}
+              onChange={(e) => setLocalLineWidth(Number(e.target.value))}
+              className="range range-xs"
             />
+            <span className="text-xs opacity-60 w-8 text-right">
+              {localLineWidth}px
+            </span>
           </div>
         </div>
         <div className="w-full flex flex-row">
@@ -121,6 +184,107 @@ export default () => {
               }}></textarea>
           </div>
         </div>
+        <div className="w-full flex flex-row">
+          <div className="w-1/2 flex items-center">{i18n("strictness")}</div>
+          <div className="w-1/2 flex justify-end">
+            <select
+              value={localStrictness}
+              onChange={(e) => {
+                switch (e.target.value) {
+                  case GestureStrictness.Strict:
+                    setLocalAngleThreshold(StrictOptions.angleThreshold)
+                    setLocalLengthTolerance(StrictOptions.lengthTolerance)
+                    setLocalMinSimilarity(StrictOptions.minSimilarity)
+                    break
+                  case GestureStrictness.Normal:
+                    setLocalAngleThreshold(NormalOptions.angleThreshold)
+                    setLocalLengthTolerance(NormalOptions.lengthTolerance)
+                    setLocalMinSimilarity(NormalOptions.minSimilarity)
+                    break
+                  case GestureStrictness.Loose:
+                    setLocalAngleThreshold(LooseOptions.angleThreshold)
+                    setLocalLengthTolerance(LooseOptions.lengthTolerance)
+                    setLocalMinSimilarity(LooseOptions.minSimilarity)
+                    break
+                }
+                setLocalStrictness(e.target.value)
+              }}
+              className="select select-bordered select-sm w-1/2 max-w-xs focus:outline-none text-center">
+              {Object.values(GestureStrictness).map((v) => (
+                <option key={v} value={v}>
+                  {i18n(`strictness_${v}`)}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        {localStrictness === GestureStrictness.Custom && (
+          <>
+            <div className="w-full flex flex-row">
+              <div className="w-1/2 flex items-center">
+                {i18n("strictness_angle_threshold")}
+              </div>
+              <div className="w-1/2 flex justify-end">
+                <input
+                  type="range"
+                  min="5"
+                  max="45"
+                  value={localAngleThreshold / 2}
+                  step="1"
+                  onChange={(e) =>
+                    setLocalAngleThreshold(Number(e.target.value) * 2)
+                  }
+                  className="range range-xs"
+                />
+                <span className="text-xs opacity-60 w-8 text-right">
+                  ±{localAngleThreshold / 2}°
+                </span>
+              </div>
+            </div>
+            <div className="w-full flex flex-row">
+              <div className="w-1/2 flex items-center">
+                {i18n("strictness_length_tolerance")}
+              </div>
+              <div className="w-1/2 flex justify-end">
+                <input
+                  type="range"
+                  min="0.1"
+                  max="0.7"
+                  value={localLengthTolerance}
+                  step="0.05"
+                  onChange={(e) =>
+                    setLocalLengthTolerance(Number(e.target.value))
+                  }
+                  className="range range-xs"
+                />
+                <span className="text-xs opacity-60 w-8 text-right">
+                  {(localLengthTolerance * 100).toFixed(0)}%
+                </span>
+              </div>
+            </div>
+            <div className="w-full flex flex-row">
+              <div className="w-1/2 flex items-center">
+                {i18n("strictness_min_similarity")}
+              </div>
+              <div className="w-1/2 flex justify-end">
+                <input
+                  type="range"
+                  min="0.5"
+                  max="0.9"
+                  value={localMinSimilarity}
+                  step="0.05"
+                  onChange={(e) =>
+                    setLocalMinSimilarity(Number(e.target.value))
+                  }
+                  className="range range-xs"
+                />
+                <span className="text-xs opacity-60 w-8 text-right">
+                  {localMinSimilarity.toFixed(2)}
+                </span>
+              </div>
+            </div>
+          </>
+        )}
         <div className="divider mt-0"></div>
         <div className="w-full flex flex-row space-x-5 justify-end">
           <div

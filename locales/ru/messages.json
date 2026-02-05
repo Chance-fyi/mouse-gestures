@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Настраиваемый стиль подсказки команды"
   },
+  "strictness": {
+    "message": "Строгость распознавания жестов"
+  },
+  "strictness_strict": {
+    "message": "Строгий"
+  },
+  "strictness_normal": {
+    "message": "Стандартный"
+  },
+  "strictness_loose": {
+    "message": "Мягкий"
+  },
+  "strictness_custom": {
+    "message": "Пользовательский"
+  },
+  "strictness_angle_threshold": {
+    "message": "Допустимое отклонение направления"
+  },
+  "strictness_length_tolerance": {
+    "message": "Допуск длины траектории"
+  },
+  "strictness_min_similarity": {
+    "message": "Минимальное сходство"
+  },
   "backup": {
     "message": "Резервное копирование"
   },

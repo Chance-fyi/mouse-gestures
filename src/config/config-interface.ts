@@ -1,4 +1,5 @@
 import type { Point } from "~core/trajectory"
+import type { GestureStrictness } from "~enum/config"
 
 export type ConfigGesture = {
   uniqueKey: string
@@ -11,12 +12,22 @@ export type ConfigGesture = {
   }
 }
 
+export type GestureMatchConfigCustomOptions = {
+  angleThreshold: number
+  lengthTolerance: number
+  minSimilarity: number
+}
+
 export interface SyncConfigInterface {
   strokeStyle: string
   lineWidth: number
   showTooltip: boolean
   showTrajectory: boolean
   tooltipStyle: object
+  gestureMatchConfig: {
+    strictness: GestureStrictness
+    customOptions: GestureMatchConfigCustomOptions
+  }
 }
 
 export interface LocalConfigInterface {

@@ -4,6 +4,7 @@ import { Command } from "~commands/command"
 import { LocalConfig } from "~config/config"
 import type {
   ConfigGesture,
+  GestureMatchConfigCustomOptions,
   LocalConfigInterface
 } from "~config/config-interface"
 import { Trajectory, type Point } from "~core/trajectory"
@@ -16,24 +17,32 @@ export const i18n = (key: string = ""): string => {
 
 export const matchGesture = (
   trajectory: Point[],
-  gestures: ConfigGesture[]
+  gestures: ConfigGesture[],
+  options: GestureMatchConfigCustomOptions
 ): string => {
   let similarity = 0
   let uniqueKey = ""
+
+  const defaultOption = {
+    angleThreshold: Math.PI / 3, // 60 degree large angle tolerance
+    lengthTolerance: 0.5, // 50% length variance allowed
+    minSimilarity: 0.7, // Lower similarity threshold
+    keyPointOptions: {
+      minAngleChange: Math.PI / 6, // 30-degree turn before recording
+      minSegmentRatio: 0.2 // Focus on major moving segments
+    },
+    turnCountPenalty: 0.2
+  }
+  const angleThreshold = (options.angleThreshold * Math.PI) / 180
 
   for (const gesture of gestures) {
     const result = Trajectory.matchTrajectories(
       trajectory,
       gesture.trajectory,
       {
-        angleThreshold: Math.PI / 3, // 60 degree large angle tolerance
-        lengthTolerance: 0.5, // 50% length variance allowed
-        minSimilarity: 0.7, // Lower similarity threshold
-        keyPointOptions: {
-          minAngleChange: Math.PI / 6, // 30-degree turn before recording
-          minSegmentRatio: 0.2 // Focus on major moving segments
-        },
-        turnCountPenalty: 0.2
+        ...defaultOption,
+        ...options,
+        angleThreshold
       }
     )
     if (result.isMatched && result.similarity > similarity) {

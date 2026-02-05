@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "รูปแบบคำแนะนำคำสั่งที่ปรับแต่งได้"
   },
+  "strictness": {
+    "message": "ระดับความเข้มงวดของการจดจำท่าทาง"
+  },
+  "strictness_strict": {
+    "message": "เข้มงวด"
+  },
+  "strictness_normal": {
+    "message": "มาตรฐาน"
+  },
+  "strictness_loose": {
+    "message": "ผ่อนปรน"
+  },
+  "strictness_custom": {
+    "message": "กำหนดเอง"
+  },
+  "strictness_angle_threshold": {
+    "message": "การเบี่ยงเบนทิศทางที่ยอมรับได้"
+  },
+  "strictness_length_tolerance": {
+    "message": "ค่าความคลาดเคลื่อนของความยาวเส้นทาง"
+  },
+  "strictness_min_similarity": {
+    "message": "ความคล้ายคลึงขั้นต่ำ"
+  },
   "backup": {
     "message": "สำรองข้อมูล"
   },

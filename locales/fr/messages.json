@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Style de tooltip de commande personnalisable"
   },
+  "strictness": {
+    "message": "Niveau de précision de la reconnaissance des gestes"
+  },
+  "strictness_strict": {
+    "message": "Strict"
+  },
+  "strictness_normal": {
+    "message": "Normal"
+  },
+  "strictness_loose": {
+    "message": "Souple"
+  },
+  "strictness_custom": {
+    "message": "Personnalisé"
+  },
+  "strictness_angle_threshold": {
+    "message": "Tolérance de déviation directionnelle"
+  },
+  "strictness_length_tolerance": {
+    "message": "Tolérance de longueur de trajectoire"
+  },
+  "strictness_min_similarity": {
+    "message": "Similarité minimale"
+  },
   "backup": {
     "message": "Sauvegarde"
   },

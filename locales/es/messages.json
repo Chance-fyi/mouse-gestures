@@ -449,6 +449,30 @@
   "tooltip_style": {
     "message": "Estilo de tooltip de comando personalizable"
   },
+  "strictness": {
+    "message": "Nivel de precisión del reconocimiento de gestos"
+  },
+  "strictness_strict": {
+    "message": "Estricto"
+  },
+  "strictness_normal": {
+    "message": "Normal"
+  },
+  "strictness_loose": {
+    "message": "Flexible"
+  },
+  "strictness_custom": {
+    "message": "Personalizado"
+  },
+  "strictness_angle_threshold": {
+    "message": "Desviación de dirección permitida"
+  },
+  "strictness_length_tolerance": {
+    "message": "Tolerancia de longitud de trayectoria"
+  },
+  "strictness_min_similarity": {
+    "message": "Similitud mínima"
+  },
   "backup": {
     "message": "Copia de seguridad"
   },

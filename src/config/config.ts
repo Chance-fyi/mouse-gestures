@@ -4,6 +4,7 @@ import type {
   LocalConfigInterface,
   SyncConfigInterface
 } from "~config/config-interface"
+import { GestureStrictness, NormalOptions } from "~enum/config"
 
 export class SyncConfig {
   public static readonly key: string = "sync-config"
@@ -36,6 +37,10 @@ export class SyncConfig {
 
       pointerEvents: "none",
       zIndex: 999
+    },
+    gestureMatchConfig: {
+      strictness: GestureStrictness.Normal,
+      customOptions: NormalOptions
     }
   }
 }

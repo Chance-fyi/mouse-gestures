@@ -150,7 +150,8 @@ export class Event {
     if (this.group !== Group.Gesture) {
       Trajectory.delPoint()
     }
-    this.blockMenu = Trajectory.trajectory.length > 5
+    const blockMenu = Trajectory.trajectory.length > 5
+    this.blockMenu = blockMenu
     // Cancel the gesture by left-clicking
     if (e.type === "mouseup" && e.button === 0) {
       this.setTooltipVisible(false)
@@ -168,9 +169,11 @@ export class Event {
     this.stopAnimation()
     this.offscreenCtx = null
     this.offscreenCanvas = null
+
+    this.blockRightClickMenu(e, blockMenu)
   }
 
-  public contextmenu(e: MouseEvent) {
+  private blockRightClickMenu(e: MouseEvent | DragEvent, blockMenu: boolean) {
     if (this.os == "mac" || this.os == "linux") {
       const time = Date.now()
       // Two right clicks with a time interval of less than 600ms are considered to be a double right-click
@@ -179,15 +182,21 @@ export class Event {
       } else {
         // Block right-click menu
         e.preventDefault()
+        e.stopPropagation()
       }
       lastRightClickTime = time
     } else {
-      if (this.blockMenu) {
+      if (blockMenu) {
         // Block right-click menu
         e.preventDefault()
-        this.blockMenu = false
+        e.stopPropagation()
       }
     }
+  }
+
+  public contextmenu(e: MouseEvent) {
+    this.blockRightClickMenu(e, this.blockMenu)
+    this.blockMenu = false
     document.removeEventListener("contextmenu", this.contextmenu, {
       capture: true
     })

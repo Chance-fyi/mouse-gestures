@@ -1,6 +1,7 @@
 import isURL from "validator/lib/isURL"
 
 import type { CommandInterface } from "~commands/command-interface"
+import { Search as ImageSearch } from "~commands/drag-image/search"
 import type { DragData } from "~core/event"
 import { ConfigType } from "~enum/command"
 
@@ -51,11 +52,7 @@ export class Search implements CommandInterface {
       if (!url.startsWith("http")) {
         url = "https://" + url
       }
-      chrome.tabs
-        .create({
-          url: url
-        })
-        .then()
+      new ImageSearch().openUrl(url, this.config.disposition.value)
       return
     }
 
@@ -68,7 +65,7 @@ export class Search implements CommandInterface {
         url = engine + this.data.content
       }
 
-      chrome.tabs.create({ url: url }).then()
+      new ImageSearch().openUrl(url, this.config.disposition.value)
       return
     }
 

@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Avviso: gli script utente possono causare la perdita di dati personali."
   },
+  "command_drag_image_search_description": {
+    "message": "Cerca l'immagine trascinata"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "L'URL dell'immagine da cercare sostituirà il segnaposto %s nell'URL del motore di ricerca fornito (se presente); altrimenti verrà aggiunto alla fine. Se omesso, verrà utilizzato Google come motore di ricerca predefinito."
+  },
   "optional": {
     "message": "Opzionale"
   },

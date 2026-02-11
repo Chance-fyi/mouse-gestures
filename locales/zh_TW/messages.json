@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ 警告：使用者腳本可能會導致個人資料遺失。"
   },
+  "command_drag_image_search_description": {
+    "message": "搜尋拖曳的圖片"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "要搜尋的圖片 URL 會取代提供的搜尋引擎網址中的 %s 佔位符（若存在）；否則會附加到結尾。若未設定，將使用 Google 作為預設搜尋引擎。"
+  },
   "optional": {
     "message": "可選"
   },

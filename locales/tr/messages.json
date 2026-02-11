@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Uyarı: Kullanıcı betikleri kişisel veri kaybına neden olabilir."
   },
+  "command_drag_image_search_description": {
+    "message": "Sürüklenen resmi ara"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "Aranacak resmin URL'si, sağlanan arama motoru URL'sindeki %s yer tutucusunun (varsa) yerine geçer; aksi takdirde sona eklenir. Belirtilmezse varsayılan arama motoru olarak Google kullanılır."
+  },
   "optional": {
     "message": "İsteğe Bağlı"
   },

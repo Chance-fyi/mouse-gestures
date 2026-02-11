@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ تحذير: قد تتسبب سكربتات المستخدم في فقدان البيانات الشخصية."
   },
+  "command_drag_image_search_description": {
+    "message": "البحث عن الصورة المسحوبة"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "سيتم استبدال عنوان URL للصورة المراد البحث عنها بالعنصر النائب %s في عنوان URL لمحرك البحث المقدم (إن وُجد)؛ وإلا فسيتم إلحاقه في النهاية. إذا لم يتم تحديده، سيتم استخدام Google كمحرك البحث الافتراضي."
+  },
   "optional": {
     "message": "اختياري"
   },

@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Aviso: scripts do usuário podem causar perda de dados pessoais."
   },
+  "command_drag_image_search_description": {
+    "message": "Pesquisar a imagem arrastada"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "A URL da imagem a ser pesquisada substituirá o espaço reservado %s na URL do mecanismo de busca fornecido (se existir); caso contrário, será anexada ao final. Se omitido, o Google será usado como mecanismo de busca padrão."
+  },
   "optional": {
     "message": "Opcional"
   },

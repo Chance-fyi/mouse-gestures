@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ 警告：用户脚本可能导致个人数据丢失。"
   },
+  "command_drag_image_search_description": {
+    "message": "搜索拖拽的图片"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "要搜索的图片 URL 会替换提供的搜索引擎网址中的 %s 占位符（若有），否则将会附加到末尾。 如果省略，将使用 Google 搜索引擎"
+  },
   "optional": {
     "message": "可选"
   },

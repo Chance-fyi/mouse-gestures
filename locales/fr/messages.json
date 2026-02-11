@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Avertissement : les scripts utilisateur peuvent entraîner une perte de données personnelles."
   },
+  "command_drag_image_search_description": {
+    "message": "Rechercher l’image glissée"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "L’URL de l’image à rechercher remplacera l’espace réservé %s dans l’URL du moteur de recherche fourni (le cas échéant) ; sinon, elle sera ajoutée à la fin. Si rien n’est indiqué, Google sera utilisé comme moteur de recherche par défaut."
+  },
   "optional": {
     "message": "Optionnel"
   },

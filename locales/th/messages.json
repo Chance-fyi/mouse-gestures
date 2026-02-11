@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ คำเตือน: สคริปต์ของผู้ใช้อาจทำให้ข้อมูลส่วนบุคคลสูญหาย"
   },
+  "command_drag_image_search_description": {
+    "message": "ค้นหารูปภาพที่ลาก"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "URL ของรูปภาพที่จะค้นหาจะแทนที่ตัวแทน %s ใน URL ของเครื่องมือค้นหาที่กำหนด (หากมี) มิฉะนั้นจะถูกเพิ่มต่อท้าย หากไม่ระบุ จะใช้ Google เป็นเครื่องมือค้นหาเริ่มต้น"
+  },
   "optional": {
     "message": "ไม่จำเป็น"
   },

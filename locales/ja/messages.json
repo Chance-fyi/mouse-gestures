@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ 警告：ユーザースクリプトは個人データの損失を引き起こす可能性があります。"
   },
+  "command_drag_image_search_description": {
+    "message": "ドラッグした画像を検索"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "検索する画像のURLは、指定された検索エンジンURL内の %s プレースホルダー（存在する場合）に置き換えられます。存在しない場合は末尾に追加されます。未指定の場合は、Googleがデフォルトの検索エンジンとして使用されます。"
+  },
   "optional": {
     "message": "任意"
   },

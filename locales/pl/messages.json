@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Ostrzeżenie: skrypty użytkownika mogą spowodować utratę danych osobowych."
   },
+  "command_drag_image_search_description": {
+    "message": "Wyszukaj przeciągnięty obraz"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "Adres URL wyszukiwanego obrazu zastąpi symbol %s w podanym adresie URL wyszukiwarki (jeśli występuje); w przeciwnym razie zostanie dodany na końcu. Jeśli nie podano, Google zostanie użyte jako domyślna wyszukiwarka."
+  },
   "optional": {
     "message": "Opcjonalne"
   },

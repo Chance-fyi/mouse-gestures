@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Advertencia: Los scripts de usuario pueden provocar la pérdida de datos personales."
   },
+  "command_drag_image_search_description": {
+    "message": "Buscar la imagen arrastrada"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "La URL de la imagen que se va a buscar reemplazará el marcador %s en la URL del motor de búsqueda proporcionado (si existe); de lo contrario, se añadirá al final. Si se omite, Google se usará como motor de búsqueda predeterminado."
+  },
   "optional": {
     "message": "Opcional"
   },

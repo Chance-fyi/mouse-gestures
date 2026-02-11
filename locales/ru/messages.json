@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Предупреждение: пользовательские скрипты могут привести к потере личных данных."
   },
+  "command_drag_image_search_description": {
+    "message": "Поиск перетащенного изображения"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "URL изображения для поиска заменит заполнитель %s в указанном URL поисковой системы (если он присутствует); в противном случае будет добавлен в конец. Если не указано, Google будет использоваться как поисковая система по умолчанию."
+  },
   "optional": {
     "message": "Необязательно"
   },

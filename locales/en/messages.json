@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠\uFE0FWarning: User scripts may cause loss of personal data."
   },
+  "command_drag_image_search_description": {
+    "message": "Search the dragged image"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "The image URL to be searched will replace the %s placeholder in the provided search engine URL (if present); otherwise, it will be appended to the end. If omitted, Google will be used as the default search engine."
+  },
   "optional": {
     "message": "Optional"
   },

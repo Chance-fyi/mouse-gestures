@@ -410,6 +410,12 @@
   "command_gesture_execute_user_script_config_script_description": {
     "message": "⚠️ Warnung: Benutzerskripte können zum Verlust persönlicher Daten führen."
   },
+  "command_drag_image_search_description": {
+    "message": "Nach dem gezogenen Bild suchen"
+  },
+  "command_drag_image_search_engine_description": {
+    "message": "Die zu suchende Bild-URL ersetzt den Platzhalter %s in der angegebenen Suchmaschinen-URL (falls vorhanden); andernfalls wird sie am Ende angehängt. Wenn nichts angegeben ist, wird Google als Standardsuchmaschine verwendet."
+  },
   "optional": {
     "message": "Optional"
   },

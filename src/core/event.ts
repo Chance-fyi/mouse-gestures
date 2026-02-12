@@ -338,11 +338,12 @@ export class Event {
   private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
     if (!this.isIframe) return
 
+    const rect = window.frameElement?.getBoundingClientRect()
     const event = {
       type: e.type,
       button: e.button,
-      clientX: e.clientX,
-      clientY: e.clientY,
+      clientX: e.clientX + (rect?.left ?? 0),
+      clientY: e.clientY + (rect?.top ?? 0),
       dataTransfer: {}
     } as MouseEvent | DragEvent
 

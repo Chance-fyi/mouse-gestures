@@ -59,18 +59,22 @@ export default () => {
   }, [])
 
   const startDrawing = (e) => {
-    const canvas = canvasRef.current
-    canvas.width = canvas?.clientWidth || document.documentElement.clientWidth
-    canvas.height =
-      canvas?.clientHeight || document.documentElement.clientHeight
-    const ctx = canvas.getContext("2d")
+    let ctx = null
+    if (!isIframe) {
+      const canvas = canvasRef.current
+      canvas.width = canvas?.clientWidth || document.documentElement.clientWidth
+      canvas.height =
+        canvas?.clientHeight || document.documentElement.clientHeight
+      ctx = canvas.getContext("2d")
+    }
     const event = new Event({
       canvas: ctx,
-      upCallback: upCallback,
+      upCallback,
       setting: false,
-      os: os,
+      os,
       setTooltipVisible,
-      setTooltipText
+      setTooltipText,
+      isIframe
     })
     event.mouseDown(e)
   }

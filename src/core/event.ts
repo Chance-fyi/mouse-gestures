@@ -15,6 +15,7 @@ interface Params {
   os: string
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
+  isIframe?: boolean
 }
 
 export type DragData = {
@@ -44,6 +45,8 @@ export class Event {
 
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
+  public readonly isIframe: boolean = false
+
   public group: Group = Group.Gesture
   public dragData: DragData
 
@@ -53,7 +56,8 @@ export class Event {
     setting,
     os,
     setTooltipVisible,
-    setTooltipText
+    setTooltipText,
+    isIframe = false
   }: Params) {
     const storage = new Storage()
     storage.get(SyncConfig.key).then((c) => {
@@ -67,6 +71,8 @@ export class Event {
 
     this.setTooltipVisible = setTooltipVisible
     this.setTooltipText = setTooltipText
+
+    this.isIframe = isIframe
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -120,6 +126,8 @@ export class Event {
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
+    if (this.isIframe) return
+
     this.initCanvasDPI()
     this.isDrawing = true
     this.startAnimation()
@@ -136,6 +144,8 @@ export class Event {
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
 
+    if (this.isIframe) return
+
     this.matchRealtime()
   }
 
@@ -151,26 +161,30 @@ export class Event {
       Trajectory.delPoint()
     }
     const blockMenu = Trajectory.trajectory.length > 5
+    this.blockRightClickMenu(e, blockMenu)
     this.blockMenu = blockMenu
     // Cancel the gesture by left-clicking
     if (e.type === "mouseup" && e.button === 0) {
       this.setTooltipVisible(false)
       Trajectory.clear()
     }
-    this.upCallback(this)
 
     document.removeEventListener("mousemove", this.mouseMove, { capture: true })
     document.removeEventListener("mouseup", this.mouseUp, { capture: true })
     document.removeEventListener("drag", this.mouseMove, { capture: true })
     document.removeEventListener("dragend", this.mouseUp, { capture: true })
+
+    if (!this.isIframe) {
+      this.upCallback(this)
+    }
     Trajectory.clear()
+
+    if (this.isIframe) return
 
     this.isDrawing = false
     this.stopAnimation()
     this.offscreenCtx = null
     this.offscreenCanvas = null
-
-    this.blockRightClickMenu(e, blockMenu)
   }
 
   private blockRightClickMenu(e: MouseEvent | DragEvent, blockMenu: boolean) {

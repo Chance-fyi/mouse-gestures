@@ -12,7 +12,10 @@ import { Trajectory } from "~core/trajectory"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
-  run_at: "document_start"
+  run_at: "document_start",
+  all_frames: true,
+  // @ts-ignore
+  match_origin_as_fallback: true
 }
 
 export const getStyle = () => {

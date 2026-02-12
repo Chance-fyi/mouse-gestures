@@ -34,22 +34,29 @@ export default () => {
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
 
   let os: string
+  const isIframe = window !== window.top
+  const listenersRegistered = useRef(false)
+
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    if (listenersRegistered.current) return
+    listenersRegistered.current = true
+
     document.addEventListener("mousedown", startDrawing, { capture: true })
     document.addEventListener("dragstart", startDrawing, { capture: true })
+
     sendToBackground({
       name: "os",
       body: {}
     }).then((res) => {
       os = res.os
     })
+
     return () => {
       document.removeEventListener("mousedown", startDrawing, { capture: true })
       document.removeEventListener("dragstart", startDrawing, { capture: true })
+      listenersRegistered.current = false
     }
-  }, [canvasRef.current])
+  }, [])
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current
@@ -96,16 +103,19 @@ export default () => {
   }
 
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className="w-screen h-screen fixed top-0 left-0 z-[888] pointer-events-none"
-      />
-      {tooltipVisible && (
-        <div style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>
-          {tooltipText}
-        </div>
-      )}
-    </>
+    !isIframe && (
+      <>
+        <canvas
+          ref={canvasRef}
+          className="w-screen h-screen fixed top-0 left-0 z-[888] pointer-events-none"
+        />
+        {tooltipVisible && (
+          <div
+            style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>
+            {tooltipText}
+          </div>
+        )}
+      </>
+    )
   )
 }

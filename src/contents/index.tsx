@@ -9,6 +9,12 @@ import { Command } from "~commands/command"
 import { SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
+import {
+  IframeForwardsTop,
+  type MouseDownData,
+  type MouseMoveData,
+  type MouseUpData
+} from "~enum/message"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
@@ -32,6 +38,7 @@ export default () => {
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
+  const eventRef = useRef<Event>(null)
 
   let os: string
   const isIframe = window !== window.top
@@ -51,6 +58,10 @@ export default () => {
       os = res.os
     })
 
+    if (!isIframe) {
+      window.addEventListener("message", iframeMessage)
+    }
+
     return () => {
       document.removeEventListener("mousedown", startDrawing, { capture: true })
       document.removeEventListener("dragstart", startDrawing, { capture: true })
@@ -58,7 +69,7 @@ export default () => {
     }
   }, [])
 
-  const startDrawing = (e) => {
+  const newEvent = (): Event => {
     let ctx = null
     if (!isIframe) {
       const canvas = canvasRef.current
@@ -67,7 +78,7 @@ export default () => {
         canvas?.clientHeight || document.documentElement.clientHeight
       ctx = canvas.getContext("2d")
     }
-    const event = new Event({
+    return new Event({
       canvas: ctx,
       upCallback,
       setting: false,
@@ -76,6 +87,10 @@ export default () => {
       setTooltipText,
       isIframe
     })
+  }
+
+  const startDrawing = (e) => {
+    const event = newEvent()
     event.mouseDown(e)
   }
 
@@ -104,6 +119,31 @@ export default () => {
         setTooltipVisible(false)
         setTooltipText("")
       })
+  }
+
+  const iframeMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
+    if (e.data.id !== chrome.runtime.id) return
+    switch (e.data.type) {
+      case IframeForwardsTop.MouseDown: {
+        const data = e.data as MouseDownData
+        const event = newEvent()
+        event.mouseDown(data.event)
+        event.group = data.group
+        event.dragData = data.dragData
+        eventRef.current = event
+        break
+      }
+      case IframeForwardsTop.MouseMove: {
+        const data = e.data as MouseMoveData
+        eventRef.current?.mouseMove(data.event)
+        break
+      }
+      case IframeForwardsTop.MouseUp: {
+        const data = e.data as MouseUpData
+        eventRef.current?.mouseUp(data.event)
+        break
+      }
+    }
   }
 
   return (

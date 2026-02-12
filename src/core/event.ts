@@ -7,6 +7,12 @@ import { SyncConfig } from "~config/config"
 import type { SyncConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
 import { Group } from "~enum/command"
+import {
+  IframeForwardsTop,
+  type MouseDownData,
+  type MouseMoveData,
+  type MouseUpData
+} from "~enum/message"
 
 interface Params {
   canvas: CanvasRenderingContext2D
@@ -126,7 +132,10 @@ export class Event {
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
-    if (this.isIframe) return
+    if (this.isIframe) {
+      this.forwardsTop(IframeForwardsTop.MouseDown, e)
+      return
+    }
 
     this.initCanvasDPI()
     this.isDrawing = true
@@ -144,7 +153,10 @@ export class Event {
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
 
-    if (this.isIframe) return
+    if (this.isIframe) {
+      this.forwardsTop(IframeForwardsTop.MouseMove, e)
+      return
+    }
 
     this.matchRealtime()
   }
@@ -179,7 +191,10 @@ export class Event {
     }
     Trajectory.clear()
 
-    if (this.isIframe) return
+    if (this.isIframe) {
+      this.forwardsTop(IframeForwardsTop.MouseUp, e)
+      return
+    }
 
     this.isDrawing = false
     this.stopAnimation()
@@ -318,5 +333,43 @@ export class Event {
       )
       this.setTooltipText(res.message)
     })
+  }
+
+  private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
+    if (!this.isIframe) return
+
+    const event = {
+      type: e.type,
+      button: e.button,
+      clientX: e.clientX,
+      clientY: e.clientY,
+      dataTransfer: {}
+    } as MouseEvent | DragEvent
+
+    switch (type) {
+      case IframeForwardsTop.MouseDown:
+        window.parent.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event,
+          group: this.group,
+          dragData: this.dragData
+        } as MouseDownData)
+        break
+      case IframeForwardsTop.MouseMove:
+        window.parent.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event
+        } as MouseMoveData)
+        break
+      case IframeForwardsTop.MouseUp:
+        window.parent.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event
+        } as MouseUpData)
+        break
+    }
   }
 }

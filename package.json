@@ -31,6 +31,7 @@
     "@types/react-dom": "18.2.18",
     "@types/validator": "^13.15.10",
     "autoprefixer": "^10.4.22",
+    "baseline-browser-mapping": "^2.9.19",
     "daisyui": "^4.12.24",
     "postcss": "^8.5.6",
     "prettier": "3.2.4",

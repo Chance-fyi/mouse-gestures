@@ -188,6 +188,10 @@ export class Event {
 
     if (this.isIframe) {
       this.forwardsTop(IframeForwardsTop.MouseUp, e)
+      // When the right mouse button is released outside the iframe, the `contextmenu` event inside the iframe is not triggered, so event cleanup must be delayed.
+      setTimeout(() => {
+        this.contextmenu(e)
+      }, 10)
       return
     }
 
@@ -219,7 +223,10 @@ export class Event {
   }
 
   public contextmenu(e: MouseEvent) {
-    this.blockRightClickMenu(e, this.blockMenu)
+    this.blockRightClickMenu(
+      e,
+      this.blockMenu || Trajectory.trajectory.length > 5
+    )
     this.blockMenu = false
     document.removeEventListener("contextmenu", this.contextmenu, {
       capture: true

@@ -38,7 +38,12 @@ export default () => {
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
+  const syncConfigRef = useRef(syncConfig)
   const eventRef = useRef<Event>(null)
+
+  useEffect(() => {
+    syncConfigRef.current = syncConfig
+  }, [syncConfig])
 
   let os: string
   const isIframe = window !== window.top
@@ -85,7 +90,8 @@ export default () => {
       os,
       setTooltipVisible,
       setTooltipText,
-      isIframe
+      isIframe,
+      config: syncConfigRef.current
     })
   }
 

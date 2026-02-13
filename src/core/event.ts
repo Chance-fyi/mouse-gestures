@@ -22,6 +22,7 @@ interface Params {
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   isIframe?: boolean
+  config?: SyncConfigInterface
 }
 
 export type DragData = {
@@ -63,8 +64,12 @@ export class Event {
     os,
     setTooltipVisible,
     setTooltipText,
-    isIframe = false
+    isIframe = false,
+    config = null
   }: Params) {
+    if (config) {
+      this.config = config
+    }
     const storage = new Storage()
     storage.get(SyncConfig.key).then((c) => {
       this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
@@ -108,7 +113,7 @@ export class Event {
     }
 
     if (e.type === "dragstart") {
-      const types = (e as DragEvent).dataTransfer.types
+      const types = (e as DragEvent).dataTransfer?.types ?? []
       if (types.includes("Files")) {
         this.group = Group.DragImage
         this.dragData = {
@@ -125,10 +130,8 @@ export class Event {
         this.dragData = {
           content: (e as DragEvent).dataTransfer.getData("text/plain")
         }
-      } else {
-        return
       }
-      document.addEventListener("drag", this.mouseMove, { capture: true })
+      document.addEventListener("dragover", this.mouseMove, { capture: true })
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
@@ -183,7 +186,7 @@ export class Event {
 
     document.removeEventListener("mousemove", this.mouseMove, { capture: true })
     document.removeEventListener("mouseup", this.mouseUp, { capture: true })
-    document.removeEventListener("drag", this.mouseMove, { capture: true })
+    document.removeEventListener("dragover", this.mouseMove, { capture: true })
     document.removeEventListener("dragend", this.mouseUp, { capture: true })
 
     if (!this.isIframe) {
@@ -343,8 +346,7 @@ export class Event {
       type: e.type,
       button: e.button,
       clientX: e.clientX + (rect?.left ?? 0),
-      clientY: e.clientY + (rect?.top ?? 0),
-      dataTransfer: {}
+      clientY: e.clientY + (rect?.top ?? 0)
     } as MouseEvent | DragEvent
 
     switch (type) {

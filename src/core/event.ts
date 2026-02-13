@@ -1,7 +1,6 @@
 import React from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
-import { Storage } from "@plasmohq/storage"
 
 import { SyncConfig } from "~config/config"
 import type { SyncConfigInterface } from "~config/config-interface"
@@ -22,7 +21,7 @@ interface Params {
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   isIframe?: boolean
-  config?: SyncConfigInterface
+  config: SyncConfigInterface
 }
 
 export type DragData = {
@@ -65,16 +64,9 @@ export class Event {
     setTooltipVisible,
     setTooltipText,
     isIframe = false,
-    config = null
+    config
   }: Params) {
-    if (config) {
-      this.config = config
-    }
-    const storage = new Storage()
-    storage.get(SyncConfig.key).then((c) => {
-      this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
-      this.config = { ...SyncConfig.default, ...this.config }
-    })
+    this.config = { ...SyncConfig.default, ...config }
     this.canvas = canvas
     this.upCallback = upCallback
     this.setting = setting

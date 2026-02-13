@@ -127,7 +127,7 @@ export default () => {
       case IframeForwardsTop.MouseDown: {
         const data = e.data as MouseDownData
         const event = newEvent()
-        event.mouseDown(data.event)
+        event.mouseDown(new MouseEvent(data.event.type, data.event))
         event.group = data.group
         event.dragData = data.dragData
         eventRef.current = event
@@ -135,12 +135,12 @@ export default () => {
       }
       case IframeForwardsTop.MouseMove: {
         const data = e.data as MouseMoveData
-        eventRef.current?.mouseMove(data.event)
+        eventRef.current?.mouseMove(new MouseEvent(data.event.type, data.event))
         break
       }
       case IframeForwardsTop.MouseUp: {
         const data = e.data as MouseUpData
-        eventRef.current?.mouseUp(data.event)
+        eventRef.current?.mouseUp(new MouseEvent(data.event.type, data.event))
         break
       }
     }

@@ -12,6 +12,7 @@ import {
   type MouseMoveData,
   type MouseUpData
 } from "~enum/message"
+import { notifyIframes } from "~utils/common"
 
 interface Params {
   canvas: CanvasRenderingContext2D
@@ -87,7 +88,7 @@ export class Event {
     })
   }
 
-  public mouseDown(e: MouseEvent | DragEvent) {
+  public mouseDown(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (e.type === "mousedown" && e.button !== 2) {
       return
     }
@@ -128,7 +129,9 @@ export class Event {
     }
 
     if (this.isIframe) {
-      this.forwardsTop(IframeForwardsTop.MouseDown, e)
+      if (forwards) {
+        this.forwardsTop(IframeForwardsTop.MouseDown, e)
+      }
       return
     }
 
@@ -156,7 +159,7 @@ export class Event {
     this.matchRealtime()
   }
 
-  public mouseUp(e: MouseEvent | DragEvent) {
+  public mouseUp(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (!this.setting) {
       setTimeout(() => {
         this.setTooltipVisible(false)
@@ -186,12 +189,15 @@ export class Event {
     }
     Trajectory.clear()
 
+    // When the right mouse button is released outside the iframe, the `contextmenu` event inside the iframe is not triggered, so event cleanup must be delayed.
+    setTimeout(() => {
+      this.contextmenu(e)
+    }, 10)
+
     if (this.isIframe) {
-      this.forwardsTop(IframeForwardsTop.MouseUp, e)
-      // When the right mouse button is released outside the iframe, the `contextmenu` event inside the iframe is not triggered, so event cleanup must be delayed.
-      setTimeout(() => {
-        this.contextmenu(e)
-      }, 10)
+      if (forwards) {
+        this.forwardsTop(IframeForwardsTop.MouseUp, e)
+      }
       return
     }
 
@@ -199,6 +205,8 @@ export class Event {
     this.stopAnimation()
     this.offscreenCtx = null
     this.offscreenCanvas = null
+
+    notifyIframes(IframeForwardsTop.MouseUp, e)
   }
 
   private blockRightClickMenu(e: MouseEvent | DragEvent, blockMenu: boolean) {

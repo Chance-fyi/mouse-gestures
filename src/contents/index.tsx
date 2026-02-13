@@ -13,8 +13,10 @@ import {
   IframeForwardsTop,
   type MouseDownData,
   type MouseMoveData,
-  type MouseUpData
+  type MouseUpData,
+  type TopData
 } from "~enum/message"
+import { notifyIframes } from "~utils/common"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
@@ -65,6 +67,8 @@ export default () => {
 
     if (!isIframe) {
       window.addEventListener("message", iframeMessage)
+    } else {
+      window.addEventListener("message", topMessage)
     }
 
     return () => {
@@ -98,6 +102,11 @@ export default () => {
   const startDrawing = (e) => {
     const event = newEvent()
     event.mouseDown(e)
+
+    if (isIframe) return
+
+    eventRef.current = event
+    notifyIframes(IframeForwardsTop.MouseDown, e)
   }
 
   const upCallback = (t: Event) => {
@@ -149,6 +158,24 @@ export default () => {
         eventRef.current?.mouseUp(new MouseEvent(data.event.type, data.event))
         break
       }
+    }
+  }
+
+  const topMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
+    if (e.data.id !== chrome.runtime.id) return
+    const data = e.data as TopData
+    switch (data.type) {
+      case IframeForwardsTop.MouseDown:
+        const event = newEvent()
+        event.mouseDown(new MouseEvent(data.event.type, data.event), false)
+        eventRef.current = event
+        break
+      case IframeForwardsTop.MouseUp:
+        eventRef.current?.mouseUp(
+          new MouseEvent(data.event.type, data.event),
+          false
+        )
+        break
     }
   }
 

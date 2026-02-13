@@ -9,6 +9,7 @@ import type {
 } from "~config/config-interface"
 import { Trajectory, type Point } from "~core/trajectory"
 import { Group } from "~enum/command"
+import type { IframeForwardsTop } from "~enum/message"
 import type { ConfirmDialogProps } from "~options/components/confirm"
 
 export const i18n = (key: string = ""): string => {
@@ -114,4 +115,21 @@ export const checkMissingPermissions = async (
       onConfirm: () => requestPermissions(permissions)
     })
   }
+}
+
+export const notifyIframes = (type: IframeForwardsTop, e: MouseEvent | DragEvent) => {
+  const iframes = Array.from(document.querySelectorAll("iframe"))
+  iframes.forEach((iframe) => {
+    iframe.contentWindow.postMessage(
+      {
+        id: chrome.runtime.id,
+        type: type,
+        event: {
+          type: e.type,
+          button: e.button
+        } as MouseEvent | DragEvent
+      },
+      "*"
+    )
+  })
 }

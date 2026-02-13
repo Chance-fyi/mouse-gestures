@@ -26,3 +26,9 @@ export type MouseUpData = {
   type: string
   event: MouseEvent | DragEvent
 }
+
+export type TopData = {
+  id: string
+  type: string
+  event: MouseEvent | DragEvent
+}

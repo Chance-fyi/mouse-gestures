@@ -1,12 +1,18 @@
 import React from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
-import { Storage } from "@plasmohq/storage"
 
 import { SyncConfig } from "~config/config"
 import type { SyncConfigInterface } from "~config/config-interface"
 import { Trajectory } from "~core/trajectory"
 import { Group } from "~enum/command"
+import {
+  IframeForwardsTop,
+  type MouseDownData,
+  type MouseMoveData,
+  type MouseUpData
+} from "~enum/message"
+import { getOffsetToTop, notifyIframes } from "~utils/common"
 
 interface Params {
   canvas: CanvasRenderingContext2D
@@ -15,6 +21,9 @@ interface Params {
   os: string
   setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
+  isIframe?: boolean
+  config: SyncConfigInterface
+  eventRefReset?: () => void
 }
 
 export type DragData = {
@@ -33,7 +42,7 @@ export class Event {
   public top: number
   private blockMenu: boolean = false
   private readonly os: string // operating system
-  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a mac or linux environment.
+  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a Mac or Linux environment.
 
   private dpr: number = window.devicePixelRatio || 1
   private offscreenCanvas: OffscreenCanvas
@@ -44,8 +53,13 @@ export class Event {
 
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
+  public readonly isIframe: boolean = false
+  public eventRefReset?: () => void
+
   public group: Group = Group.Gesture
   public dragData: DragData
+
+  private readonly offsetToTop: { x: number; y: number } = { x: 0, y: 0 }
 
   constructor({
     canvas,
@@ -53,13 +67,12 @@ export class Event {
     setting,
     os,
     setTooltipVisible,
-    setTooltipText
+    setTooltipText,
+    isIframe = false,
+    config,
+    eventRefReset = () => {}
   }: Params) {
-    const storage = new Storage()
-    storage.get(SyncConfig.key).then((c) => {
-      this.config = (c as unknown as SyncConfigInterface) || SyncConfig.default
-      this.config = { ...SyncConfig.default, ...this.config }
-    })
+    this.config = { ...SyncConfig.default, ...config }
     this.canvas = canvas
     this.upCallback = upCallback
     this.setting = setting
@@ -67,6 +80,11 @@ export class Event {
 
     this.setTooltipVisible = setTooltipVisible
     this.setTooltipText = setTooltipText
+
+    this.isIframe = isIframe
+    this.eventRefReset = eventRefReset
+
+    this.offsetToTop = getOffsetToTop()
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -78,7 +96,7 @@ export class Event {
     })
   }
 
-  public mouseDown(e: MouseEvent | DragEvent) {
+  public mouseDown(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (e.type === "mousedown" && e.button !== 2) {
       return
     }
@@ -96,7 +114,7 @@ export class Event {
     }
 
     if (e.type === "dragstart") {
-      const types = (e as DragEvent).dataTransfer.types
+      const types = (e as DragEvent).dataTransfer?.types ?? []
       if (types.includes("Files")) {
         this.group = Group.DragImage
         this.dragData = {
@@ -108,16 +126,22 @@ export class Event {
         this.dragData = {
           content: (e as DragEvent).dataTransfer.getData("text/uri-list")
         }
-      } else if (types.includes("text/plain")) {
+      } else {
         this.group = Group.DragText
         this.dragData = {
-          content: (e as DragEvent).dataTransfer.getData("text/plain")
+          content: (e as DragEvent).dataTransfer?.getData("text/plain")
         }
-      } else {
-        return
       }
-      document.addEventListener("drag", this.mouseMove, { capture: true })
+      document.addEventListener("dragover", this.mouseMove, { capture: true })
       document.addEventListener("dragend", this.mouseUp, { capture: true })
+    }
+
+    notifyIframes(IframeForwardsTop.MouseDown, e)
+    if (this.isIframe) {
+      if (forwards) {
+        this.forwardsTop(IframeForwardsTop.MouseDown, e)
+      }
+      return
     }
 
     this.initCanvasDPI()
@@ -136,10 +160,15 @@ export class Event {
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
 
+    if (this.isIframe) {
+      this.forwardsTop(IframeForwardsTop.MouseMove, e)
+      return
+    }
+
     this.matchRealtime()
   }
 
-  public mouseUp(e: MouseEvent | DragEvent) {
+  public mouseUp(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (!this.setting) {
       setTimeout(() => {
         this.setTooltipVisible(false)
@@ -151,26 +180,42 @@ export class Event {
       Trajectory.delPoint()
     }
     const blockMenu = Trajectory.trajectory.length > 5
+    this.blockRightClickMenu(e, blockMenu)
     this.blockMenu = blockMenu
     // Cancel the gesture by left-clicking
     if (e.type === "mouseup" && e.button === 0) {
       this.setTooltipVisible(false)
       Trajectory.clear()
     }
-    this.upCallback(this)
 
     document.removeEventListener("mousemove", this.mouseMove, { capture: true })
     document.removeEventListener("mouseup", this.mouseUp, { capture: true })
-    document.removeEventListener("drag", this.mouseMove, { capture: true })
+    document.removeEventListener("dragover", this.mouseMove, { capture: true })
     document.removeEventListener("dragend", this.mouseUp, { capture: true })
+
+    if (!this.isIframe) {
+      this.upCallback(this)
+    }
     Trajectory.clear()
+
+    // When the right mouse button is released outside the iframe, the `contextmenu` event inside the iframe is not triggered, so event cleanup must be delayed.
+    setTimeout(() => {
+      this.contextmenu(e)
+    }, 10)
+
+    this.eventRefReset()
+    if (this.isIframe) {
+      if (forwards) {
+        this.forwardsTop(IframeForwardsTop.MouseUp, e)
+      }
+      return
+    }
 
     this.isDrawing = false
     this.stopAnimation()
     this.offscreenCtx = null
     this.offscreenCanvas = null
-
-    this.blockRightClickMenu(e, blockMenu)
+    notifyIframes(IframeForwardsTop.MouseUp, e)
   }
 
   private blockRightClickMenu(e: MouseEvent | DragEvent, blockMenu: boolean) {
@@ -195,7 +240,10 @@ export class Event {
   }
 
   public contextmenu(e: MouseEvent) {
-    this.blockRightClickMenu(e, this.blockMenu)
+    this.blockRightClickMenu(
+      e,
+      this.blockMenu || Trajectory.trajectory.length > 5
+    )
     this.blockMenu = false
     document.removeEventListener("contextmenu", this.contextmenu, {
       capture: true
@@ -304,5 +352,43 @@ export class Event {
       )
       this.setTooltipText(res.message)
     })
+  }
+
+  private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
+    if (!this.isIframe) return
+
+    const offset = this.offsetToTop
+    const event = {
+      type: e.type,
+      button: e.button,
+      clientX: e.clientX + offset.x,
+      clientY: e.clientY + offset.y
+    } as MouseEvent | DragEvent
+
+    switch (type) {
+      case IframeForwardsTop.MouseDown:
+        window.top.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event,
+          group: this.group,
+          dragData: this.dragData
+        } as MouseDownData)
+        break
+      case IframeForwardsTop.MouseMove:
+        window.top.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event
+        } as MouseMoveData)
+        break
+      case IframeForwardsTop.MouseUp:
+        window.top.postMessage({
+          id: chrome.runtime.id,
+          type,
+          event
+        } as MouseUpData)
+        break
+    }
   }
 }

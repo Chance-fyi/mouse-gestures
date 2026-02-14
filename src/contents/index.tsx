@@ -9,10 +9,21 @@ import { Command } from "~commands/command"
 import { SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
+import {
+  IframeForwardsTop,
+  type MouseDownData,
+  type MouseMoveData,
+  type MouseUpData,
+  type TopData
+} from "~enum/message"
+import { notifyIframes } from "~utils/common"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
-  run_at: "document_start"
+  run_at: "document_start",
+  all_frames: true,
+  // @ts-ignore
+  match_origin_as_fallback: true
 }
 
 export const getStyle = () => {
@@ -29,40 +40,72 @@ export default () => {
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
+  const syncConfigRef = useRef(syncConfig)
+  const eventRef = useRef<Event>(null)
+
+  useEffect(() => {
+    syncConfigRef.current = syncConfig
+  }, [syncConfig])
 
   let os: string
+  const isIframe = window !== window.top
+  const listenersRegistered = useRef(false)
+
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    if (listenersRegistered.current) return
+    listenersRegistered.current = true
+
     document.addEventListener("mousedown", startDrawing, { capture: true })
     document.addEventListener("dragstart", startDrawing, { capture: true })
+
     sendToBackground({
       name: "os",
       body: {}
     }).then((res) => {
       os = res.os
     })
+
+    if (!isIframe) {
+      window.addEventListener("message", iframeMessage)
+    } else {
+      window.addEventListener("message", topMessage)
+    }
+
     return () => {
       document.removeEventListener("mousedown", startDrawing, { capture: true })
       document.removeEventListener("dragstart", startDrawing, { capture: true })
+      listenersRegistered.current = false
     }
-  }, [canvasRef.current])
+  }, [])
+
+  const newEvent = (): Event => {
+    let ctx = null
+    if (!isIframe) {
+      const canvas = canvasRef.current
+      canvas.width = canvas?.clientWidth || document.documentElement.clientWidth
+      canvas.height =
+        canvas?.clientHeight || document.documentElement.clientHeight
+      ctx = canvas.getContext("2d")
+    }
+    return new Event({
+      canvas: ctx,
+      upCallback,
+      setting: false,
+      os,
+      setTooltipVisible,
+      setTooltipText,
+      isIframe,
+      config: syncConfigRef.current,
+      eventRefReset: () => {
+        eventRef.current = null
+      }
+    })
+  }
 
   const startDrawing = (e) => {
-    const canvas = canvasRef.current
-    canvas.width = canvas?.clientWidth || document.documentElement.clientWidth
-    canvas.height =
-      canvas?.clientHeight || document.documentElement.clientHeight
-    const ctx = canvas.getContext("2d")
-    const event = new Event({
-      canvas: ctx,
-      upCallback: upCallback,
-      setting: false,
-      os: os,
-      setTooltipVisible,
-      setTooltipText
-    })
+    const event = newEvent()
     event.mouseDown(e)
+    eventRef.current = event
   }
 
   const upCallback = (t: Event) => {
@@ -92,17 +135,70 @@ export default () => {
       })
   }
 
+  const iframeMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
+    if (e.data.id !== chrome.runtime.id) return
+    switch (e.data.type) {
+      case IframeForwardsTop.MouseDown: {
+        const data = e.data as MouseDownData
+        const event = newEvent()
+        const ev = new MouseEvent(data.event.type, data.event)
+        event.mouseDown(ev)
+        event.group = data.group
+        event.dragData = data.dragData
+        eventRef.current = event
+        break
+      }
+      case IframeForwardsTop.MouseMove: {
+        const data = e.data as MouseMoveData
+        eventRef.current?.mouseMove(new MouseEvent(data.event.type, data.event))
+        break
+      }
+      case IframeForwardsTop.MouseUp: {
+        const data = e.data as MouseUpData
+        const ev = new MouseEvent(data.event.type, data.event)
+        eventRef.current?.mouseUp(ev)
+        notifyIframes(IframeForwardsTop.MouseUp, ev)
+        break
+      }
+    }
+  }
+
+  const topMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
+    if (e.data.id !== chrome.runtime.id) return
+    const data = e.data as TopData
+    switch (data.type) {
+      case IframeForwardsTop.MouseDown: {
+        const ev = new MouseEvent(data.event.type, data.event)
+        notifyIframes(IframeForwardsTop.MouseDown, ev)
+        if (eventRef.current) break
+        const event = newEvent()
+        event.mouseDown(ev, false)
+        eventRef.current = event
+        break
+      }
+      case IframeForwardsTop.MouseUp: {
+        const ev = new MouseEvent(data.event.type, data.event)
+        notifyIframes(IframeForwardsTop.MouseUp, ev)
+        eventRef.current?.mouseUp(ev, false)
+        break
+      }
+    }
+  }
+
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className="w-screen h-screen fixed top-0 left-0 z-[888] pointer-events-none"
-      />
-      {tooltipVisible && (
-        <div style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>
-          {tooltipText}
-        </div>
-      )}
-    </>
+    !isIframe && (
+      <>
+        <canvas
+          ref={canvasRef}
+          className="w-screen h-screen fixed top-0 left-0 z-[888] pointer-events-none"
+        />
+        {tooltipVisible && (
+          <div
+            style={syncConfig.tooltipStyle ?? SyncConfig.default.tooltipStyle}>
+            {tooltipText}
+          </div>
+        )}
+      </>
+    )
   )
 }

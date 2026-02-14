@@ -95,18 +95,17 @@ export default () => {
       setTooltipVisible,
       setTooltipText,
       isIframe,
-      config: syncConfigRef.current
+      config: syncConfigRef.current,
+      eventRefReset: () => {
+        eventRef.current = null
+      }
     })
   }
 
   const startDrawing = (e) => {
     const event = newEvent()
     event.mouseDown(e)
-
-    if (isIframe) return
-
     eventRef.current = event
-    notifyIframes(IframeForwardsTop.MouseDown, e)
   }
 
   const upCallback = (t: Event) => {
@@ -142,7 +141,8 @@ export default () => {
       case IframeForwardsTop.MouseDown: {
         const data = e.data as MouseDownData
         const event = newEvent()
-        event.mouseDown(new MouseEvent(data.event.type, data.event))
+        const ev = new MouseEvent(data.event.type, data.event)
+        event.mouseDown(ev)
         event.group = data.group
         event.dragData = data.dragData
         eventRef.current = event
@@ -155,7 +155,9 @@ export default () => {
       }
       case IframeForwardsTop.MouseUp: {
         const data = e.data as MouseUpData
-        eventRef.current?.mouseUp(new MouseEvent(data.event.type, data.event))
+        const ev = new MouseEvent(data.event.type, data.event)
+        eventRef.current?.mouseUp(ev)
+        notifyIframes(IframeForwardsTop.MouseUp, ev)
         break
       }
     }
@@ -165,17 +167,21 @@ export default () => {
     if (e.data.id !== chrome.runtime.id) return
     const data = e.data as TopData
     switch (data.type) {
-      case IframeForwardsTop.MouseDown:
+      case IframeForwardsTop.MouseDown: {
+        const ev = new MouseEvent(data.event.type, data.event)
+        notifyIframes(IframeForwardsTop.MouseDown, ev)
+        if (eventRef.current) break
         const event = newEvent()
-        event.mouseDown(new MouseEvent(data.event.type, data.event), false)
+        event.mouseDown(ev, false)
         eventRef.current = event
         break
-      case IframeForwardsTop.MouseUp:
-        eventRef.current?.mouseUp(
-          new MouseEvent(data.event.type, data.event),
-          false
-        )
+      }
+      case IframeForwardsTop.MouseUp: {
+        const ev = new MouseEvent(data.event.type, data.event)
+        notifyIframes(IframeForwardsTop.MouseUp, ev)
+        eventRef.current?.mouseUp(ev, false)
         break
+      }
     }
   }
 

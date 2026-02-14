@@ -23,6 +23,7 @@ interface Params {
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   isIframe?: boolean
   config: SyncConfigInterface
+  eventRefReset?: () => void
 }
 
 export type DragData = {
@@ -53,6 +54,7 @@ export class Event {
   public setTooltipVisible?: React.Dispatch<React.SetStateAction<boolean>>
   public setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   public readonly isIframe: boolean = false
+  public eventRefReset?: () => void
 
   public group: Group = Group.Gesture
   public dragData: DragData
@@ -65,7 +67,8 @@ export class Event {
     setTooltipVisible,
     setTooltipText,
     isIframe = false,
-    config
+    config,
+    eventRefReset = () => {}
   }: Params) {
     this.config = { ...SyncConfig.default, ...config }
     this.canvas = canvas
@@ -77,6 +80,7 @@ export class Event {
     this.setTooltipText = setTooltipText
 
     this.isIframe = isIframe
+    this.eventRefReset = eventRefReset
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -118,16 +122,17 @@ export class Event {
         this.dragData = {
           content: (e as DragEvent).dataTransfer.getData("text/uri-list")
         }
-      } else if (types.includes("text/plain")) {
+      } else {
         this.group = Group.DragText
         this.dragData = {
-          content: (e as DragEvent).dataTransfer.getData("text/plain")
+          content: (e as DragEvent).dataTransfer?.getData("text/plain")
         }
       }
       document.addEventListener("dragover", this.mouseMove, { capture: true })
       document.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
+    notifyIframes(IframeForwardsTop.MouseDown, e)
     if (this.isIframe) {
       if (forwards) {
         this.forwardsTop(IframeForwardsTop.MouseDown, e)
@@ -194,6 +199,7 @@ export class Event {
       this.contextmenu(e)
     }, 10)
 
+    this.eventRefReset()
     if (this.isIframe) {
       if (forwards) {
         this.forwardsTop(IframeForwardsTop.MouseUp, e)
@@ -205,7 +211,6 @@ export class Event {
     this.stopAnimation()
     this.offscreenCtx = null
     this.offscreenCanvas = null
-
     notifyIframes(IframeForwardsTop.MouseUp, e)
   }
 
@@ -348,12 +353,12 @@ export class Event {
   private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
     if (!this.isIframe) return
 
-    const rect = window.frameElement?.getBoundingClientRect()
+    const offset = this.getOffsetToTop()
     const event = {
       type: e.type,
       button: e.button,
-      clientX: e.clientX + (rect?.left ?? 0),
-      clientY: e.clientY + (rect?.top ?? 0)
+      clientX: e.clientX + offset.x,
+      clientY: e.clientY + offset.y
     } as MouseEvent | DragEvent
 
     switch (type) {
@@ -381,5 +386,25 @@ export class Event {
         } as MouseUpData)
         break
     }
+  }
+
+  private getOffsetToTop(): { x: number; y: number } {
+    let x = 0
+    let y = 0
+
+    let win: Window | null = window
+
+    while (win && win !== win.top) {
+      const frame = win.frameElement as HTMLElement | null
+      if (!frame) break
+
+      const rect = frame.getBoundingClientRect()
+      x += rect.left
+      y += rect.top
+
+      win = win.parent
+    }
+
+    return { x, y }
   }
 }

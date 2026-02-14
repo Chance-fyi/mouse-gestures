@@ -117,7 +117,10 @@ export const checkMissingPermissions = async (
   }
 }
 
-export const notifyIframes = (type: IframeForwardsTop, e: MouseEvent | DragEvent) => {
+export const notifyIframes = (
+  type: IframeForwardsTop,
+  e: MouseEvent | DragEvent
+) => {
   const iframes = Array.from(document.querySelectorAll("iframe"))
   iframes.forEach((iframe) => {
     iframe.contentWindow.postMessage(
@@ -132,4 +135,24 @@ export const notifyIframes = (type: IframeForwardsTop, e: MouseEvent | DragEvent
       "*"
     )
   })
+}
+
+export const getOffsetToTop = (): { x: number; y: number } => {
+  let x = 0
+  let y = 0
+
+  let win: Window | null = window
+
+  while (win && win !== win.top) {
+    const frame = win.frameElement as HTMLElement | null
+    if (!frame) break
+
+    const rect = frame.getBoundingClientRect()
+    x += rect.left
+    y += rect.top
+
+    win = win.parent
+  }
+
+  return { x, y }
 }

@@ -12,7 +12,7 @@ import {
   type MouseMoveData,
   type MouseUpData
 } from "~enum/message"
-import { notifyIframes } from "~utils/common"
+import { getOffsetToTop, notifyIframes } from "~utils/common"
 
 interface Params {
   canvas: CanvasRenderingContext2D
@@ -42,7 +42,7 @@ export class Event {
   public top: number
   private blockMenu: boolean = false
   private readonly os: string // operating system
-  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a mac or linux environment.
+  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a Mac or Linux environment.
 
   private dpr: number = window.devicePixelRatio || 1
   private offscreenCanvas: OffscreenCanvas
@@ -58,6 +58,8 @@ export class Event {
 
   public group: Group = Group.Gesture
   public dragData: DragData
+
+  private readonly offsetToTop: { x: number; y: number } = { x: 0, y: 0 }
 
   constructor({
     canvas,
@@ -81,6 +83,8 @@ export class Event {
 
     this.isIframe = isIframe
     this.eventRefReset = eventRefReset
+
+    this.offsetToTop = getOffsetToTop()
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -353,7 +357,7 @@ export class Event {
   private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
     if (!this.isIframe) return
 
-    const offset = this.getOffsetToTop()
+    const offset = this.offsetToTop
     const event = {
       type: e.type,
       button: e.button,
@@ -386,25 +390,5 @@ export class Event {
         } as MouseUpData)
         break
     }
-  }
-
-  private getOffsetToTop(): { x: number; y: number } {
-    let x = 0
-    let y = 0
-
-    let win: Window | null = window
-
-    while (win && win !== win.top) {
-      const frame = win.frameElement as HTMLElement | null
-      if (!frame) break
-
-      const rect = frame.getBoundingClientRect()
-      x += rect.left
-      y += rect.top
-
-      win = win.parent
-    }
-
-    return { x, y }
   }
 }

@@ -358,7 +358,7 @@ export class Event {
 
     switch (type) {
       case IframeForwardsTop.MouseDown:
-        window.parent.postMessage({
+        window.top.postMessage({
           id: chrome.runtime.id,
           type,
           event,
@@ -367,14 +367,14 @@ export class Event {
         } as MouseDownData)
         break
       case IframeForwardsTop.MouseMove:
-        window.parent.postMessage({
+        window.top.postMessage({
           id: chrome.runtime.id,
           type,
           event
         } as MouseMoveData)
         break
       case IframeForwardsTop.MouseUp:
-        window.parent.postMessage({
+        window.top.postMessage({
           id: chrome.runtime.id,
           type,
           event

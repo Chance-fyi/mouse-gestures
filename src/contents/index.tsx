@@ -173,7 +173,15 @@ export default () => {
         if (eventRef.current) break
         const event = newEvent()
         event.mouseDown(ev, false)
+        event.isMouseDownInCurrentIframe = false
         eventRef.current = event
+        break
+      }
+      case IframeForwardsTop.MouseMove: {
+        const ev = new MouseEvent(data.event.type, data.event)
+        notifyIframes(IframeForwardsTop.MouseMove, ev)
+        if (eventRef.current?.isMouseDownInCurrentIframe) break
+        eventRef.current?.mouseMove(ev, false)
         break
       }
       case IframeForwardsTop.MouseUp: {

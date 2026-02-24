@@ -129,7 +129,9 @@ export const notifyIframes = (
         type: type,
         event: {
           type: e.type,
-          button: e.button
+          button: e.button,
+          clientX: e.clientX,
+          clientY: e.clientY
         } as MouseEvent | DragEvent
       },
       "*"

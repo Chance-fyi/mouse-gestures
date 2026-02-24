@@ -60,6 +60,7 @@ export class Event {
   public dragData: DragData
 
   private readonly offsetToTop: { x: number; y: number } = { x: 0, y: 0 }
+  public isMouseDownInCurrentIframe: boolean = false
 
   constructor({
     canvas,
@@ -82,6 +83,7 @@ export class Event {
     this.setTooltipText = setTooltipText
 
     this.isIframe = isIframe
+    this.isMouseDownInCurrentIframe = isIframe
     this.eventRefReset = eventRefReset
 
     this.offsetToTop = getOffsetToTop()
@@ -149,7 +151,7 @@ export class Event {
     this.startAnimation()
   }
 
-  public mouseMove(e: MouseEvent | DragEvent) {
+  public mouseMove(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (!this.config) return
     if (this.doubleRightClick) {
       this.doubleRightClick = false
@@ -161,8 +163,14 @@ export class Event {
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
 
     if (this.isIframe) {
-      this.forwardsTop(IframeForwardsTop.MouseMove, e)
+      if (forwards) {
+        this.forwardsTop(IframeForwardsTop.MouseMove, e)
+      }
       return
+    }
+
+    if (Trajectory.trajectory.length <= 10) {
+      notifyIframes(IframeForwardsTop.MouseMove, e)
     }
 
     this.matchRealtime()

@@ -54,9 +54,16 @@ export default () => {
   useEffect(() => {
     if (listenersRegistered.current) return
     listenersRegistered.current = true
+    const supportsPointerEvents =
+      typeof (globalThis as { PointerEvent?: unknown }).PointerEvent ===
+      "function"
 
-    document.addEventListener("mousedown", startDrawing, { capture: true })
-    document.addEventListener("dragstart", startDrawing, { capture: true })
+    if (supportsPointerEvents) {
+      window.addEventListener("pointerdown", startDrawing, { capture: true })
+    } else {
+      window.addEventListener("mousedown", startDrawing, { capture: true })
+    }
+    window.addEventListener("dragstart", startDrawing, { capture: true })
 
     sendToBackground({
       name: "os",
@@ -72,8 +79,14 @@ export default () => {
     }
 
     return () => {
-      document.removeEventListener("mousedown", startDrawing, { capture: true })
-      document.removeEventListener("dragstart", startDrawing, { capture: true })
+      if (supportsPointerEvents) {
+        window.removeEventListener("pointerdown", startDrawing, {
+          capture: true
+        })
+      } else {
+        window.removeEventListener("mousedown", startDrawing, { capture: true })
+      }
+      window.removeEventListener("dragstart", startDrawing, { capture: true })
       listenersRegistered.current = false
     }
   }, [])

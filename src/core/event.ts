@@ -99,7 +99,10 @@ export class Event {
   }
 
   public mouseDown(e: MouseEvent | DragEvent, forwards: boolean = true) {
-    if (e.type === "mousedown" && e.button !== 2) {
+    if (
+      (e.type === "mousedown" || e.type === "pointerdown") &&
+      !this.isSecondaryButtonEvent(e)
+    ) {
       return
     }
     if (this.setting) {
@@ -110,9 +113,11 @@ export class Event {
       this.left = 0
       this.top = 0
     }
-    if (e.type === "mousedown") {
-      document.addEventListener("mousemove", this.mouseMove, { capture: true })
-      document.addEventListener("mouseup", this.mouseUp, { capture: true })
+    if (e.type === "mousedown" || e.type === "pointerdown") {
+      this.capturePointerIfPossible(e)
+
+      window.addEventListener("mousemove", this.mouseMove, { capture: true })
+      window.addEventListener("mouseup", this.mouseUp, { capture: true })
     }
 
     if (e.type === "dragstart") {
@@ -134,8 +139,8 @@ export class Event {
           content: (e as DragEvent).dataTransfer?.getData("text/plain")
         }
       }
-      document.addEventListener("dragover", this.mouseMove, { capture: true })
-      document.addEventListener("dragend", this.mouseUp, { capture: true })
+      window.addEventListener("dragover", this.mouseMove, { capture: true })
+      window.addEventListener("dragend", this.mouseUp, { capture: true })
     }
 
     notifyIframes(IframeForwardsTop.MouseDown, e)
@@ -191,15 +196,15 @@ export class Event {
     this.blockRightClickMenu(e, blockMenu)
     this.blockMenu = blockMenu
     // Cancel the gesture by left-clicking
-    if (e.type === "mouseup" && e.button === 0) {
+    if (e.type === "mouseup" && !this.isSecondaryButtonEvent(e)) {
       this.setTooltipVisible(false)
       Trajectory.clear()
     }
 
-    document.removeEventListener("mousemove", this.mouseMove, { capture: true })
-    document.removeEventListener("mouseup", this.mouseUp, { capture: true })
-    document.removeEventListener("dragover", this.mouseMove, { capture: true })
-    document.removeEventListener("dragend", this.mouseUp, { capture: true })
+    window.removeEventListener("mousemove", this.mouseMove, { capture: true })
+    window.removeEventListener("mouseup", this.mouseUp, { capture: true })
+    window.removeEventListener("dragover", this.mouseMove, { capture: true })
+    window.removeEventListener("dragend", this.mouseUp, { capture: true })
 
     if (!this.isIframe) {
       this.upCallback(this)
@@ -244,6 +249,25 @@ export class Event {
         e.preventDefault()
         e.stopPropagation()
       }
+    }
+  }
+
+  private isSecondaryButtonEvent(e: MouseEvent | DragEvent): boolean {
+    return e.button === 2
+  }
+
+  private capturePointerIfPossible(e: MouseEvent | DragEvent) {
+    if (e.type !== "pointerdown") return
+    const pointerEvent = e as unknown as PointerEvent
+    if (typeof pointerEvent.pointerId !== "number") return
+
+    const target = e.target as Element | null
+    if (!target || !("setPointerCapture" in target)) return
+
+    try {
+      ;(target as Element).setPointerCapture(pointerEvent.pointerId)
+    } catch {
+      // Ignore failures from detached/non-capturable targets.
     }
   }
 
@@ -381,21 +405,21 @@ export class Event {
           event,
           group: this.group,
           dragData: this.dragData
-        } as MouseDownData)
+        } as MouseDownData, "*")
         break
       case IframeForwardsTop.MouseMove:
         window.top.postMessage({
           id: chrome.runtime.id,
           type,
           event
-        } as MouseMoveData)
+        } as MouseMoveData, "*")
         break
       case IframeForwardsTop.MouseUp:
         window.top.postMessage({
           id: chrome.runtime.id,
           type,
           event
-        } as MouseUpData)
+        } as MouseUpData, "*")
         break
     }
   }

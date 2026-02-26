@@ -140,22 +140,32 @@ export const notifyIframes = (
   })
 }
 
-export const getOffsetToTop = (): { x: number; y: number } => {
-  let x = 0
-  let y = 0
+export const findFrameElementByWindow = (
+  root: Document | ShadowRoot,
+  targetWindow: Window
+): HTMLElement | null => {
+  const doc = root instanceof Document ? root : root.ownerDocument
+  const walker = doc.createTreeWalker(root, NodeFilter.SHOW_ELEMENT)
+  let current = walker.currentNode as Element | null
 
-  let win: Window | null = window
+  while (current) {
+    if (current instanceof HTMLIFrameElement) {
+      try {
+        if (current.contentWindow === targetWindow) {
+          return current
+        }
+      } catch {
+        // Continue scanning if this frame is inaccessible.
+      }
+    }
 
-  while (win && win !== win.top) {
-    const frame = win.frameElement as HTMLElement | null
-    if (!frame) break
+    if (current instanceof HTMLElement && current.shadowRoot) {
+      const found = findFrameElementByWindow(current.shadowRoot, targetWindow)
+      if (found) return found
+    }
 
-    const rect = frame.getBoundingClientRect()
-    x += rect.left
-    y += rect.top
-
-    win = win.parent
+    current = walker.nextNode() as Element | null
   }
 
-  return { x, y }
+  return null
 }

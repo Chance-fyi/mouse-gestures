@@ -13,22 +13,26 @@ export type MouseDownData = {
   event: MouseEvent | DragEvent
   group: Group
   dragData: DragData
+  relayUp?: boolean
 }
 
 export type MouseMoveData = {
   id: string
   type: string
   event: MouseEvent | DragEvent
+  relayUp?: boolean
 }
 
 export type MouseUpData = {
   id: string
   type: string
   event: MouseEvent | DragEvent
+  relayUp?: boolean
 }
 
 export type TopData = {
   id: string
   type: string
   event: MouseEvent | DragEvent
+  relayUp?: boolean
 }

@@ -12,7 +12,7 @@ import {
   type MouseMoveData,
   type MouseUpData
 } from "~enum/message"
-import { getOffsetToTop, notifyIframes } from "~utils/common"
+import { notifyIframes } from "~utils/common"
 
 interface Params {
   canvas: CanvasRenderingContext2D
@@ -61,7 +61,6 @@ export class Event {
   public group: Group = Group.Gesture
   public dragData: DragData
 
-  private readonly offsetToTop: { x: number; y: number } = { x: 0, y: 0 }
   public isMouseDownInCurrentIframe: boolean = false
 
   constructor({
@@ -87,8 +86,6 @@ export class Event {
     this.isIframe = isIframe
     this.isMouseDownInCurrentIframe = isIframe
     this.eventRefReset = eventRefReset
-
-    this.offsetToTop = getOffsetToTop()
 
     this.mouseMove = this.mouseMove.bind(this)
     this.mouseUp = this.mouseUp.bind(this)
@@ -446,37 +443,39 @@ export class Event {
   private forwardsTop(type: IframeForwardsTop, e: MouseEvent | DragEvent) {
     if (!this.isIframe) return
 
-    const offset = this.offsetToTop
     const event = {
       type: e.type,
       button: e.button,
       buttons: e.buttons,
-      clientX: e.clientX + offset.x,
-      clientY: e.clientY + offset.y
+      clientX: e.clientX,
+      clientY: e.clientY
     } as MouseEvent | DragEvent
 
     switch (type) {
       case IframeForwardsTop.MouseDown:
-        window.top.postMessage({
+        window.parent.postMessage({
           id: chrome.runtime.id,
           type,
           event,
+          relayUp: true,
           group: this.group,
           dragData: this.dragData
         } as MouseDownData, "*")
         break
       case IframeForwardsTop.MouseMove:
-        window.top.postMessage({
+        window.parent.postMessage({
           id: chrome.runtime.id,
           type,
-          event
+          event,
+          relayUp: true
         } as MouseMoveData, "*")
         break
       case IframeForwardsTop.MouseUp:
-        window.top.postMessage({
+        window.parent.postMessage({
           id: chrome.runtime.id,
           type,
-          event
+          event,
+          relayUp: true
         } as MouseUpData, "*")
         break
     }

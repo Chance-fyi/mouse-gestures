@@ -16,7 +16,7 @@ import {
   type MouseUpData,
   type TopData
 } from "~enum/message"
-import { notifyIframes } from "~utils/common"
+import { findFrameElementByWindow, notifyIframes } from "~utils/common"
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
@@ -150,25 +150,28 @@ export default () => {
 
   const iframeMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
     if (e.data.id !== chrome.runtime.id) return
-    switch (e.data.type) {
+    const data = normalizeUpMessage(e, e.data as TopData)
+    switch (data.type) {
       case IframeForwardsTop.MouseDown: {
-        const data = e.data as MouseDownData
+        const downData = data as MouseDownData
         const event = newEvent()
-        const ev = new MouseEvent(data.event.type, data.event)
+        const ev = new MouseEvent(downData.event.type, downData.event)
         event.mouseDown(ev)
-        event.group = data.group
-        event.dragData = data.dragData
+        event.group = downData.group
+        event.dragData = downData.dragData
         eventRef.current = event
         break
       }
       case IframeForwardsTop.MouseMove: {
-        const data = e.data as MouseMoveData
-        eventRef.current?.mouseMove(new MouseEvent(data.event.type, data.event))
+        const moveData = data as MouseMoveData
+        eventRef.current?.mouseMove(
+          new MouseEvent(moveData.event.type, moveData.event)
+        )
         break
       }
       case IframeForwardsTop.MouseUp: {
-        const data = e.data as MouseUpData
-        const ev = new MouseEvent(data.event.type, data.event)
+        const upData = data as MouseUpData
+        const ev = new MouseEvent(upData.event.type, upData.event)
         eventRef.current?.mouseUp(ev)
         notifyIframes(IframeForwardsTop.MouseUp, ev)
         break
@@ -178,7 +181,11 @@ export default () => {
 
   const topMessage: (this: Window, ev: MessageEvent<any>) => any = (e) => {
     if (e.data.id !== chrome.runtime.id) return
-    const data = e.data as TopData
+    const data = normalizeUpMessage(e, e.data as TopData)
+    if (data.relayUp) {
+      window.parent.postMessage(data, "*")
+      return
+    }
     switch (data.type) {
       case IframeForwardsTop.MouseDown: {
         const ev = new MouseEvent(data.event.type, data.event)
@@ -203,6 +210,26 @@ export default () => {
         eventRef.current?.mouseUp(ev, false)
         break
       }
+    }
+  }
+
+  const normalizeUpMessage = (e: MessageEvent<any>, data: TopData): TopData => {
+    if (!data.relayUp) return data
+
+    const sourceWindow = e.source as Window | null
+    if (!sourceWindow) return data
+
+    const frame = findFrameElementByWindow(document, sourceWindow)
+    if (!frame) return data
+
+    const rect = frame.getBoundingClientRect()
+    return {
+      ...data,
+      event: {
+        ...data.event,
+        clientX: data.event.clientX + rect.left,
+        clientY: data.event.clientY + rect.top
+      } as MouseEvent | DragEvent
     }
   }
 

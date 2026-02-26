@@ -32,6 +32,9 @@ export type DragData = {
 }
 
 let lastRightClickTime: number = 0
+let lastGestureEndTime: number = 0
+let allowNextContextMenu: boolean = false
+const RIGHT_CLICK_DOUBLE_MS = 600
 
 export class Event {
   public canvas: CanvasRenderingContext2D
@@ -42,7 +45,6 @@ export class Event {
   public top: number
   private blockMenu: boolean = false
   private readonly os: string // operating system
-  private doubleRightClick: boolean = false // Double right-click to disable gestures and bring up the context menu in a Mac or Linux environment.
 
   private dpr: number = window.devicePixelRatio || 1
   private offscreenCanvas: OffscreenCanvas
@@ -105,6 +107,12 @@ export class Event {
     ) {
       return
     }
+    if (this.shouldBypassGestureForContextMenu(e)) {
+      this.removeTrackingListeners()
+      this.eventRefReset?.()
+      Trajectory.clear()
+      return
+    }
     if (this.setting) {
       const rect = (e.target as HTMLElement).getBoundingClientRect()
       this.left = rect.left
@@ -158,12 +166,10 @@ export class Event {
 
   public mouseMove(e: MouseEvent | DragEvent, forwards: boolean = true) {
     if (!this.config) return
-    if (this.doubleRightClick) {
-      this.doubleRightClick = false
-      this.mouseUp(e)
+    if (e.clientX === 0 && e.clientY === 0) return
+    if (this.group === Group.Gesture && !this.isSecondaryButtonPressed(e)) {
       return
     }
-    if (e.clientX === 0 && e.clientY === 0) return
 
     Trajectory.addPoint({ x: e.clientX, y: e.clientY })
 
@@ -193,6 +199,9 @@ export class Event {
       Trajectory.delPoint()
     }
     const blockMenu = Trajectory.trajectory.length > 5
+    if (blockMenu) {
+      lastGestureEndTime = Date.now()
+    }
     this.blockRightClickMenu(e, blockMenu)
     this.blockMenu = blockMenu
     // Cancel the gesture by left-clicking
@@ -201,10 +210,7 @@ export class Event {
       Trajectory.clear()
     }
 
-    window.removeEventListener("mousemove", this.mouseMove, { capture: true })
-    window.removeEventListener("mouseup", this.mouseUp, { capture: true })
-    window.removeEventListener("dragover", this.mouseMove, { capture: true })
-    window.removeEventListener("dragend", this.mouseUp, { capture: true })
+    this.removeTrackingListeners()
 
     if (!this.isIframe) {
       this.upCallback(this)
@@ -233,16 +239,21 @@ export class Event {
 
   private blockRightClickMenu(e: MouseEvent | DragEvent, blockMenu: boolean) {
     if (this.os == "mac" || this.os == "linux") {
-      const time = Date.now()
-      // Two right clicks with a time interval of less than 600ms are considered to be a double right-click
-      if (time - lastRightClickTime < 600) {
-        this.doubleRightClick = true
-      } else {
-        // Block right-click menu
+      if (blockMenu) {
+        // Gesture just completed: always suppress native menu.
         e.preventDefault()
         e.stopPropagation()
+        allowNextContextMenu = false
+        lastRightClickTime = 0
+        return
       }
-      lastRightClickTime = time
+      if (allowNextContextMenu) {
+        allowNextContextMenu = false
+        return
+      }
+      // Default behavior on macOS/Linux: block context menu unless explicitly allowed.
+      e.preventDefault()
+      e.stopPropagation()
     } else {
       if (blockMenu) {
         // Block right-click menu
@@ -254,6 +265,45 @@ export class Event {
 
   private isSecondaryButtonEvent(e: MouseEvent | DragEvent): boolean {
     return e.button === 2
+  }
+
+  private isSecondaryButtonPressed(e: MouseEvent | DragEvent): boolean {
+    if (typeof e.buttons === "number") {
+      return (e.buttons & 2) === 2
+    }
+    return this.isSecondaryButtonEvent(e)
+  }
+
+  private shouldBypassGestureForContextMenu(e: MouseEvent | DragEvent): boolean {
+    if (this.os !== "mac" && this.os !== "linux") return false
+    if (e.type !== "mousedown" && e.type !== "pointerdown") return false
+    if (!this.isSecondaryButtonEvent(e)) return false
+
+    const now = Date.now()
+    // Right after a completed gesture, this click must not open menu directly.
+    if (now - lastGestureEndTime < RIGHT_CLICK_DOUBLE_MS) {
+      allowNextContextMenu = false
+      lastRightClickTime = now
+      return false
+    }
+
+    // Double right-click opens one context menu.
+    if (now - lastRightClickTime < RIGHT_CLICK_DOUBLE_MS) {
+      allowNextContextMenu = true
+      lastRightClickTime = 0
+      return true
+    }
+
+    allowNextContextMenu = false
+    lastRightClickTime = now
+    return false
+  }
+
+  private removeTrackingListeners() {
+    window.removeEventListener("mousemove", this.mouseMove, { capture: true })
+    window.removeEventListener("mouseup", this.mouseUp, { capture: true })
+    window.removeEventListener("dragover", this.mouseMove, { capture: true })
+    window.removeEventListener("dragend", this.mouseUp, { capture: true })
   }
 
   private capturePointerIfPossible(e: MouseEvent | DragEvent) {
@@ -276,6 +326,13 @@ export class Event {
       e,
       this.blockMenu || Trajectory.trajectory.length > 5
     )
+    if (!e.defaultPrevented) {
+      this.removeTrackingListeners()
+      this.eventRefReset?.()
+      this.isDrawing = false
+      this.stopAnimation()
+      Trajectory.clear()
+    }
     this.blockMenu = false
     document.removeEventListener("contextmenu", this.contextmenu, {
       capture: true
@@ -393,6 +450,7 @@ export class Event {
     const event = {
       type: e.type,
       button: e.button,
+      buttons: e.buttons,
       clientX: e.clientX + offset.x,
       clientY: e.clientY + offset.y
     } as MouseEvent | DragEvent

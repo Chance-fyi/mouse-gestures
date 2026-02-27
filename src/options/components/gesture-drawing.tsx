@@ -1,15 +1,23 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
-import { Storage } from "@plasmohq/storage"
-import { useStorage } from "@plasmohq/storage/dist/hook"
 
-import { LocalConfig, SyncConfig } from "~config/config"
-import type { ConfigGesture } from "~config/config-interface"
-import { Event } from "~core/event"
-import { Trajectory, type Point } from "~core/trajectory"
-import type { Group } from "~enum/command"
-import Svg from "~options/components/svg"
-import { i18n, matchGesture } from "~utils/common"
+
+import { Storage } from "@plasmohq/storage";
+import { useStorage } from "@plasmohq/storage/dist/hook";
+
+
+
+import { LocalConfig, SyncConfig } from "~config/config";
+import type { ConfigGesture } from "~config/config-interface";
+import { Event } from "~core/event";
+import { Trajectory, type Point } from "~core/trajectory";
+import type { Group } from "~enum/command";
+import Svg from "~options/components/svg";
+import { i18n, matchGesture } from "~utils/common";
+
+
+
+
 
 export interface GestureDrawingProps {
   modalId: string
@@ -60,7 +68,8 @@ export default (props: GestureDrawingProps) => {
       canvas: ctx,
       upCallback: upCallback,
       setting: true,
-      os: os
+      os: os,
+      config: syncConfig
     })
     event.mouseDown(e)
   }

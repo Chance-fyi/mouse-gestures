@@ -47,6 +47,25 @@ export default () => {
     syncConfigRef.current = syncConfig
   }, [syncConfig])
 
+  // Re-attach plasmo-csui shadow host if page DOM updates remove it
+  useEffect(() => {
+    if (window !== window.top) return
+    const root = canvasRef.current?.getRootNode() as ShadowRoot
+    const shadowHost = root?.host as HTMLElement
+    if (!shadowHost) return
+
+    const observer = new MutationObserver(() => {
+      if (!shadowHost.isConnected && document.body) {
+        document.body.appendChild(shadowHost)
+      }
+    })
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    })
+    return () => observer.disconnect()
+  }, [])
+
   let os: string
   const isIframe = window !== window.top
   const listenersRegistered = useRef(false)

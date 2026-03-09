@@ -54,6 +54,8 @@ export default () => {
     const shadowHost = root?.host as HTMLElement
     if (!shadowHost) return
 
+    shadowHost.style.visibility = "visible"
+
     const observer = new MutationObserver(() => {
       if (!shadowHost.isConnected && document.body) {
         document.body.appendChild(shadowHost)

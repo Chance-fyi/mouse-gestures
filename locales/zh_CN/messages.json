@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "复制拖拽的链接到剪贴板"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "复制链接文字"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "复制链接显示文字，而不是链接地址"
+  },
   "command_drag_url_open_title": {
     "message": "打开"
   },

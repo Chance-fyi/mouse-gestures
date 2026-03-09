@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Skopiuj przeciągnięty link do schowka"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Kopiuj tekst linku"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Skopiuj wyświetlany tekst linku zamiast adresu URL"
+  },
   "command_drag_url_open_title": {
     "message": "Otwórz"
   },

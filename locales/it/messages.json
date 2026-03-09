@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Copia il link trascinato negli appunti"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Copia testo del link"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Copia il testo visualizzato del link invece dell'URL"
+  },
   "command_drag_url_open_title": {
     "message": "Apri"
   },

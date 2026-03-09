@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "ドラッグしたリンクをクリップボードにコピー"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "リンクテキストをコピー"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "URLではなくリンクの表示テキストをコピー"
+  },
   "command_drag_url_open_title": {
     "message": "開く"
   },

@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "คัดลอกลิงก์ที่ลากไปยังคลิปบอร์ด"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "คัดลอกข้อความลิงก์"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "คัดลอกข้อความที่แสดงของลิงก์แทน URL"
+  },
   "command_drag_url_open_title": {
     "message": "เปิด"
   },

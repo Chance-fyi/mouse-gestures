@@ -29,6 +29,7 @@ interface Params {
 export type DragData = {
   content: string
   file?: File
+  title?: string
 }
 
 let lastRightClickTime: number = 0
@@ -135,8 +136,23 @@ export class Event {
         }
       } else if (types.includes("text/uri-list")) {
         this.group = Group.DragUrl
+        const dragEvent = e as DragEvent
+        const url = dragEvent.dataTransfer.getData("text/uri-list")
+        const path = dragEvent.composedPath?.() ?? []
+        const anchorFromPath = path.find(
+          (node): node is HTMLAnchorElement => node instanceof HTMLAnchorElement
+        )
+        const anchorFromTarget = (dragEvent.target as HTMLElement | null)?.closest(
+          "a"
+        )
+        const anchor = anchorFromPath ?? anchorFromTarget
+        const titleText = anchor?.textContent?.trim()
+        const ariaLabel = anchor?.getAttribute("aria-label")?.trim()
+        const titleAttr = anchor?.getAttribute("title")?.trim()
+        const linkTitle = titleText || ariaLabel || titleAttr || url
         this.dragData = {
-          content: (e as DragEvent).dataTransfer.getData("text/uri-list")
+          content: url,
+          title: linkTitle
         }
       } else {
         this.group = Group.DragText

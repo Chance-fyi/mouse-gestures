@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "드래그한 링크를 클립보드로 복사"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "링크 텍스트 복사"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "URL 대신 링크의 표시 텍스트를 복사"
+  },
   "command_drag_url_open_title": {
     "message": "열기"
   },

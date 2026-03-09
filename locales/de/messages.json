@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Gezogene URL in die Zwischenablage kopieren"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Linktext kopieren"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Angezeigten Linktext statt der URL kopieren"
+  },
   "command_drag_url_open_title": {
     "message": "Öffnen"
   },

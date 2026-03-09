@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "نسخ الرابط المسحوب إلى الحافظة"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "نسخ نص الرابط"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "نسخ نص الرابط المعروض بدلاً من عنوان URL"
+  },
   "command_drag_url_open_title": {
     "message": "فتح"
   },

@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Copier le lien glissé dans le presse-papiers"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Copier le texte du lien"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Copier le texte affiché du lien plutôt que son URL"
+  },
   "command_drag_url_open_title": {
     "message": "Ouvrir"
   },

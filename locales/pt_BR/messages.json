@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Copiar o link arrastado para a área de transferência"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Copiar texto do link"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Copiar o texto exibido do link em vez da URL"
+  },
   "command_drag_url_open_title": {
     "message": "Abrir"
   },

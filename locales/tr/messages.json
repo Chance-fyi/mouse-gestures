@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Sürüklenen bağlantıyı panoya kopyala"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Bağlantı metnini kopyala"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "URL yerine bağlantının görünen metnini kopyala"
+  },
   "command_drag_url_open_title": {
     "message": "Aç"
   },

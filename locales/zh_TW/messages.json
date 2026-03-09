@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "將拖曳的連結複製到剪貼簿"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "複製連結文字"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "複製連結顯示文字，而不是連結網址"
+  },
   "command_drag_url_open_title": {
     "message": "開啟"
   },

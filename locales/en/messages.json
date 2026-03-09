@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Copy dragged link to clipboard"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Copy link text"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Copy the link's display text instead of its URL"
+  },
   "command_drag_url_open_title": {
     "message": "Open"
   },

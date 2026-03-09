@@ -335,6 +335,12 @@
   "command_drag_url_copy_description": {
     "message": "Скопировать перетаскиваемую ссылку в буфер обмена"
   },
+  "command_drag_url_copy_config_copy_text_title": {
+    "message": "Копировать текст ссылки"
+  },
+  "command_drag_url_copy_config_copy_text_description": {
+    "message": "Копировать отображаемый текст ссылки вместо URL"
+  },
   "command_drag_url_open_title": {
     "message": "Открыть"
   },

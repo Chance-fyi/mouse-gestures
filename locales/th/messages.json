@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "ข้อความที่ต้องการค้นหาจะถูกแทนที่ตัวแทน %s ใน URL ของเครื่องมือค้นหาที่ให้ไว้ (ถ้ามี) มิฉะนั้นจะถูกเพิ่มต่อท้าย หากละไว้ จะใช้เครื่องมือค้นหาเริ่มต้นของเบราว์เซอร์"
   },
+  "command_drag_text_search_active_title": {
+    "message": "เปิดในแท็บเบื้องหน้า"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "เมื่อเปิดใช้งาน การเปิดในแท็บใหม่จะสลับไปที่แท็บนั้นทันที เมื่อปิดใช้งาน แท็บใหม่จะเปิดอยู่เบื้องหลัง"
+  },
   "command_drag_url_copy_title": {
     "message": "คัดลอก"
   },

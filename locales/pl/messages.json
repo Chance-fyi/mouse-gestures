@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "Tekst do wyszukania zastąpi symbol %s w podanym adresie URL wyszukiwarki (jeśli istnieje), w przeciwnym razie zostanie dodany na końcu. Jeśli pominięto, zostanie użyta domyślna wyszukiwarka przeglądarki."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Otwórz na pierwszym planie"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "Po włączeniu otwarcie w nowej karcie spowoduje przejście do niej. Po wyłączeniu nowa karta otworzy się w tle."
+  },
   "command_drag_url_copy_title": {
     "message": "Kopiuj"
   },

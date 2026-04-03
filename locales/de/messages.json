@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "Der zu suchende Text ersetzt den %s-Platzhalter in der angegebenen Suchmaschinen-URL (falls vorhanden), andernfalls wird er am Ende angehängt. Wenn weggelassen, wird die Standardsuchmaschine des Browsers verwendet."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Im Vordergrund öffnen"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "Wenn aktiviert, wird beim Öffnen in einem neuen Tab direkt zu diesem gewechselt. Wenn deaktiviert, wird der neue Tab im Hintergrund geöffnet."
+  },
   "command_drag_url_copy_title": {
     "message": "Kopieren"
   },

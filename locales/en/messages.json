@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "The text to search will replace the %s placeholder in the provided search engine URL (if present), otherwise it will be appended to the end. If omitted, the browser's default search engine will be used."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Open in foreground"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "When enabled, opening in a new tab will switch to it. When disabled, the new tab will open in the background."
+  },
   "command_drag_url_copy_title": {
     "message": "Copy"
   },
@@ -414,7 +420,7 @@
     "message": "Script Code"
   },
   "command_gesture_execute_user_script_config_script_description": {
-    "message": "⚠\uFE0FWarning: User scripts may cause loss of personal data."
+    "message": "⚠️Warning: User scripts may cause loss of personal data."
   },
   "command_drag_image_search_description": {
     "message": "Search the dragged image"

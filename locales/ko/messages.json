@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "검색할 텍스트는 제공된 검색 엔진 URL의 %s 자리표시자를 대체하며(있는 경우), 없다면 끝에 추가됩니다. 생략할 경우 브라우저의 기본 검색 엔진이 사용됩니다."
   },
+  "command_drag_text_search_active_title": {
+    "message": "전경에서 열기"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "활성화하면 새 탭으로 열 때 해당 탭으로 전환됩니다. 비활성화하면 새 탭이 백그라운드에서 열립니다."
+  },
   "command_drag_url_copy_title": {
     "message": "복사"
   },

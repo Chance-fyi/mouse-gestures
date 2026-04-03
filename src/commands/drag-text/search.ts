@@ -30,6 +30,12 @@ export class Search implements CommandInterface {
       ],
       value: "NEW_TAB"
     },
+    active: {
+      title: "command_drag_text_search_active_title",
+      description: "command_drag_text_search_active_description",
+      type: ConfigType.Toggle,
+      value: true
+    },
     openUrl: {
       title: "command_drag_url_open_title",
       description: "command_drag_text_search_open_url_description",
@@ -46,13 +52,16 @@ export class Search implements CommandInterface {
   data: DragData
   permissions: string[] = ["search"]
 
-  execute(): void {
+  async execute(): Promise<void> {
+    const disposition = this.config.disposition.value
+    const active = this.config.active.value as boolean
+
     if (this.config.openUrl.value && isURL(this.data.content)) {
       let url: string = this.data.content
       if (!url.startsWith("http")) {
         url = "https://" + url
       }
-      new ImageSearch().openUrl(url, this.config.disposition.value)
+      new ImageSearch().openUrl(url, disposition, active)
       return
     }
 
@@ -65,15 +74,30 @@ export class Search implements CommandInterface {
         url = engine + this.data.content
       }
 
-      new ImageSearch().openUrl(url, this.config.disposition.value)
+      new ImageSearch().openUrl(url, disposition, active)
       return
     }
 
-    chrome.search
-      .query({
+    if (disposition !== "NEW_TAB" || active) {
+      await chrome.search.query({
         text: this.data.content,
-        disposition: this.config.disposition.value
+        disposition
       })
-      .then()
+      return
+    }
+
+    const [originalTab] = await chrome.tabs.query({
+      active: true,
+      currentWindow: true
+    })
+
+    await chrome.search.query({
+      text: this.data.content,
+      disposition: "NEW_TAB"
+    })
+
+    if (originalTab?.id != null) {
+      chrome.tabs.update(originalTab.id, { active: true }).then()
+    }
   }
 }

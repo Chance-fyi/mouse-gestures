@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "Aranacak metin, sağlanan arama motoru URL'sindeki %s yer tutucusunun yerine geçer (varsa), yoksa sona eklenir. Eğer belirtilmezse, tarayıcının varsayılan arama motoru kullanılır."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Ön planda aç"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "Etkinleştirildiğinde, yeni sekmede açıldığında o sekmeye geçilir. Devre dışı bırakıldığında yeni sekme arka planda açılır."
+  },
   "command_drag_url_copy_title": {
     "message": "Kopyala"
   },

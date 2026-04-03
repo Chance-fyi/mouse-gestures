@@ -27,6 +27,12 @@ export class Search implements CommandInterface {
       ],
       value: "NEW_TAB"
     },
+    active: {
+      title: "command_drag_text_search_active_title",
+      description: "command_drag_text_search_active_description",
+      type: ConfigType.Toggle,
+      value: true
+    },
     engine: {
       title: "command_drag_text_search_engine_title",
       description: "command_drag_image_search_engine_description",
@@ -46,10 +52,14 @@ export class Search implements CommandInterface {
       url = engine + this.data.content
     }
 
-    this.openUrl(url, this.config.disposition.value)
+    this.openUrl(
+      url,
+      this.config.disposition.value,
+      this.config.active.value as boolean
+    )
   }
 
-  openUrl(url: string, disposition: string): void {
+  openUrl(url: string, disposition: string, active: boolean = true): void {
     switch (disposition) {
       case "CURRENT_TAB":
         chrome.tabs.update({ url: url }).then()
@@ -58,7 +68,7 @@ export class Search implements CommandInterface {
         chrome.windows.create({ url: url, state: "maximized" }).then()
         break
       default:
-        chrome.tabs.create({ url: url }).then()
+        chrome.tabs.create({ url: url, active }).then()
         break
     }
   }

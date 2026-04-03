@@ -299,6 +299,12 @@
   "command_drag_text_search_engine_description": {
     "message": "Le texte à rechercher remplacera l’espace réservé %s dans l’URL du moteur de recherche fourni (s’il existe), sinon il sera ajouté à la fin. S’il est omis, le moteur de recherche par défaut du navigateur sera utilisé."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Ouvrir au premier plan"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "Lorsque cette option est activée, l’ouverture dans un nouvel onglet bascule vers celui-ci. Lorsqu’elle est désactivée, le nouvel onglet s’ouvre en arrière-plan."
+  },
   "command_drag_text_copy_title": {
     "message": "Copier"
   },

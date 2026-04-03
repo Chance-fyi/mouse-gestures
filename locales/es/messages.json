@@ -329,6 +329,12 @@
   "command_drag_text_search_engine_description": {
     "message": "El texto a buscar reemplazará el marcador %s en la URL del motor de búsqueda proporcionada (si existe), de lo contrario se añadirá al final. Si se omite, se utilizará el motor de búsqueda predeterminado del navegador."
   },
+  "command_drag_text_search_active_title": {
+    "message": "Abrir en primer plano"
+  },
+  "command_drag_text_search_active_description": {
+    "message": "Cuando está activado, al abrir en una nueva pestaña se cambiará a ella. Cuando está desactivado, la nueva pestaña se abrirá en segundo plano."
+  },
   "command_drag_url_copy_title": {
     "message": "Copiar"
   },

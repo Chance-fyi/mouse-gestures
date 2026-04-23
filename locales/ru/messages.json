@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Если включено, при открытии в новой вкладке браузер сразу переключится на неё. Если выключено, новая вкладка откроется в фоновом режиме."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Положение вкладки"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Где разместить новую вкладку, когда расположение установлено в Новая вкладка"
+  },
   "command_drag_url_copy_title": {
     "message": "Копировать"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "URL изображения для поиска заменит заполнитель %s в указанном URL поисковой системы (если он присутствует); в противном случае будет добавлен в конец. Если не указано, Google будет использоваться как поисковая система по умолчанию."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Положение вкладки"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Где разместить новую вкладку, когда расположение установлено в Новая вкладка"
   },
   "optional": {
     "message": "Необязательно"

@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "เมื่อเปิดใช้งาน การเปิดในแท็บใหม่จะสลับไปที่แท็บนั้นทันที เมื่อปิดใช้งาน แท็บใหม่จะเปิดอยู่เบื้องหลัง"
   },
+  "command_drag_text_search_position_title": {
+    "message": "ตำแหน่งแท็บ"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "ตำแหน่งที่จะแทรกแท็บใหม่เมื่อกำหนดตำแหน่งเป็นแท็บใหม่"
+  },
   "command_drag_url_copy_title": {
     "message": "คัดลอก"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "URL ของรูปภาพที่จะค้นหาจะแทนที่ตัวแทน %s ใน URL ของเครื่องมือค้นหาที่กำหนด (หากมี) มิฉะนั้นจะถูกเพิ่มต่อท้าย หากไม่ระบุ จะใช้ Google เป็นเครื่องมือค้นหาเริ่มต้น"
+  },
+  "command_drag_image_search_position_title": {
+    "message": "ตำแหน่งแท็บ"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "ตำแหน่งที่จะแทรกแท็บใหม่เมื่อกำหนดตำแหน่งเป็นแท็บใหม่"
   },
   "optional": {
     "message": "ไม่จำเป็น"

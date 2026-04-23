@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "عند التفعيل، سيؤدي الفتح في علامة تبويب جديدة إلى الانتقال إليها. وعند التعطيل، ستُفتح علامة التبويب الجديدة في الخلفية."
   },
+  "command_drag_text_search_position_title": {
+    "message": "موضع علامة التبويب"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "مكان إدراج علامة التبويب الجديدة عند ضبط الموقع على علامة تبويب جديدة"
+  },
   "command_drag_url_copy_title": {
     "message": "نسخ"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "سيتم استبدال عنوان URL للصورة المراد البحث عنها بالعنصر النائب %s في عنوان URL لمحرك البحث المقدم (إن وُجد)؛ وإلا فسيتم إلحاقه في النهاية. إذا لم يتم تحديده، سيتم استخدام Google كمحرك البحث الافتراضي."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "موضع علامة التبويب"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "مكان إدراج علامة التبويب الجديدة عند ضبط الموقع على علامة تبويب جديدة"
   },
   "optional": {
     "message": "اختياري"

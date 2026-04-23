@@ -1,6 +1,7 @@
 import type { CommandInterface } from "~commands/command-interface"
+import { NewTab } from "~commands/gesture/new-tab"
 import type { DragData } from "~core/event"
-import { ConfigType } from "~enum/command"
+import { ConfigType, Position } from "~enum/command"
 
 export class Search implements CommandInterface {
   readonly uniqueKey: string = "drag-image-search"
@@ -31,7 +32,39 @@ export class Search implements CommandInterface {
       title: "command_drag_text_search_active_title",
       description: "command_drag_text_search_active_description",
       type: ConfigType.Toggle,
+      visibleWhen: {
+        key: "disposition",
+        equals: "NEW_TAB"
+      },
       value: true
+    },
+    position: {
+      title: "command_drag_image_search_position_title",
+      description: "command_drag_image_search_position_description",
+      type: ConfigType.Select,
+      visibleWhen: {
+        key: "disposition",
+        equals: "NEW_TAB"
+      },
+      options: [
+        {
+          label: "command_gesture_new_tab_position_option_home",
+          value: Position.Home
+        },
+        {
+          label: "command_gesture_new_tab_position_option_left",
+          value: Position.Left
+        },
+        {
+          label: "command_gesture_new_tab_position_option_right",
+          value: Position.Right
+        },
+        {
+          label: "command_gesture_new_tab_position_option_end",
+          value: Position.End
+        }
+      ],
+      value: Position.End
     },
     engine: {
       title: "command_drag_text_search_engine_title",
@@ -52,11 +85,16 @@ export class Search implements CommandInterface {
       url = engine + this.data.content
     }
 
-    this.openUrl(
-      url,
-      this.config.disposition.value,
-      this.config.active.value as boolean
-    )
+    const disposition = this.config.disposition.value
+    const active = this.config.active.value as boolean
+    const position = (this.config.position?.value as Position) || Position.End
+
+    if (disposition === "NEW_TAB") {
+      new NewTab().newTab(position, active, url)
+      return
+    }
+
+    this.openUrl(url, disposition, active)
   }
 
   openUrl(url: string, disposition: string, active: boolean = true): void {

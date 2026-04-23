@@ -11,9 +11,16 @@ export interface CommandInterface {
   execute: () => void
 }
 
+export type ConfigPrimitive = string | number | boolean
+
 export type ConfigSelectOption = {
   readonly label: string
   readonly value: string
+}
+
+export type ConfigVisibilityRule = {
+  readonly key: string
+  readonly equals: ConfigPrimitive
 }
 
 export type Config = {
@@ -21,5 +28,6 @@ export type Config = {
   readonly description: string
   readonly type: ConfigType
   readonly options?: ConfigSelectOption[]
-  value: string | number | boolean
+  readonly visibleWhen?: ConfigVisibilityRule
+  value: ConfigPrimitive
 }

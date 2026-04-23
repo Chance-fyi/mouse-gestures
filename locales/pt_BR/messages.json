@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Quando ativado, ao abrir em uma nova aba o navegador mudará para ela. Quando desativado, a nova aba será aberta em segundo plano."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Posição da aba"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Onde inserir a nova aba quando a localização estiver definida como Nova aba"
+  },
   "command_drag_url_copy_title": {
     "message": "Copiar"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "A URL da imagem a ser pesquisada substituirá o espaço reservado %s na URL do mecanismo de busca fornecido (se existir); caso contrário, será anexada ao final. Se omitido, o Google será usado como mecanismo de busca padrão."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Posição da aba"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Onde inserir a nova aba quando a localização estiver definida como Nova aba"
   },
   "optional": {
     "message": "Opcional"

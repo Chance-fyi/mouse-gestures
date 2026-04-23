@@ -1,7 +1,11 @@
 import { useState } from "react"
 
 import { Command } from "~commands/command"
-import type { CommandInterface } from "~commands/command-interface"
+import type {
+  CommandInterface,
+  Config,
+  ConfigVisibilityRule
+} from "~commands/command-interface"
 import type { ConfigGesture } from "~config/config-interface"
 import { ConfigType, type Group } from "~enum/command"
 import IconBack from "~options/components/icon-back"
@@ -35,6 +39,21 @@ export default (props: CommandDrawerProps) => {
   const closeDrawer = () => {
     const checkbox = document.getElementById(props.drawerId) as HTMLInputElement
     checkbox.checked = false
+  }
+
+  const matchesVisibilityRule = (
+    command: CommandInterface,
+    rule?: ConfigVisibilityRule
+  ) => {
+    if (rule == null) {
+      return true
+    }
+
+    return command.config[rule.key]?.value === rule.equals
+  }
+
+  const shouldShowConfig = (command: CommandInterface, config: Config) => {
+    return matchesVisibilityRule(command, config.visibleWhen)
   }
 
   return (
@@ -198,6 +217,10 @@ export default (props: CommandDrawerProps) => {
               </div>
               <ul className="w-full pt-4 space-y-5">
                 {Object.entries(tab2Command.config).map(([k, c]) => {
+                  if (!shouldShowConfig(tab2Command, c)) {
+                    return null
+                  }
+
                   switch (c.type) {
                     case ConfigType.Input:
                       return (

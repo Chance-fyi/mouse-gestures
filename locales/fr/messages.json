@@ -305,6 +305,12 @@
   "command_drag_text_search_active_description": {
     "message": "Lorsque cette option est activée, l’ouverture dans un nouvel onglet bascule vers celui-ci. Lorsqu’elle est désactivée, le nouvel onglet s’ouvre en arrière-plan."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Position de l’onglet"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Où placer le nouvel onglet lorsque l’emplacement est défini sur Nouvel onglet"
+  },
   "command_drag_text_copy_title": {
     "message": "Copier"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "L’URL de l’image à rechercher remplacera l’espace réservé %s dans l’URL du moteur de recherche fourni (le cas échéant) ; sinon, elle sera ajoutée à la fin. Si rien n’est indiqué, Google sera utilisé comme moteur de recherche par défaut."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Position de l’onglet"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Où placer le nouvel onglet lorsque l’emplacement est défini sur Nouvel onglet"
   },
   "optional": {
     "message": "Optionnel"

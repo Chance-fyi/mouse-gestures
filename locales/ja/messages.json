@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "有効にすると、新しいタブで開いた際にそのタブへ切り替わります。無効にすると、新しいタブはバックグラウンドで開きます。"
   },
+  "command_drag_text_search_position_title": {
+    "message": "タブ位置"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "場所が新しいタブに設定されているときの、新しいタブの挿入位置"
+  },
   "command_drag_url_copy_title": {
     "message": "コピー"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "検索する画像のURLは、指定された検索エンジンURL内の %s プレースホルダー（存在する場合）に置き換えられます。存在しない場合は末尾に追加されます。未指定の場合は、Googleがデフォルトの検索エンジンとして使用されます。"
+  },
+  "command_drag_image_search_position_title": {
+    "message": "タブ位置"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "場所が新しいタブに設定されているときの、新しいタブの挿入位置"
   },
   "optional": {
     "message": "任意"

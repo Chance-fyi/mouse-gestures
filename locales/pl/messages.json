@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Po włączeniu otwarcie w nowej karcie spowoduje przejście do niej. Po wyłączeniu nowa karta otworzy się w tle."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Pozycja karty"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Gdzie umieścić nową kartę, gdy lokalizacja jest ustawiona na Nowa karta"
+  },
   "command_drag_url_copy_title": {
     "message": "Kopiuj"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "Adres URL wyszukiwanego obrazu zastąpi symbol %s w podanym adresie URL wyszukiwarki (jeśli występuje); w przeciwnym razie zostanie dodany na końcu. Jeśli nie podano, Google zostanie użyte jako domyślna wyszukiwarka."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Pozycja karty"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Gdzie umieścić nową kartę, gdy lokalizacja jest ustawiona na Nowa karta"
   },
   "optional": {
     "message": "Opcjonalne"

@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Cuando está activado, al abrir en una nueva pestaña se cambiará a ella. Cuando está desactivado, la nueva pestaña se abrirá en segundo plano."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Posición de la pestaña"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Dónde colocar la nueva pestaña cuando la ubicación está configurada en Nueva pestaña"
+  },
   "command_drag_url_copy_title": {
     "message": "Copiar"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "La URL de la imagen que se va a buscar reemplazará el marcador %s en la URL del motor de búsqueda proporcionado (si existe); de lo contrario, se añadirá al final. Si se omite, Google se usará como motor de búsqueda predeterminado."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Posición de la pestaña"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Dónde colocar la nueva pestaña cuando la ubicación está configurada en Nueva pestaña"
   },
   "optional": {
     "message": "Opcional"

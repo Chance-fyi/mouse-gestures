@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "启用后，在新标签页中打开时会自动切换到该标签页。禁用后，新标签页将在后台打开。"
   },
+  "command_drag_text_search_position_title": {
+    "message": "标签页位置"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "当位置设为新标签页时，新标签页的插入位置"
+  },
   "command_drag_url_copy_title": {
     "message": "复制"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "要搜索的图片 URL 会替换提供的搜索引擎网址中的 %s 占位符（若有），否则将会附加到末尾。 如果省略，将使用 Google 搜索引擎"
+  },
+  "command_drag_image_search_position_title": {
+    "message": "标签页位置"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "当位置设为新标签页时，新标签页的插入位置"
   },
   "optional": {
     "message": "可选"

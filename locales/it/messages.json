@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Se abilitato, l’apertura in una nuova scheda passerà automaticamente a quella scheda. Se disabilitato, la nuova scheda verrà aperta in background."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Posizione della scheda"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Dove inserire la nuova scheda quando Posizione è impostato su Nuova scheda"
+  },
   "command_drag_url_copy_title": {
     "message": "Copia"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "L'URL dell'immagine da cercare sostituirà il segnaposto %s nell'URL del motore di ricerca fornito (se presente); altrimenti verrà aggiunto alla fine. Se omesso, verrà utilizzato Google come motore di ricerca predefinito."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Posizione della scheda"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Dove inserire la nuova scheda quando Posizione è impostato su Nuova scheda"
   },
   "optional": {
     "message": "Opzionale"

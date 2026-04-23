@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "활성화하면 새 탭으로 열 때 해당 탭으로 전환됩니다. 비활성화하면 새 탭이 백그라운드에서 열립니다."
   },
+  "command_drag_text_search_position_title": {
+    "message": "탭 위치"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "위치를 새 탭으로 설정했을 때 새 탭을 삽입할 위치"
+  },
   "command_drag_url_copy_title": {
     "message": "복사"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "검색할 이미지 URL은 제공된 검색 엔진 URL에 %s 자리표시자가 있는 경우 이를 대체하며, 그렇지 않으면 끝에 추가됩니다. 지정하지 않으면 기본 검색 엔진으로 Google이 사용됩니다."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "탭 위치"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "위치를 새 탭으로 설정했을 때 새 탭을 삽입할 위치"
   },
   "optional": {
     "message": "선택 사항"

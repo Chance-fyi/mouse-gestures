@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Etkinleştirildiğinde, yeni sekmede açıldığında o sekmeye geçilir. Devre dışı bırakıldığında yeni sekme arka planda açılır."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Sekme konumu"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Konum Yeni Sekme olarak ayarlandığında yeni sekmenin nereye ekleneceği"
+  },
   "command_drag_url_copy_title": {
     "message": "Kopyala"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "Aranacak resmin URL'si, sağlanan arama motoru URL'sindeki %s yer tutucusunun (varsa) yerine geçer; aksi takdirde sona eklenir. Belirtilmezse varsayılan arama motoru olarak Google kullanılır."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Sekme konumu"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Konum Yeni Sekme olarak ayarlandığında yeni sekmenin nereye ekleneceği"
   },
   "optional": {
     "message": "İsteğe Bağlı"

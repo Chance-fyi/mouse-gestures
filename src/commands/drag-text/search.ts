@@ -2,8 +2,9 @@ import isURL from "validator/lib/isURL"
 
 import type { CommandInterface } from "~commands/command-interface"
 import { Search as ImageSearch } from "~commands/drag-image/search"
+import { NewTab } from "~commands/gesture/new-tab"
 import type { DragData } from "~core/event"
-import { ConfigType } from "~enum/command"
+import { ConfigType, Position } from "~enum/command"
 
 export class Search implements CommandInterface {
   readonly uniqueKey: string = "drag-text-search"
@@ -34,7 +35,39 @@ export class Search implements CommandInterface {
       title: "command_drag_text_search_active_title",
       description: "command_drag_text_search_active_description",
       type: ConfigType.Toggle,
+      visibleWhen: {
+        key: "disposition",
+        equals: "NEW_TAB"
+      },
       value: true
+    },
+    position: {
+      title: "command_drag_text_search_position_title",
+      description: "command_drag_text_search_position_description",
+      type: ConfigType.Select,
+      visibleWhen: {
+        key: "disposition",
+        equals: "NEW_TAB"
+      },
+      options: [
+        {
+          label: "command_gesture_new_tab_position_option_home",
+          value: Position.Home
+        },
+        {
+          label: "command_gesture_new_tab_position_option_left",
+          value: Position.Left
+        },
+        {
+          label: "command_gesture_new_tab_position_option_right",
+          value: Position.Right
+        },
+        {
+          label: "command_gesture_new_tab_position_option_end",
+          value: Position.End
+        }
+      ],
+      value: Position.End
     },
     openUrl: {
       title: "command_drag_url_open_title",
@@ -55,11 +88,16 @@ export class Search implements CommandInterface {
   async execute(): Promise<void> {
     const disposition = this.config.disposition.value
     const active = this.config.active.value as boolean
+    const position = (this.config.position?.value as Position) || Position.End
 
     if (this.config.openUrl.value && isURL(this.data.content)) {
       let url: string = this.data.content
       if (!url.startsWith("http")) {
         url = "https://" + url
+      }
+      if (disposition === "NEW_TAB") {
+        new NewTab().newTab(position, active, url)
+        return
       }
       new ImageSearch().openUrl(url, disposition, active)
       return
@@ -74,11 +112,15 @@ export class Search implements CommandInterface {
         url = engine + this.data.content
       }
 
+      if (disposition === "NEW_TAB") {
+        new NewTab().newTab(position, active, url)
+        return
+      }
       new ImageSearch().openUrl(url, disposition, active)
       return
     }
 
-    if (disposition !== "NEW_TAB" || active) {
+    if (disposition !== "NEW_TAB") {
       await chrome.search.query({
         text: this.data.content,
         disposition
@@ -86,18 +128,54 @@ export class Search implements CommandInterface {
       return
     }
 
-    const [originalTab] = await chrome.tabs.query({
-      active: true,
-      currentWindow: true
-    })
+    const originalTab = await this.getOriginalTab()
+    const tabIdsBefore = new Set(
+      (await chrome.tabs.query({ currentWindow: true })).flatMap((tab) =>
+        tab.id == null ? [] : [tab.id]
+      )
+    )
 
     await chrome.search.query({
       text: this.data.content,
       disposition: "NEW_TAB"
     })
 
-    if (originalTab?.id != null) {
-      chrome.tabs.update(originalTab.id, { active: true }).then()
+    const tabsAfter = await chrome.tabs.query({ currentWindow: true })
+    const newTab = tabsAfter.find(
+      (tab) => tab.id != null && !tabIdsBefore.has(tab.id)
+    )
+
+    if (newTab?.id != null && originalTab?.index != null) {
+      await chrome.tabs.move(newTab.id, {
+        index: this.getTargetIndex(position, originalTab.index, tabsAfter.length)
+      })
+    }
+
+    if (!active && originalTab?.id != null) {
+      await chrome.tabs.update(originalTab.id, { active: true })
+    }
+  }
+
+  private async getOriginalTab() {
+    const [originalTab] = await chrome.tabs.query({
+      active: true,
+      currentWindow: true
+    })
+
+    return originalTab
+  }
+
+  private getTargetIndex(position: Position, activeIndex: number, tabCount: number) {
+    switch (position) {
+      case Position.Home:
+        return 0
+      case Position.Left:
+        return activeIndex
+      case Position.Right:
+        return activeIndex + 1
+      case Position.End:
+      default:
+        return tabCount - 1
     }
   }
 }

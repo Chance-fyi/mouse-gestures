@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "When enabled, opening in a new tab will switch to it. When disabled, the new tab will open in the background."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Tab position"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Where to place the new tab when Location is set to New tab"
+  },
   "command_drag_url_copy_title": {
     "message": "Copy"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "The image URL to be searched will replace the %s placeholder in the provided search engine URL (if present); otherwise, it will be appended to the end. If omitted, Google will be used as the default search engine."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Tab position"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Where to place the new tab when Location is set to New tab"
   },
   "optional": {
     "message": "Optional"

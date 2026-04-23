@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "Wenn aktiviert, wird beim Öffnen in einem neuen Tab direkt zu diesem gewechselt. Wenn deaktiviert, wird der neue Tab im Hintergrund geöffnet."
   },
+  "command_drag_text_search_position_title": {
+    "message": "Tab-Position"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "Wo der neue Tab eingefügt wird, wenn Ort auf Neues Tab gesetzt ist"
+  },
   "command_drag_url_copy_title": {
     "message": "Kopieren"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "Die zu suchende Bild-URL ersetzt den Platzhalter %s in der angegebenen Suchmaschinen-URL (falls vorhanden); andernfalls wird sie am Ende angehängt. Wenn nichts angegeben ist, wird Google als Standardsuchmaschine verwendet."
+  },
+  "command_drag_image_search_position_title": {
+    "message": "Tab-Position"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "Wo der neue Tab eingefügt wird, wenn Ort auf Neues Tab gesetzt ist"
   },
   "optional": {
     "message": "Optional"

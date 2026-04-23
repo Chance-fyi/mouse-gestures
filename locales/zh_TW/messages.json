@@ -335,6 +335,12 @@
   "command_drag_text_search_active_description": {
     "message": "啟用後，在新分頁中開啟時會自動切換到該分頁。停用後，新分頁會在背景開啟。"
   },
+  "command_drag_text_search_position_title": {
+    "message": "分頁位置"
+  },
+  "command_drag_text_search_position_description": {
+    "message": "當位置設為新分頁時，新分頁的插入位置"
+  },
   "command_drag_url_copy_title": {
     "message": "複製"
   },
@@ -427,6 +433,12 @@
   },
   "command_drag_image_search_engine_description": {
     "message": "要搜尋的圖片 URL 會取代提供的搜尋引擎網址中的 %s 佔位符（若存在）；否則會附加到結尾。若未設定，將使用 Google 作為預設搜尋引擎。"
+  },
+  "command_drag_image_search_position_title": {
+    "message": "分頁位置"
+  },
+  "command_drag_image_search_position_description": {
+    "message": "當位置設為新分頁時，新分頁的插入位置"
   },
   "optional": {
     "message": "可選"

@@ -3,12 +3,14 @@ import type { PlasmoCSConfig, PlasmoGetOverlayAnchor } from "plasmo"
 import { useEffect, useRef, useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
+import { Storage } from "@plasmohq/storage"
 import { useStorage } from "@plasmohq/storage/hook"
 
 import { Command } from "~commands/command"
-import { SyncConfig } from "~config/config"
+import { LocalConfig, SyncConfig } from "~config/config"
 import { Event } from "~core/event"
 import { Trajectory } from "~core/trajectory"
+import { Group } from "~enum/command"
 import {
   IframeForwardsTop,
   type MouseDownData,
@@ -35,17 +37,34 @@ export const getStyle = () => {
 export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
   document.querySelector("body")
 
+const localConfigStorage = new Storage({ area: "local" })
+const localConfigStorageKey = {
+  key: LocalConfig.key,
+  instance: localConfigStorage
+}
+const getDragGestureConfigured = (localConfig: typeof LocalConfig.default) => ({
+  [Group.DragText]: localConfig.drag_text.length > 0,
+  [Group.DragUrl]: localConfig.drag_url.length > 0,
+  [Group.DragImage]: localConfig.drag_image.length > 0
+})
+
 export default () => {
   const canvasRef = useRef(null)
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipText, setTooltipText] = useState("")
   const [syncConfig] = useStorage(SyncConfig.key, SyncConfig.default)
+  const [localConfig] = useStorage(localConfigStorageKey, LocalConfig.default)
   const syncConfigRef = useRef(syncConfig)
+  const dragGestureConfiguredRef = useRef(getDragGestureConfigured(localConfig))
   const eventRef = useRef<Event>(null)
 
   useEffect(() => {
     syncConfigRef.current = syncConfig
   }, [syncConfig])
+
+  useEffect(() => {
+    dragGestureConfiguredRef.current = getDragGestureConfigured(localConfig)
+  }, [localConfig])
 
   // Re-attach plasmo-csui shadow host if page DOM updates remove it
   useEffect(() => {
@@ -130,6 +149,7 @@ export default () => {
       setTooltipText,
       isIframe,
       config: syncConfigRef.current,
+      dragGestureConfigured: dragGestureConfiguredRef.current,
       eventRefReset: () => {
         eventRef.current = null
       }

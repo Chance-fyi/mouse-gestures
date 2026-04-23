@@ -14,6 +14,11 @@ import {
 } from "~enum/message"
 import { notifyIframes } from "~utils/common"
 
+type DragGestureConfigured = Record<
+  Group.DragText | Group.DragUrl | Group.DragImage,
+  boolean
+>
+
 interface Params {
   canvas: CanvasRenderingContext2D
   upCallback: (t: Event) => void
@@ -23,6 +28,7 @@ interface Params {
   setTooltipText?: React.Dispatch<React.SetStateAction<string>>
   isIframe?: boolean
   config: SyncConfigInterface
+  dragGestureConfigured?: DragGestureConfigured
   eventRefReset?: () => void
 }
 
@@ -41,6 +47,7 @@ export class Event {
   public canvas: CanvasRenderingContext2D
   public readonly upCallback: (t: Event) => void
   public config: SyncConfigInterface
+  public dragGestureConfigured?: DragGestureConfigured
   public setting: boolean
   public left: number
   public top: number
@@ -73,9 +80,11 @@ export class Event {
     setTooltipText,
     isIframe = false,
     config,
+    dragGestureConfigured,
     eventRefReset = () => {}
   }: Params) {
     this.config = { ...SyncConfig.default, ...config }
+    this.dragGestureConfigured = dragGestureConfigured
     this.canvas = canvas
     this.upCallback = upCallback
     this.setting = setting
@@ -106,7 +115,7 @@ export class Event {
       return
     }
     if (this.shouldBypassGestureForContextMenu(e)) {
-      this.removeTrackingListeners()
+      this.dispose()
       this.eventRefReset?.()
       Trajectory.clear()
       return
@@ -130,12 +139,26 @@ export class Event {
       const types = (e as DragEvent).dataTransfer?.types ?? []
       if (types.includes("Files")) {
         this.group = Group.DragImage
+      } else if (types.includes("text/uri-list")) {
+        this.group = Group.DragUrl
+      } else {
+        this.group = Group.DragText
+      }
+      if (!this.setting && this.dragGestureConfigured?.[this.group] === false) {
+        this.removeTrackingListeners()
+        this.setTooltipVisible?.(false)
+        this.setTooltipText?.("")
+        Trajectory.clear()
+        this.dispose()
+        this.eventRefReset?.()
+        return
+      }
+      if (this.group === Group.DragImage) {
         this.dragData = {
           content: ((e as DragEvent).target as HTMLImageElement).currentSrc,
           file: (e as DragEvent).dataTransfer.files[0]
         }
-      } else if (types.includes("text/uri-list")) {
-        this.group = Group.DragUrl
+      } else if (this.group === Group.DragUrl) {
         const dragEvent = e as DragEvent
         const url = dragEvent.dataTransfer.getData("text/uri-list")
         const path = dragEvent.composedPath?.() ?? []
@@ -155,7 +178,6 @@ export class Event {
           title: linkTitle
         }
       } else {
-        this.group = Group.DragText
         this.dragData = {
           content: (e as DragEvent).dataTransfer?.getData("text/plain")
         }
@@ -319,6 +341,15 @@ export class Event {
     window.removeEventListener("dragend", this.mouseUp, { capture: true })
   }
 
+  private dispose() {
+    this.removeTrackingListeners()
+    this.isDrawing = false
+    this.stopAnimation()
+    document.removeEventListener("contextmenu", this.contextmenu, {
+      capture: true
+    })
+  }
+
   private capturePointerIfPossible(e: MouseEvent | DragEvent) {
     if (e.type !== "pointerdown") return
     const pointerEvent = e as unknown as PointerEvent
@@ -340,10 +371,8 @@ export class Event {
       this.blockMenu || Trajectory.trajectory.length > 5
     )
     if (!e.defaultPrevented) {
-      this.removeTrackingListeners()
+      this.dispose()
       this.eventRefReset?.()
-      this.isDrawing = false
-      this.stopAnimation()
       Trajectory.clear()
     }
     this.blockMenu = false

@@ -158,8 +158,15 @@ export default (props: CommandDrawerProps) => {
                                     cc.uniqueKey
                                   ) {
                                     Object.keys(cc.config).forEach((k) => {
-                                      cc.config[k]["value"] =
-                                        props.configGesture.command.config[k]
+                                      if (
+                                        Object.prototype.hasOwnProperty.call(
+                                          props.configGesture.command.config,
+                                          k
+                                        )
+                                      ) {
+                                        cc.config[k]["value"] =
+                                          props.configGesture.command.config[k]
+                                      }
                                     })
                                   }
                                   setTab2Command(cc)

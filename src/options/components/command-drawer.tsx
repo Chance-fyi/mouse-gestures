@@ -209,8 +209,8 @@ export default (props: CommandDrawerProps) => {
             </div>
           )}
           {Tabs.Tab2 === activeTab && (
-            <div className="flex flex-col">
-              <div className="w-full h-16 border-b border-gray-300 flex flex-row items-center">
+            <div className="flex flex-col h-screen">
+              <div className="w-full h-16 border-b border-gray-300 flex flex-row items-center shrink-0">
                 <div
                   className="w-1/6 h-full flex justify-center items-center cursor-pointer"
                   onClick={() => setActiveTab(Tabs.Tab1)}>
@@ -222,7 +222,7 @@ export default (props: CommandDrawerProps) => {
                   </p>
                 </div>
               </div>
-              <ul className="w-full pt-4 space-y-5">
+              <ul className="w-full flex-1 overflow-y-auto pt-4 space-y-5 scrollbar-thin">
                 {Object.entries(tab2Command.config).map(([k, c]) => {
                   if (!shouldShowConfig(tab2Command, c)) {
                     return null
@@ -315,7 +315,7 @@ export default (props: CommandDrawerProps) => {
                       )
                   }
                 })}
-                <li className="pl-8 pr-5 pt-20">
+                <li className="pl-8 pr-5 pt-20 pb-10">
                   <button
                     className="btn btn-neutral btn-sm w-full"
                     onClick={() => {

@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { toast, Toaster } from "react-hot-toast"
 import { useDebouncedCallback } from "use-debounce"
 
 import { useStorage } from "@plasmohq/storage/dist/hook"
 
 import { GoogleDrive } from "~cloud/google-drive"
-import { Backup, Reset, Restore, SyncConfig } from "~config/config"
 import {
-  GestureStrictness,
-  LooseOptions,
-  NormalOptions,
-  StrictOptions
-} from "~enum/config"
+  Backup,
+  gestureMatchRanges,
+  gestureStrictnessOptionsMap,
+  lineWidthRange,
+  Reset,
+  Restore,
+  SyncConfig,
+  sanitizeGestureMatchConfigCustomOptions,
+  sanitizeGestureStrictness,
+  sanitizeLineWidth
+} from "~config/config"
+import { GestureStrictness } from "~enum/config"
 import { Menu } from "~enum/menu"
 import { useConfirm } from "~options/components/confirm"
 import IconDelete from "~options/components/icon-delete"
@@ -30,62 +36,89 @@ export default () => {
   const [backupDropdownOpen, setBackupDropdownOpen] = useState(false)
   const [restoreDropdownOpen, setRestoreDropdownOpen] = useState(false)
   const [fileList, setFileList] = useState([])
-  const [localLineWidth, setLocalLineWidth] = useState(0)
-  const [localStrictness, setLocalStrictness] = useState("")
-  const [localAngleThreshold, setLocalAngleThreshold] = useState(0)
-  const [localLengthTolerance, setLocalLengthTolerance] = useState(0)
-  const [localMinSimilarity, setLocalMinSimilarity] = useState(0)
+  const [localLineWidth, setLocalLineWidth] = useState(
+    SyncConfig.default.lineWidth
+  )
+  const [localStrictness, setLocalStrictness] = useState<GestureStrictness>(
+    SyncConfig.default.gestureMatchConfig.strictness
+  )
+  const [localAngleThreshold, setLocalAngleThreshold] = useState(
+    SyncConfig.default.gestureMatchConfig.customOptions.angleThreshold
+  )
+  const [localLengthTolerance, setLocalLengthTolerance] = useState(
+    SyncConfig.default.gestureMatchConfig.customOptions.lengthTolerance
+  )
+  const [localMinSimilarity, setLocalMinSimilarity] = useState(
+    SyncConfig.default.gestureMatchConfig.customOptions.minSimilarity
+  )
+  const hasHydrated = useRef(false)
 
   const debouncedSetSyncConfig = useDebouncedCallback(
     (config) => setSyncConfig(config),
     300
   )
   useEffect(() => {
-    if (isLoading) return
+    if (isLoading || !hasHydrated.current) return
+
+    const strictness = sanitizeGestureStrictness(localStrictness)
+    const customOptions = sanitizeGestureMatchConfigCustomOptions({
+      angleThreshold: localAngleThreshold,
+      lengthTolerance: localLengthTolerance,
+      minSimilarity: localMinSimilarity
+    })
+    const lineWidth = sanitizeLineWidth(localLineWidth)
+
+    if (
+      syncConfig?.lineWidth === lineWidth &&
+      syncConfig?.gestureMatchConfig?.strictness === strictness &&
+      syncConfig?.gestureMatchConfig?.customOptions?.angleThreshold ===
+        customOptions.angleThreshold &&
+      syncConfig?.gestureMatchConfig?.customOptions?.lengthTolerance ===
+        customOptions.lengthTolerance &&
+      syncConfig?.gestureMatchConfig?.customOptions?.minSimilarity ===
+        customOptions.minSimilarity
+    ) {
+      return
+    }
+
     debouncedSetSyncConfig({
       ...syncConfig,
-      lineWidth: localLineWidth,
+      lineWidth,
       gestureMatchConfig: {
         ...syncConfig?.gestureMatchConfig,
-        strictness: localStrictness,
-        customOptions: {
-          ...syncConfig?.gestureMatchConfig?.customOptions,
-          angleThreshold: localAngleThreshold,
-          lengthTolerance: localLengthTolerance,
-          minSimilarity: localMinSimilarity
-        }
+        strictness,
+        customOptions
       }
     })
   }, [
-    localLineWidth,
-    localStrictness,
+    debouncedSetSyncConfig,
+    isLoading,
     localAngleThreshold,
     localLengthTolerance,
-    localMinSimilarity
+    localLineWidth,
+    localMinSimilarity,
+    localStrictness,
+    syncConfig
   ])
   const setLocalValue = () => {
-    setLocalLineWidth(syncConfig?.lineWidth ?? SyncConfig.default.lineWidth)
-    setLocalStrictness(
-      syncConfig?.gestureMatchConfig?.strictness ??
-        SyncConfig.default.gestureMatchConfig.strictness
+    const strictness = sanitizeGestureStrictness(
+      syncConfig?.gestureMatchConfig?.strictness
     )
-    setLocalAngleThreshold(
-      syncConfig?.gestureMatchConfig?.customOptions?.angleThreshold ??
-        SyncConfig.default.gestureMatchConfig.customOptions.angleThreshold
+    const customOptions = sanitizeGestureMatchConfigCustomOptions(
+      syncConfig?.gestureMatchConfig?.customOptions
     )
-    setLocalLengthTolerance(
-      syncConfig?.gestureMatchConfig?.customOptions?.lengthTolerance ??
-        SyncConfig.default.gestureMatchConfig.customOptions.lengthTolerance
-    )
-    setLocalMinSimilarity(
-      syncConfig?.gestureMatchConfig?.customOptions?.minSimilarity ??
-        SyncConfig.default.gestureMatchConfig.customOptions.minSimilarity
-    )
+
+    setLocalLineWidth(sanitizeLineWidth(syncConfig?.lineWidth))
+    setLocalStrictness(strictness)
+    setLocalAngleThreshold(customOptions.angleThreshold)
+    setLocalLengthTolerance(customOptions.lengthTolerance)
+    setLocalMinSimilarity(customOptions.minSimilarity)
   }
   useEffect(() => {
     if (isLoading) return
     setLocalValue()
-  }, [syncConfig])
+    hasHydrated.current = true
+  }, [isLoading, syncConfig])
 
   return (
     <>
@@ -112,8 +145,8 @@ export default () => {
           <div className="w-1/2 flex justify-end">
             <input
               type="range"
-              min="1"
-              max="20"
+              min={lineWidthRange.min.toString()}
+              max={lineWidthRange.max.toString()}
               value={localLineWidth}
               onChange={(e) => setLocalLineWidth(Number(e.target.value))}
               className="range range-xs"
@@ -190,24 +223,14 @@ export default () => {
             <select
               value={localStrictness}
               onChange={(e) => {
-                switch (e.target.value) {
-                  case GestureStrictness.Strict:
-                    setLocalAngleThreshold(StrictOptions.angleThreshold)
-                    setLocalLengthTolerance(StrictOptions.lengthTolerance)
-                    setLocalMinSimilarity(StrictOptions.minSimilarity)
-                    break
-                  case GestureStrictness.Normal:
-                    setLocalAngleThreshold(NormalOptions.angleThreshold)
-                    setLocalLengthTolerance(NormalOptions.lengthTolerance)
-                    setLocalMinSimilarity(NormalOptions.minSimilarity)
-                    break
-                  case GestureStrictness.Loose:
-                    setLocalAngleThreshold(LooseOptions.angleThreshold)
-                    setLocalLengthTolerance(LooseOptions.lengthTolerance)
-                    setLocalMinSimilarity(LooseOptions.minSimilarity)
-                    break
+                const strictness = sanitizeGestureStrictness(e.target.value)
+                const presetOptions = gestureStrictnessOptionsMap[strictness]
+                if (presetOptions) {
+                  setLocalAngleThreshold(presetOptions.angleThreshold)
+                  setLocalLengthTolerance(presetOptions.lengthTolerance)
+                  setLocalMinSimilarity(presetOptions.minSimilarity)
                 }
-                setLocalStrictness(e.target.value)
+                setLocalStrictness(strictness)
               }}
               className="select select-bordered select-sm w-1/2 max-w-xs focus:outline-none text-center">
               {Object.values(GestureStrictness).map((v) => (
@@ -227,10 +250,10 @@ export default () => {
               <div className="w-1/2 flex justify-end">
                 <input
                   type="range"
-                  min="5"
-                  max="45"
+                  min={(gestureMatchRanges.angleThreshold.min / 2).toString()}
+                  max={(gestureMatchRanges.angleThreshold.max / 2).toString()}
                   value={localAngleThreshold / 2}
-                  step="1"
+                  step={(gestureMatchRanges.angleThreshold.step / 2).toString()}
                   onChange={(e) =>
                     setLocalAngleThreshold(Number(e.target.value) * 2)
                   }
@@ -248,10 +271,10 @@ export default () => {
               <div className="w-1/2 flex justify-end">
                 <input
                   type="range"
-                  min="0.1"
-                  max="0.7"
+                  min={gestureMatchRanges.lengthTolerance.min.toString()}
+                  max={gestureMatchRanges.lengthTolerance.max.toString()}
                   value={localLengthTolerance}
-                  step="0.05"
+                  step={gestureMatchRanges.lengthTolerance.step.toString()}
                   onChange={(e) =>
                     setLocalLengthTolerance(Number(e.target.value))
                   }
@@ -269,10 +292,10 @@ export default () => {
               <div className="w-1/2 flex justify-end">
                 <input
                   type="range"
-                  min="0.5"
-                  max="0.9"
+                  min={gestureMatchRanges.minSimilarity.min.toString()}
+                  max={gestureMatchRanges.minSimilarity.max.toString()}
                   value={localMinSimilarity}
-                  step="0.05"
+                  step={gestureMatchRanges.minSimilarity.step.toString()}
                   onChange={(e) =>
                     setLocalMinSimilarity(Number(e.target.value))
                   }

@@ -1,7 +1,12 @@
 import { Storage } from "@plasmohq/storage"
 
-import { LocalConfig, SyncConfig } from "~config/config"
+import {
+  LocalConfig,
+  SyncConfig,
+  sanitizeGestureMatchConfigCustomOptions
+} from "~config/config"
 import type {
+  GestureMatchConfigCustomOptions,
   LocalConfigInterface,
   SyncConfigInterface
 } from "~config/config-interface"
@@ -21,21 +26,23 @@ export const getLocalConfig = async () => {
 }
 
 let syncConfig: SyncConfigInterface
+let sanitizedGestureMatchConfigCustomOptions: GestureMatchConfigCustomOptions
 let syncCacheTime = 0
 const getSyncConfig = async () => {
   if (syncConfig && Date.now() - syncCacheTime < 5 * 1000) return syncConfig
   const storage = new Storage()
   syncCacheTime = Date.now()
-  return (syncConfig =
-    (await storage.get(SyncConfig.key)) || SyncConfig.default)
+  syncConfig = (await storage.get(SyncConfig.key)) || SyncConfig.default
+  sanitizedGestureMatchConfigCustomOptions =
+    sanitizeGestureMatchConfigCustomOptions(
+      syncConfig?.gestureMatchConfig?.customOptions
+    )
+  return syncConfig
 }
 
 export const getGestureMatchConfigCustomOptions = async () => {
-  const syncConfig = await getSyncConfig()
-  return (
-    syncConfig?.gestureMatchConfig?.customOptions ||
-    SyncConfig.default.gestureMatchConfig.customOptions
-  )
+  await getSyncConfig()
+  return sanitizedGestureMatchConfigCustomOptions
 }
 
 chrome.runtime.onInstalled.addListener((details) => {

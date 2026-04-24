@@ -1,10 +1,16 @@
 import { Storage } from "@plasmohq/storage"
 
 import type {
+  GestureMatchConfigCustomOptions,
   LocalConfigInterface,
   SyncConfigInterface
 } from "~config/config-interface"
-import { GestureStrictness, NormalOptions } from "~enum/config"
+import {
+  GestureStrictness,
+  LooseOptions,
+  NormalOptions,
+  StrictOptions
+} from "~enum/config"
 
 export class SyncConfig {
   public static readonly key: string = "sync-config"
@@ -42,6 +48,92 @@ export class SyncConfig {
       strictness: GestureStrictness.Normal,
       customOptions: NormalOptions
     }
+  }
+}
+
+export const lineWidthRange = {
+  min: 1,
+  max: 20
+} as const
+
+export const gestureMatchRanges = {
+  angleThreshold: {
+    min: 10,
+    max: 90,
+    step: 2
+  },
+  lengthTolerance: {
+    min: 0.1,
+    max: 0.7,
+    step: 0.05
+  },
+  minSimilarity: {
+    min: 0.5,
+    max: 0.9,
+    step: 0.05
+  }
+} as const
+
+export const gestureStrictnessOptionsMap = {
+  [GestureStrictness.Strict]: StrictOptions,
+  [GestureStrictness.Normal]: NormalOptions,
+  [GestureStrictness.Loose]: LooseOptions
+} as const
+
+const gestureStrictnessValues = new Set(Object.values(GestureStrictness))
+
+const clampNumber = (
+  value: unknown,
+  min: number,
+  max: number,
+  fallback: number
+): number => {
+  const parsed = Number(value)
+  if (!Number.isFinite(parsed)) return fallback
+  return Math.min(max, Math.max(min, parsed))
+}
+
+export const sanitizeLineWidth = (lineWidth: unknown): number =>
+  clampNumber(
+    lineWidth,
+    lineWidthRange.min,
+    lineWidthRange.max,
+    SyncConfig.default.lineWidth
+  )
+
+export const sanitizeGestureStrictness = (
+  strictness: unknown
+): GestureStrictness => {
+  if (gestureStrictnessValues.has(strictness as GestureStrictness)) {
+    return strictness as GestureStrictness
+  }
+  return SyncConfig.default.gestureMatchConfig.strictness
+}
+
+export const sanitizeGestureMatchConfigCustomOptions = (
+  options?: Partial<GestureMatchConfigCustomOptions>
+): GestureMatchConfigCustomOptions => {
+  const defaults = SyncConfig.default.gestureMatchConfig.customOptions
+
+  return {
+    angleThreshold: clampNumber(
+      options?.angleThreshold,
+      gestureMatchRanges.angleThreshold.min,
+      gestureMatchRanges.angleThreshold.max,
+      defaults.angleThreshold
+    ),
+    lengthTolerance: clampNumber(
+      options?.lengthTolerance,
+      gestureMatchRanges.lengthTolerance.min,
+      gestureMatchRanges.lengthTolerance.max,
+      defaults.lengthTolerance
+    ),
+    minSimilarity: clampNumber(
+      options?.minSimilarity,
+      gestureMatchRanges.minSimilarity.min,
+      gestureMatchRanges.minSimilarity.max,
+      defaults.minSimilarity
+    )
   }
 }
 

@@ -92,8 +92,8 @@ export default (props: GestureDrawingProps) => {
     setSvg(
       <Svg
         points={trajectory}
-        width={t.canvas.canvas.width}
-        height={t.canvas.canvas.height}
+        width={t.canvas.canvas.clientWidth}
+        height={t.canvas.canvas.clientHeight}
       />
     )
   }
